@@ -65,11 +65,29 @@ EPOCHS_PER_ROUND = 10
 IMAGE_SIZE = 224
 NUM_WORKERS = 2  # DataLoader workers (set to 0 on Windows if issues)
 
+# Inverse-frequency class weighting (sklearn 'balanced' formula) for the
+# training loss. Off by default so it can be run as an ablation study via
+# the --use-dynamic-weights CLI flag. See active_learning/al_loop.py
+# compute_class_weights().
+USE_DYNAMIC_CLASS_WEIGHTS = False
+
 # ---------------------------------------------------------------------------
 # Escalation Thresholds
 # ---------------------------------------------------------------------------
-UNCERTAINTY_THRESHOLD = 0.5  # Above this → "high uncertainty"
-RISK_THRESHOLD = 0.3         # Above this → "high risk"
+# These are now FALLBACK values only. The active thresholds are calibrated
+# per-experiment: after the model trains on the 490 seed images in round 1,
+# it scores the seed set with itself and takes the 90th-percentile score as
+# the fixed deployment threshold for the rest of the run (see
+# active_learning/al_loop.py calibrate_thresholds()). This replaces a single
+# hardcoded 0.5/0.3 that made no sense once uncertainty scores were left in
+# their raw, unnormalized scale (methods like entropy and mc_dropout no
+# longer share [0,1] with margin/least_confidence).
+#
+# RISK_THRESHOLD is still used as the "no override supplied" default for the
+# --risk-threshold CLI flag, which stays available for the threshold-
+# sensitivity ablation sweep documented in RESEARCHER.md.
+UNCERTAINTY_THRESHOLD = 0.5  # Fallback only — normally overridden by calibration
+RISK_THRESHOLD = 0.3         # Fallback only — normally overridden by calibration
 
 # ---------------------------------------------------------------------------
 # Reproducibility

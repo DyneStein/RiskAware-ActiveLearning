@@ -14,6 +14,8 @@
   - [Resuming Interrupted Experiments](#3-resuming-interrupted-experiments)
   - [Regenerating Plots](#4-regenerating-plots-from-saved-results)
 - [Understanding the Experiment Matrix](#understanding-the-experiment-matrix)
+- [Seed-Calibrated Thresholds](#seed-calibrated-thresholds)
+- [Dynamic Class Weights (Ablation)](#dynamic-class-weights-ablation)
 - [What Happens During an Experiment](#what-happens-during-an-experiment)
 - [Output Files Reference](#output-files-reference)
   - [Logs](#logs)
@@ -86,7 +88,10 @@ python main.py --model <MODEL> --uncertainty <METHOD> --policy <POLICY> [--round
 | `--uncertainty`     | `entropy`, `mc_dropout`, `margin`, `least_confidence`| `entropy`          |
 | `--policy`          | `uncertainty_only`, `dual_metric`                    | `dual_metric`      |
 | `--rounds`          | Any integer (1–50)                                   | `15`               |
-| `--risk-threshold`  | Any float (0.0–1.0)                                  | `0.3`              |
+| `--risk-threshold`  | Any float — **manual override**, skips risk calibration (leave unset to seed-calibrate automatically) | unset (calibrated) |
+| `--use-dynamic-weights` | Flag (no value) — trains with inverse-frequency class weights | off |
+
+> **Note:** the *uncertainty* threshold has no CLI flag — it is always seed-calibrated (see [Seed-Calibrated Thresholds](#seed-calibrated-thresholds) below). Only the *risk* threshold can be manually pinned, for the threshold-sensitivity ablation sweep.
 
 **Examples:**
 
@@ -210,15 +215,54 @@ This means results from different thresholds are saved separately and never over
 
 ---
 
+## Seed-Calibrated Thresholds
+
+Thresholds used to be hardcoded (`UNCERTAINTY_THRESHOLD = 0.5`, `RISK_THRESHOLD = 0.3` in `config.py`). They no longer drive the actual decisions — they're kept only as documented fallback constants.
+
+**What happens now:** in round 1, right after the model finishes training on the 490 seed images, it scores that same seed set with itself. The **90th-percentile** uncertainty score and **90th-percentile** risk score across those 490 images become the fixed escalation thresholds for every remaining round of that experiment. This is done separately for whichever uncertainty method the experiment is using.
+
+**Why this replaces a fixed 0.5/0.3:** uncertainty scores are no longer squeezed into a shared `[0, 1]` range (see the next point) — entropy can go up to `ln(7) ≈ 1.95`, MC-dropout variance sits much closer to `0`. A single constant like `0.5` meant something completely different (and often nonsensical) depending on which uncertainty method was active. Calibrating per-method, per-experiment fixes that, and mirrors how you'd actually calibrate a real clinical deployment: run the trained model on a known labeled batch, see what "unusually high" looks like for it, then freeze that as the escalation line.
+
+**Where it's logged:** every experiment writes `results/logs/{experiment_id}_calibration.json` the first time it calibrates, containing the calibrated uncertainty threshold, calibrated risk threshold, and whether a manual `--risk-threshold` override was in effect. This is what you'll want for the reproducibility table in the paper — the calibrated numbers **differ per model/uncertainty-method combination**, so don't assume they're all the same.
+
+**`--risk-threshold` still works as a manual override** — pass it to skip risk calibration and pin a specific value, which is exactly what the threshold-sensitivity sweep (see [Common Scenarios](#common-scenarios)) needs. The uncertainty threshold is always calibrated; there's no manual override for it.
+
+**Resuming:** the calibrated thresholds are saved into each round's checkpoint `meta.json` and reloaded on `--resume`, so a resumed run keeps using the same thresholds it calibrated in round 1 rather than recalibrating against a now-smarter model.
+
+---
+
+## Dynamic Class Weights (Ablation)
+
+HAM10000 is heavily imbalanced (≈67% of images are benign nevi, `nv`). By default the training loss is plain unweighted cross-entropy. Passing `--use-dynamic-weights` switches to inverse-frequency class weighting, recomputed from the **current labeled set** every round (as more images get queried, the class balance of the labeled pool shifts, so the weights shift with it):
+
+```
+weight[class] = n_labeled_total / (num_classes × count[class])
+```
+
+This is the same formula as scikit-learn's `class_weight='balanced'`. A class with few labeled examples gets a proportionally bigger weight in the loss.
+
+```bash
+# Baseline (unweighted) — this is also the default with no flag
+python main.py --model efficientnet_b4 --uncertainty entropy --policy dual_metric
+
+# Ablation: same config, with dynamic class weights
+python main.py --model efficientnet_b4 --uncertainty entropy --policy dual_metric --use-dynamic-weights
+```
+
+Runs with the flag get a `_dynw` suffix appended to their experiment ID (e.g. `efficientnet_b4_entropy_dual_metric_dynw`), so weighted and unweighted results are never overwritten by each other and can be compared directly.
+
+---
+
 ## What Happens During an Experiment
 
 Each active learning round (default: 15 per experiment) follows this sequence:
 
 | Step | Action | Details |
 |------|--------|---------|
-| 1 | **Train** | Train the model on the current labeled set (starts at 490 seed images) |
+| 1 | **Train** | Train the model on the current labeled set (starts at 490 seed images); uses dynamic class weights if `--use-dynamic-weights` was passed |
+| 1b | **Calibrate** *(round 1 only)* | Score the seed set with the just-trained model; lock in the 90th-percentile uncertainty/risk scores as this experiment's fixed thresholds — see [Seed-Calibrated Thresholds](#seed-calibrated-thresholds) |
 | 2 | **Score** | Run inference on the entire unlabeled pool — compute uncertainty + risk scores |
-| 3 | **Decide** | Apply the escalation policy (uncertainty-only or dual-metric 2×2 grid) |
+| 3 | **Decide** | Apply the escalation policy (uncertainty-only or dual-metric 2×2 grid) using the calibrated thresholds |
 | 4 | **Query** | Move escalated images from unlabeled → labeled set (simulated oracle) |
 | 5 | **Track Safety** | Count "unsafe auto-accepts" — high-risk images the model auto-accepted |
 | 6 | **Evaluate** | Test on the fixed held-out test set (~1,905 images) |
@@ -247,6 +291,7 @@ results/
 ├── logs/                                 # Metrics & raw predictions
 │   ├── {experiment_id}_results.csv       # Per-round metrics (updated live)
 │   ├── {experiment_id}_full.json         # Complete results (saved at end)
+│   ├── {experiment_id}_calibration.json  # Seed-calibrated thresholds (written once, round 1)
 │   ├── {experiment_id}/
 │   │   ├── round_1_pool_predictions.csv  # Every image scored in round 1
 │   │   ├── round_2_pool_predictions.csv
@@ -270,8 +315,9 @@ results/
 
 | File | Description | When Created |
 |---|---|---|
-| `{id}_results.csv` | One row per round with all metrics. **Updated after every round** — survives crashes. | Continuously during experiment |
+| `{id}_results.csv` | One row per round with all metrics, including `uncertainty_threshold_used`, `risk_threshold_used`, and `use_dynamic_weights`. **Updated after every round** — survives crashes. | Continuously during experiment |
 | `{id}_full.json` | Complete experiment configuration + all round results in JSON. | At experiment completion |
+| `{id}_calibration.json` | The seed-calibrated uncertainty/risk thresholds locked in for this experiment (and whether a manual `--risk-threshold` override was active). | Once, in round 1 |
 | `{id}/round_N_pool_predictions.csv` | For every image in the unlabeled pool: `image_id`, `true_label`, `predicted_label`, `uncertainty_score`, `risk_score`, `decision`, `category`. | After each round |
 | `all_experiments.json` | Combined JSON of all 24 experiments (for plotting). | After `--run-all` completes |
 

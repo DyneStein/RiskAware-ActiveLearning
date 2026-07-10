@@ -46,6 +46,8 @@ These two scores create a **2×2 decision grid** that catches the cases standard
 
 **The critical cell is top-right**: Low uncertainty + High risk. The model is *confident*, but the case is *dangerous*. The baseline auto-accepts these. **Our policy forces expert review — catching the cancers AI misses.**
 
+> **Methodology note (seed-calibrated thresholds):** the 0.5 / 0.3 numbers above are illustrative only. In the actual code, thresholds are **not hardcoded** — after the model trains on the 490 seed images in round 1, it scores that same seed set and takes the **90th-percentile score** as the fixed escalation threshold for the rest of the run (separately for uncertainty and for risk). Uncertainty scores are also left in each method's own **raw, natural scale** (entropy can reach ~1.95, MC-dropout sits near 0) rather than being artificially squeezed into [0, 1] — calibration is what makes a single threshold meaningful across methods that live on very different scales. See `active_learning/al_loop.py::calibrate_thresholds()` and `proposed_changes.md` for the full rationale.
+
 ---
 
 ## 🏗️ Architecture & Workflow
@@ -96,11 +98,11 @@ flowchart LR
     B --> C["Compute<br/>Uncertainty Score"]
     B --> D["Compute<br/>Risk Score<br/>P(mel)+P(bcc)+P(akiec)"]
 
-    C --> E{"Uncertainty<br/>> 0.5?"}
-    D --> F{"Risk<br/>> 0.3?"}
+    C --> E{"Uncertainty<br/>> calibrated?"}
+    D --> F{"Risk<br/>> calibrated?"}
 
-    E -->|No| G{"Risk > 0.3?"}
-    E -->|Yes| H{"Risk > 0.3?"}
+    E -->|No| G{"Risk ><br/>calibrated?"}
+    E -->|Yes| H{"Risk ><br/>calibrated?"}
 
     G -->|No| I["✅ Auto-Accept<br/>Low Unc, Low Risk"]
     G -->|Yes| J["🚨 ESCALATE<br/>Safety Override!"]
@@ -218,8 +220,9 @@ We systematically evaluate **every combination** of three dimensions:
 | Batch Size | 32 | `config.py` |
 | Epochs per Round | 10 | `config.py` |
 | MC Dropout Passes | 30 | `config.py` |
-| Uncertainty Threshold | 0.5 | `config.py` |
-| Risk Threshold | 0.3 | `config.py` |
+| Uncertainty Threshold | **Seed-calibrated** — 90th percentile on the seed set, per experiment (fallback: 0.5) | `active_learning/al_loop.py` |
+| Risk Threshold | **Seed-calibrated** — 90th percentile on the seed set, per experiment (fallback: 0.3); override with `--risk-threshold` for the ablation sweep | `active_learning/al_loop.py` / `config.py` |
+| Dynamic Class Weights | Off by default — inverse-frequency loss weighting, enable with `--use-dynamic-weights` | `config.py` |
 | Image Size | 224×224 | `config.py` |
 | AL Rounds | 15 | `config.py` |
 | Random Seed | 42 | `config.py` |
@@ -240,12 +243,14 @@ Even when the model's **top prediction** is a benign class, the risk score captu
 
 ### Uncertainty Methods
 
-| Method | Formula | Passes | Speed |
-|---|---|---|---|
-| **Entropy** | -Σ p(x) log p(x) | 1 | ⚡ Fast |
-| **MC Dropout** | Variance across N stochastic forward passes | 30 | 🐢 Slow |
-| **Margin** | 1 - (p₁ - p₂), where p₁, p₂ are top-2 probabilities | 1 | ⚡ Fast |
-| **Least Confidence** | 1 - max(p) | 1 | ⚡ Fast |
+| Method | Formula | Raw Range | Passes | Speed |
+|---|---|---|---|---|
+| **Entropy** | -Σ p(x) log p(x) | [0, ln 7] ≈ [0, 1.95] | 1 | ⚡ Fast |
+| **MC Dropout** | Variance across N stochastic forward passes | ~[0, 0.25] | 30 | 🐢 Slow |
+| **Margin** | 1 - (p₁ - p₂), where p₁, p₂ are top-2 probabilities | [0, 1] | 1 | ⚡ Fast |
+| **Least Confidence** | 1 - max(p) | [0, 6/7] | 1 | ⚡ Fast |
+
+Each method's score is left in this natural raw scale (not rescaled to a shared [0, 1]) — the escalation threshold for whichever method is in use is seed-calibrated separately, so the different scales don't need to match.
 
 ### The Oracle (Simulated Expert)
 
@@ -317,6 +322,9 @@ python main.py --run-all
 
 # Resume after crash
 python main.py --run-all --resume
+
+# Ablation: train with inverse-frequency class weights instead of plain cross-entropy
+python main.py --use-dynamic-weights
 
 # Regenerate plots from saved results
 python main.py --plot-only

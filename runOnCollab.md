@@ -107,7 +107,10 @@ WEIGHT_DECAY = 1e-5
 EPOCHS_PER_ROUND = 10
 IMAGE_SIZE = 224
 NUM_WORKERS = 2 
+USE_DYNAMIC_CLASS_WEIGHTS = False
 
+# Fallback only — actual thresholds are seed-calibrated per experiment,
+# see active_learning/al_loop.py calibrate_thresholds()
 UNCERTAINTY_THRESHOLD = 0.5
 RISK_THRESHOLD = 0.3
 RANDOM_SEED = 42
@@ -160,6 +163,14 @@ for rt in [0.1, 0.2, 0.3, 0.4, 0.5]:
 ```
 
 Each threshold value saves to a separate experiment (e.g., `..._rt0.1`, `..._rt0.2`), so results never overwrite each other.
+
+**To run the dynamic class-weighting ablation** (inverse-frequency loss weights, recomputed from the labeled pool each round):
+```python
+!python main.py --model efficientnet_b4 --uncertainty entropy --policy dual_metric --use-dynamic-weights
+```
+This saves to a separate experiment ID (suffix `_dynw`), so it never overwrites the unweighted baseline run.
+
+> **Note on thresholds:** escalation thresholds are no longer hardcoded at 0.5/0.3 — each experiment calibrates its own thresholds automatically from the 490 seed images in round 1 (90th percentile). `--risk-threshold` still works as a manual override for the sweep above; there's no manual override for the uncertainty threshold. See `RESEARCHER.md` → "Seed-Calibrated Thresholds" for details.
 
 ---
 

@@ -7,7 +7,9 @@ Uncertainty = 1 - margin
 Small margin = model can't decide between top two classes = more uncertain.
 Large margin = model is clearly picking one class = more confident.
 
-Range: [0, 1]. Higher = more uncertain.
+Range: [0, 1]. Higher = more uncertain. This formula was already raw/
+unnormalized (no artificial rescaling applied) — it just happens to fall
+naturally in [0, 1] for a softmax distribution, unlike entropy or MC dropout.
 """
 
 import numpy as np

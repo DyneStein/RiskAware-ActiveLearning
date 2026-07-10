@@ -268,20 +268,32 @@ def plot_uncertainty_vs_risk_scatter(
     ax.scatter(uncertainty_scores, risk_scores,
                c=colors, alpha=0.5, s=20, edgecolors='none')
 
+    # Axis limits are DYNAMIC, not hardcoded to [0, 1]. Uncertainty scores
+    # are now reported in each method's own raw scale (e.g. entropy can
+    # reach ~1.95, mc_dropout is small and sits near 0) — a fixed [0, 1]
+    # box would silently clip points off the plot or misplace the quadrant
+    # labels once thresholds are seed-calibrated instead of fixed at 0.5/0.3.
+    unc_arr = np.asarray(uncertainty_scores)
+    risk_arr = np.asarray(risk_scores)
+    unc_max = max(float(unc_arr.max()) if unc_arr.size else 1.0, unc_threshold) * 1.15
+    risk_max = max(float(risk_arr.max()) if risk_arr.size else 1.0, risk_threshold) * 1.15
+    unc_max = unc_max if unc_max > 0 else 1.0
+    risk_max = risk_max if risk_max > 0 else 1.0
+
     # Draw threshold lines
     ax.axvline(x=unc_threshold, color='black', linestyle='--',
-               linewidth=1.5, alpha=0.7, label=f'Unc threshold ({unc_threshold})')
+               linewidth=1.5, alpha=0.7, label=f'Unc threshold ({unc_threshold:.3f})')
     ax.axhline(y=risk_threshold, color='black', linestyle='--',
-               linewidth=1.5, alpha=0.7, label=f'Risk threshold ({risk_threshold})')
+               linewidth=1.5, alpha=0.7, label=f'Risk threshold ({risk_threshold:.3f})')
 
     # Label quadrants
     ax.text(unc_threshold/2, risk_threshold/2, 'AUTO-ACCEPT\n(Safe & Efficient)',
             ha='center', va='center', fontsize=10, color='green', fontweight='bold')
-    ax.text(unc_threshold/2, (1+risk_threshold)/2, 'ESCALATE\n(Safety Override!)',
+    ax.text(unc_threshold/2, (risk_max+risk_threshold)/2, 'ESCALATE\n(Safety Override!)',
             ha='center', va='center', fontsize=10, color='red', fontweight='bold')
-    ax.text((1+unc_threshold)/2, risk_threshold/2, 'AUTO-ACCEPT\n(Low Risk)',
+    ax.text((unc_max+unc_threshold)/2, risk_threshold/2, 'AUTO-ACCEPT\n(Low Risk)',
             ha='center', va='center', fontsize=10, color='green', fontweight='bold')
-    ax.text((1+unc_threshold)/2, (1+risk_threshold)/2, 'ESCALATE\n(Always)',
+    ax.text((unc_max+unc_threshold)/2, (risk_max+risk_threshold)/2, 'ESCALATE\n(Always)',
             ha='center', va='center', fontsize=10, color='red', fontweight='bold')
 
     # Legend
@@ -292,11 +304,11 @@ def plot_uncertainty_vs_risk_scatter(
     ]
     ax.legend(handles=legend_elements, loc='upper right')
 
-    ax.set_xlabel('Uncertainty Score')
+    ax.set_xlabel('Uncertainty Score (raw)')
     ax.set_ylabel('Clinical Risk Score')
     ax.set_title(f'2×2 Dual-Metric Decision Grid {title_suffix}')
-    ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1)
+    ax.set_xlim(0, unc_max)
+    ax.set_ylim(0, risk_max)
 
     path = os.path.join(save_dir, f'uncertainty_vs_risk_scatter{title_suffix.replace(" ", "_")}.png')
     plt.savefig(path)

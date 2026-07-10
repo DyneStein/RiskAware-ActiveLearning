@@ -29,7 +29,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from config import (
     BATCH_SIZE, LEARNING_RATE, WEIGHT_DECAY, EPOCHS_PER_ROUND,
     IMAGE_SIZE, MC_DROPOUT_PASSES, NUM_WORKERS,
-    UNCERTAINTY_THRESHOLD, RISK_THRESHOLD,
+    RISK_THRESHOLD, USE_DYNAMIC_CLASS_WEIGHTS,
     CHECKPOINTS_DIR, LOGS_DIR, PLOTS_DIR, CLASS_NAMES,
 )
 from data.dataset import HAM10000Dataset
@@ -40,6 +40,101 @@ from risk_score.clinical_risk import compute_risk_score
 from escalation import uncertainty_only, dual_metric
 from evaluation.metrics import compute_all_metrics
 import glob
+
+
+def build_experiment_id(model_name, uncertainty_method, policy_name,
+                         manual_risk_threshold=None, use_dynamic_weights=False):
+    """
+    Build the canonical experiment_id string, including suffixes for any
+    non-default settings so different configurations never collide on disk.
+    Used consistently by both main.py (resume-skip checks) and
+    run_experiment() (actual run), so they always agree on the filename.
+    """
+    experiment_id = f"{model_name}_{uncertainty_method}_{policy_name}"
+    if manual_risk_threshold is not None and manual_risk_threshold != RISK_THRESHOLD:
+        experiment_id += f"_rt{manual_risk_threshold}"
+    if use_dynamic_weights:
+        experiment_id += "_dynw"
+    return experiment_id
+
+
+def compute_class_weights(labeled_df):
+    """
+    Inverse-frequency class weights from the CURRENT labeled set, using the
+    same 'balanced' formula as sklearn.utils.class_weight.compute_class_weight:
+
+        weight[c] = n_samples / (n_classes * count[c])
+
+    A class with few labeled examples gets a bigger weight so the loss
+    penalizes mistakes on it more — this is what actually applies the class
+    weighting that config.USE_DYNAMIC_CLASS_WEIGHTS toggles on.
+
+    Parameters
+    ----------
+    labeled_df : pd.DataFrame
+        Must have a 'dx' column with class codes matching CLASS_NAMES.
+
+    Returns
+    -------
+    np.ndarray, shape (num_classes,)
+        Weight for each class, in CLASS_NAMES order.
+    """
+    value_counts = labeled_df['dx'].value_counts()
+    counts = np.array(
+        [value_counts.get(name, 0) for name in CLASS_NAMES], dtype=np.float64
+    )
+    # Guard against a class with zero labeled examples (shouldn't happen —
+    # the seed set has 70/class — but avoids a divide-by-zero if it ever does).
+    counts = np.clip(counts, 1, None)
+    weights = counts.sum() / (len(CLASS_NAMES) * counts)
+    return weights
+
+
+def calibrate_thresholds(model, seed_df, image_dirs, uncertainty_method_name,
+                          percentile=90):
+    """
+    Seed-calibrated escalation thresholds (replaces hardcoded 0.5 / 0.3).
+
+    Scores the 490 seed images with the model that was JUST trained on that
+    same seed set (round 1's training step), then takes the 90th-percentile
+    uncertainty score and 90th-percentile risk score as the fixed thresholds
+    for the rest of the experiment. This mirrors how a real clinical system
+    would be calibrated before deployment: run it on a known labeled sample,
+    see what "unusually high" looks like for THIS model and THIS uncertainty
+    method, then freeze that as the escalation line.
+
+    Because uncertainty scores are no longer forced into a shared [0, 1]
+    range (see uncertainty/entropy.py, uncertainty/mc_dropout.py), a single
+    threshold constant across methods no longer makes sense — this function
+    is what makes each method's threshold scale-appropriate automatically.
+
+    Parameters
+    ----------
+    model : BaseModel
+        The model, already trained on `seed_df` for this round.
+    seed_df : pd.DataFrame
+        The 490 seed images (or equivalent labeled calibration set).
+    image_dirs : list of str
+        Directories containing images.
+    uncertainty_method_name : str
+        One of 'entropy', 'mc_dropout', 'margin', 'least_confidence'.
+    percentile : float
+        Percentile used as the threshold (default: 90th).
+
+    Returns
+    -------
+    unc_threshold : float
+    risk_threshold : float
+    """
+    seed_dataset = HAM10000Dataset(
+        seed_df, image_dirs, transform=get_eval_transforms(IMAGE_SIZE)
+    )
+    (_, seed_unc, seed_risk, _, _, _) = score_unlabeled_pool(
+        model, seed_dataset, uncertainty_method_name
+    )
+    unc_threshold = float(np.percentile(seed_unc, percentile))
+    risk_threshold = float(np.percentile(seed_risk, percentile))
+    return unc_threshold, risk_threshold
 
 
 def _get_checkpoint_dir(experiment_id):
@@ -188,6 +283,7 @@ def run_experiment(
     experiment_id=None,
     resume=False,
     risk_threshold=None,
+    use_dynamic_weights=None,
 ):
     """
     Run a full active learning experiment.
@@ -211,30 +307,40 @@ def run_experiment(
     resume : bool
         If True, attempt to resume from the latest checkpoint.
     risk_threshold : float, optional
-        Clinical risk threshold for the dual-metric policy.
-        If None, uses the default from config (0.3).
+        MANUAL override for the clinical risk threshold (dual-metric policy
+        only). If None (default), the risk threshold is instead
+        seed-calibrated automatically (see calibrate_thresholds()). Pass a
+        value here to run the threshold-sensitivity ablation sweep instead
+        of calibration.
+    use_dynamic_weights : bool, optional
+        If True, train with inverse-frequency class weights recomputed from
+        the labeled pool each round (see compute_class_weights()). If None,
+        uses config.USE_DYNAMIC_CLASS_WEIGHTS (default: False).
 
     Returns
     -------
     results : dict
         Full experiment results with per-round metrics.
     """
-    # Use config defaults if not provided
-    if risk_threshold is None:
-        risk_threshold = RISK_THRESHOLD
+    manual_risk_threshold = risk_threshold  # None unless caller explicitly set it
+    if use_dynamic_weights is None:
+        use_dynamic_weights = USE_DYNAMIC_CLASS_WEIGHTS
 
     if experiment_id is None:
-        experiment_id = f"{model_name}_{uncertainty_method}_{policy_name}"
-        # Append threshold to ID if non-default, so different runs don't collide
-        if risk_threshold != RISK_THRESHOLD:
-            experiment_id += f"_rt{risk_threshold}"
+        experiment_id = build_experiment_id(
+            model_name, uncertainty_method, policy_name,
+            manual_risk_threshold, use_dynamic_weights,
+        )
 
     print(f"\n{'='*70}")
     print(f"EXPERIMENT: {experiment_id}")
     print(f"  Model: {model_name}")
     print(f"  Uncertainty: {uncertainty_method}")
     print(f"  Policy: {policy_name}")
-    print(f"  Risk Threshold: {risk_threshold}")
+    print(f"  Risk Threshold: "
+          f"{'MANUAL override = ' + str(manual_risk_threshold) if manual_risk_threshold is not None else 'seed-calibrated (90th percentile)'}")
+    print(f"  Uncertainty Threshold: seed-calibrated (90th percentile)")
+    print(f"  Dynamic Class Weights: {use_dynamic_weights}")
     print(f"  Rounds: {num_rounds}")
     print(f"{'='*70}\n")
 
@@ -245,6 +351,12 @@ def run_experiment(
     # Results storage
     round_results = []
     start_round = 1
+
+    # Escalation thresholds — calibrated from the seed set in round 1 (or
+    # reloaded from checkpoint metadata if resuming past round 1). None
+    # until then.
+    calibrated_unc_threshold = None
+    calibrated_risk_threshold = None
 
     # --- Resume from checkpoint if requested ---
     if resume:
@@ -265,9 +377,15 @@ def run_experiment(
             with open(meta_path, 'r') as f:
                 meta = json.load(f)
             round_results = meta.get('round_results', [])
+            calibrated_unc_threshold = meta.get('calibrated_unc_threshold')
+            calibrated_risk_threshold = meta.get('calibrated_risk_threshold')
 
             start_round = last_round + 1
             print(f"  ⟳ Will continue from round {start_round}")
+            if calibrated_unc_threshold is not None:
+                print(f"  ⟳ Reusing calibrated thresholds: "
+                      f"uncertainty={calibrated_unc_threshold:.4f}, "
+                      f"risk={calibrated_risk_threshold:.4f}")
         else:
             print("  No checkpoint found — starting from scratch.")
 
@@ -296,9 +414,43 @@ def run_experiment(
             train_dataset, batch_size=BATCH_SIZE, shuffle=True,
             num_workers=NUM_WORKERS, pin_memory=True
         )
+        class_weights = (
+            compute_class_weights(labeled_df) if use_dynamic_weights else None
+        )
         model.train_model(
             train_loader, epochs=EPOCHS_PER_ROUND,
-            lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY
+            lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY,
+            class_weights=class_weights,
+        )
+
+        # 2b. Seed-calibrate escalation thresholds (round 1 only — the model
+        # just trained on the seed set for the first time, so this is the
+        # earliest point calibration is meaningful). Locked in for the rest
+        # of the experiment, simulating a real deployment calibration step.
+        if calibrated_unc_threshold is None:
+            calibrated_unc_threshold, calibrated_risk_threshold = \
+                calibrate_thresholds(model, labeled_df, image_dirs, uncertainty_method)
+            print(f"  ⚖ Calibrated thresholds from seed set (90th percentile): "
+                  f"uncertainty={calibrated_unc_threshold:.4f}, "
+                  f"risk={calibrated_risk_threshold:.4f}")
+            os.makedirs(LOGS_DIR, exist_ok=True)
+            with open(os.path.join(LOGS_DIR, f"{experiment_id}_calibration.json"), 'w') as f:
+                json.dump({
+                    'experiment_id': experiment_id,
+                    'uncertainty_method': uncertainty_method,
+                    'calibrated_uncertainty_threshold': calibrated_unc_threshold,
+                    'calibrated_risk_threshold': calibrated_risk_threshold,
+                    'manual_risk_threshold_override': manual_risk_threshold,
+                    'calibration_set_size': len(labeled_df),
+                }, f, indent=2)
+
+        # The risk threshold actually used this round: manual CLI override
+        # if one was given (for the threshold-sensitivity ablation sweep),
+        # otherwise the seed-calibrated value.
+        effective_unc_threshold = calibrated_unc_threshold
+        effective_risk_threshold = (
+            manual_risk_threshold if manual_risk_threshold is not None
+            else calibrated_risk_threshold
         )
 
         # 3. Score all unlabeled images
@@ -313,14 +465,14 @@ def run_experiment(
         # 4. Apply escalation policy
         if policy_name == 'uncertainty_only':
             decisions, escalate_idx, auto_accept_idx = uncertainty_only.decide(
-                unc_scores, UNCERTAINTY_THRESHOLD
+                unc_scores, effective_unc_threshold
             )
             categories = np.array(['n/a'] * len(decisions))
         elif policy_name == 'dual_metric':
             decisions, escalate_idx, auto_accept_idx, categories = \
                 dual_metric.decide(
                     unc_scores, risk_scores,
-                    UNCERTAINTY_THRESHOLD, risk_threshold
+                    effective_unc_threshold, effective_risk_threshold
                 )
         else:
             raise ValueError(f"Unknown policy: {policy_name}")
@@ -346,7 +498,7 @@ def run_experiment(
             from evaluation.visualization import plot_uncertainty_vs_risk_scatter
             plot_uncertainty_vs_risk_scatter(
                 unc_scores, risk_scores, pool_true_labels,
-                UNCERTAINTY_THRESHOLD, RISK_THRESHOLD,
+                effective_unc_threshold, effective_risk_threshold,
                 save_dir=os.path.join(PLOTS_DIR, experiment_id),
                 title_suffix=f"(Round {round_num})"
             )
@@ -398,6 +550,9 @@ def run_experiment(
             'auto_accepted_this_round': len(auto_accept_idx),
             'unsafe_auto_accepts': unsafe_count,
             'round_time_seconds': round_time,
+            'uncertainty_threshold_used': effective_unc_threshold,
+            'risk_threshold_used': effective_risk_threshold,
+            'use_dynamic_weights': use_dynamic_weights,
             **metrics,
         }
         round_results.append(round_data)
@@ -427,6 +582,10 @@ def run_experiment(
             'policy_name': policy_name,
             'completed_round': round_num,
             'num_rounds': num_rounds,
+            'calibrated_unc_threshold': calibrated_unc_threshold,
+            'calibrated_risk_threshold': calibrated_risk_threshold,
+            'manual_risk_threshold': manual_risk_threshold,
+            'use_dynamic_weights': use_dynamic_weights,
             'round_results': round_results,
         }
         with open(os.path.join(round_ckpt_dir, "meta.json"), 'w') as f:

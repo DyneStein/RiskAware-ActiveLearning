@@ -120,7 +120,8 @@ class BaseModel(nn.Module):
             if isinstance(module, (nn.BatchNorm1d, nn.BatchNorm2d)):
                 module.eval()
 
-    def train_model(self, train_loader, epochs, lr, weight_decay=1e-5):
+    def train_model(self, train_loader, epochs, lr, weight_decay=1e-5,
+                     class_weights=None):
         """
         Train the model for a given number of epochs.
 
@@ -134,6 +135,11 @@ class BaseModel(nn.Module):
             Learning rate.
         weight_decay : float
             L2 regularization weight.
+        class_weights : array-like, optional
+            Per-class weights (length num_classes) for CrossEntropyLoss, to
+            counter class imbalance. If None (default), plain unweighted
+            cross-entropy is used. See config.USE_DYNAMIC_CLASS_WEIGHTS and
+            active_learning.al_loop.compute_class_weights().
 
         Returns
         -------
@@ -143,8 +149,13 @@ class BaseModel(nn.Module):
         self.to(self.device)
         self.train()
 
-        # Use class weights to handle imbalanced dataset
-        criterion = nn.CrossEntropyLoss()
+        if class_weights is not None:
+            weight_tensor = torch.as_tensor(
+                class_weights, dtype=torch.float32, device=self.device
+            )
+            criterion = nn.CrossEntropyLoss(weight=weight_tensor)
+        else:
+            criterion = nn.CrossEntropyLoss()
         optimizer = torch.optim.Adam(
             self.parameters(), lr=lr, weight_decay=weight_decay
         )
