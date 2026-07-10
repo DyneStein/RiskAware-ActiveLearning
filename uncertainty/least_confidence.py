@@ -6,7 +6,10 @@ Uncertainty = 1 - max(p)
 If the model's best guess is only 40% confident, uncertainty = 0.6.
 If the model is 99% confident, uncertainty = 0.01.
 
-Range: [0, 1]. Higher = more uncertain.
+Range: [0, 1 - 1/num_classes]. Higher = more uncertain. This formula was
+already raw/unnormalized (no artificial rescaling applied) — it just happens
+to fall naturally in a bounded range for a softmax distribution, unlike
+entropy or MC dropout.
 """
 
 import numpy as np

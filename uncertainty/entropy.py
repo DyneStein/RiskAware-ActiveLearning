@@ -6,7 +6,12 @@ H = -Σ p_i · log(p_i)
 Higher entropy = model is spread across multiple classes = more uncertain.
 Lower entropy = model is concentrated on one class = more confident.
 
-Range: [0, log(num_classes)] → normalized to [0, 1].
+Range: [0, log(num_classes)] — reported RAW (not rescaled to [0, 1]). We
+deliberately do not divide by max entropy: each uncertainty method is left
+in its own natural scale, and the escalation threshold for this method is
+calibrated separately from the seed data (see
+active_learning/al_loop.py calibrate_thresholds()) rather than assuming a
+shared [0, 1] range across methods.
 """
 
 import numpy as np
@@ -14,7 +19,7 @@ import numpy as np
 
 def compute_entropy(probabilities):
     """
-    Compute normalized softmax entropy for each sample.
+    Compute raw (unnormalized) softmax entropy for each sample.
 
     Parameters
     ----------
@@ -24,7 +29,7 @@ def compute_entropy(probabilities):
     Returns
     -------
     np.ndarray or float
-        Entropy score(s) normalized to [0, 1].
+        Entropy score(s) in [0, log(num_classes)]. Higher = more uncertain.
     """
     probs = np.array(probabilities)
     single = probs.ndim == 1
@@ -38,8 +43,4 @@ def compute_entropy(probabilities):
     # Entropy: H = -Σ p_i * log(p_i)
     entropy = -np.sum(probs * np.log(probs), axis=1)
 
-    # Normalize by max possible entropy (uniform distribution)
-    max_entropy = np.log(probs.shape[1])
-    normalized = entropy / max_entropy
-
-    return float(normalized[0]) if single else normalized
+    return float(entropy[0]) if single else entropy

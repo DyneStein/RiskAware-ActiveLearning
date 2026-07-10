@@ -5,6 +5,13 @@ Runs N stochastic forward passes with dropout enabled.
 Uncertainty = mean variance across all class predictions.
 
 Higher variance = predictions disagree across passes = more uncertain.
+
+Range: theoretical ceiling ~0.25 per class (max variance of a Bernoulli at
+p=0.5), reported RAW — not rescaled to [0, 1]. Each uncertainty method is
+left in its own natural scale; the escalation threshold for this method is
+calibrated separately from the seed data (see
+active_learning/al_loop.py calibrate_thresholds()) rather than assuming a
+shared [0, 1] range across methods.
 """
 
 import numpy as np
@@ -12,7 +19,8 @@ import numpy as np
 
 def compute_mc_dropout_uncertainty(all_probs):
     """
-    Compute MC Dropout uncertainty from multiple forward pass predictions.
+    Compute raw (unnormalized) MC Dropout uncertainty from multiple forward
+    pass predictions.
 
     Parameters
     ----------
@@ -25,7 +33,6 @@ def compute_mc_dropout_uncertainty(all_probs):
     -------
     float or np.ndarray
         Mean variance across classes. Higher = more uncertain.
-        Range: approximately [0, 0.25] (normalized to [0, 1]).
     """
     probs = np.array(all_probs)
     single = probs.ndim == 2  # (n_passes, num_classes)
@@ -39,8 +46,4 @@ def compute_mc_dropout_uncertainty(all_probs):
     # Mean variance across classes as the uncertainty score
     uncertainty = variance.mean(axis=1)  # (B,)
 
-    # Normalize: max variance of a Bernoulli is 0.25 (at p=0.5)
-    # Scale to [0, 1] range
-    normalized = np.clip(uncertainty / 0.25, 0.0, 1.0)
-
-    return float(normalized[0]) if single else normalized
+    return float(uncertainty[0]) if single else uncertainty
