@@ -33,8 +33,9 @@ class DenseNet169(BaseModel):
         # Get the number of features
         in_features = full_model.classifier.in_features  # 1664 for DenseNet-169
 
-        # Build our custom head with Dropout for MC Dropout
+        # Build our custom heads with Dropout for MC Dropout
         self._build_head(in_features)
+        self._build_risk_head(in_features)
 
         print(f"DenseNet-169 initialized (pretrained={pretrained}, "
               f"classes={num_classes}, dropout={dropout_rate})")

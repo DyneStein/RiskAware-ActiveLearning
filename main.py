@@ -24,7 +24,7 @@ from config import (
     MODELS, UNCERTAINTY_METHODS, AL_ROUNDS,
     SEED_METADATA_CSV, POOL_METADATA_CSV, SEED_DATA_DIR,
     POOL_IMAGES_DIR, RESULTS_DIR, LOGS_DIR, PLOTS_DIR, RANDOM_SEED,
-    RISK_THRESHOLD, USE_DYNAMIC_CLASS_WEIGHTS,
+    RISK_THRESHOLD, USE_DYNAMIC_CLASS_WEIGHTS, QUERY_BUDGET_PER_ROUND,
     ensure_dirs,
 )
 from data.pool_manager import PoolManager
@@ -63,7 +63,8 @@ def get_image_dirs():
 
 def run_single_experiment(model_name, uncertainty_method, policy_name,
                           num_rounds=AL_ROUNDS, resume=False,
-                          risk_threshold=None, use_dynamic_weights=None):
+                          risk_threshold=None, use_dynamic_weights=None,
+                          query_budget=None):
     """Run a single experiment with fresh pool manager."""
     set_seed()
     ensure_dirs()
@@ -85,13 +86,15 @@ def run_single_experiment(model_name, uncertainty_method, policy_name,
         resume=resume,
         risk_threshold=risk_threshold,
         use_dynamic_weights=use_dynamic_weights,
+        query_budget=query_budget,
     )
 
     return results
 
 
 def run_all_experiments(num_rounds=AL_ROUNDS, resume=False,
-                        risk_threshold=None, use_dynamic_weights=None):
+                        risk_threshold=None, use_dynamic_weights=None,
+                        query_budget=None):
     """Run all 24 experiments (3 models × 4 uncertainty × 2 policies)."""
     policies = ['uncertainty_only', 'dual_metric']
     all_results = []
@@ -109,7 +112,8 @@ def run_all_experiments(num_rounds=AL_ROUNDS, resume=False,
             for policy in policies:
                 current += 1
                 experiment_id = build_experiment_id(
-                    model, unc, policy, risk_threshold, effective_dynamic_weights
+                    model, unc, policy, risk_threshold,
+                    effective_dynamic_weights, query_budget,
                 )
 
                 # Skip experiments that are already fully complete
@@ -135,6 +139,7 @@ def run_all_experiments(num_rounds=AL_ROUNDS, resume=False,
                     resume=resume,
                     risk_threshold=risk_threshold,
                     use_dynamic_weights=use_dynamic_weights,
+                    query_budget=query_budget,
                 )
                 all_results.append(results)
 
@@ -195,20 +200,39 @@ def main():
     parser.add_argument('--risk-threshold', type=float, default=None,
                         help='MANUAL override for the clinical risk threshold '
                              '(dual-metric policy). If omitted (default), the '
-                             'threshold is instead seed-calibrated automatically '
-                             f'(90th percentile on the seed set; config fallback: {RISK_THRESHOLD}). '
+                             'threshold is instead recalibrated automatically '
+                             'every round (90th percentile on the current '
+                             f'labeled set; config fallback: {RISK_THRESHOLD}). '
                              'Pass this for the threshold-sensitivity ablation sweep.')
     parser.add_argument('--use-dynamic-weights', action='store_true',
                         help='Train with inverse-frequency class weights '
-                             '(recomputed from the labeled pool each round) '
-                             'instead of plain unweighted cross-entropy. '
-                             f'Default: {USE_DYNAMIC_CLASS_WEIGHTS} '
-                             '(config.USE_DYNAMIC_CLASS_WEIGHTS). Use this flag '
-                             'to run the class-weighting ablation study.')
+                             '(recomputed from the labeled pool each round, '
+                             'applied to both the classification and risk '
+                             f'heads). Default: {USE_DYNAMIC_CLASS_WEIGHTS} '
+                             '(config.USE_DYNAMIC_CLASS_WEIGHTS) — this flag '
+                             'is a no-op unless the config default has been '
+                             'changed to False.')
+    parser.add_argument('--no-dynamic-weights', action='store_true',
+                        help='Force OFF dynamic class weighting even though '
+                             'it is on by default — use this to run the '
+                             'unweighted ablation study deliberately.')
+    parser.add_argument('--query-budget', type=int, default=None,
+                        help='Top-K most-uncertain images escalated per '
+                             'round, at minimum (0 = threshold-only, no '
+                             f'budget floor). Default: {QUERY_BUDGET_PER_ROUND} '
+                             '(config.QUERY_BUDGET_PER_ROUND). Any image '
+                             'above the recalibrated threshold is still '
+                             'escalated even past K — this only sets a '
+                             'floor, not a ceiling.')
 
     args = parser.parse_args()
 
-    use_dynamic_weights = args.use_dynamic_weights or None
+    if args.no_dynamic_weights:
+        use_dynamic_weights = False
+    elif args.use_dynamic_weights:
+        use_dynamic_weights = True
+    else:
+        use_dynamic_weights = None  # falls back to config default
 
     if args.plot_only:
         load_and_plot()
@@ -218,6 +242,7 @@ def main():
             resume=args.resume,
             risk_threshold=args.risk_threshold,
             use_dynamic_weights=use_dynamic_weights,
+            query_budget=args.query_budget,
         )
     else:
         run_single_experiment(
@@ -228,6 +253,7 @@ def main():
             resume=args.resume,
             risk_threshold=args.risk_threshold,
             use_dynamic_weights=use_dynamic_weights,
+            query_budget=args.query_budget,
         )
 
 

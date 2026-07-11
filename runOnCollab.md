@@ -97,7 +97,7 @@ UNCERTAINTY_METHODS = ['entropy', 'mc_dropout', 'margin', 'least_confidence']
 MC_DROPOUT_PASSES = 30
 
 AL_ROUNDS = 15
-QUERY_BUDGET_PER_ROUND = 0
+QUERY_BUDGET_PER_ROUND = 150
 SEED_PER_CLASS = 70
 TEST_SPLIT_RATIO = 0.20
 
@@ -107,9 +107,9 @@ WEIGHT_DECAY = 1e-5
 EPOCHS_PER_ROUND = 10
 IMAGE_SIZE = 224
 NUM_WORKERS = 2 
-USE_DYNAMIC_CLASS_WEIGHTS = False
+USE_DYNAMIC_CLASS_WEIGHTS = True
 
-# Fallback only — actual thresholds are seed-calibrated per experiment,
+# Fallback only — actual thresholds are recalibrated every round,
 # see active_learning/al_loop.py calibrate_thresholds()
 UNCERTAINTY_THRESHOLD = 0.5
 RISK_THRESHOLD = 0.3
@@ -164,13 +164,20 @@ for rt in [0.1, 0.2, 0.3, 0.4, 0.5]:
 
 Each threshold value saves to a separate experiment (e.g., `..._rt0.1`, `..._rt0.2`), so results never overwrite each other.
 
-**To run the dynamic class-weighting ablation** (inverse-frequency loss weights, recomputed from the labeled pool each round):
+**Dynamic class weighting is ON by default now** (both the classification head and the independent risk head). To run the unweighted ablation deliberately instead:
 ```python
-!python main.py --model efficientnet_b4 --uncertainty entropy --policy dual_metric --use-dynamic-weights
+!python main.py --model efficientnet_b4 --uncertainty entropy --policy dual_metric --no-dynamic-weights
 ```
-This saves to a separate experiment ID (suffix `_dynw`), so it never overwrites the unweighted baseline run.
+This saves to a separate experiment ID (suffix `_noweights`), so it never overwrites the default weighted run.
 
-> **Note on thresholds:** escalation thresholds are no longer hardcoded at 0.5/0.3 — each experiment calibrates its own thresholds automatically from the 490 seed images in round 1 (90th percentile). `--risk-threshold` still works as a manual override for the sweep above; there's no manual override for the uncertainty threshold. See `RESEARCHER.md` → "Seed-Calibrated Thresholds" for details.
+**To override the per-round query budget** (default: top-150 most-uncertain images per round, plus anything above threshold even past that):
+```python
+!python main.py --model efficientnet_b4 --uncertainty entropy --policy dual_metric --query-budget 200
+```
+
+> **Note on thresholds:** escalation thresholds are recalibrated every round (not hardcoded, and not locked in once) — each round, the model scores the current labeled set and takes the 90th percentile as that round's threshold. `--risk-threshold` still works as a manual override for the sweep above; there's no manual override for the uncertainty threshold. See `RESEARCHER.md` for details.
+>
+> **Note on the model architecture:** each model now has two heads sharing one backbone — the usual 7-class head (drives uncertainty) and an independent binary malignant/non-malignant risk head (drives the risk score, no longer derived from the 7-class softmax). Checkpoints saved before this change are **not compatible** with the new architecture (`model.pt` won't have the risk head's weights) — if you have old checkpoints under `results/checkpoints/`, move or rename that folder before running any experiment fresh, otherwise `--resume` will fail trying to load a mismatched state dict.
 
 ---
 

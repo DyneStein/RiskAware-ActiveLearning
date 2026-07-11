@@ -1,56 +1,81 @@
 """
 Dual-Metric Escalation Policy (OUR CONTRIBUTION).
 
-Combines uncertainty score + clinical risk score in a 2×2 grid:
+Two genuinely independent escalation routes, combined with OR:
+
+1. Uncertainty route (same mechanism as the baseline in
+   uncertainty_only.py): the K most-uncertain images this round, plus
+   anything above this round's recalibrated uncertainty threshold even
+   past K.
+2. Risk route: ANY image where the independent risk head's P(malignant)
+   (see risk_score/clinical_risk.py) exceeds this round's recalibrated
+   risk threshold — uncapped, no budget. A genuinely dangerous case must
+   never be skipped just because the uncertainty budget K is full that
+   round.
+
+An image can be escalated by either route, both, or neither:
 
                     Low Risk          High Risk
                 ┌─────────────────┬─────────────────┐
-  Low           │                 │                 │
-  Uncertainty   │  AUTO-ACCEPT    │  ESCALATE ⚠️    │
-                │  (efficient)    │  (SAFETY        │
-                │                 │   OVERRIDE)     │
+  Low           │  AUTO-ACCEPT    │  ESCALATE ⚠️     │
+  Uncertainty   │                 │  (risk route)    │
                 ├─────────────────┼─────────────────┤
-  High          │                 │                 │
-  Uncertainty   │  AUTO-ACCEPT    │  ESCALATE 🚨    │
-                │  (batch review  │  (always send   │
-                │   optional)     │   to oracle)    │
+  High          │  ESCALATE       │  ESCALATE 🚨     │
+  Uncertainty   │  (unc. route)   │  (both routes)   │
                 └─────────────────┴─────────────────┘
 
-KEY DIFFERENCE from baseline:
-  Row 1, Col 2 → "Low uncertainty + High risk"
-  The model is CONFIDENT but the case is DANGEROUS.
-  Baseline: auto-accepts (model seems sure) → MISSES THE CANCER
-  Ours: forces escalation (risk score overrides confidence) → CATCHES IT
+KEY DIFFERENCE from the baseline:
+  Low uncertainty + High risk → the model is CONFIDENT but the case is
+  DANGEROUS. Baseline: never escalated by uncertainty alone → misses the
+  cancer. Ours: the risk route escalates it regardless of confidence.
+
+  High uncertainty + Low risk → the model is genuinely unsure, but the
+  case looks safe. Still escalated — this is real active learning, using
+  the label to improve the model, not just a safety catch. (Earlier
+  versions of this policy auto-accepted this cell, which meant uncertainty
+  never actually participated in the decision — see
+  DUAL_METRIC_ANALYSIS.md.)
+
+`categories` records which of the four quadrants each image falls into,
+for the scatter plots and analysis — descriptive only, it no longer
+solely drives the decision the way it originally did.
 """
 
 import numpy as np
 
 
-def decide(uncertainty_scores, risk_scores, unc_threshold, risk_threshold):
+def decide(uncertainty_scores, risk_scores, unc_threshold, risk_threshold,
+           k_budget):
     """
-    Dual-metric escalation: use both uncertainty AND risk to decide.
+    Dual-metric escalation: uncertainty (budgeted, top-K + overflow) OR
+    risk (uncapped).
 
     Parameters
     ----------
     uncertainty_scores : np.ndarray
         Uncertainty score for each image, shape (N,).
     risk_scores : np.ndarray
-        Clinical risk score for each image, shape (N,).
+        Risk score (P(malignant) from the independent risk head) for each
+        image, shape (N,).
     unc_threshold : float
-        Uncertainty threshold. Above this → "high uncertainty".
+        This round's recalibrated uncertainty threshold.
     risk_threshold : float
-        Risk threshold. Above this → "high risk".
+        This round's recalibrated risk threshold (or a manual override).
+    k_budget : int
+        Number of top-uncertainty images escalated each round, at minimum.
+        0 means uncertainty is threshold-only (no budget floor); the risk
+        route is always uncapped regardless of this value.
 
     Returns
     -------
     decisions : np.ndarray of str
         'escalate' or 'auto_accept' for each image.
-    escalate_indices : np.ndarray
+    escalate_idx : np.ndarray
         Indices of images to escalate.
-    auto_accept_indices : np.ndarray
+    auto_accept_idx : np.ndarray
         Indices of images to auto-accept.
     categories : np.ndarray of str
-        The 2×2 category for each image:
+        The 2×2 category for each image (descriptive, for plots/analysis):
         'low_unc_low_risk', 'low_unc_high_risk',
         'high_unc_low_risk', 'high_unc_high_risk'
     """
@@ -58,35 +83,28 @@ def decide(uncertainty_scores, risk_scores, unc_threshold, risk_threshold):
     risk = np.array(risk_scores)
     n = len(unc)
 
+    over_unc_threshold = np.where(unc > unc_threshold)[0]
+    if k_budget > 0 and n > 0:
+        k = min(k_budget, n)
+        top_k = np.argsort(unc)[::-1][:k]
+    else:
+        top_k = np.array([], dtype=int)
+    uncertainty_escalate = np.union1d(top_k, over_unc_threshold)
+
+    risk_escalate = np.where(risk > risk_threshold)[0]
+
+    escalate_idx = np.union1d(uncertainty_escalate, risk_escalate).astype(int)
+
     decisions = np.array(['auto_accept'] * n)
-    categories = np.array([''] * n, dtype='U25')
-
-    for i in range(n):
-        high_unc = unc[i] > unc_threshold
-        high_risk = risk[i] > risk_threshold
-
-        if not high_unc and not high_risk:
-            # Low uncertainty + Low risk → auto-accept (safe & efficient)
-            decisions[i] = 'auto_accept'
-            categories[i] = 'low_unc_low_risk'
-
-        elif not high_unc and high_risk:
-            # Low uncertainty + High risk → ESCALATE (safety override!)
-            # This is the critical case that baseline misses.
-            decisions[i] = 'escalate'
-            categories[i] = 'low_unc_high_risk'
-
-        elif high_unc and not high_risk:
-            # High uncertainty + Low risk → auto-accept (efficiency gain)
-            decisions[i] = 'auto_accept'
-            categories[i] = 'high_unc_low_risk'
-
-        elif high_unc and high_risk:
-            # High uncertainty + High risk → ESCALATE (always)
-            decisions[i] = 'escalate'
-            categories[i] = 'high_unc_high_risk'
-
-    escalate_idx = np.where(decisions == 'escalate')[0]
+    decisions[escalate_idx] = 'escalate'
     auto_accept_idx = np.where(decisions == 'auto_accept')[0]
+
+    categories = np.array([''] * n, dtype='U25')
+    high_unc_mask = unc > unc_threshold
+    high_risk_mask = risk > risk_threshold
+    categories[~high_unc_mask & ~high_risk_mask] = 'low_unc_low_risk'
+    categories[~high_unc_mask & high_risk_mask] = 'low_unc_high_risk'
+    categories[high_unc_mask & ~high_risk_mask] = 'high_unc_low_risk'
+    categories[high_unc_mask & high_risk_mask] = 'high_unc_high_risk'
 
     return decisions, escalate_idx, auto_accept_idx, categories

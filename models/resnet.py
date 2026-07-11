@@ -32,8 +32,9 @@ class ResNet50(BaseModel):
         # Get the number of features
         in_features = full_model.fc.in_features  # 2048 for ResNet-50
 
-        # Build our custom head with Dropout for MC Dropout
+        # Build our custom heads with Dropout for MC Dropout
         self._build_head(in_features)
+        self._build_risk_head(in_features)
 
         print(f"ResNet-50 initialized (pretrained={pretrained}, "
               f"classes={num_classes}, dropout={dropout_rate})")

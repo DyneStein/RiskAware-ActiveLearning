@@ -31,8 +31,9 @@ class EfficientNetB4(BaseModel):
         # Get the number of features from the backbone
         in_features = full_model.classifier[1].in_features
 
-        # Build our custom head with Dropout for MC Dropout
+        # Build our custom heads with Dropout for MC Dropout
         self._build_head(in_features)
+        self._build_risk_head(in_features)
 
         print(f"EfficientNet-B4 initialized (pretrained={pretrained}, "
               f"classes={num_classes}, dropout={dropout_rate})")
