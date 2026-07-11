@@ -22,9 +22,14 @@ POOL_METADATA_CSV = os.path.join(
 
 RESULTS_DIR = os.path.join(PROJECT_ROOT, "results")
 CHECKPOINTS_DIR = os.path.join(RESULTS_DIR, "checkpoints")
-LOGS_DIR = os.path.join(RESULTS_DIR, "logs")
-PLOTS_DIR = os.path.join(RESULTS_DIR, "plots")
-TABLES_DIR = os.path.join(RESULTS_DIR, "tables")
+# One folder per experiment_id: results.csv, full.json, pool_predictions/, and
+# that experiment's own plots (confusion matrix per round, learning curve,
+# 2x2 scatter). Populated automatically as each experiment runs — no need to
+# run --run-all or --plot-only first. See active_learning/al_loop.py.
+EXPERIMENTS_DIR = os.path.join(RESULTS_DIR, "experiments")
+LOGS_DIR = os.path.join(RESULTS_DIR, "logs")      # cross-experiment: all_experiments.json
+PLOTS_DIR = os.path.join(RESULTS_DIR, "plots")    # cross-experiment: the 6 comparison plots
+TABLES_DIR = os.path.join(RESULTS_DIR, "tables")  # cross-experiment: comparison_table.csv/.tex
 
 # ---------------------------------------------------------------------------
 # Classes
@@ -111,5 +116,5 @@ RANDOM_SEED = 42
 
 def ensure_dirs():
     """Create output directories if they don't exist."""
-    for d in [RESULTS_DIR, CHECKPOINTS_DIR, LOGS_DIR, PLOTS_DIR, TABLES_DIR]:
+    for d in [RESULTS_DIR, CHECKPOINTS_DIR, EXPERIMENTS_DIR, LOGS_DIR, PLOTS_DIR, TABLES_DIR]:
         os.makedirs(d, exist_ok=True)

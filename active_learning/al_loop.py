@@ -32,7 +32,7 @@ from config import (
     BATCH_SIZE, LEARNING_RATE, WEIGHT_DECAY, EPOCHS_PER_ROUND,
     IMAGE_SIZE, MC_DROPOUT_PASSES, NUM_WORKERS,
     RISK_THRESHOLD, USE_DYNAMIC_CLASS_WEIGHTS, QUERY_BUDGET_PER_ROUND,
-    CHECKPOINTS_DIR, LOGS_DIR, PLOTS_DIR, CLASS_NAMES,
+    CHECKPOINTS_DIR, EXPERIMENTS_DIR, LOGS_DIR, PLOTS_DIR, CLASS_NAMES,
 )
 from constants import HIGH_RISK_CLASSES
 from data.dataset import HAM10000Dataset
@@ -41,6 +41,10 @@ from models.model_factory import create_model
 from uncertainty.uncertainty_factory import get_uncertainty_method
 from escalation import uncertainty_only, dual_metric
 from evaluation.metrics import compute_all_metrics
+from evaluation.visualization import (
+    plot_confusion_matrix, plot_experiment_learning_curve,
+)
+from sklearn.metrics import confusion_matrix as sk_confusion_matrix
 import glob
 
 
@@ -377,6 +381,14 @@ def run_experiment(
         query_budget if query_budget is not None else QUERY_BUDGET_PER_ROUND
     )
 
+    # Everything specific to this experiment (results, raw predictions, and
+    # this experiment's own plots) lives in one folder, populated
+    # automatically as it runs -- no need to run --run-all or --plot-only
+    # first. See config.EXPERIMENTS_DIR.
+    experiment_dir = os.path.join(EXPERIMENTS_DIR, experiment_id)
+    experiment_plots_dir = os.path.join(experiment_dir, "plots")
+    pool_predictions_dir = os.path.join(experiment_dir, "pool_predictions")
+
     if experiment_id is None:
         experiment_id = build_experiment_id(
             model_name, uncertainty_method, policy_name,
@@ -523,9 +535,9 @@ def run_experiment(
             'decision': decisions,
             'category': categories
         })
-        os.makedirs(os.path.join(LOGS_DIR, experiment_id), exist_ok=True)
+        os.makedirs(pool_predictions_dir, exist_ok=True)
         round_preds_df.to_csv(
-            os.path.join(LOGS_DIR, experiment_id, f"round_{round_num}_pool_predictions.csv"),
+            os.path.join(pool_predictions_dir, f"round_{round_num}_pool_predictions.csv"),
             index=False
         )
 
@@ -535,7 +547,7 @@ def run_experiment(
             plot_uncertainty_vs_risk_scatter(
                 unc_scores, risk_scores, pool_true_labels,
                 effective_unc_threshold, effective_risk_threshold,
-                save_dir=os.path.join(PLOTS_DIR, experiment_id),
+                save_dir=experiment_plots_dir,
                 title_suffix=f"(Round {round_num})"
             )
 
@@ -574,6 +586,17 @@ def run_experiment(
             test_labels, test_preds, test_probs, CLASS_NAMES
         )
 
+        # Confusion matrix — plotted every round into this experiment's own
+        # folder (not persisted into round_data/results.csv, which would
+        # clutter it with a stringified nested list; the plot is the record).
+        cm = sk_confusion_matrix(
+            test_labels, test_preds, labels=list(range(len(CLASS_NAMES)))
+        )
+        plot_confusion_matrix(
+            cm, CLASS_NAMES, save_dir=experiment_plots_dir,
+            title_suffix=f" (Round {round_num})"
+        )
+
         # 8. Log round results
         round_time = time.time() - round_start
         round_data = {
@@ -592,6 +615,12 @@ def run_experiment(
             **metrics,
         }
         round_results.append(round_data)
+
+        # Learning curve for THIS experiment specifically — overwritten
+        # each round so it's always current, available without --run-all.
+        plot_experiment_learning_curve(
+            round_results, experiment_id, save_dir=experiment_plots_dir
+        )
 
         print(f"  Accuracy: {metrics['accuracy']:.4f} | "
               f"F1 Macro: {metrics['f1_macro']:.4f} | "
@@ -641,10 +670,10 @@ def run_experiment(
                 shutil.rmtree(prev_ckpt_dir)
 
         # Save round results incrementally (as CSV for easy inspection)
-        os.makedirs(LOGS_DIR, exist_ok=True)
+        os.makedirs(experiment_dir, exist_ok=True)
         results_df = pd.DataFrame(round_results)
         results_df.to_csv(
-            os.path.join(LOGS_DIR, f"{experiment_id}_results.csv"),
+            os.path.join(experiment_dir, "results.csv"),
             index=False
         )
 
@@ -658,7 +687,7 @@ def run_experiment(
     }
 
     # Save full results as JSON
-    with open(os.path.join(LOGS_DIR, f"{experiment_id}_full.json"), 'w') as f:
+    with open(os.path.join(experiment_dir, "full.json"), 'w') as f:
         json.dump(results, f, indent=2, default=str)
 
     print(f"\n{'='*70}")

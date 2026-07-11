@@ -316,6 +316,97 @@ def plot_uncertainty_vs_risk_scatter(
     print(f"  Saved: {path}")
 
 
+def plot_confusion_matrix(cm, class_names, save_dir, title_suffix=""):
+    """
+    Confusion matrix heatmap for a single experiment/round, saved into that
+    experiment's own folder (see config.EXPERIMENTS_DIR) — generated every
+    round automatically, no --run-all or --plot-only needed.
+
+    Parameters
+    ----------
+    cm : np.ndarray, shape (num_classes, num_classes)
+        Row = true class, column = predicted class.
+    class_names : list of str
+    save_dir : str
+        Destination folder (created if missing).
+    title_suffix : str
+        e.g. " (Round 3)".
+    """
+    os.makedirs(save_dir, exist_ok=True)
+
+    fig, ax = plt.subplots(figsize=(8, 7))
+    im = ax.imshow(cm, cmap='Blues')
+    fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+
+    labels = [DIAGNOSIS_FULL_NAMES.get(c, c) for c in class_names]
+    ax.set_xticks(range(len(class_names)))
+    ax.set_yticks(range(len(class_names)))
+    ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=8)
+    ax.set_yticklabels(labels, fontsize=8)
+
+    thresh = cm.max() / 2.0 if cm.max() > 0 else 0.5
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            ax.text(j, i, int(cm[i, j]), ha='center', va='center',
+                     color='white' if cm[i, j] > thresh else 'black', fontsize=8)
+
+    ax.set_xlabel('Predicted')
+    ax.set_ylabel('True')
+    ax.set_title(f'Confusion Matrix{title_suffix}')
+
+    plt.tight_layout()
+    path = os.path.join(save_dir, f'confusion_matrix{title_suffix.replace(" ", "_")}.png')
+    plt.savefig(path)
+    plt.close()
+    print(f"  Saved: {path}")
+
+
+def plot_experiment_learning_curve(round_results, experiment_id, save_dir):
+    """
+    Single-experiment learning curve — accuracy, F1, and the safety metric
+    (FN rate on malignant classes) vs. round, for THIS experiment alone.
+    Regenerated (overwritten) at the end of every round, so it's always
+    up to date without needing all 24 experiments to finish first.
+
+    Parameters
+    ----------
+    round_results : list of dict
+        Accumulated round_data from active_learning.al_loop.run_experiment().
+    experiment_id : str
+    save_dir : str
+        Destination folder (created if missing).
+    """
+    os.makedirs(save_dir, exist_ok=True)
+    rounds_df = pd.DataFrame(round_results)
+
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+    axes[0].plot(rounds_df['round'], rounds_df['accuracy'],
+                 marker='o', linewidth=2, label='Accuracy')
+    axes[0].plot(rounds_df['round'], rounds_df['f1_macro'],
+                 marker='s', linewidth=2, label='F1 Macro')
+    axes[0].set_xlabel('Round')
+    axes[0].set_ylabel('Score')
+    axes[0].set_title(f'{experiment_id}\nAccuracy & F1 vs Round')
+    axes[0].legend()
+    axes[0].set_ylim(0, 1)
+
+    axes[1].plot(rounds_df['round'], rounds_df['fn_rate_malignant'],
+                 marker='o', linewidth=2, color='#e74c3c',
+                 label='FN Rate (Malignant)')
+    axes[1].set_xlabel('Round')
+    axes[1].set_ylabel('False-Negative Rate')
+    axes[1].set_title(f'{experiment_id}\nSafety Metric vs Round')
+    axes[1].legend()
+    axes[1].set_ylim(bottom=0)
+
+    plt.tight_layout()
+    path = os.path.join(save_dir, 'learning_curve.png')
+    plt.savefig(path)
+    plt.close()
+    print(f"  Saved: {path}")
+
+
 def plot_per_class_f1(all_results, save_dir=None):
     """
     Plot 6: Per-class F1 score comparison (grouped bar chart).

@@ -23,9 +23,9 @@ import random
 from config import (
     MODELS, UNCERTAINTY_METHODS, AL_ROUNDS,
     SEED_METADATA_CSV, POOL_METADATA_CSV, SEED_DATA_DIR,
-    POOL_IMAGES_DIR, RESULTS_DIR, LOGS_DIR, PLOTS_DIR, RANDOM_SEED,
-    RISK_THRESHOLD, USE_DYNAMIC_CLASS_WEIGHTS, QUERY_BUDGET_PER_ROUND,
-    ensure_dirs,
+    POOL_IMAGES_DIR, RESULTS_DIR, EXPERIMENTS_DIR, LOGS_DIR, PLOTS_DIR,
+    RANDOM_SEED, RISK_THRESHOLD, USE_DYNAMIC_CLASS_WEIGHTS,
+    QUERY_BUDGET_PER_ROUND, ensure_dirs,
 )
 from data.pool_manager import PoolManager
 from active_learning.al_loop import run_experiment, build_experiment_id
@@ -117,7 +117,7 @@ def run_all_experiments(num_rounds=AL_ROUNDS, resume=False,
                 )
 
                 # Skip experiments that are already fully complete
-                done_path = os.path.join(LOGS_DIR, f"{experiment_id}_full.json")
+                done_path = os.path.join(EXPERIMENTS_DIR, experiment_id, "full.json")
                 if resume and os.path.exists(done_path):
                     print(f"\n{'#'*70}")
                     print(f"# Experiment {current}/{total} — SKIPPING (already complete)")
@@ -159,12 +159,14 @@ def load_and_plot():
     """Load saved results and regenerate plots."""
     combined_path = os.path.join(LOGS_DIR, 'all_experiments.json')
     if not os.path.exists(combined_path):
-        # Try to load individual experiment results
+        # Try to load individual experiment results from EXPERIMENTS_DIR
         all_results = []
-        for f in os.listdir(LOGS_DIR):
-            if f.endswith('_full.json'):
-                with open(os.path.join(LOGS_DIR, f), 'r') as fp:
-                    all_results.append(json.load(fp))
+        if os.path.isdir(EXPERIMENTS_DIR):
+            for experiment_id in sorted(os.listdir(EXPERIMENTS_DIR)):
+                full_json_path = os.path.join(EXPERIMENTS_DIR, experiment_id, 'full.json')
+                if os.path.isfile(full_json_path):
+                    with open(full_json_path, 'r') as fp:
+                        all_results.append(json.load(fp))
         if not all_results:
             print("No saved results found. Run experiments first.")
             return
