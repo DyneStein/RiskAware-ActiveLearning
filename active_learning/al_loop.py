@@ -381,19 +381,20 @@ def run_experiment(
         query_budget if query_budget is not None else QUERY_BUDGET_PER_ROUND
     )
 
-    # Everything specific to this experiment (results, raw predictions, and
-    # this experiment's own plots) lives in one folder, populated
-    # automatically as it runs -- no need to run --run-all or --plot-only
-    # first. See config.EXPERIMENTS_DIR.
-    experiment_dir = os.path.join(EXPERIMENTS_DIR, experiment_id)
-    experiment_plots_dir = os.path.join(experiment_dir, "plots")
-    pool_predictions_dir = os.path.join(experiment_dir, "pool_predictions")
-
     if experiment_id is None:
         experiment_id = build_experiment_id(
             model_name, uncertainty_method, policy_name,
             manual_risk_threshold, use_dynamic_weights, query_budget,
         )
+
+    # Everything specific to this experiment (results, raw predictions, and
+    # this experiment's own plots) lives in one folder, populated
+    # automatically as it runs -- no need to run --run-all or --plot-only
+    # first. See config.EXPERIMENTS_DIR. Must come AFTER experiment_id is
+    # resolved above, not before -- it's None until then.
+    experiment_dir = os.path.join(EXPERIMENTS_DIR, experiment_id)
+    experiment_plots_dir = os.path.join(experiment_dir, "plots")
+    pool_predictions_dir = os.path.join(experiment_dir, "pool_predictions")
 
     print(f"\n{'='*70}")
     print(f"EXPERIMENT: {experiment_id}")
