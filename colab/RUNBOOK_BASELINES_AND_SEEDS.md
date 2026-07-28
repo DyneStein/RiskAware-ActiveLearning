@@ -288,7 +288,72 @@ uninterrupted one exactly.
 
 ---
 
-## 7. Quick reference
+## 7. What to change on Google Drive
+
+**Short answer: nothing structural.** The new setup cell writes to exactly the
+same Drive paths as before, so the existing folder layout, the shared-folder
+shortcuts on the other accounts, and every completed checkpoint all keep
+working untouched.
+
+```
+MyDrive/Research/Active_learning and HITL/
+├── Dataset/archive.zip          unchanged
+└── results/
+    ├── checkpoints/             unchanged — 24 final-round models
+    ├── experiments/             unchanged — new runs are added alongside
+    ├── logs/  plots/  tables/   unchanged
+    └── analysis/                NEW — created automatically the first time
+                                 a rigor script runs on Colab
+```
+
+The account-switching trick is unaffected: the other accounts keep their
+shortcut to the same shared folder, and `--resume` still finds whatever the
+previous account finished.
+
+### Two things worth doing before starting
+
+**1. Check free space.** This is the one thing that can actually bite.
+
+| | Size |
+|---|---|
+| Already on Drive (dataset zip + 24 runs) | ~5 GB |
+| 12 baseline runs | ~1.2 GB |
+| 36 multi-seed runs | ~3.5 GB |
+| **After everything** | **~10 GB** |
+
+A free Google account has 15 GB **shared across Drive, Gmail and Photos**, so
+10 GB of research data is close enough to the ceiling to matter. Check the
+usage bar at drive.google.com before starting, and if it is tight, the
+cheapest fix is to move the 24 completed `checkpoints/` folders into a
+separate archive folder — nothing in the new runs reads them.
+
+Only the **final** round's checkpoint survives per experiment; the loop
+deletes each previous round as it goes. So the per-run cost is one model
+file (54–97 MB), not fifteen.
+
+**2. Confirm Drive and the laptop agree.** The Drive copy and the local copy
+of `results/` should be identical. From the repository:
+
+```bash
+python -m tools.build_manifest --verify
+```
+
+Anything reported as changed or missing means the two copies have drifted,
+and that should be resolved before new runs are layered on top.
+
+### What you do *not* need to do
+
+- No need to re-upload the dataset — `archive.zip` is unchanged.
+- No need to move or rename any existing results folder.
+- No need to copy code to Drive. The setup cell pulls it from GitHub each
+  session; that is the point of `git reset --hard origin/main` in step 4.
+- No need to delete the old `setup_cell.txt` from Drive if a copy is sitting
+  there — but do not paste it. It writes a `config.py` without `SPLIT_SEED`
+  and every run will fail on import.
+
+---
+
+## 8. Quick reference
 
 | Goal | Command |
 |---|---|
