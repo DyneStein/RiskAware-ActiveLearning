@@ -1,6 +1,6 @@
 # Artefact Manifest — Summary
 
-Generated: 2026-07-28T15:45:32.094845+00:00
+Generated: 2026-07-28T20:13:23.945123+00:00
 Root: `C:\Users\dyssa\Desktop\Research\RiskAware-ActiveLearning`
 
 Full per-file record with SHA-256 checksums: `MANIFEST.csv`.
@@ -9,7 +9,7 @@ Full per-file record with SHA-256 checksums: `MANIFEST.csv`.
 
 | Tier | Files | Size | Meaning |
 |---|---:|---:|---|
-| `git` | 1,568 | 348.0 MB | Committed to this repository in full |
+| `git` | 1,611 | 358.4 MB | Committed to this repository in full |
 | `release` | 144 | 1,803.9 MB | Published as GitHub Release assets / Zenodo — checksummed here |
 | `external` | 10,020 | 2,769.0 MB | Not redistributed; download separately and verify |
 
@@ -22,12 +22,12 @@ Full per-file record with SHA-256 checksums: `MANIFEST.csv`.
 | `Oracle_Simulated_Doctor` | `git` | 2 | 0.5 MB |
 | `Seed Data` | `git` | 491 | 128.0 MB |
 | `active_learning` | `git` | 9 | 0.1 MB |
-| `analysis` | `git` | 120 | 42.0 MB |
-| `colab` | `git` | 3 | 0.0 MB |
+| `analysis` | `git` | 159 | 52.3 MB |
+| `colab` | `git` | 5 | 0.1 MB |
 | `data` | `git` | 4 | 0.0 MB |
-| `docs` | `git` | 1 | 0.0 MB |
+| `docs` | `git` | 2 | 0.0 MB |
 | `escalation` | `git` | 3 | 0.0 MB |
-| `evaluation` | `git` | 16 | 0.2 MB |
+| `evaluation` | `git` | 17 | 0.2 MB |
 | `models` | `git` | 6 | 0.0 MB |
 | `paper` | `git` | 75 | 26.6 MB |
 | `results/checkpoints` | `release` | 144 | 1,803.9 MB |
@@ -36,7 +36,7 @@ Full per-file record with SHA-256 checksums: `MANIFEST.csv`.
 | `tools` | `git` | 3 | 0.0 MB |
 | `uncertainty` | `git` | 6 | 0.0 MB |
 
-**Total: 11,732 files, 4.81 GB.**
+**Total: 11,775 files, 4.82 GB.**
 
 ## Verifying
 
