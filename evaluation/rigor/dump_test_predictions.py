@@ -76,7 +76,19 @@ class _JPEG:
 
 
 class _GaussianNoise:
-    """Applied on the tensor, after normalization-free ToTensor()."""
+    """
+    Sensor noise, added on the tensor in [0, 1] pixel space -- after
+    ToTensor(), before Normalize(). That ordering matters: sigma is then
+    expressed in real pixel units, so sigma=0.05 means about 13 grey
+    levels out of 255, which is what "mild sensor noise" should mean.
+    Adding it after normalisation would make sigma mean something
+    different in each colour channel.
+
+    The draw is seeded by the caller (--seed) so the corrupted evaluation
+    can be reproduced exactly. It previously was not, which meant the
+    numbers could not be regenerated and each model met a different noise
+    realisation.
+    """
 
     def __init__(self, sigma):
         self.sigma = sigma
@@ -94,6 +106,13 @@ def _enhance(kind, factor):
 # name -> (pil_op or None, tensor_op or None)
 CORRUPTIONS = {
     "clean":                (None, None),
+    # The low sigmas exist for the EfficientNet-B4 diagnostic: it scores
+    # 0.6-1.0% accuracy at sigma=0.05 while the other two backbones lose
+    # only ~20 points. A sweep distinguishes a gradual architecture-
+    # specific fragility from a sudden collapse onto one class.
+    "gaussian_noise_0.01":  (None, _GaussianNoise(0.01)),
+    "gaussian_noise_0.02":  (None, _GaussianNoise(0.02)),
+    "gaussian_noise_0.03":  (None, _GaussianNoise(0.03)),
     "gaussian_noise_0.05":  (None, _GaussianNoise(0.05)),
     "gaussian_noise_0.10":  (None, _GaussianNoise(0.10)),
     "blur_1.5":             (lambda im: im.filter(ImageFilter.GaussianBlur(1.5)), None),
@@ -217,11 +236,22 @@ def main():
     ap.add_argument("--overwrite", action="store_true")
     ap.add_argument("--threads", type=int, default=0,
                     help="torch CPU threads (0 = leave default).")
+    ap.add_argument("--seed", type=int, default=42,
+                    help="Seed for the corruption draw, so a corrupted "
+                         "evaluation is reproducible and every model meets "
+                         "the SAME noise. Ignored for clean and for the "
+                         "deterministic corruptions (blur, brightness, "
+                         "contrast, JPEG).")
     args = ap.parse_args()
 
     ensure_dirs()
     if args.threads:
         torch.set_num_threads(args.threads)
+
+    # Re-seeded before every model below as well, so each one sees an
+    # identical noise realisation rather than a continuation of the RNG
+    # stream left behind by the previous model.
+    torch.manual_seed(args.seed)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     suffix = "" if args.corruption == "clean" else f"__{args.corruption}"
@@ -252,6 +282,9 @@ def main():
         test_df = pd.read_csv(os.path.join(ckpt_dir, "pool_state", "test.csv"))
 
         t0 = time.perf_counter()
+        # Identical noise for every model, so a cross-model comparison
+        # under corruption is not confounded by a different random draw.
+        torch.manual_seed(args.seed)
         model = load_model(meta["model_name"],
                            os.path.join(ckpt_dir, "model.pt"), device)
         df, timing = run_inference(model, test_df,

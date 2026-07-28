@@ -124,18 +124,13 @@ Everything fixed at **seed 42**.
 
 Getting this right saves you about **240 GPU-hours.**
 
-## Job B — the seed replication (the bigger problem)
+## Job B — the seed replication — **NOT being run**
 
-> ### 3 models × 3 uncertainty methods × 2 policies = 18 runs, × 2 new seeds = **36 runs** ≈ **104 GPU-hours**
+The supervisor's decision is **seed 42 for everything**. This job is off the table; it is recorded only so the option is understood if it ever comes back. It would have been 3 models × 3 uncertainty × 2 policies = 18 runs at seeds 43 and 44 → **36 runs ≈ 104 GPU-hours**.
 
-| | Value |
-|---|---|
-| Models | ResNet-50, DenseNet-169, EfficientNet-B4 |
-| Uncertainty | entropy, margin, least_confidence |
-| Policies | uncertainty_only, dual_metric |
-| Seeds | **43 and 44** (42 is already done — it *is* the original 24) |
+**What that decision means for the paper**, stated once so nobody is surprised later: with a single seed we cannot say how much of any result is the method and how much is luck, because nothing has ever been re-run. The **direction** of the headline safety result is still safe regardless — Proposition 1 proves the dual-metric escalation set always *contains* the baseline's, so unsafe auto-accepts mathematically cannot increase. That is why it came out 24/24 with no exceptions; it could not have done otherwise. What is not protected is the **size** of every number: the 43% reduction, the +382 labels, the +0.60 pp accuracy. The right handling is a plain sentence in Limitations naming the single-seed design, rather than leaving a reviewer to notice it unaided.
 
-**Why MC-dropout is dropped:** it costs **7.0 hours** per run against 2.9 for the others — 2.4× the price — and it is the least standard of the four. Its existing seed-42 results stay in the paper, clearly labelled as single-seed.
+**The capability is still there if it is ever wanted.** `--seed` works, and any seed other than 42 writes to a separate `_s<seed>` folder, so switching it on later costs nothing and cannot disturb the existing 24 experiments.
 
 ## Every setting, in one table
 
@@ -150,7 +145,7 @@ Getting this right saves you about **240 GPU-hours.**
 | Test set | 1,905 | **Never** |
 | Query budget floor | 150/round | No |
 | `SPLIT_SEED` | 42 | **Never** |
-| `RANDOM_SEED` | 42 → 43 → 44 | **Yes, Job B** |
+| `RANDOM_SEED` | **42 throughout** | **No** — supervisor's decision |
 | Model | 3 options | Yes |
 | Uncertainty | 4 options | Yes |
 | Policy / strategy | 2 policies + 4 baselines | Yes |
@@ -161,10 +156,10 @@ Getting this right saves you about **240 GPU-hours.**
 |---|---|---|
 | Already done | 24 | 94.1 ✅ |
 | A — baselines | 12 | ~40 |
-| B — seeds | 36 | ~104 |
-| **Still to run** | **48** | **~145** |
+| B — seeds | — | not being run |
+| **Still to run** | **12** | **~40** |
 
-On free Colab that is realistically **5–7 weeks** of babysitting. Renting an RTX 4090 (RunPod / Vast.ai, ~$0.35/hour, about 2.5× a Colab T4) turns it into ~58 hours ≈ **$20–25 total**. That is the single best value purchase available to this project.
+Forty GPU-hours is very manageable on free Colab — roughly two comfortable weeks, or a single determined weekend. The entire remaining GPU burden is now smaller than any **one** of the three backbone blocks you already finished.
 
 ---
 
@@ -197,13 +192,7 @@ Paste into the first cell. Near the top you will see:
 TRAINING_SEED = 42
 ```
 
-| Doing | Set it to |
-|---|---|
-| **Job A** — the 12 baselines | `42` |
-| **Job B** — seed run 43 | `43` |
-| **Job B** — seed run 44 | `44` |
-
-**This one line is the entire difference between a seed run and a normal one.** Leave it at 42 for now.
+**Leave it at 42.** That is the plan for every run — the supervisor's decision is a single seed throughout, so this line never changes. It is only worth knowing about because it is what a multi-seed replication would use, if that is ever revisited.
 
 ## Step 4 — Run the setup cell
 
@@ -335,36 +324,9 @@ Setup cell with `TRAINING_SEED = 42`. Cheapest first, and grouped so that if you
 !python main.py --run-baselines --resume
 ```
 
-## Job B — the seed runs
+## Job B — the seed runs — not being run
 
-Setup cell with `TRAINING_SEED = 43`, then all 18. Then change it to `44` and repeat.
-
-```bash
-!python main.py --model resnet50 --uncertainty entropy          --policy uncertainty_only --seed 43 --resume
-!python main.py --model resnet50 --uncertainty entropy          --policy dual_metric      --seed 43 --resume
-!python main.py --model resnet50 --uncertainty margin           --policy uncertainty_only --seed 43 --resume
-!python main.py --model resnet50 --uncertainty margin           --policy dual_metric      --seed 43 --resume
-!python main.py --model resnet50 --uncertainty least_confidence --policy uncertainty_only --seed 43 --resume
-!python main.py --model resnet50 --uncertainty least_confidence --policy dual_metric      --seed 43 --resume
-```
-```bash
-!python main.py --model densenet169 --uncertainty entropy          --policy uncertainty_only --seed 43 --resume
-!python main.py --model densenet169 --uncertainty entropy          --policy dual_metric      --seed 43 --resume
-!python main.py --model densenet169 --uncertainty margin           --policy uncertainty_only --seed 43 --resume
-!python main.py --model densenet169 --uncertainty margin           --policy dual_metric      --seed 43 --resume
-!python main.py --model densenet169 --uncertainty least_confidence --policy uncertainty_only --seed 43 --resume
-!python main.py --model densenet169 --uncertainty least_confidence --policy dual_metric      --seed 43 --resume
-```
-```bash
-!python main.py --model efficientnet_b4 --uncertainty entropy          --policy uncertainty_only --seed 43 --resume
-!python main.py --model efficientnet_b4 --uncertainty entropy          --policy dual_metric      --seed 43 --resume
-!python main.py --model efficientnet_b4 --uncertainty margin           --policy uncertainty_only --seed 43 --resume
-!python main.py --model efficientnet_b4 --uncertainty margin           --policy dual_metric      --seed 43 --resume
-!python main.py --model efficientnet_b4 --uncertainty least_confidence --policy uncertainty_only --seed 43 --resume
-!python main.py --model efficientnet_b4 --uncertainty least_confidence --policy dual_metric      --seed 43 --resume
-```
-
-> ⚠️ **`--seed 43` must be in the command AND `TRAINING_SEED = 43` in the setup cell.** They must agree. Results land in folders ending `_s43`, so your original 24 are never touched.
+Dropped by the supervisor's decision to use seed 42 throughout. No commands needed here. If it is ever revisited, every command is the same as a normal run with `--seed 43` appended, and `TRAINING_SEED = 43` set in the setup cell so the two agree.
 
 ---
 
@@ -402,10 +364,11 @@ You never work out which round to resume from — the code finds it.
 
 # PART 6 — What order to do it in
 
-1. **Job A, ResNet-50 block** (4 runs, ~13 h). Fastest model. Gets one complete backbone of baseline results, which is enough to start writing the comparison section.
-2. **Job A, remaining 8 runs** (~26 h).
-3. **Job B, seed 43** (18 runs, ~52 h).
-4. **Job B, seed 44** (18 runs, ~52 h).
+1. **The two CPU jobs first** (~1 hour, no GPU): the EfficientNet-B4 noise diagnostic and the missing JPEG corruption pass. Both close real gaps and cost nothing. See `COMMANDS.md` section 2.
+2. **Job A, ResNet-50 block** (4 runs, ~13 h). Fastest model, and one complete backbone is enough to start writing the comparison section.
+3. **Job A, DenseNet-169 block** (4 runs, ~13 h).
+4. **Job A, EfficientNet-B4 block** (4 runs, ~13 h).
+5. **Regenerate all analyses**, then rebuild the manifest.
 
 If time runs short, **drop VAAL first** — it is the most expensive and the least commonly demanded. CoreSet + BADGE + CLUE across all three models is 9 runs and covers what reviewers expect. **Never drop BADGE** — it is *the* reference point in this literature and its absence would be noticed immediately.
 
@@ -423,4 +386,4 @@ Open `results/experiments/<name>/results.csv` on Drive. **15 rows = complete.** 
 
 ## The one-paragraph version
 
-Open Colab, turn on the T4 GPU, paste `setup_cell.py` into the first cell with `TRAINING_SEED` set to whichever seed you want, run it and allow Drive access, then paste one `!python main.py ...` command per cell and wait about three hours each. There are **48 runs left**: 12 baselines at seed 42, and 36 replication runs at seeds 43 and 44. If anything disconnects, re-run the setup cell and paste the same command again — you never lose more than the round in progress.
+Open Colab, turn on the T4 GPU, paste `setup_cell.py` into the first cell (leave `TRAINING_SEED = 42`), run it and allow Drive access, then paste one `!python main.py ...` command per cell and wait about three hours each. There are **12 runs left** — the four baselines across three models, about 40 GPU-hours. If anything disconnects, re-run the setup cell and paste the same command again; you never lose more than the round in progress. Every command is in `COMMANDS.md`.

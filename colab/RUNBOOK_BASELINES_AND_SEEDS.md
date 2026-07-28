@@ -1,4 +1,6 @@
-# Runbook — Baseline Comparison and Multi-Seed Replication
+# Runbook — Baseline Comparison
+
+*(The multi-seed replication in section 4 is not being run — seed 42 throughout.)*
 
 Everything needed to run the next phase of experiments on Colab. The
 original 24-experiment matrix is in `RUNBOOK_ORIGINAL_MATRIX.md`; this file
@@ -143,12 +145,25 @@ results/experiments/resnet50_baseline_badge/
 
 ---
 
-## 4. The multi-seed replication
+## 4. The multi-seed replication — NOT being run
 
-This is the more important of the two jobs. Every number in the paper
-currently comes from one run at seed 42, so we have no estimate of our own
-run-to-run noise — and the significance test we report is over
-*configurations*, not repeats, which a reviewer will notice.
+**Superseded: the supervisor's decision is seed 42 for everything.** Nothing
+in this section needs doing. It is kept as a record of the design, in case the
+question returns during review.
+
+What the decision means for the paper, stated once: with a single seed there
+is no estimate of run-to-run noise, so we cannot separate the size of an
+effect from luck. The *direction* of the headline safety result is still
+guaranteed regardless — Proposition 1 proves the dual-metric escalation set
+always contains the baseline's, so unsafe auto-accepts cannot increase, which
+is why the result was 24/24 with no exceptions. The **magnitudes** (43%
+reduction, +382 labels, +0.60 pp accuracy) are not protected. Name the
+single-seed design plainly in Limitations rather than let a reviewer find it.
+
+The `--seed` flag still works and writes to separate `_s<seed>` folders, so
+turning this on later cannot disturb the existing 24 experiments.
+
+The rest of this section is the design as it stood.
 
 ### One trap to know about first
 
@@ -312,24 +327,14 @@ previous account finished.
 
 ### Two things worth doing before starting
 
-**1. Check free space.** This is the one thing that can actually bite.
-
-| | Size |
-|---|---|
-| Already on Drive (dataset zip + 24 runs) | ~5 GB |
-| 12 baseline runs | ~1.2 GB |
-| 36 multi-seed runs | ~3.5 GB |
-| **After everything** | **~10 GB** |
-
-A free Google account has 15 GB **shared across Drive, Gmail and Photos**, so
-10 GB of research data is close enough to the ceiling to matter. Check the
-usage bar at drive.google.com before starting, and if it is tight, the
-cheapest fix is to move the 24 completed `checkpoints/` folders into a
-separate archive folder — nothing in the new runs reads them.
+**1. Storage — not a concern.** The Drive account has **5 TB**, with about
+83 GB used. The remaining runs add roughly 1.2 GB (12 baselines, one
+final-round checkpoint each at 54-97 MB, plus per-round CSVs). There is no
+need to move, archive or delete anything.
 
 Only the **final** round's checkpoint survives per experiment; the loop
-deletes each previous round as it goes. So the per-run cost is one model
-file (54–97 MB), not fifteen.
+deletes each previous round as it goes. So the cost is one model file per
+run, not fifteen.
 
 **2. Confirm Drive and the laptop agree.** The Drive copy and the local copy
 of `results/` should be identical. From the repository:
