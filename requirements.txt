@@ -1,0 +1,29 @@
+# Risk-Aware Active Learning — dependencies
+#
+# Lower bounds rather than exact pins, deliberately: the experiments run on
+# Google Colab, whose preinstalled PyTorch is updated without notice, and
+# hard-pinning would mean fighting the platform on every session. Nothing
+# here uses an API that changed within the ranges below.
+#
+# The EXACT versions used by any given run are recorded at run time in that
+# experiment's environment.json (see tools/provenance.py) -- that file, not
+# this one, is the reproducibility record.
+#
+# Install:  pip install -r requirements.txt
+# On Colab: torch, torchvision, numpy, pandas, scikit-learn, scipy,
+#           matplotlib, seaborn, pillow and tqdm are already present; only
+#           the absent ones will actually be fetched.
+
+torch>=2.0.0
+torchvision>=0.15.0
+
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+scikit-learn>=1.3.0          # train/test split; KMeans for the CLUE baseline
+
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+pillow>=9.5.0                # image loading and the robustness corruptions
+tqdm>=4.65.0

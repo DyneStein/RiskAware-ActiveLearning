@@ -16,7 +16,7 @@ from sklearn.model_selection import train_test_split
 
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-from config import RANDOM_SEED, TEST_SPLIT_RATIO
+from config import SPLIT_SEED, TEST_SPLIT_RATIO
 
 
 class PoolManager:
@@ -35,11 +35,17 @@ class PoolManager:
     test_ratio : float
         Fraction of remaining data to hold out as test set.
     random_seed : int
-        Random seed for reproducible train/test split.
+        Seed for the train/test split ONLY. Defaults to config.SPLIT_SEED,
+        which is frozen at 42 permanently and is deliberately NOT the same
+        constant as config.RANDOM_SEED (the per-run training seed). The
+        test set must stay byte-identical across every run and every seed,
+        otherwise multi-seed results become incomparable and the
+        image-level paired test loses its pairing. Do not wire the
+        training seed into this argument.
     """
 
     def __init__(self, seed_csv, remaining_csv,
-                 test_ratio=TEST_SPLIT_RATIO, random_seed=RANDOM_SEED):
+                 test_ratio=TEST_SPLIT_RATIO, random_seed=SPLIT_SEED):
 
         self.seed_df = pd.read_csv(seed_csv)
         remaining_df = pd.read_csv(remaining_csv)

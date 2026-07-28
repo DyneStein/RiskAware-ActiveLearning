@@ -24,16 +24,29 @@ from config import (
     MODELS, UNCERTAINTY_METHODS, AL_ROUNDS,
     SEED_METADATA_CSV, POOL_METADATA_CSV, SEED_DATA_DIR,
     POOL_IMAGES_DIR, RESULTS_DIR, EXPERIMENTS_DIR, LOGS_DIR, PLOTS_DIR,
-    RANDOM_SEED, RISK_THRESHOLD, USE_DYNAMIC_CLASS_WEIGHTS,
+    RANDOM_SEED, SPLIT_SEED, RISK_THRESHOLD, USE_DYNAMIC_CLASS_WEIGHTS,
     QUERY_BUDGET_PER_ROUND, ensure_dirs,
 )
 from data.pool_manager import PoolManager
 from active_learning.al_loop import run_experiment, build_experiment_id
 from evaluation.visualization import generate_all_plots
+from active_learning.baselines import STRATEGIES as BASELINE_STRATEGIES
+from tools.provenance import write_environment_record
 
 
 def set_seed(seed=RANDOM_SEED):
-    """Set random seed for reproducibility."""
+    """
+    Set the training seed for reproducibility.
+
+    This covers weight initialisation, minibatch order, augmentation and
+    dropout. It does NOT touch the train/test split, which is governed
+    separately by config.SPLIT_SEED so that the held-out test set stays
+    byte-identical no matter which training seed is used.
+
+    The AL loop additionally re-seeds at the start of every round (see
+    active_learning.al_loop.set_round_seed), so that a run resumed from a
+    checkpoint reproduces an uninterrupted one.
+    """
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -41,7 +54,7 @@ def set_seed(seed=RANDOM_SEED):
         torch.cuda.manual_seed_all(seed)
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
-    print(f"Random seed set to {seed}")
+    print(f"Training seed set to {seed} (test split fixed at SPLIT_SEED={SPLIT_SEED})")
 
 
 def get_image_dirs():
@@ -64,16 +77,34 @@ def get_image_dirs():
 def run_single_experiment(model_name, uncertainty_method, policy_name,
                           num_rounds=AL_ROUNDS, resume=False,
                           risk_threshold=None, use_dynamic_weights=None,
-                          query_budget=None):
+                          query_budget=None, seed=None):
     """Run a single experiment with fresh pool manager."""
-    set_seed()
+    effective_seed = seed if seed is not None else RANDOM_SEED
+    set_seed(effective_seed)
     ensure_dirs()
     image_dirs = get_image_dirs()
 
-    # Fresh pool manager for each experiment
+    # Fresh pool manager for each experiment. random_seed is passed
+    # EXPLICITLY as SPLIT_SEED, never as the training seed: the held-out
+    # test set must stay byte-identical across every seed, otherwise
+    # multi-seed runs are not comparable to one another or to the original
+    # 24 experiments, and the image-level paired test loses its pairing.
     pool_manager = PoolManager(
         seed_csv=SEED_METADATA_CSV,
         remaining_csv=POOL_METADATA_CSV,
+        random_seed=SPLIT_SEED,
+    )
+
+    experiment_id = build_experiment_id(
+        model_name, uncertainty_method, policy_name, risk_threshold,
+        use_dynamic_weights if use_dynamic_weights is not None
+        else USE_DYNAMIC_CLASS_WEIGHTS,
+        query_budget, effective_seed,
+    )
+    write_environment_record(
+        os.path.join(EXPERIMENTS_DIR, experiment_id),
+        experiment_id=experiment_id, seed=effective_seed,
+        split_seed=SPLIT_SEED,
     )
 
     results = run_experiment(
@@ -87,17 +118,114 @@ def run_single_experiment(model_name, uncertainty_method, policy_name,
         risk_threshold=risk_threshold,
         use_dynamic_weights=use_dynamic_weights,
         query_budget=query_budget,
+        seed=effective_seed,
     )
 
     return results
 
 
+def run_baseline_experiment(model_name, strategy, num_rounds=AL_ROUNDS,
+                            resume=False, query_budget=None, seed=None):
+    """
+    Run one baseline acquisition strategy (CoreSet / BADGE / CLUE / VAAL).
+
+    The uncertainty method is pinned to 'entropy' because none of the four
+    baselines uses one for selection — entropy is simply the cheapest
+    scorer, and the pool is still scored every round so that the logged
+    per-round CSVs have the same columns as every other experiment and
+    remain readable by the whole rigor layer. The policy argument is
+    likewise inert; `strategy` overrides step 4 entirely.
+    """
+    effective_seed = seed if seed is not None else RANDOM_SEED
+    set_seed(effective_seed)
+    ensure_dirs()
+    image_dirs = get_image_dirs()
+
+    pool_manager = PoolManager(
+        seed_csv=SEED_METADATA_CSV,
+        remaining_csv=POOL_METADATA_CSV,
+        random_seed=SPLIT_SEED,
+    )
+
+    experiment_id = build_experiment_id(
+        model_name, 'entropy', 'baseline', None,
+        USE_DYNAMIC_CLASS_WEIGHTS, query_budget, effective_seed, strategy,
+    )
+    write_environment_record(
+        os.path.join(EXPERIMENTS_DIR, experiment_id),
+        experiment_id=experiment_id, seed=effective_seed,
+        split_seed=SPLIT_SEED, strategy=strategy,
+    )
+
+    return run_experiment(
+        model_name=model_name,
+        uncertainty_method='entropy',
+        policy_name='baseline',
+        pool_manager=pool_manager,
+        image_dirs=image_dirs,
+        num_rounds=num_rounds,
+        resume=resume,
+        query_budget=query_budget,
+        seed=effective_seed,
+        strategy=strategy,
+    )
+
+
+def run_all_baselines(num_rounds=AL_ROUNDS, resume=False, seed=None,
+                      models=None, strategies=None):
+    """
+    Run the full baseline comparison: 3 backbones x 4 strategies = 12 runs.
+
+    Not 96. The 24-experiment matrix multiplies backbones by uncertainty
+    methods by policies, but a baseline replaces the selection step
+    entirely — it has no uncertainty dial and no policy dial, because it
+    IS the policy. See active_learning/baselines/__init__.py.
+    """
+    models = models or MODELS
+    strategies = strategies or list(BASELINE_STRATEGIES)
+    effective_seed = seed if seed is not None else RANDOM_SEED
+
+    all_results = []
+    total = len(models) * len(strategies)
+    current = 0
+
+    for model in models:
+        for strategy in strategies:
+            current += 1
+            experiment_id = build_experiment_id(
+                model, 'entropy', 'baseline', None,
+                USE_DYNAMIC_CLASS_WEIGHTS, None, effective_seed, strategy,
+            )
+            done_path = os.path.join(EXPERIMENTS_DIR, experiment_id, "full.json")
+            if resume and os.path.exists(done_path):
+                print(f"\n# Baseline {current}/{total} — SKIPPING (complete): "
+                      f"{experiment_id}")
+                with open(done_path, 'r') as f:
+                    all_results.append(json.load(f))
+                continue
+
+            print(f"\n{'#'*70}")
+            print(f"# Baseline {current}/{total}: {experiment_id}")
+            print(f"{'#'*70}")
+            all_results.append(run_baseline_experiment(
+                model_name=model, strategy=strategy, num_rounds=num_rounds,
+                resume=resume, seed=effective_seed,
+            ))
+
+    combined_path = os.path.join(LOGS_DIR, 'all_baselines.json')
+    with open(combined_path, 'w') as f:
+        json.dump(all_results, f, indent=2, default=str)
+    print(f"\nBaseline results saved to: {combined_path}")
+    return all_results
+
+
 def run_all_experiments(num_rounds=AL_ROUNDS, resume=False,
                         risk_threshold=None, use_dynamic_weights=None,
-                        query_budget=None):
+                        query_budget=None, seed=None):
     """Run all 24 experiments (3 models × 4 uncertainty × 2 policies)."""
     policies = ['uncertainty_only', 'dual_metric']
     all_results = []
+    effective_seed = seed if seed is not None else RANDOM_SEED
 
     total = len(MODELS) * len(UNCERTAINTY_METHODS) * len(policies)
     current = 0
@@ -113,7 +241,7 @@ def run_all_experiments(num_rounds=AL_ROUNDS, resume=False,
                 current += 1
                 experiment_id = build_experiment_id(
                     model, unc, policy, risk_threshold,
-                    effective_dynamic_weights, query_budget,
+                    effective_dynamic_weights, query_budget, effective_seed,
                 )
 
                 # Skip experiments that are already fully complete
@@ -140,6 +268,7 @@ def run_all_experiments(num_rounds=AL_ROUNDS, resume=False,
                     risk_threshold=risk_threshold,
                     use_dynamic_weights=use_dynamic_weights,
                     query_budget=query_budget,
+                    seed=effective_seed,
                 )
                 all_results.append(results)
 
@@ -226,6 +355,33 @@ def main():
                              'above the recalibrated threshold is still '
                              'escalated even past K — this only sets a '
                              'floor, not a ceiling.')
+    parser.add_argument('--seed', type=int, default=None,
+                        help='Training seed: weight initialisation, batch '
+                             'order, augmentation, dropout. Default: '
+                             f'{RANDOM_SEED} (config.RANDOM_SEED), which is '
+                             'what all 24 original experiments used. Any '
+                             'other value writes to a separate '
+                             '"<experiment_id>_s<seed>" folder, so seeds can '
+                             'never overwrite each other. The train/test '
+                             'split is NOT affected — it is fixed by '
+                             f'config.SPLIT_SEED={SPLIT_SEED} so every run '
+                             'is evaluated on the identical test set.')
+    parser.add_argument('--strategy', type=str, default=None,
+                        choices=list(BASELINE_STRATEGIES),
+                        help='Run a recent active-learning BASELINE instead '
+                             'of our escalation policy. Replaces the '
+                             'selection step entirely; --uncertainty and '
+                             '--policy are ignored. Each round it is given '
+                             'exactly the number of labels dual-metric spent '
+                             'in that round on the same backbone, so the '
+                             'comparison is cost-matched — which requires '
+                             '<model>_entropy_dual_metric to have finished '
+                             'first.')
+    parser.add_argument('--run-baselines', action='store_true',
+                        help='Run the full baseline comparison: 3 backbones '
+                             f'x {len(BASELINE_STRATEGIES)} strategies = '
+                             f'{3 * len(BASELINE_STRATEGIES)} runs (NOT 96 — '
+                             'baselines have no uncertainty or policy dial).')
 
     args = parser.parse_args()
 
@@ -238,6 +394,21 @@ def main():
 
     if args.plot_only:
         load_and_plot()
+    elif args.run_baselines:
+        run_all_baselines(
+            num_rounds=args.rounds,
+            resume=args.resume,
+            seed=args.seed,
+        )
+    elif args.strategy is not None:
+        run_baseline_experiment(
+            model_name=args.model,
+            strategy=args.strategy,
+            num_rounds=args.rounds,
+            resume=args.resume,
+            query_budget=args.query_budget,
+            seed=args.seed,
+        )
     elif args.run_all:
         run_all_experiments(
             num_rounds=args.rounds,
@@ -245,6 +416,7 @@ def main():
             risk_threshold=args.risk_threshold,
             use_dynamic_weights=use_dynamic_weights,
             query_budget=args.query_budget,
+            seed=args.seed,
         )
     else:
         run_single_experiment(
@@ -256,6 +428,7 @@ def main():
             risk_threshold=args.risk_threshold,
             use_dynamic_weights=use_dynamic_weights,
             query_budget=args.query_budget,
+            seed=args.seed,
         )
 
 

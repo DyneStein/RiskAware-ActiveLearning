@@ -111,6 +111,24 @@ RISK_THRESHOLD = 0.3         # Fallback only — normally overridden by calibrat
 # ---------------------------------------------------------------------------
 # Reproducibility
 # ---------------------------------------------------------------------------
+# TWO seeds, with deliberately different jobs. Do not merge them.
+#
+# SPLIT_SEED decides WHICH images form the held-out test set. It is frozen
+# permanently at 42 and must never be varied. Every experiment ever run --
+# past, present, and every future seed -- evaluates on the byte-identical
+# 1,905-image test set. That is what makes the image-level paired McNemar
+# test in evaluation/rigor/statistics.py valid: it compares two policies
+# image by image on the same patients. Varying it would silently make runs
+# incomparable and would confound training noise with test-set difficulty
+# (with only ~9 'df' images in the whole test set, a reshuffle moves
+# per-class metrics for reasons unrelated to the method).
+SPLIT_SEED = 42
+# RANDOM_SEED controls everything else that is random inside a run: weight
+# initialisation, minibatch order, augmentation draws, and dropout masks.
+# This is the one to vary for multi-seed replication (--seed on the command
+# line). Runs with a seed other than the baseline 42 get an "_s<seed>"
+# suffix on their experiment_id so they can never overwrite each other --
+# see active_learning/al_loop.py build_experiment_id().
 RANDOM_SEED = 42
 
 

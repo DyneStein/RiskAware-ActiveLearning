@@ -19,6 +19,7 @@ The ONLY difference is step 4 — the escalation decision logic.
 import os
 import time
 import json
+import random
 import numpy as np
 import pandas as pd
 import torch
@@ -33,6 +34,7 @@ from config import (
     IMAGE_SIZE, MC_DROPOUT_PASSES, NUM_WORKERS,
     RISK_THRESHOLD, USE_DYNAMIC_CLASS_WEIGHTS, QUERY_BUDGET_PER_ROUND,
     CHECKPOINTS_DIR, EXPERIMENTS_DIR, LOGS_DIR, PLOTS_DIR, CLASS_NAMES,
+    RANDOM_SEED,
 )
 from constants import HIGH_RISK_CLASSES
 from data.dataset import HAM10000Dataset
@@ -50,7 +52,7 @@ import glob
 
 def build_experiment_id(model_name, uncertainty_method, policy_name,
                          manual_risk_threshold=None, use_dynamic_weights=True,
-                         query_budget=None):
+                         query_budget=None, seed=None, strategy=None):
     """
     Build the canonical experiment_id string, including suffixes for any
     non-default settings so different configurations never collide on disk.
@@ -59,7 +61,26 @@ def build_experiment_id(model_name, uncertainty_method, policy_name,
 
     Weighted training is the default (see config.USE_DYNAMIC_CLASS_WEIGHTS),
     so the suffix marks the unweighted ablation case, not the default.
+
+    The seed suffix matters more than the others: without it, a second seed
+    would write into the first seed's folder and either resume from its
+    checkpoint (silently splicing two runs together) or overwrite its
+    results.csv, full.json and pool_predictions/ outright. Seed 42 is the
+    baseline every existing experiment used, so it deliberately gets NO
+    suffix -- all 24 completed runs keep the exact folder names every
+    downstream analysis script already expects, and only new seeds are
+    marked.
     """
+    if strategy is not None:
+        # A baseline acquisition strategy replaces the escalation policy
+        # entirely, and does not use an uncertainty method for selection,
+        # so neither belongs in its name. "<model>_baseline_<strategy>"
+        # is what evaluation/rigor/paths.py parses back out.
+        experiment_id = f"{model_name}_baseline_{strategy}"
+        if seed is not None and seed != RANDOM_SEED:
+            experiment_id += f"_s{seed}"
+        return experiment_id
+
     experiment_id = f"{model_name}_{uncertainty_method}_{policy_name}"
     if manual_risk_threshold is not None and manual_risk_threshold != RISK_THRESHOLD:
         experiment_id += f"_rt{manual_risk_threshold}"
@@ -67,7 +88,52 @@ def build_experiment_id(model_name, uncertainty_method, policy_name,
         experiment_id += f"_k{query_budget}"
     if not use_dynamic_weights:
         experiment_id += "_noweights"
+    if seed is not None and seed != RANDOM_SEED:
+        experiment_id += f"_s{seed}"
     return experiment_id
+
+
+def set_round_seed(base_seed, round_num):
+    """
+    Re-seed every RNG at the start of each round, deterministically, from
+    the run's base seed and the round number.
+
+    Why per-round and not once per process: a run that is stopped and
+    resumed (which every Colab run is, repeatedly) reloads a checkpoint and
+    jumps straight to round N+1 -- but its RNG has just been re-initialised
+    to the round-1 state, so the shuffle order and augmentations in round
+    N+1 differ from an uninterrupted run that arrived there naturally.
+    Seeding from (base_seed, round_num) makes each round's randomness
+    depend only on which round it is, so a resumed run reproduces an
+    uninterrupted one exactly.
+
+    Returns a torch.Generator pinned to this round, to be handed to the
+    training DataLoader so its shuffle order is also independent of
+    whatever global RNG state happens to exist when it is constructed.
+    """
+    round_seed = base_seed * 1000 + round_num
+    random.seed(round_seed)
+    np.random.seed(round_seed)
+    torch.manual_seed(round_seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(round_seed)
+    generator = torch.Generator()
+    generator.manual_seed(round_seed)
+    return generator
+
+
+def _seed_worker(worker_id):
+    """
+    Seed Python's and NumPy's RNGs inside each DataLoader worker process.
+
+    PyTorch seeds only its own RNG per worker. Any transform reaching for
+    `random` or `np.random` would otherwise draw from an unseeded state in
+    the worker, making augmentation non-reproducible however carefully the
+    parent process was seeded.
+    """
+    worker_seed = torch.initial_seed() % 2 ** 32
+    np.random.seed(worker_seed)
+    random.seed(worker_seed)
 
 
 def compute_class_weights(labeled_df):
@@ -330,6 +396,8 @@ def run_experiment(
     risk_threshold=None,
     use_dynamic_weights=None,
     query_budget=None,
+    seed=None,
+    strategy=None,
 ):
     """
     Run a full active learning experiment.
@@ -368,6 +436,20 @@ def run_experiment(
         Top-K most-uncertain images escalated per round, at minimum (see
         escalation/uncertainty_only.py, escalation/dual_metric.py). If
         None, uses config.QUERY_BUDGET_PER_ROUND.
+    seed : int, optional
+        Training seed for this run (weight init, batch order,
+        augmentation, dropout). Defaults to config.RANDOM_SEED. Any value
+        other than the 42 baseline adds an "_s<seed>" suffix to
+        experiment_id so seeds cannot overwrite one another. Note this is
+        NOT the test-split seed -- that is config.SPLIT_SEED, frozen
+        permanently, so the test set is identical across every seed.
+    strategy : str, optional
+        Name of a baseline acquisition strategy ('coreset', 'badge',
+        'clue', 'vaal'). When given, it REPLACES the escalation policy:
+        step 4 selects a cost-matched batch using that strategy instead
+        of applying uncertainty/risk thresholds. `policy_name` and
+        `uncertainty_method` are then recorded for the log only and play
+        no part in selection. See active_learning/baselines/.
 
     Returns
     -------
@@ -380,12 +462,33 @@ def run_experiment(
     effective_query_budget = (
         query_budget if query_budget is not None else QUERY_BUDGET_PER_ROUND
     )
+    effective_seed = seed if seed is not None else RANDOM_SEED
 
     if experiment_id is None:
         experiment_id = build_experiment_id(
             model_name, uncertainty_method, policy_name,
             manual_risk_threshold, use_dynamic_weights, query_budget,
+            effective_seed, strategy,
         )
+
+    # --- Baseline setup: resolve the cost-matched budget schedule up
+    # front, so a missing reference run fails immediately instead of
+    # three hours into training. ---
+    matched_budgets, budget_source = None, None
+    if strategy is not None:
+        from active_learning.baselines import load_matched_budgets, STRATEGY_LABELS
+        if strategy not in STRATEGY_LABELS:
+            raise ValueError(f"Unknown strategy '{strategy}'")
+        if query_budget is not None:
+            # An explicit budget overrides cost-matching. Legitimate for a
+            # sensitivity check, but it must not be described as
+            # cost-matched afterwards, so it is labelled differently.
+            matched_budgets = [query_budget] * num_rounds
+            budget_source = f"fixed budget of {query_budget}/round (NOT cost-matched)"
+        else:
+            matched_budgets, budget_source = load_matched_budgets(
+                model_name, num_rounds
+            )
 
     # Everything specific to this experiment (results, raw predictions, and
     # this experiment's own plots) lives in one folder, populated
@@ -399,6 +502,12 @@ def run_experiment(
     print(f"\n{'='*70}")
     print(f"EXPERIMENT: {experiment_id}")
     print(f"  Model: {model_name}")
+    if strategy is not None:
+        from active_learning.baselines import STRATEGY_LABELS
+        print(f"  Selection: {STRATEGY_LABELS[strategy]}  [BASELINE]")
+        print(f"  Budget: {budget_source}")
+        print(f"  Uncertainty/risk are still scored and logged every round "
+              f"for the record, but do NOT drive selection here.")
     print(f"  Uncertainty: {uncertainty_method}")
     print(f"  Policy: {policy_name}")
     print(f"  Uncertainty Threshold: recalibrated every round (90th percentile)")
@@ -406,6 +515,7 @@ def run_experiment(
     print(f"  Risk Threshold: "
           f"{'MANUAL override = ' + str(manual_risk_threshold) if manual_risk_threshold is not None else 'recalibrated every round (90th percentile), uncapped'}")
     print(f"  Dynamic Class Weights: {use_dynamic_weights}")
+    print(f"  Training seed: {effective_seed} (test split is fixed at SPLIT_SEED, independent)")
     print(f"  Rounds: {num_rounds}")
     print(f"{'='*70}\n")
 
@@ -447,6 +557,12 @@ def run_experiment(
         round_start = time.time()
         print(f"\n--- Round {round_num}/{num_rounds} ---")
 
+        # Re-seed deterministically from (run seed, round number) so a
+        # resumed run behaves identically to an uninterrupted one -- see
+        # set_round_seed(). The returned generator pins the training
+        # loader's shuffle order to this round specifically.
+        round_generator = set_round_seed(effective_seed, round_num)
+
         # 1. Get current labeled and unlabeled data
         labeled_df = pool_manager.get_labeled()
         unlabeled_df = pool_manager.get_unlabeled()
@@ -466,7 +582,8 @@ def run_experiment(
         )
         train_loader = DataLoader(
             train_dataset, batch_size=BATCH_SIZE, shuffle=True,
-            num_workers=NUM_WORKERS, pin_memory=True
+            num_workers=NUM_WORKERS, pin_memory=True,
+            generator=round_generator, worker_init_fn=_seed_worker,
         )
         class_weights = (
             compute_class_weights(labeled_df) if use_dynamic_weights else None
@@ -510,8 +627,41 @@ def run_experiment(
             model, pool_dataset, uncertainty_method
         )
 
-        # 4. Apply escalation policy
-        if policy_name == 'uncertainty_only':
+        # 4. Decide which images to query.
+        #
+        # A baseline acquisition strategy replaces this step wholesale. It
+        # picks exactly `matched_budgets[round_num - 1]` images -- the same
+        # number the dual-metric policy spent in this round on this
+        # backbone -- so both consume an identical annotation budget on an
+        # identical schedule and only the CHOICE of images differs.
+        #
+        # Everything downstream is unchanged: an image that was not
+        # selected is an image that was auto-accepted, so
+        # `unsafe_auto_accepts` counts the same thing it always did, and
+        # the safety comparison is like-for-like.
+        if strategy is not None:
+            from active_learning.baselines import select_batch
+
+            round_budget = matched_budgets[round_num - 1]
+            labeled_eval_dataset = HAM10000Dataset(
+                labeled_df, image_dirs, transform=get_eval_transforms(IMAGE_SIZE)
+            )
+            selected = select_batch(
+                strategy, round_budget,
+                model=model,
+                labeled_dataset=labeled_eval_dataset,
+                unlabeled_dataset=pool_dataset,
+                rng=np.random.default_rng(effective_seed * 1000 + round_num),
+                batch_size=BATCH_SIZE,
+                num_workers=NUM_WORKERS,
+            )
+
+            escalate_idx = np.asarray(selected, dtype=int)
+            decisions = np.array(['auto_accept'] * len(unc_scores))
+            decisions[escalate_idx] = 'escalate'
+            auto_accept_idx = np.where(decisions == 'auto_accept')[0]
+            categories = np.array([f'baseline_{strategy}'] * len(decisions))
+        elif policy_name == 'uncertainty_only':
             decisions, escalate_idx, auto_accept_idx = uncertainty_only.decide(
                 unc_scores, effective_unc_threshold, effective_query_budget
             )
@@ -542,8 +692,11 @@ def run_experiment(
             index=False
         )
 
-        # Plot 2x2 scatter for first and last round
-        if policy_name == 'dual_metric' and (round_num == 1 or round_num == num_rounds):
+        # Plot 2x2 scatter for first and last round. Skipped for baselines:
+        # the thresholds it draws played no part in their selection, so the
+        # plot would imply a decision rule that was never applied.
+        if (strategy is None and policy_name == 'dual_metric'
+                and (round_num == 1 or round_num == num_rounds)):
             from evaluation.visualization import plot_uncertainty_vs_risk_scatter
             plot_uncertainty_vs_risk_scatter(
                 unc_scores, risk_scores, pool_true_labels,
@@ -613,6 +766,11 @@ def run_experiment(
             'risk_threshold_used': effective_risk_threshold,
             'query_budget_used': effective_query_budget,
             'use_dynamic_weights': use_dynamic_weights,
+            'seed': effective_seed,
+            'strategy': strategy if strategy is not None else 'none',
+            'matched_budget_this_round': (
+                matched_budgets[round_num - 1] if matched_budgets else None
+            ),
             **metrics,
         }
         round_results.append(round_data)
@@ -656,6 +814,9 @@ def run_experiment(
             'manual_risk_threshold': manual_risk_threshold,
             'query_budget': effective_query_budget,
             'use_dynamic_weights': use_dynamic_weights,
+            'seed': effective_seed,
+            'strategy': strategy,
+            'budget_source': budget_source,
             'round_results': round_results,
         }
         with open(os.path.join(round_ckpt_dir, "meta.json"), 'w') as f:
@@ -683,7 +844,10 @@ def run_experiment(
         'experiment_id': experiment_id,
         'model': model_name,
         'uncertainty_method': uncertainty_method,
-        'policy': policy_name,
+        'policy': 'baseline' if strategy is not None else policy_name,
+        'strategy': strategy,
+        'budget_source': budget_source,
+        'seed': effective_seed,
         'rounds': round_results,
     }
 

@@ -1,0 +1,40 @@
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# --- OS -------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Model checkpoints ----------------------------------------------------
+# 1.8 GB across 24 experiments (54-97 MB each). GitHub warns above 50 MB per
+# file and rejects above 100 MB, and keeping them in normal git history would
+# make the repository painful to clone for no benefit -- they are binary, so
+# every version is stored in full.
+#
+# They ARE tracked, just not here: their SHA-256 checksums and sizes are
+# recorded in MANIFEST.csv (committed), and the files themselves are published
+# as GitHub Release assets and mirrored to Zenodo at submission. See
+# docs/DATA_AND_ARTIFACTS.md for how to fetch them.
+results/checkpoints/
+*.pt
+*.pth
+
+# --- Dataset --------------------------------------------------------------
+# HAM10000 is ~2.8 GB and is licensed CC BY-NC-SA 4.0, which is incompatible
+# with this repository's MIT licence. It is a public dataset -- see
+# docs/DATA_AND_ARTIFACTS.md for the download instructions and the checksums
+# that verify you have the same copy we used.
+archive/
+*.zip
+HAM10000_images_part_*/
+
+# --- Scratch --------------------------------------------------------------
+scratch/
+tmp/
+*.log

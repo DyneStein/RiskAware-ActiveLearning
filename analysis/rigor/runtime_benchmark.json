@@ -1,0 +1,31 @@
+{
+  "device": "cpu",
+  "batch_size": 32,
+  "n_batches": 6,
+  "torch_threads": 8,
+  "models": {
+    "efficientnet_b4": {
+      "ms_per_image_inference": 115.12887343750815,
+      "ms_per_image_mc_dropout": 3368.8799187500535,
+      "ms_per_image_train_step": 584.3316182291574,
+      "train_to_inference_ratio": 5.075456753655564
+    },
+    "resnet50": {
+      "ms_per_image_inference": 132.62593750001392,
+      "ms_per_image_mc_dropout": 4004.4800281250446,
+      "ms_per_image_train_step": 423.79913333335634,
+      "train_to_inference_ratio": 3.1954468433696226
+    },
+    "densenet169": {
+      "ms_per_image_inference": 145.59237604169084,
+      "ms_per_image_mc_dropout": 4377.014881250034,
+      "ms_per_image_train_step": 522.6680942708223,
+      "train_to_inference_ratio": 3.5899413724874893
+    }
+  },
+  "policy": {
+    "pool_size": 6000,
+    "dual_metric_ms_per_call": 8.697094499984814,
+    "uncertainty_only_ms_per_call": 4.841901500003587
+  }
+}

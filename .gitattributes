@@ -1,0 +1,16 @@
+# Disable all end-of-line conversion.
+#
+# Git's default on Windows rewrites LF to CRLF on checkout. That would mean
+# a file's bytes on disk differ from its bytes in the repository, which
+# breaks two things here:
+#
+#   1. MANIFEST.csv records a SHA-256 for every artefact. With EOL
+#      conversion on, a fresh clone would compute a different checksum for
+#      every text file, and `--verify` would report the whole project as
+#      modified when nothing had changed.
+#   2. The 800+ per-round prediction CSVs would be rewritten on every
+#      checkout, making them slow to stage and noisy to diff.
+#
+# Keeping bytes identical everywhere costs nothing — every tool in this
+# project reads LF fine on Windows.
+* -text
