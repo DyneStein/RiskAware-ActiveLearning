@@ -1,26 +1,43 @@
 # What is still missing
 
-An honest list. Three items need compute or a download; the rest are writing and drawing tasks.
+An honest list. **No GPU work remains.** One item needs a download; the rest are writing and
+drawing tasks.
 
 ---
 
-## Needs compute or a download
+## Closed since the last revision
 
-### 1. Multi-seed replication — **the biggest gap**
+| Item | Outcome |
+|---|---|
+| **Comparison against published methods** | **Done.** CoreSet, BADGE, CLUE, VAAL × 3 backbones = 12 runs, 15/15 rounds each, cost-matched exactly. Unsafe auto-accepts fell in 15/15 comparisons by 25.6–60.8%. See `../COMPARISON/`. |
+| **JPEG corruption** | **Done.** 90.5% of accuracy and 94.3% of risk-head AUROC retained; melanoma recall 0.702 → 0.472. |
+| **EfficientNet-B4 noise collapse** | **Explained.** A progressive collapse specific to additive noise; the majority prediction flips from `nv` to `df` and 99.1% of the test set is labelled `df` by σ=0.05. Reportable as a finding. |
+| **Rare-class AUC intervals** | **Diagnosed.** The narrow CIs on `df` (n=9) and `vasc` (n=14) are a ceiling artifact — 31% / 17% of bootstrap replicates return AUC exactly 1.000. Do not quote them. |
+| **Pool-vs-test framing** | **Fixed** across the abstract, key numbers, claims map, outline, limitations and findings. See `POOL_VS_TEST_FRAMING.md`. |
 
-**What:** every configuration was run once, with seed 42. Standard practice is 5 seeds per
-configuration.
+---
 
-**Why it matters:** it is the first thing a reviewer will ask for, and it is what would turn the
-weaker results (F1-macro, missed-cancer rate, melanoma recall) from "suggestive" into reportable.
+## Needs a download
 
-**Why it is not fatal:** the primary result improved in **24 of 24** experiments, and Proposition 1
-guarantees its *direction* mathematically. Only its magnitude is subject to seed variation.
+### 1. Multi-seed replication — **deliberately not being run**
 
-**Cost:** ~60 GPU-hours for 3–4 representative configurations × 5 seeds, targeting the safety
-result specifically. The full 24 × 5 matrix would be ~470 hours and is not necessary.
+**Decision:** seed 42 for everything, on supervisor direction. This is a recorded decision, not an
+oversight, and should be presented as such.
 
-**Blocked on:** GPU access.
+**What substitutes for it:** `SPLIT_SEED` is frozen separately from `RANDOM_SEED`, so all 36 runs
+share one identical 1,905-image test split (verified by hashing every run's split file: exactly one
+distinct value). Statistical power therefore comes from **image-level** paired testing at
+n = 1,905, not from replicate runs. The result also holds on all three backbones, which is
+replication across architectures rather than across initialisations.
+
+**Still worth noting as a limitation**, because it is the most likely reviewer request and it is the
+only thing that would move the *secondary* endpoints from "suggestive" to reportable. It would not
+change the primary endpoint's direction, which Proposition 1 fixes structurally.
+
+**If revisited:** the capability is implemented; a replicate writes to its own `_s<seed>` folder and
+cannot overwrite existing results. ~60 GPU-hours for 3–4 configurations × 5 seeds.
+
+**Blocked on:** nothing — a decision, not a blocker.
 
 ---
 
@@ -43,16 +60,12 @@ something. That is the normal, publishable outcome.
 
 ---
 
-### 3. JPEG corruption — the fifth robustness condition
+### 3. ~~JPEG corruption~~ — **done**
 
-**What:** the robustness analysis covers blur, brightness, contrast and Gaussian noise. JPEG
-re-compression is defined in the pipeline but has not been run.
-
-**Why it matters:** mildly. Four conditions already support both robustness findings. JPEG would
-make the set complete.
-
-**Cost:** ~40 minutes on CPU. **Nothing is blocking it** — the command is in
-`HOW_TO_REGENERATE.md`.
+Run. All five robustness conditions are now complete. Across all models: **90.5%** of clean accuracy
+retained and **94.3%** of risk-head AUROC — but **melanoma recall falls from 0.702 to 0.472**. Worth
+quoting as a clinical caution, since re-compression happens to every image that moves between
+hospital systems. Table `robustness_summary.csv`, corruption `jpeg_q30`.
 
 ---
 

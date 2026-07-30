@@ -1,0 +1,22 @@
+model,target,n_positive,auc_point,ci_low,ci_high,ci_width,frac_at_ceiling,frac_above_0_99,frac_undefined,min_positives_in_resample,frac_resamples_under_5_positives,verdict,reason
+efficientnet_b4,akiec,51,0.9682086426803731,0.951614708310712,0.9822161310575295,0.03060142274681743,0.0,0.0005,0.0,28,0.0,OK,sufficient positives; interval is interpretable.
+efficientnet_b4,bcc,89,0.9941469088749195,0.9898927358073155,0.9974712264759298,0.007578490668614268,0.0,0.971,0.0,55,0.0,OK,sufficient positives; interval is interpretable.
+efficientnet_b4,bkl,206,0.9635593753035766,0.9517013579914703,0.9739262004974845,0.022224842506014197,0.0,0.0,0.0,160,0.0,OK,sufficient positives; interval is interpretable.
+efficientnet_b4,df,9,0.9995311767463666,0.9982446901878181,1.0,0.00175530981218186,0.213,1.0,0.0,1,0.0495,DO NOT QUOTE — too few positives,only 9 positive cases; resamples fell as low as 1 positives.
+efficientnet_b4,mel,209,0.937957028076194,0.9205771994342505,0.9533245664627525,0.032747367028502006,0.0,0.0,0.0,165,0.0,OK,sufficient positives; interval is interpretable.
+efficientnet_b4,nv,1327,0.9629540055749238,0.9551937863474494,0.9707061083386581,0.015512321991208666,0.0,0.0,0.0,1268,0.0,OK,sufficient positives; interval is interpretable.
+efficientnet_b4,vasc,14,0.9887436730376974,0.9632685078191551,1.0,0.03673149218084493,0.064,0.4845,0.0,1,0.003,DO NOT QUOTE — too few positives,only 14 positive cases; resamples fell as low as 1 positives.
+resnet50,akiec,51,0.9783615711656831,0.9647194152936055,0.988953751084669,0.024234335791063488,0.0,0.015,0.0,28,0.0,OK,sufficient positives; interval is interpretable.
+resnet50,bcc,89,0.996120625649656,0.9936075935002259,0.9981496251018538,0.004542031601627916,0.0,1.0,0.0,55,0.0,OK,sufficient positives; interval is interpretable.
+resnet50,bkl,206,0.9677023034680594,0.9528749952209421,0.980043222637739,0.02716822741679692,0.0,0.0,0.0,160,0.0,OK,sufficient positives; interval is interpretable.
+resnet50,df,9,0.9919714017815283,0.9729236467279647,1.0,0.02707635327203528,0.3625,0.6425,0.0,1,0.0495,DO NOT QUOTE — ceiling artifact,"36% of bootstrap replicates returned AUC exactly 1.0; the narrow interval reflects a degenerate estimator on 9 positives, not precision."
+resnet50,mel,209,0.9430703823237339,0.9249637170436703,0.9591016514606203,0.03413793441695001,0.0,0.0,0.0,165,0.0,OK,sufficient positives; interval is interpretable.
+resnet50,nv,1327,0.9703535565562721,0.9620996390546888,0.9774969611575897,0.015397322102900901,0.0,0.0,0.0,1268,0.0,OK,sufficient positives; interval is interpretable.
+resnet50,vasc,14,0.9925209639646445,0.9761245912094269,1.0,0.02387540879057315,0.0645,0.6985,0.0,1,0.003,DO NOT QUOTE — too few positives,only 14 positive cases; resamples fell as low as 1 positives.
+densenet169,akiec,51,0.9830361486557946,0.9703164104660116,0.9926141988912889,0.0222977884252773,0.0,0.102,0.0,28,0.0,OK,sufficient positives; interval is interpretable.
+densenet169,bcc,89,0.9934353808840272,0.9883531325054482,0.9973836286873957,0.009030496181947512,0.0,0.9115,0.0,55,0.0,OK,sufficient positives; interval is interpretable.
+densenet169,bkl,206,0.9675623010680183,0.9561994214305528,0.9773099789840834,0.02111055755353064,0.0,0.0,0.0,160,0.0,OK,sufficient positives; interval is interpretable.
+densenet169,df,9,0.9992967651195499,0.9975010511052514,1.0,0.002498948894748554,0.3625,1.0,0.0,1,0.0495,DO NOT QUOTE — ceiling artifact,"36% of bootstrap replicates returned AUC exactly 1.0; the narrow interval reflects a degenerate estimator on 9 positives, not precision."
+densenet169,mel,209,0.9456644398302789,0.9256228159075783,0.9621187001957971,0.036495884288218816,0.0,0.0,0.0,165,0.0,OK,sufficient positives; interval is interpretable.
+densenet169,nv,1327,0.9688085881987886,0.9604364282591555,0.9760955145547968,0.015659086295641278,0.0,0.0,0.0,1268,0.0,OK,sufficient positives; interval is interpretable.
+densenet169,vasc,14,0.9993956334516885,0.9978936004807588,1.0,0.0021063995192411866,0.375,1.0,0.0,1,0.003,DO NOT QUOTE — ceiling artifact,"38% of bootstrap replicates returned AUC exactly 1.0; the narrow interval reflects a degenerate estimator on 14 positives, not precision."

@@ -24,8 +24,10 @@ Standard active learning only considers **uncertainty** — "How sure is the mod
 
 We propose a **dual-metric escalation policy** that combines:
 
-1. **Uncertainty Score** — How confident is the model? (entropy, MC dropout, margin, or least confidence)
-2. **Clinical Risk Score** — Sum of predicted probabilities for high-risk classes: `P(melanoma) + P(BCC) + P(actinic keratosis)`
+1. **Uncertainty Score** — How confident is the model? (entropy, MC dropout, margin, or least confidence), computed from the 7-class **classification head**.
+2. **Clinical Risk Score** — `P(malignant)` from a **dedicated binary risk head**, trained alongside the classifier on a shared backbone but with its own parameters and its own loss term.
+
+The two heads matter. An earlier version derived risk by summing the classifier's own high-risk class probabilities (`P(mel) + P(bcc) + P(akiec)`). That made risk a rearrangement of the same numbers uncertainty was already reading, so both signals failed together precisely when the classifier was confidently wrong — the exact case this project exists to catch. The risk head is now an **independent opinion**, not a re-slicing of the classifier's.
 
 These two scores create a **2×2 decision grid** that catches the cases standard approaches miss:
 
@@ -46,7 +48,11 @@ These two scores create a **2×2 decision grid** that catches the cases standard
 
 **The critical cell is top-right**: Low uncertainty + High risk. The model is *confident*, but the case is *dangerous*. The baseline auto-accepts these. **Our policy forces expert review — catching the cancers AI misses.**
 
-> **Methodology note (seed-calibrated thresholds):** the 0.5 / 0.3 numbers above are illustrative only. In the actual code, thresholds are **not hardcoded** — after the model trains on the 490 seed images in round 1, it scores that same seed set and takes the **90th-percentile score** as the fixed escalation threshold for the rest of the run (separately for uncertainty and for risk). Uncertainty scores are also left in each method's own **raw, natural scale** (entropy can reach ~1.95, MC-dropout sits near 0) rather than being artificially squeezed into [0, 1] — calibration is what makes a single threshold meaningful across methods that live on very different scales. See `active_learning/al_loop.py::calibrate_thresholds()` and `proposed_changes.md` for the full rationale.
+> **Methodology note (per-round calibrated thresholds):** the 0.5 / 0.3 numbers above are illustrative only. In the actual code, thresholds are **not hardcoded** and **not fixed once**. At the start of every round the model scores its *current* labelled set and takes the **90th-percentile score** as that round's escalation threshold, separately for uncertainty and for risk.
+>
+> This is a correction to an earlier design that calibrated once in round 1 and reused those values. That version failed measurably: a rapidly-improving model stopped producing scores anywhere near a threshold set against its weakest self, and escalation collapsed from 558 images to 1 to 0 by round 3, freezing the labelled set for the remaining 12 rounds. Recalibrating every round is what keeps the policy live as the model improves.
+>
+> Uncertainty scores are left in each method's own **raw, natural scale** (entropy can reach ~1.95, MC-dropout sits near 0) rather than being squeezed into [0, 1] — per-round calibration is what makes a single threshold meaningful across methods living on very different scales. See `active_learning/al_loop.py::calibrate_thresholds()`.
 
 ---
 
@@ -94,9 +100,11 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    A["Image from<br/>Unlabeled Pool"] --> B["Model Inference<br/>Get Probabilities"]
-    B --> C["Compute<br/>Uncertainty Score"]
-    B --> D["Compute<br/>Risk Score<br/>P(mel)+P(bcc)+P(akiec)"]
+    A["Image from<br/>Unlabeled Pool"] --> B["Shared Backbone"]
+    B --> C0["Classification Head<br/>7 classes"]
+    B --> D0["Risk Head<br/>binary malignant"]
+    C0 --> C["Compute<br/>Uncertainty Score"]
+    D0 --> D["Risk Score<br/>P(malignant)"]
 
     C --> E{"Uncertainty<br/>> calibrated?"}
     D --> F{"Risk<br/>> calibrated?"}
@@ -157,7 +165,7 @@ RiskAware-ActiveLearning/
 │   └── uncertainty_factory.py       #    Factory function: name → uncertainty fn
 │
 ├── risk_score/                      # ⚠️ Clinical risk scoring
-│   └── clinical_risk.py             #    Risk = P(mel) + P(bcc) + P(akiec)
+│   └── clinical_risk.py             #    Reads P(malignant) from the risk head
 │
 ├── escalation/                      # 🚦 Escalation policies (THE CORE COMPARISON)
 │   ├── uncertainty_only.py          #    BASELINE: escalate if uncertainty > threshold
@@ -220,9 +228,9 @@ We systematically evaluate **every combination** of three dimensions:
 | Batch Size | 32 | `config.py` |
 | Epochs per Round | 10 | `config.py` |
 | MC Dropout Passes | 30 | `config.py` |
-| Uncertainty Threshold | **Seed-calibrated** — 90th percentile on the seed set, per experiment (fallback: 0.5) | `active_learning/al_loop.py` |
-| Risk Threshold | **Seed-calibrated** — 90th percentile on the seed set, per experiment (fallback: 0.3); override with `--risk-threshold` for the ablation sweep | `active_learning/al_loop.py` / `config.py` |
-| Dynamic Class Weights | Off by default — inverse-frequency loss weighting, enable with `--use-dynamic-weights` | `config.py` |
+| Uncertainty Threshold | **Recalibrated every round** — 90th percentile on the *current labelled set* (fallback: 0.5) | `active_learning/al_loop.py` |
+| Risk Threshold | **Recalibrated every round** — 90th percentile on the *current labelled set* (fallback: 0.3); override with `--risk-threshold` for the ablation sweep | `active_learning/al_loop.py` / `config.py` |
+| Dynamic Class Weights | **On by default** — inverse-frequency loss weighting on both heads; disable with `--no-dynamic-weights` for the ablation | `config.py` |
 | Image Size | 224×224 | `config.py` |
 | AL Rounds | 15 | `config.py` |
 | Random Seed | 42 | `config.py` |
@@ -233,13 +241,35 @@ We systematically evaluate **every combination** of three dimensions:
 
 ### Clinical Risk Score
 
-The risk score is simple but powerful:
+The risk score is `P(malignant)`, produced by a **dedicated binary risk head**:
 
 ```
-Risk Score = P(melanoma) + P(basal cell carcinoma) + P(actinic keratosis)
+shared backbone ──┬── classification head → 7 class probabilities → uncertainty
+                  └── risk head           → P(malignant)          → clinical risk
 ```
 
-Even when the model's **top prediction** is a benign class, the risk score captures how much probability mass is allocated to dangerous classes. A model might predict "benign mole" at 45% confidence, but if melanoma has 25%, BCC has 10%, and AKIEC has 3%, the risk score is **0.38** — above the 0.3 threshold.
+The two heads have **separate parameters** and separate loss terms (summed with
+equal weight and backpropagated jointly each batch). Both are trained with
+class weighting.
+
+**Why not just sum the classifier's high-risk probabilities?** That was the
+original design — `Risk = P(mel) + P(bcc) + P(akiec)` — and it had a fatal
+flaw: risk was then a rearrangement of the very probability vector uncertainty
+was already reading. When the classifier was confidently wrong about a
+melanoma, it put little mass on `mel`, so uncertainty was low *and* risk was
+low. Both signals failed on exactly the case the method exists to catch. The
+risk head is trained on the malignant/benign label directly, so it can
+disagree with the classifier.
+
+**Measured consequence.** The two scores tie on overall AUROC (0.9555 vs
+0.9558). The head wins where the design predicted it would — on images the
+classifier gets *wrong*, it gains +0.025 AUC, and on missed cancers it still
+flags 5.9% at threshold 0.5 versus 0.9% for the summed version. But on that
+subset **both fall below chance**, because the heads share a backbone and so
+fail on the same hard images. Separating the backbones is the identified next
+step. This is documented rather than hidden: it is the mechanism explaining why
+pool-level unsafe auto-accepts improve substantially while held-out
+missed-cancer rate does not.
 
 ### Uncertainty Methods
 
@@ -250,7 +280,7 @@ Even when the model's **top prediction** is a benign class, the risk score captu
 | **Margin** | 1 - (p₁ - p₂), where p₁, p₂ are top-2 probabilities | [0, 1] | 1 | ⚡ Fast |
 | **Least Confidence** | 1 - max(p) | [0, 6/7] | 1 | ⚡ Fast |
 
-Each method's score is left in this natural raw scale (not rescaled to a shared [0, 1]) — the escalation threshold for whichever method is in use is seed-calibrated separately, so the different scales don't need to match.
+Each method's score is left in this natural raw scale (not rescaled to a shared [0, 1]) — the escalation threshold for whichever method is in use is recalibrated every round separately, so the different scales don't need to match.
 
 ### The Oracle (Simulated Expert)
 
@@ -324,7 +354,7 @@ python main.py --run-all
 python main.py --run-all --resume
 
 # Ablation: train with inverse-frequency class weights instead of plain cross-entropy
-python main.py --use-dynamic-weights
+python main.py --no-dynamic-weights
 
 # Regenerate plots from saved results
 python main.py --plot-only

@@ -1,0 +1,64 @@
+{
+  "captured_at_utc": "2026-07-28T22:24:54.517230+00:00",
+  "run": {
+    "experiment_id": "densenet169_baseline_clue",
+    "seed": 42,
+    "split_seed": 42,
+    "strategy": "clue"
+  },
+  "git": {
+    "commit": "ece6c4a053def055adb095d20594b68c29dea2ef",
+    "branch": "main",
+    "uncommitted_changes": true
+  },
+  "hardware": {
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+    "processor": "x86_64",
+    "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "cudnn_version": 91900,
+    "gpu_name": "Tesla T4",
+    "gpu_count": 1,
+    "gpu_total_memory_gb": 14.56
+  },
+  "packages": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "numpy": "2.0.2",
+    "pandas": "2.2.2",
+    "sklearn": "1.6.1",
+    "scipy": "1.16.3",
+    "matplotlib": "3.10.0",
+    "PIL": "11.3.0",
+    "tqdm": "4.67.3"
+  },
+  "config": {
+    "NUM_CLASSES": 7,
+    "CLASS_NAMES": [
+      "akiec",
+      "bcc",
+      "bkl",
+      "df",
+      "mel",
+      "nv",
+      "vasc"
+    ],
+    "AL_ROUNDS": 15,
+    "QUERY_BUDGET_PER_ROUND": 150,
+    "SEED_PER_CLASS": 70,
+    "TEST_SPLIT_RATIO": 0.2,
+    "BATCH_SIZE": 32,
+    "LEARNING_RATE": 0.0001,
+    "WEIGHT_DECAY": 1e-05,
+    "EPOCHS_PER_ROUND": 10,
+    "IMAGE_SIZE": 224,
+    "NUM_WORKERS": 2,
+    "USE_DYNAMIC_CLASS_WEIGHTS": true,
+    "UNCERTAINTY_THRESHOLD": 0.5,
+    "RISK_THRESHOLD": 0.3,
+    "MC_DROPOUT_PASSES": 30,
+    "RANDOM_SEED": 42,
+    "SPLIT_SEED": 42
+  }
+}

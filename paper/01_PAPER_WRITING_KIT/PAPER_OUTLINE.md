@@ -124,9 +124,35 @@ in §6.
 
 The spine of the paper. Recommended order — **safety first, then cost, then the ablation**:
 
-### 5.1 Primary outcome — unsafe auto-accepts
+### 5.1 Primary outcome — unsafe auto-accepts **on the acquisition pool**
 Figure `01_unsafe_auto_accepts_total.png`; table `significance_configuration_level.csv`.
 −4,030 per run (≈43%), 12/12 configurations, Holm p = 0.003.
+
+> ⚠️ **Name the set in the section heading itself.** The corresponding held-out metric (§5.10)
+> does *not* reach significance, and a reader who meets the pool number first without a label will
+> carry the wrong conclusion into the rest of the paper. See
+> `../06_STATUS_AND_OPEN_ITEMS/POOL_VS_TEST_FRAMING.md`.
+
+### 5.1b Comparison against published acquisition methods — at matched label cost
+Figures `36_baseline_safety.png`, `37_baseline_pareto.png`, `38_baseline_learning_curves.png`,
+`39_baseline_mcnemar_forest.png`; tables `COMPARISON/tables/01_main_comparison.csv`,
+`02_safety_scoreboard.csv`, `03_significance_image_level.csv`.
+
+CoreSet (ICLR'18), BADGE (ICLR'20), CLUE (ICCV'21) and VAAL (ICCV'19) on all three backbones,
+each given **exactly** the per-round label count our policy spent — verified identical for all 12
+runs. Unsafe auto-accepts fell in **15 of 15** comparisons, by **25.6%–60.8%**. Final accuracy was
+statistically indistinguishable from the strongest baselines (paired bootstrap 95% CIs contain
+zero).
+
+**Explain the cost-matching before the numbers.** The baselines are *acquisition strategies* given a
+budget; ours is an *escalation policy* that chooses its own. Without matching, any accuracy gap would
+measure budget rather than selection quality. One short paragraph here pre-empts the single most
+obvious reviewer objection.
+
+**Do not report a run-level p-value for these.** With three backbones a paired Wilcoxon has a
+minimum attainable two-sided p of 2/2³ = 0.250, so significance is arithmetically unreachable.
+Report win counts as direction, and take p-values from the image-level McNemar tests (n = 1,905)
+instead.
 
 ### 5.2 The annotation cost
 Figure `09_headline_summary.png` (or `04_query_cost_total.png` from supplementary).
@@ -152,7 +178,13 @@ continuous and controllable, not a single lucky operating point.
 
 ### 5.7 Per-class discrimination
 Figure `22_auc_per_class_with_ci.png`; table `per_class_auc.csv`.
-All 7 classes with bootstrap CIs. Melanoma is hardest at 0.945 [0.929, 0.960], PR-AUC 0.781.
+Melanoma is hardest at 0.945 [0.929, 0.960], PR-AUC 0.781.
+
+> ⛔ **Report CIs for five classes, not seven.** `df` (n=9) and `vasc` (n=14) are too rare in the
+> held-out split: 31% and 17% of bootstrap replicates return AUC exactly 1.000, and resamples fall
+> to as few as 1 positive case. Their intervals are *narrower* than melanoma's, which is a ceiling
+> artifact, not precision. Give their counts and omit the interval. Figure
+> `40_rare_class_ci_reliability.png`; table `rare_class_ci_diagnostic.csv`.
 
 ### 5.8 Calibration
 Figures `17`, `18`, `19`, `20`; table `calibration_metrics.csv`.

@@ -31,7 +31,8 @@
 | **03_FIGURES** | All 34 figures — 11 selected for the main paper, 23 supplementary — with a figure-by-figure reading guide. |
 | **04_TABLES** | All 21 result tables as CSV, with every column decoded. |
 | **05_RESULTS** | The two full prose analyses: overall findings, and the response to the requested additional analyses. |
-| **06_STATUS_AND_OPEN_ITEMS** | Request-by-request status, what remains outstanding, and how to regenerate every number from scratch. |
+| **06_STATUS_AND_OPEN_ITEMS** | Request-by-request status, what remains outstanding, and how to regenerate every number from scratch. **Includes `POOL_VS_TEST_FRAMING.md` — read this before writing the abstract.** |
+| **COMPARISON** | ⭐ **New.** The self-contained head-to-head comparison against CoreSet, BADGE, CLUE and VAAL at matched label cost: 4 figures, 6 tables, 2 generated LaTeX tables, and a plain-English `README.md` explaining every term. Built by `python -m tools.build_comparison_package`. |
 
 ---
 
@@ -77,9 +78,17 @@ heuristic.
 
 ## The framing to use consistently
 
-> Dual-metric escalation is a **safety intervention with a quantified price**: a large and
-> statistically significant reduction in unsafe auto-accepts, in exchange for approximately 9% more
-> oracle labels and no meaningful change in classification quality.
+> Dual-metric escalation is a **safety intervention on a decision rule, with a quantified price**:
+> on the decisions it governs, a large and statistically significant reduction in unsafe
+> auto-accepts, in exchange for approximately 9% more oracle labels and no meaningful change in
+> classification quality. We did not demonstrate a significant improvement in missed-cancer rate on
+> held-out patients, and we explain why.
+
+🚨 **The single most important editorial rule in this package.** The headline safety number is
+measured on the **unlabelled acquisition pool**; the held-out test-set safety number did **not**
+reach significance. Both are true, they answer different questions, and they must never be blurred
+into one claim. Read `06_STATUS_AND_OPEN_ITEMS/POOL_VS_TEST_FRAMING.md` before writing a single
+sentence of the abstract — it contains the argument and ready-to-adapt paragraphs for every section.
 
 **The method should not be presented as a label-efficiency improvement.** At a matched annotation
 budget it is 0.35 percentage points *behind* on accuracy and requires roughly 300 additional labels
@@ -146,8 +155,15 @@ the logged `0.8986876640419947`. Full instructions in
 
 | Item | Cost | Blocked on |
 |---|---|---|
-| Multi-seed replication (3–4 configurations × 5 seeds) | ~60 GPU-hours | GPU access |
 | External validation on ISIC 2020 | ~3 GB download + one inference pass | The download |
-| JPEG corruption (5th robustness condition) | ~40 min CPU | Nothing |
+| Score-CAM / three-panel XAI figure | ~2 h | Confirming which dataset the existing XAI images came from |
+| `LICENSE` names the authors generically | 2 min | The authors' legal names |
+| Checkpoint upload (1.8 GB) to a GitHub Release | ~30 min | Repository owner |
+
+**Completed since the last revision:** the 12 cost-matched baseline runs (CoreSet, BADGE, CLUE,
+VAAL × 3 backbones), the JPEG corruption condition, the EfficientNet-B4 noise diagnostic, and the
+rare-class CI diagnostic. **Multi-seed replication is deliberately not being run** — seed 42
+throughout, on supervisor direction; the frozen test split substitutes image-level testing
+(n = 1,905) for replicate-level testing. **No GPU work remains.**
 
 Details in `06_STATUS_AND_OPEN_ITEMS/OPEN_ITEMS.md`.

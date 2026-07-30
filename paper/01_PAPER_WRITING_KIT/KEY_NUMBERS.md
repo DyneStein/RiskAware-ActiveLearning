@@ -30,17 +30,22 @@ configuration pairs, where the comparison is paired).
 Source: `04_TABLES/significance_configuration_level.csv`
 Test: Wilcoxon signed-rank, paired; Holm–Bonferroni across the six metrics; bootstrap 95% CIs.
 
-| Metric | Mean difference (dual − uncertainty) | 95% CI | Raw p | **Holm p** | Configs favouring dual | Significant |
-|---|---|---|---|---|---|---|
-| **Unsafe auto-accepts** | **−4,030.5** | [−4,319.5, −3,715.2] | 0.00049 | **0.0029** | **12 / 12** | ✅ |
-| **Total oracle queries** | **+382.4** | [+315.2, +447.4] | 0.00049 | **0.0029** | **12 / 12** | ✅ (cost) |
-| Final accuracy | **+0.60 pp** | [+0.28, +1.00] | 0.0034 | **0.0137** | 11 / 12 | ✅ |
-| Final F1-macro | +0.86 pp | [−0.22, +1.97] | 0.233 | 0.305 | 8 / 12 | ❌ |
-| Final missed-cancer rate | −1.19 pp | [−2.46, +0.21] | 0.152 | 0.305 | 3 / 12 | ❌ |
-| Final melanoma recall | +2.43 pp | [+0.44, +4.39] | 0.057 | 0.170 | 8 / 12 | ❌ |
+| Metric | Measured on | Mean difference (dual − uncertainty) | 95% CI | Raw p | **Holm p** | Configs favouring dual | Significant |
+|---|---|---|---|---|---|---|---|
+| **Unsafe auto-accepts** | **pool** | **−4,030.5** | [−4,319.5, −3,715.2] | 0.00049 | **0.0029** | **12 / 12** | ✅ |
+| **Total oracle queries** | pool | **+382.4** | [+315.2, +447.4] | 0.00049 | **0.0029** | **12 / 12** | ✅ (cost) |
+| Final accuracy | **test set** | **+0.60 pp** | [+0.28, +1.00] | 0.0034 | **0.0137** | 11 / 12 | ✅ |
+| Final F1-macro | **test set** | +0.86 pp | [−0.22, +1.97] | 0.233 | 0.305 | 8 / 12 | ❌ |
+| Final missed-cancer rate | **test set** | −1.19 pp | [−2.46, +0.21] | 0.152 | 0.305 | 3 / 12 | ❌ |
+| Final melanoma recall | **test set** | +2.43 pp | [+0.44, +4.39] | 0.057 | 0.170 | 8 / 12 | ❌ |
 
 **Relative reduction in unsafe auto-accepts: ≈ 43%** (dual mean 5,503.9 vs uncertainty-only mean
 9,534.4). Relative increase in queries: **+9.1%**.
+
+> 🚨 **Never quote the 43% without the words "on the unlabelled pool".** The two
+> significant rows above are pool-level; every test-set safety row is non-significant.
+> Conflating them is the single criticism most likely to sink this paper — see
+> `../06_STATUS_AND_OPEN_ITEMS/POOL_VS_TEST_FRAMING.md`.
 
 > ⚠️ **Quote the Holm column.** Raw p-values here are uncorrected for the six-metric family.
 > Melanoma recall in particular looks borderline at 0.057 raw but is **0.170 corrected — not
@@ -224,9 +229,16 @@ roughly **9× more rescues**. It works where it was designed to work, on a small
 
 ## 10. The single sentence that summarises the study
 
-> Dual-metric escalation reduced unsafe auto-accepts by **4,030 per run (≈43%)** in **12 of 12**
-> configurations (Holm p = 0.003), at a cost of **+382 oracle labels (+9.1%)** (Holm p = 0.003),
-> with **no significant change** in F1-macro, missed-cancer rate, or melanoma recall.
+> Dual-metric escalation reduced unsafe auto-accepts **on the unlabelled pool** by **4,030 per run
+> (≈43%)** in **12 of 12** configurations (Holm p = 0.003), at a cost of **+382 oracle labels
+> (+9.1%)** (Holm p = 0.003), with **no significant change on the held-out test set** in F1-macro,
+> missed-cancer rate, or melanoma recall.
+
+And, against the four published baselines at exactly matched label cost:
+
+> Unsafe auto-accepts fell in **15 of 15** comparisons (3 backbones × {CoreSet, BADGE, CLUE, VAAL,
+> uncertainty-only}), by **25.6% to 60.8%**, with final accuracy statistically indistinguishable
+> from the strongest baselines. Source: `COMPARISON/tables/02_safety_scoreboard.csv`.
 
 ---
 

@@ -48,6 +48,14 @@ that would otherwise have been silently auto-accepted — for a modest cost of a
 the oracle, and with no hit to overall accuracy. That's the core hypothesis of the whole project, and the
 data backs it up.
 
+**The one caveat to carry with this.** "Catches more dangerous images" is measured on the
+**unlabelled pool** — the images the escalation rule actually decides about. That is the right place
+to measure a decision rule. But it is *not* the same as "the final model misdiagnoses fewer unseen
+patients": the missed-cancer rate on the held-out test set moved in the same direction and did **not**
+reach significance (Holm p = 0.305). Both numbers are real; they answer different questions. Never
+quote the first without the words "on the pool". Full treatment:
+`paper/06_STATUS_AND_OPEN_ITEMS/POOL_VS_TEST_FRAMING.md`.
+
 ---
 
 ## Figure-by-figure (`analysis/figures/`)

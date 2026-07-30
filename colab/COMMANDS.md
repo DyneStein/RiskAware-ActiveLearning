@@ -36,7 +36,28 @@ experiment.
 
 ---
 
-## 1. GPU JOBS — the 12 baseline runs
+## 1. GPU JOBS — the 12 baseline runs ✅ ALL 12 COMPLETE (2026-07-30)
+
+**No GPU work remains.** All 12 finished 15/15 rounds and are merged into
+`results/`. Cost-matching verified exact, 12/12. The commands are kept below
+only as a record of what was run.
+
+**To build the comparison from the finished runs** (CPU only, no GPU):
+
+```bash
+!python -m evaluation.rigor.dump_test_predictions    # per-image predictions (~9 min/model)
+```
+```bash
+!python -m evaluation.rigor.baseline_comparison      # tables + figures 36–39
+```
+```bash
+!python -m tools.build_comparison_package            # assembles paper/COMPARISON/
+```
+
+Read the results: **`paper/COMPARISON/README.md`** — written in plain English,
+explains every term.
+
+---
 
 **3 models × 4 baselines = 12 runs ≈ 40 GPU-hours.** All at seed 42.
 
@@ -307,16 +328,16 @@ Checkpoints save at the end of every round, straight to Drive.
 
 ## 7. Suggested order
 
-| # | Job | Cost | Type |
-|---|---|---|---|
-| 1 | EfficientNet noise diagnostic (2a) | 20 min | CPU |
-| 2 | JPEG corruption (2b) | 40 min | CPU |
-| 3 | ResNet-50 baselines (Block A) | ~13 h | GPU |
-| 4 | ISIC 2020 external validation (2c) | ~3 h | CPU + download |
-| 5 | DenseNet-169 baselines (Block B) | ~13 h | GPU |
-| 6 | EfficientNet-B4 baselines (Block C) | ~13 h | GPU |
-| 7 | Regenerate all analyses (2d) | ~1 h | CPU |
-| 8 | Rebuild manifest (3) | 5 min | CPU |
+| # | Job | Cost | Type | Status |
+|---|---|---|---|---|
+| 1 | EfficientNet noise diagnostic (2a) | 20 min | CPU | ✅ done |
+| 2 | JPEG corruption (2b) | 40 min | CPU | ✅ done |
+| 3 | ResNet-50 baselines (Block A) | ~13 h | GPU | ✅ done |
+| 4 | DenseNet-169 baselines (Block B) | ~13 h | GPU | ✅ done |
+| 5 | EfficientNet-B4 baselines (Block C) | ~13 h | GPU | ✅ done |
+| 6 | Comparison tables + figures (§1 above) | ~2 h | CPU | ✅ done |
+| 7 | ISIC 2020 external validation (2c) | ~3 h | CPU + download | **outstanding** |
+| 8 | Rebuild manifest (3) | 5 min | CPU | rerun after 7 |
 
-**Jobs 1 and 2 cost an hour of CPU between them and close two real gaps.** Do
-them tonight, before any GPU time.
+**All GPU work is finished.** The only remaining compute job is ISIC 2020
+external validation (job 7), which needs a ~3 GB download but no training.

@@ -24,9 +24,23 @@ structurally guaranteed at fixed scores, so only its *magnitude* is subject to s
 exactly the ones where seed variance could plausibly account for the observed differences, and none
 of them reached significance.
 
-**Write it as:** *"All results are from a single seed per configuration. The primary endpoint
-improved in 24 of 24 experiments, and Proposition 1 guarantees its direction, but the secondary
-endpoints should be regarded as suggestive pending multi-seed replication."*
+**Decision on record:** multi-seed replication was considered and **deliberately not run**, on
+supervisor direction, in favour of seed 42 throughout. The `--seed` capability exists in the
+codebase should this be revisited.
+
+**What substitutes for it.** Two things, and they should be named so the single seed does not read
+as an oversight:
+1. **`SPLIT_SEED` is frozen separately from `RANDOM_SEED`**, so all 36 runs share one identical
+   1,905-image test split (verified: hashing every run's split file yields exactly one value). That
+   permits **image-level** paired testing, which draws its power from n = 1,905 images rather than
+   from repeated runs.
+2. **The result holds on all three backbones**, which is a form of replication across
+   architectures rather than across initialisations.
+
+**Write it as:** *"All results are from a single seed (42) per configuration. The primary endpoint
+improved in 24 of 24 experiments, and Proposition 1 guarantees its direction. Because the test split
+is frozen across every run, statistical testing is performed at the image level (n = 1,905) rather
+than across replicate runs; the secondary endpoints should nonetheless be regarded as suggestive."*
 
 ### L2. Simulated oracle
 
@@ -86,12 +100,31 @@ decision cleanly, which is precisely what is being compared, but it does not cap
 different acquisition trajectory would have changed subsequent training. A full retraining ablation
 would require roughly 24 additional runs.
 
-### L8. Two safety metrics that are not interchangeable
+### L8. The primary safety result is measured on the pool, not on held-out patients
 
-`unsafe_auto_accepts` is measured on the unlabelled pool every round and reflects the escalation
-decision directly. `fn_rate_malignant` is measured on the held-out test set at the end and reflects
-what the final model learned. The first improved substantially; the second did not reach
-significance. Both are reported, and the distinction is stated wherever either appears.
+> **This is the most important limitation in the paper and should be stated first, not eighth.**
+> Full treatment, including ready-to-use paragraphs for every section:
+> `../06_STATUS_AND_OPEN_ITEMS/POOL_VS_TEST_FRAMING.md`.
+
+`unsafe_auto_accepts` is measured on the **unlabelled pool** every round and reflects the escalation
+decision directly. `fn_rate_malignant` is measured on the **held-out test set** at the end and
+reflects what the final model learned. The first improved substantially (Holm p = 0.003, 12/12
+configurations; 15/15 against the literature baselines); the second did not reach significance
+(Holm p = 0.305, 3/12 favourable).
+
+**The defence, and it is honest:** this is an intervention on a *decision rule*, not on the model's
+weights. The correct place to measure "did fewer dangerous cases get waved through?" is the set of
+cases that were waved through — which is the pool. That is not a workaround; it is the right
+measurement for the claim being made.
+
+**What is genuinely not shown:** that the extra labels make the final model safer on unseen
+patients. Two compounding reasons: the shared backbone (L9), and the fact that the test split
+contains only **349 malignant images**, which bounds the detectable effect independently of any
+mechanism.
+
+**Write it as:** *"Unsafe auto-accepts quantifies the behaviour of the escalation rule over the
+cases it decides. It is not evidence that the resulting model misdiagnoses fewer unseen patients;
+the corresponding held-out metric did not reach significance."*
 
 ### L9. Shared backbone limits head independence
 
@@ -106,11 +139,15 @@ rather than merely a caveat — see the Discussion.
 
 Ordered by value per unit of effort.
 
-### F1. Multi-seed replication — highest priority
+### F1. Multi-seed replication — deferred by decision, not by oversight
 **What:** 3–4 representative configurations × 5 seeds, targeting the primary endpoint specifically.
 **Cost:** ≈ 60 GPU-hours (the full 24 × 5 matrix would be ≈ 470 hours and is not necessary).
-**Why first:** it converts the secondary results from "suggestive" to reportable, and it is the
-first thing a reviewer will request.
+**Status:** **not run**, on supervisor direction (seed 42 throughout). The capability is implemented
+and a replicate writes to its own `_s<seed>` output folder, so this can be picked up at any time
+without disturbing existing results.
+**Why it still belongs here:** it is the most likely reviewer request, and it is the only thing that
+would convert the secondary endpoints from "suggestive" to reportable. Note that it would *not*
+change the primary endpoint's direction, which Proposition 1 fixes structurally.
 
 ### F2. External validation on ISIC 2020
 **What:** evaluate the trained models on ISIC 2020, whose binary benign/malignant labels align with

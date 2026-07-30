@@ -13,7 +13,11 @@ whether it is safe to assert.
 
 | Claim | Evidence | Number | Status |
 |---|---|---|---|
-| Dual-metric escalation reduces unsafe auto-accepts | Fig `01`; `significance_configuration_level.csv` | −4,030 per run (≈43%), 12/12 configs, Holm p = 0.003 | ✅ **Assert confidently** |
+| Dual-metric escalation reduces unsafe auto-accepts **on the unlabelled pool** | Fig `01`; `significance_configuration_level.csv` | −4,030 per run (≈43%), 12/12 configs, Holm p = 0.003 | ✅ **Assert confidently — with the "on the pool" qualifier, always** |
+| It also beats four *published* methods at **exactly matched label cost** | Fig `36`; `COMPARISON/tables/02_safety_scoreboard.csv` | 15/15 comparisons, 25.6%–60.8% fewer | ✅ **Assert — this is the new headline** |
+| The cost-matching is exact, not approximate | `baseline_comparison.py` verification gate; `01_main_comparison.csv` | per-round label counts identical, 12/12 runs | ✅ Assert |
+| Accuracy is not sacrificed to buy that safety | Fig `39`; `COMPARISON/tables/03_significance_image_level.csv` | paired bootstrap 95% CIs contain zero vs the strongest baselines | ✅ Assert as "statistically indistinguishable" |
+| The ranking holds across architectures | `04_direction_across_backbones.csv` | ours wins unsafe-auto-accepts 3/3 backbones vs all four baselines | ✅ Assert as direction (n=3, no p-value) |
 | The improvement is universal, not average | `significance_ablation_level.csv` | 24/24 experiments improve; rank-biserial effect = −1.0 | ✅ Assert |
 | The improvement is structurally guaranteed | METHODS §9, Proposition 1 | superset argument — proof, not statistics | ✅ Assert |
 | The method costs more annotation | Fig `09`, `04`; significance table | +382 labels (+9.1%), 12/12 configs, Holm p = 0.003 | ✅ Assert (as the price) |
@@ -25,6 +29,7 @@ whether it is safe to assert.
 | The safety/cost trade is a continuous dial | Figs `15`, `16`; `risk_threshold_sweep.csv` | full sweep 0.05 → 1.01 | ✅ Assert |
 | The risk head learned a real signal | `risk_auroc_by_experiment.csv`; Fig `08` | AUROC 0.962 across all rounds | ✅ Assert |
 | Melanoma is the hardest class | Fig `22`; `per_class_auc.csv` | AUC 0.945 [0.929, 0.960]; PR-AUC 0.781 | ✅ Assert |
+| Per-class AUC for `df` and `vasc` is **not** reportable | Fig `40`; `rare_class_ci_diagnostic.csv` | n=9 / n=14; 31% / 17% of bootstrap replicates return AUC exactly 1.000; resamples fall to 1 positive | ⛔ **Do not quote their CIs** — the narrow interval is a ceiling artifact, not precision |
 | Models are overconfident | Figs `17`–`20`; `calibration_metrics.csv` | ECE 0.073; 95.8% claimed vs 88.6% actual | ✅ Assert |
 | The risk head is better calibrated than the classifier | Same | ECE 0.056 vs 0.073 | ✅ Assert |
 | Overconfidence is cheaply correctable | Same | T ≈ 2.16, held-out ECE 0.073 → 0.023 | ✅ Assert |
