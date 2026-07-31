@@ -1,7 +1,7 @@
 # Artefact Manifest — Summary
 
-Generated: 2026-07-31T13:46:58.813964+00:00
-Root: `C:\Users\dyssa\Desktop\Research\RiskAware-ActiveLearning`
+Generated: 2026-07-31T13:50:42.230886+00:00
+Root: `RiskAware-ActiveLearning/`
 
 Full per-file record with SHA-256 checksums: `MANIFEST.csv`.
 

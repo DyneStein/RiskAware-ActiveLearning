@@ -12252,7 +12252,7 @@ risk_score/__init__.py,risk_score,git,clinical risk score,60,5b9d1fd1bb44120d2e5
 risk_score/clinical_risk.py,risk_score,git,clinical risk score,1585,3c371c27e3d4d64057cfde666c1e351ae80148c4d1b228ff5fc12b9bd5a6c94f,.py
 tools/__init__.py,tools,git,provenance capture and this manifest,363,c8337cef63b6b14936d2f6ddb8bc3556ef3438d1023c8c28516ba52ed0e93c86,.py
 tools/build_comparison_package.py,tools,git,provenance capture and this manifest,10124,e0e622c60ff233ebf7e2c59a75de93dc68c78c3b4a185649ee02767963804e83,.py
-tools/build_manifest.py,tools,git,provenance capture and this manifest,13563,0bd2b5abcf30997ae8f73b45e9ddd1717f26d6ca58208345bdf9bf4fd66fc5d7,.py
+tools/build_manifest.py,tools,git,provenance capture and this manifest,13600,84a93da3047b82145f078d10caf49b10911b2f98dd79ee21fc9b482b03d91ee8,.py
 tools/provenance.py,tools,git,provenance capture and this manifest,6509,1626d9acfe90bc0f5292677951982665ec72e2e9e80cefce1def1431f252a654,.py
 uncertainty/__init__.py,uncertainty,git,"entropy, margin, least-confidence, MC-dropout",59,10d3bfdecb2eb925245e9bc6bf8d2c9636042b9fe8f161f14bc8cee891ecf28e,.py
 uncertainty/entropy.py,uncertainty,git,"entropy, margin, least-confidence, MC-dropout",1370,edcc89847abdc42564bb34c447c4527991645e6705b797e8e0629202ff9a2a55,.py

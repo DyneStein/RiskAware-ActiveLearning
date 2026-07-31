@@ -318,5 +318,11 @@ A citation for this work will be added when the paper is published.
 
 ## License
 
-Code released under the MIT License — see [`LICENSE`](LICENSE). The HAM10000 dataset is not covered
-by it and remains under its own CC BY-NC terms.
+Code and results are released under the MIT License — see [`LICENSE`](LICENSE).
+
+The HAM10000 images are **not redistributed here**. The two label tables that are
+(`Seed Data/seed_metadata.csv` and the oracle's metadata CSV) are derived from HAM10000 and remain
+under its CC BY-NC terms — see [`NOTICE.txt`](NOTICE.txt) for the full carve-out.
+
+> **This is research code, not a medical device.** It has not been clinically validated or reviewed
+> by any regulator, and must not be used to diagnose or treat anyone.

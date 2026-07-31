@@ -219,7 +219,7 @@ def write_summary(rows, out_path, root):
         "# Artefact Manifest — Summary",
         "",
         f"Generated: {datetime.now(timezone.utc).isoformat()}",
-        f"Root: `{root}`",
+        f"Root: `{os.path.basename(os.path.normpath(root))}/`",
         "",
         "Full per-file record with SHA-256 checksums: `MANIFEST.csv`.",
         "",

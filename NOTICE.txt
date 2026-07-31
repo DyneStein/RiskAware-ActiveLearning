@@ -1,0 +1,59 @@
+===============================================================================
+NOTICE  --  what the licence does and does not cover
+===============================================================================
+
+The MIT licence in LICENSE applies to the SOURCE CODE in this repository, and
+to the results, figures and tables this project produced.
+
+It does NOT apply to third-party data.
+
+
+-------------------------------------------------------------------------------
+HAM10000
+-------------------------------------------------------------------------------
+
+Some files here are derived from the HAM10000 dataset, which belongs to its
+authors and is licensed CC BY-NC (attribution required, non-commercial use
+only). Those files remain under that licence and are not relicensed by anything
+in this repository:
+
+    Oracle_Simulated_Doctor/MetaData of Dataset (not seed data).csv
+    Seed Data/seed_metadata.csv
+
+Both are label tables -- image identifiers and their diagnoses. They are
+included because the code cannot reproduce anything without knowing which image
+has which diagnosis.
+
+The HAM10000 IMAGES are not redistributed here at all. Download them from the
+original source and point DATA_ROOT at your copy. See HOW_TO_RUN.txt.
+
+Required attribution:
+
+    Tschandl, P., Rosendahl, C. & Kittler, H. The HAM10000 dataset, a large
+    collection of multi-source dermatoscopic images of common pigmented skin
+    lesions. Scientific Data 5, 180161 (2018).
+    https://doi.org/10.7910/DVN/DBW86T
+
+If you use this repository, cite the dataset. If your use is commercial, you
+need permission from the dataset authors -- the MIT licence on this code does
+not grant it.
+
+
+-------------------------------------------------------------------------------
+PRETRAINED WEIGHTS
+-------------------------------------------------------------------------------
+
+The three networks start from ImageNet-pretrained weights supplied by
+torchvision, under torchvision's own licence terms.
+
+
+-------------------------------------------------------------------------------
+NOT A MEDICAL DEVICE
+-------------------------------------------------------------------------------
+
+This is research code. It has not been clinically validated, has not been
+reviewed or approved by any regulator, and must not be used to diagnose or
+treat anyone. The "simulated doctor" in this repository looks up answers from a
+spreadsheet; it is a research construct, not a clinician.
+
+===============================================================================
