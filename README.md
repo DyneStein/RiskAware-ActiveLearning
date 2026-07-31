@@ -12,6 +12,11 @@
   <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="MIT">
 </p>
 
+<p align="center">
+  <strong>Muhammad Dyen Asif</strong><sup>†</sup> · <strong>Haider Ramzan</strong><sup>†</sup><br>
+  <sub><sup>†</sup> These authors contributed equally and are joint first authors.</sub>
+</p>
+
 ---
 
 ## Where to start
@@ -296,6 +301,12 @@ would mean testing on training images. ISIC 2020 is the correct external set and
 `evaluation/rigor/external_validation_isic.py` targets.
 
 ---
+
+## Authors
+
+**Muhammad Dyen Asif**<sup>†</sup> and **Haider Ramzan**<sup>†</sup>
+
+<sup>†</sup> Joint first authors — these authors contributed equally to this work.
 
 ## Citation
 

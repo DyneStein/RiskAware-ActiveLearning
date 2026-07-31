@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 The RiskAware-ActiveLearning authors
+Copyright (c) 2026 Muhammad Dyen Asif and Haider Ramzan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -26,10 +26,11 @@ NOTE ON DATA
 This licence covers the SOURCE CODE in this repository only.
 
 It does not cover the HAM10000 dataset, which is distributed separately by
-its authors under CC BY-NC-SA 4.0 (attribution, non-commercial, share-alike)
-and is not redistributed here. See docs/DATA_AND_ARTIFACTS.md for how to
-obtain it and for the checksums that verify you have the same copy used in
-these experiments.
+its authors under CC BY-NC terms and is not redistributed here -- including
+the 490 seed images. Two HAM10000-derived label tables ARE included and
+remain under the dataset's own licence; see NOTICE.txt for the full
+carve-out, and HOW_TO_RUN.txt for how to obtain the images and the checksums
+that verify you have the same copy used in these experiments.
 
     Tschandl, P., Rosendahl, C. & Kittler, H. The HAM10000 dataset, a large
     collection of multi-source dermatoscopic images of common pigmented skin
