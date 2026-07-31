@@ -1,0 +1,178 @@
+===============================================================================
+HOW TO RUN THIS PROJECT
+===============================================================================
+
+There are two things you might want to do:
+
+  A. Look at the results we already produced.   -> no GPU, no dataset, 1 minute
+  B. Re-run the experiments yourself.           -> GPU needed, ~40 hours total
+
+Most people want A.
+
+
+-------------------------------------------------------------------------------
+A. LOOK AT THE RESULTS (nothing to install)
+-------------------------------------------------------------------------------
+
+Everything we found is already in this repository as plain CSV files and PNG
+images. You do not need to run anything.
+
+  paper/COMPARISON/   the comparison against four published methods
+  paper/03_FIGURES/   the figures
+  paper/04_TABLES/    the tables behind those figures
+  results/            the raw per-round output of all 36 experiments
+
+Each of those folders has its own README.txt saying what is inside.
+
+
+-------------------------------------------------------------------------------
+B. RE-RUN THINGS
+-------------------------------------------------------------------------------
+
+Step 1 -- install
+-----------------
+
+    git clone https://github.com/DyneStein/RiskAware-ActiveLearning.git
+    cd RiskAware-ActiveLearning
+    pip install -r requirements.txt
+
+Python 3.8 or newer. A GPU is needed for training but not for analysis.
+
+
+Step 2 -- get the dataset
+-------------------------
+
+The images are NOT in this repository. They belong to someone else and are
+licensed for non-commercial use only, so we do not redistribute them.
+
+Download HAM10000 (10,015 images, about 2.8 GB) from:
+
+    https://doi.org/10.7910/DVN/DBW86T
+
+Unzip it so it looks like this:
+
+    archive/
+      HAM10000_images_part_1/      5,000 images
+      HAM10000_images_part_2/      5,015 images
+      HAM10000_metadata.csv
+
+Then tell the code where it is:
+
+    export DATA_ROOT=/path/to/archive          (Linux / Mac / Colab)
+    $env:DATA_ROOT = "C:\path\to\archive"      (Windows PowerShell)
+
+Please cite the dataset if you use it:
+
+    Tschandl, P., Rosendahl, C. & Kittler, H. The HAM10000 dataset, a large
+    collection of multi-source dermatoscopic images of common pigmented skin
+    lesions. Scientific Data 5, 180161 (2018).
+
+
+Step 3 -- run
+-------------
+
+Quick check that everything works (about 10 minutes):
+
+    python main.py --model resnet50 --uncertainty entropy --policy dual_metric --rounds 2
+
+One full experiment (about 3 hours on a T4 GPU; 7 hours for mc_dropout):
+
+    python main.py --model resnet50 --uncertainty entropy --policy dual_metric
+
+Every experiment in the study (36 runs, about 40 GPU-hours):
+
+    python main.py --run-all --resume
+
+The --resume flag makes it safe to be interrupted. It saves after every round
+and picks up where it left off, so you can run it across many short sessions.
+This is how the original results were produced, on free Google Colab.
+
+
+Step 4 -- rebuild the analysis
+------------------------------
+
+These read the saved CSV files. No GPU and no dataset needed:
+
+    python analysis/build_analysis.py
+    python -m evaluation.rigor.statistics
+    python -m evaluation.rigor.ablation_posthoc
+    python -m evaluation.rigor.baseline_comparison
+    python -m tools.build_comparison_package
+
+These additionally need the trained model files (see the next section):
+
+    python -m evaluation.rigor.calibration
+    python -m evaluation.rigor.robustness
+    python -m evaluation.rigor.gradcam
+
+
+-------------------------------------------------------------------------------
+THE TRAINED MODELS
+-------------------------------------------------------------------------------
+
+The 36 trained models are about 2.6 GB in total and are not stored in this
+repository -- git is a poor place for large binary files, and it would make
+this repository slow to download for anyone who only wants the code.
+
+They are available on request and will be published with a permanent DOI when
+the paper is submitted.
+
+MANIFEST.csv in this folder lists every file the project produced along with a
+checksum, so you can confirm that any copy you receive is the original and
+unaltered one. To check a copy you have:
+
+    python -m tools.build_manifest --verify
+
+
+-------------------------------------------------------------------------------
+USEFUL COMMAND OPTIONS
+-------------------------------------------------------------------------------
+
+  --model         resnet50 | densenet169 | efficientnet_b4
+  --uncertainty   entropy | mc_dropout | margin | least_confidence
+  --policy        dual_metric | uncertainty_only
+  --baseline      coreset | badge | clue | vaal
+  --rounds N      how many active-learning rounds (default 15)
+  --seed N        random seed for training (default 42)
+  --resume        continue from the last saved round
+  --run-all       run every combination
+  --plot-only     rebuild the plots from results already on disk
+
+Settings that are not command-line options live in config.py.
+
+
+-------------------------------------------------------------------------------
+RUNNING ON GOOGLE COLAB
+-------------------------------------------------------------------------------
+
+This is how the study was actually run, because it needs no local GPU.
+
+  1. Upload this repository and the dataset to your Google Drive.
+  2. Open a new Colab notebook and switch on the T4 GPU
+     (Runtime -> Change runtime type -> T4 GPU).
+  3. Run the contents of colab/setup_cell.py in the first cell. It mounts your
+     Drive, installs what is missing, and sets DATA_ROOT for you.
+  4. Run the commands from step 3 above.
+
+Colab disconnects after a few hours. That is fine -- reconnect and run the same
+command again with --resume.
+
+
+-------------------------------------------------------------------------------
+REPRODUCIBILITY
+-------------------------------------------------------------------------------
+
+Two separate seed values are used, on purpose:
+
+  The data-split seed is frozen at 42 and never changes. It decides which
+  images form the held-out test set. Freezing it means every experiment in the
+  study was scored on exactly the same 1,905 test images, which is what makes
+  them comparable to each other.
+
+  The training seed (--seed) controls weight initialisation, batch order and
+  augmentation. All published results use 42.
+
+Every run records the GPU it used, the CUDA version, the library versions and
+the code commit into environment.json inside its own results folder.
+
+===============================================================================

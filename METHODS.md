@@ -33,7 +33,7 @@ $$\mathcal{D} = \mathcal{D}_{\text{test}} \;\sqcup\; \mathcal{D}_{\text{pool}},
 \qquad |\mathcal{D}_{\text{test}}| = 1{,}905, \qquad |\mathcal{D}_{\text{pool}}| = 8{,}110 .$$
 
 $\mathcal{D}_{\text{test}}$ is never queried, never trained on, and is byte-identical
-across all 24 experiments (verified by checksum), which is what makes the paired
+across all 36 experiments (verified by checksum), which is what makes the paired
 image-level tests of §9 valid.
 
 At active-learning round $t \in \{1, \dots, T\}$, $T = 15$, the pool is split into a

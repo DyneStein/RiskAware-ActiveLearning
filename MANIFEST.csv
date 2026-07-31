@@ -1,501 +1,503 @@
 path,tree,tier,description,size_bytes,sha256,extension
+HOW_TO_RUN.txt,(root),git,"top-level entry point, configuration or document",6610,b0d9091a92d4577d6126aed49e75f0e9856daf87a21212159c3f67478fe34684,.txt
 LICENSE,(root),git,"top-level entry point, configuration or document",1759,7a3f3ca63f9a2e12a3db139c4d5c0abb6eb1e6f973087ce801801d9ee7df6027,
-METHODS.md,(root),git,"top-level entry point, configuration or document",17293,2561a3eea5cd8a67d9cfdeb9132990422dab90acf49ee259e1eaf9838eeaacf4,.md
+METHODS.md,(root),git,"top-level entry point, configuration or document",17293,0c2265a628435288cf8afbdadbfa53caef042f16cf6e4a69fe12e9324674363b,.md
 Oracle_Simulated_Doctor/MetaData of Dataset (not seed data).csv,Oracle_Simulated_Doctor,git,simulated annotator and pool metadata,545015,2ebcf3bf53743c0af7133c8dd099af9efa8e9a4645038e1c2796412e168cd702,.csv
 Oracle_Simulated_Doctor/oracle.py,Oracle_Simulated_Doctor,git,simulated annotator and pool metadata,1392,496b49d193e377e5b9365c1352e53714ac5c2c1c71ce6b7580762911416305e3,.py
-README.md,(root),git,"top-level entry point, configuration or document",20755,afe5d1020443d211f4d162856407b4142bbd229a81af1cd30519e5199b5c3481,.md
-RESEARCHER.md,(root),git,"top-level entry point, configuration or document",24396,c2d896131364c96fd05168629c77c8776af2952c66a19097204923787ba59850,.md
-Seed Data/ISIC_0024318.jpg,Seed Data,git,the fixed 490-image starting labelled set,298082,5385558c6c44a27dca3f12f33a7d982d577b07631ab0dfbe642f6f829cdfdf3b,.jpg
-Seed Data/ISIC_0024329.jpg,Seed Data,git,the fixed 490-image starting labelled set,204724,343e4bc5295611175b7131ea5b52037cd5b50376fe08d7210c898ce3444a2cf8,.jpg
-Seed Data/ISIC_0024330.jpg,Seed Data,git,the fixed 490-image starting labelled set,237578,4f48c96f912e0675d00f57e107489e555a90bb04aef13e34fb8f0f6f620b4dc5,.jpg
-Seed Data/ISIC_0024333.jpg,Seed Data,git,the fixed 490-image starting labelled set,175192,a18f607831feb6cddb3d4d07f9c77d1d3b29e93bfff7362c0be7037483902152,.jpg
-Seed Data/ISIC_0024370.jpg,Seed Data,git,the fixed 490-image starting labelled set,312761,6f450c8a117c4d9db7d9a12b3ccdd688795d944fb159df9b40f9574feb874801,.jpg
-Seed Data/ISIC_0024375.jpg,Seed Data,git,the fixed 490-image starting labelled set,308846,866ca0e99e09aebae95ff31091b8f48fd6427aa69ab706487002c4d33d902a50,.jpg
-Seed Data/ISIC_0024396.jpg,Seed Data,git,the fixed 490-image starting labelled set,301151,09bebae9065e9481cd72baa1bd1c0a8b77e86805ceffded6169255c4c1428c91,.jpg
-Seed Data/ISIC_0024402.jpg,Seed Data,git,the fixed 490-image starting labelled set,237853,69858b574c3cdc4c8f2b317ceb90ebe228be61802de6a906099c718ad4a1a6c9,.jpg
-Seed Data/ISIC_0024419.jpg,Seed Data,git,the fixed 490-image starting labelled set,269281,018f39beb1d8b2b61556ce73d55a11e26aa97fc302ecd231fe9a06749e04b57b,.jpg
-Seed Data/ISIC_0024431.jpg,Seed Data,git,the fixed 490-image starting labelled set,303170,7e30576b0ee4f0c5e8bfba0f5cce8fd604af5ef1440a8f40d9bf8d30db1b7896,.jpg
-Seed Data/ISIC_0024435.jpg,Seed Data,git,the fixed 490-image starting labelled set,301751,2e47547133b85dcd110faee239ff305ece2a149cf044a908f5f61a10348649da,.jpg
-Seed Data/ISIC_0024448.jpg,Seed Data,git,the fixed 490-image starting labelled set,220223,1cfddc53b2f47ee79e2c0671731dc4c85760b87b03390b9f4a2f39e7b2a7c20b,.jpg
-Seed Data/ISIC_0024463.jpg,Seed Data,git,the fixed 490-image starting labelled set,232323,3e1bed546edf0fb34cd4e2c1622045baf5f1a2ca7cae211af969914c1bb4c2ee,.jpg
-Seed Data/ISIC_0024475.jpg,Seed Data,git,the fixed 490-image starting labelled set,345760,39a267090bad11de8cbac846909cc6110688f9b3c20ed1fb3894bed91dd441a4,.jpg
-Seed Data/ISIC_0024511.jpg,Seed Data,git,the fixed 490-image starting labelled set,221238,bccaeda2e9867da64516a58e8307b6854bd9122b4eb5a6cffd0cc272b45ae309,.jpg
-Seed Data/ISIC_0024537.jpg,Seed Data,git,the fixed 490-image starting labelled set,282589,391da830f2e3c230750d5d1b69e50e17ba50e8491fa3adec5671fea2ee1dc05a,.jpg
-Seed Data/ISIC_0024553.jpg,Seed Data,git,the fixed 490-image starting labelled set,372165,5966d3a6021d8022e157a251c2782d0400a3d8d8c19e46bdf9b0e3bbdde41571,.jpg
-Seed Data/ISIC_0024562.jpg,Seed Data,git,the fixed 490-image starting labelled set,298921,05fed58372fc98dc71655d7d4afe65e1ac5e6a5b829fe94de69418048f19c40b,.jpg
-Seed Data/ISIC_0024582.jpg,Seed Data,git,the fixed 490-image starting labelled set,261771,23aeef50c7b2e24e0672909cbaf9dc237f75c5f7ab98a749112840629a3abc27,.jpg
-Seed Data/ISIC_0024626.jpg,Seed Data,git,the fixed 490-image starting labelled set,313609,c5da5f34bb4f1dbd28b12eae76a934aa472e1f9563a004685c3cc00c27038422,.jpg
-Seed Data/ISIC_0024646.jpg,Seed Data,git,the fixed 490-image starting labelled set,232163,5772a1b511bd7f5d103b2b96dab77f8cf6f58844d1be4e03ead2a5c4f13ae7a3,.jpg
-Seed Data/ISIC_0024654.jpg,Seed Data,git,the fixed 490-image starting labelled set,279923,a32dda90d4b4430882dc55500683bea42a39eb5245e68d1f97b8883b40a0f725,.jpg
-Seed Data/ISIC_0024662.jpg,Seed Data,git,the fixed 490-image starting labelled set,340069,f7db784ccaec84a4b552e43fef1785f09a7ce84da9af0062a5ca25d74286fbc3,.jpg
-Seed Data/ISIC_0024669.jpg,Seed Data,git,the fixed 490-image starting labelled set,278501,93020b603d353689c2287f8b7659cd1b10b748ccc0a03efb38d433399e1362a5,.jpg
-Seed Data/ISIC_0024707.jpg,Seed Data,git,the fixed 490-image starting labelled set,284791,0e1486f87445a6cdcaa621ff296ef61239dc56d35db70fb8d184969b2d7e2315,.jpg
-Seed Data/ISIC_0024717.jpg,Seed Data,git,the fixed 490-image starting labelled set,267097,2ef7e7a8874870e87c2aa3e31a5b633377c206d000df450a8ebcff39bce3eaa7,.jpg
-Seed Data/ISIC_0024725.jpg,Seed Data,git,the fixed 490-image starting labelled set,298175,6035a5dab8fea0556c0845f80e44c22fbcbe735a09a263d1190e95a3d1a6acb4,.jpg
-Seed Data/ISIC_0024825.jpg,Seed Data,git,the fixed 490-image starting labelled set,323404,b38d7e63238e5c695bd1709a69f63650f9abb8a618e9e7df1a04a766c935a8a2,.jpg
-Seed Data/ISIC_0024845.jpg,Seed Data,git,the fixed 490-image starting labelled set,247053,9fea7c101eae9dd87a65c84bc98ef3731e46852c97e9a6690cdcd4d2bbe802f6,.jpg
-Seed Data/ISIC_0024867.jpg,Seed Data,git,the fixed 490-image starting labelled set,310683,cb39176bdcb0855e7a636770c3222bac0ef6db1650c20e0ad26d082d4ac2f6e0,.jpg
-Seed Data/ISIC_0024871.jpg,Seed Data,git,the fixed 490-image starting labelled set,248905,a7e549ba16b6249e2fc02f71c87aa5d0364bfdab250a9dff7c72ea79114011f8,.jpg
-Seed Data/ISIC_0024893.jpg,Seed Data,git,the fixed 490-image starting labelled set,261850,69e5158f37a59704664898dcc365c26ea2be24745657b4989138d72ebb73ad12,.jpg
-Seed Data/ISIC_0024904.jpg,Seed Data,git,the fixed 490-image starting labelled set,223385,af436c8552bd3c2fe003e90956412cb13089f641bf678e75990ad8d754703ca3,.jpg
-Seed Data/ISIC_0024913.jpg,Seed Data,git,the fixed 490-image starting labelled set,324826,2206d9c465c042c5889b7f23961a91840629a9bdd4901a246c536602b939014f,.jpg
-Seed Data/ISIC_0024915.jpg,Seed Data,git,the fixed 490-image starting labelled set,242891,c0fbb6fecfde11098c137cbd36a96a62a6106c76e60d5f81fa0a2ad74a9fec54,.jpg
-Seed Data/ISIC_0024931.jpg,Seed Data,git,the fixed 490-image starting labelled set,108669,2e3c0463bda3600a12004028e229a927141c5a4ab70a8c325910a3d0cd6701aa,.jpg
-Seed Data/ISIC_0024935.jpg,Seed Data,git,the fixed 490-image starting labelled set,284688,c852b0825f39c8d1bc5f48a63725dfdb584633da736852dca295bec64ff915df,.jpg
-Seed Data/ISIC_0024936.jpg,Seed Data,git,the fixed 490-image starting labelled set,266074,8d8c5483e2598ec8298d4b3a25231b61cd772c6a60ac933f06e01a8973e0d63c,.jpg
-Seed Data/ISIC_0024948.jpg,Seed Data,git,the fixed 490-image starting labelled set,274115,769d0f6a355dda072c4ccefae2f2ef72d86280ed26837789f8aaf6c02a976428,.jpg
-Seed Data/ISIC_0024973.jpg,Seed Data,git,the fixed 490-image starting labelled set,261066,c4c6d97a71d2137b896e2184626504d86e8d3c5d25e1433b1877680ef587fddb,.jpg
-Seed Data/ISIC_0024984.jpg,Seed Data,git,the fixed 490-image starting labelled set,259571,762e1f4904087bbffb4e16c199a03f33e9006985369c79be096e0913138fa881,.jpg
-Seed Data/ISIC_0024987.jpg,Seed Data,git,the fixed 490-image starting labelled set,325147,2aa16732370a15383994f9d607a86863fdcddf1805b6dbe9ac9797e80c849e5d,.jpg
-Seed Data/ISIC_0024994.jpg,Seed Data,git,the fixed 490-image starting labelled set,329394,086d98bbad60a8f2762ca5dd84bf74d31836775b4735c0b6fc5e884df895a6f9,.jpg
-Seed Data/ISIC_0025016.jpg,Seed Data,git,the fixed 490-image starting labelled set,233828,48c2ef2cdef3b8f66bd60a1734dd4739625ad7787d461717818708d77a42fb86,.jpg
-Seed Data/ISIC_0025031.jpg,Seed Data,git,the fixed 490-image starting labelled set,249209,b5f373f725def8f3df13c8446ce5cc3dc5681ff4febb86af6a96a57f36e5456e,.jpg
-Seed Data/ISIC_0025057.jpg,Seed Data,git,the fixed 490-image starting labelled set,346183,c4b95ab2a62e8dd79269ee1d4f4cf28e1a71810c5046f2ed51a1fefc2ea21680,.jpg
-Seed Data/ISIC_0025103.jpg,Seed Data,git,the fixed 490-image starting labelled set,324522,d58b198fb936b707ba7bf84be4add2c7b03f94ccb6e47dedb153f7ff1ecd5ffa,.jpg
-Seed Data/ISIC_0025130.jpg,Seed Data,git,the fixed 490-image starting labelled set,278034,89a5c9e39d9bd83b8e390d04a2c79236617b40d6e237bec989beacb4488ef647,.jpg
-Seed Data/ISIC_0025178.jpg,Seed Data,git,the fixed 490-image starting labelled set,260398,5540f05b960f7e3a8c0754728bfae34835c0222348c08fe29c23abdb4105a045,.jpg
-Seed Data/ISIC_0025196.jpg,Seed Data,git,the fixed 490-image starting labelled set,247815,2b9d3038e18a6097990a77104c723485746933fd7b1f7cd1dc413f1805d9d4a8,.jpg
-Seed Data/ISIC_0025197.jpg,Seed Data,git,the fixed 490-image starting labelled set,218497,c10b7b06c8fd634a781dfe79d0a867962cb8ca9194faf41c3e3d6f8d1e6dfa3d,.jpg
-Seed Data/ISIC_0025206.jpg,Seed Data,git,the fixed 490-image starting labelled set,341960,c7825d6ebda076a5406a69e06f59c2761277eae2248b2463dcddc550cdb1c033,.jpg
-Seed Data/ISIC_0025223.jpg,Seed Data,git,the fixed 490-image starting labelled set,330771,b47774d0c69ea0f0375619e26b0526295a82ed4298b9cc2cdf82d99c19e2f8f0,.jpg
-Seed Data/ISIC_0025234.jpg,Seed Data,git,the fixed 490-image starting labelled set,383335,3c85ef798b94963064be9066a2f83c1f2282fc2bc27cf0b48c9f107dfc700a25,.jpg
-Seed Data/ISIC_0025249.jpg,Seed Data,git,the fixed 490-image starting labelled set,317246,86b8f9c1bfe308d95577932c51826278230049bd84ef5f37b8df541f27de751d,.jpg
-Seed Data/ISIC_0025268.jpg,Seed Data,git,the fixed 490-image starting labelled set,310352,84f1f2e46d038f51c475a6846dcdcbbca7420be3e1f5cbe4141e2617f73b67e6,.jpg
-Seed Data/ISIC_0025281.jpg,Seed Data,git,the fixed 490-image starting labelled set,265612,6d5252fae004ceafc5f0507083959acc63176b008b3cb00689e5df09fc53dbc0,.jpg
-Seed Data/ISIC_0025301.jpg,Seed Data,git,the fixed 490-image starting labelled set,254075,2914951e73ff8be91d79fb6ae95280d4bc98726941b953537611c1d2369e378d,.jpg
-Seed Data/ISIC_0025302.jpg,Seed Data,git,the fixed 490-image starting labelled set,217026,acc762a909affb5dd26f1eedcc6f673fdfd8ac58b2a98f1e5c3722a76bf661cd,.jpg
-Seed Data/ISIC_0025314.jpg,Seed Data,git,the fixed 490-image starting labelled set,343274,538e9122277c6691e5b50c1713642cdfc49a2ae75007fa3d6747fb25169a3b46,.jpg
-Seed Data/ISIC_0025331.jpg,Seed Data,git,the fixed 490-image starting labelled set,242344,46995f1ceb65d6c940c28f15f0b42ee24bc150c3f5edeac0d1c448f9645841f1,.jpg
-Seed Data/ISIC_0025345.jpg,Seed Data,git,the fixed 490-image starting labelled set,307120,756370562c10318fa56b93fefcca59f27d8debd0c9f7dfe8c51674860d18cea4,.jpg
-Seed Data/ISIC_0025350.jpg,Seed Data,git,the fixed 490-image starting labelled set,261865,b2aaf7fc51aaa7c9c8f9876ed52b9db14ca5a7f5882743acbfcaa01f82f5ff75,.jpg
-Seed Data/ISIC_0025351.jpg,Seed Data,git,the fixed 490-image starting labelled set,320325,bdf852c1869cfe87c85369553c0cb5e3573ebe9f340287cfa601e25e89e90ddf,.jpg
-Seed Data/ISIC_0025358.jpg,Seed Data,git,the fixed 490-image starting labelled set,228554,863308be95b090f48bad882e8f2c8b430c3007c7424510f44253e6f42e52f92c,.jpg
-Seed Data/ISIC_0025373.jpg,Seed Data,git,the fixed 490-image starting labelled set,244582,9402eb50af66b0a0debe2944e82057faf535505ded0784ec1899995643256332,.jpg
-Seed Data/ISIC_0025411.jpg,Seed Data,git,the fixed 490-image starting labelled set,277020,64fa49b2e429004e016b69f218ecf66181a30f310c5a4b511277c3860c0a17f1,.jpg
-Seed Data/ISIC_0025438.jpg,Seed Data,git,the fixed 490-image starting labelled set,260564,7e7c3c209c4f48479fe9de3e47d4c4727ed0512818d6dc1a1320987469807b2b,.jpg
-Seed Data/ISIC_0025454.jpg,Seed Data,git,the fixed 490-image starting labelled set,362073,ca2c23e02ad0e4e2ef5820c88142a0de75fcf05e52ce1042b02b295eb72949a8,.jpg
-Seed Data/ISIC_0025504.jpg,Seed Data,git,the fixed 490-image starting labelled set,179461,bfdeb618193f7be27d78ec060bb807dd0ab61555ce8e1a123f8743f8ac53b2e0,.jpg
-Seed Data/ISIC_0025510.jpg,Seed Data,git,the fixed 490-image starting labelled set,283438,10f450f8c393dac3926de7f35efcd13193fa82da4096abfdd178afd40d279956,.jpg
-Seed Data/ISIC_0025530.jpg,Seed Data,git,the fixed 490-image starting labelled set,260183,247c4f7028a063d9565451adf0590bd543b07f97628e10059ad5034c19afe3c5,.jpg
-Seed Data/ISIC_0025531.jpg,Seed Data,git,the fixed 490-image starting labelled set,245276,2379438174cfe5a2c56414c3de6ed11dfa93a740e85c443a03677d2ebffa290c,.jpg
-Seed Data/ISIC_0025603.jpg,Seed Data,git,the fixed 490-image starting labelled set,306031,1da22c3ba355955ab3307bf82a53139ab3dc78740526c63a68186efdf3d962e3,.jpg
-Seed Data/ISIC_0025605.jpg,Seed Data,git,the fixed 490-image starting labelled set,249240,3477450e04a2854f1b5e7fe89f53b0e6e49993872f06a2e5510507a1db69e812,.jpg
-Seed Data/ISIC_0025622.jpg,Seed Data,git,the fixed 490-image starting labelled set,332983,b08a87f0f99dbca28568b4db108427575d5b1f5d413b07df5c45f36d6a9a6e00,.jpg
-Seed Data/ISIC_0025637.jpg,Seed Data,git,the fixed 490-image starting labelled set,254261,4f581cd6e50f28bfc0c740217188ad4dc72a9fe5dd39edc14a3d1bfd8c6c0818,.jpg
-Seed Data/ISIC_0025644.jpg,Seed Data,git,the fixed 490-image starting labelled set,279042,7f6d94e67535a4636dd6cb83bcd6971bfcd74caf190e039a4d48805578bda2a9,.jpg
-Seed Data/ISIC_0025659.jpg,Seed Data,git,the fixed 490-image starting labelled set,286227,14bb47a82acf867555e9a45c86315777e4be996d7a01874b63dd77b5ab4918bc,.jpg
-Seed Data/ISIC_0025668.jpg,Seed Data,git,the fixed 490-image starting labelled set,300479,dcd9927ef8949a96a4967ff5d16f5afc23097533087a250ad35ad6bccdcfd775,.jpg
-Seed Data/ISIC_0025674.jpg,Seed Data,git,the fixed 490-image starting labelled set,283696,d52ea4c3d771e02a0fbf2c7012bb732230470fc7cc1b2a43356dbc70daa738cd,.jpg
-Seed Data/ISIC_0025677.jpg,Seed Data,git,the fixed 490-image starting labelled set,310217,50b053a5c09b7f261059c7acc8c423a4cb9d80263cc6057d5893dd1d6fa366bf,.jpg
-Seed Data/ISIC_0025679.jpg,Seed Data,git,the fixed 490-image starting labelled set,284865,24ab047769b9cc681cab705723c85d5eb6045fe6f51d4c26a7b8b5517f1e934b,.jpg
-Seed Data/ISIC_0025680.jpg,Seed Data,git,the fixed 490-image starting labelled set,264574,52ec2ddd076a69098db4b2692a9420a1a71acab4e7ffe1df8cc072c7d9548cce,.jpg
-Seed Data/ISIC_0025696.jpg,Seed Data,git,the fixed 490-image starting labelled set,273833,c8f40c12b8c92fd69dbb188af761da588d24b5bb2a0c9d916084defb9eb8337a,.jpg
-Seed Data/ISIC_0025719.jpg,Seed Data,git,the fixed 490-image starting labelled set,290115,01d76233182ab00f7ba58cbafff98a798002c5c55cc4937e90f2bcdfc36bfae8,.jpg
-Seed Data/ISIC_0025724.jpg,Seed Data,git,the fixed 490-image starting labelled set,161805,4d1ff778f09bc0c1d6d5c94d46d925c893a9417a865819e29a73c341a20ef815,.jpg
-Seed Data/ISIC_0025726.jpg,Seed Data,git,the fixed 490-image starting labelled set,318910,8756f587996434240e57c6750f10c813179c0087ca376f5e48e2b0532b236ef9,.jpg
-Seed Data/ISIC_0025746.jpg,Seed Data,git,the fixed 490-image starting labelled set,217102,28a613287b4ffa7c29fdf0f8ae5cf9a5cbba812ab4cfe5f989cfe0c6cbc11f69,.jpg
-Seed Data/ISIC_0025752.jpg,Seed Data,git,the fixed 490-image starting labelled set,305662,7e5097acd22646c4efac6c03c03276600f67bd54e8ff92494e9aa16c0d494dd2,.jpg
-Seed Data/ISIC_0025832.jpg,Seed Data,git,the fixed 490-image starting labelled set,245984,5e39f67c4173f56db08476082eec2e675ddedd977ed2190070540bcdececc852,.jpg
-Seed Data/ISIC_0025873.jpg,Seed Data,git,the fixed 490-image starting labelled set,198067,83c809829eb1dbeaa9e136ebf1517dd8059c1e55196e6789a55db6466dd3d68d,.jpg
-Seed Data/ISIC_0025903.jpg,Seed Data,git,the fixed 490-image starting labelled set,348962,976e8defe4159ecf636570342b4a5ec680b5afbc5ac4ecde1e4e6f8804fd454d,.jpg
-Seed Data/ISIC_0025924.jpg,Seed Data,git,the fixed 490-image starting labelled set,219844,40f6a3e41059b665245711aba96ed05c26c8757c46f0ebc0c9b03c6df002da6f,.jpg
-Seed Data/ISIC_0025953.jpg,Seed Data,git,the fixed 490-image starting labelled set,273022,5c988e95d4109bfe1559c9885ba6eed71a580963cb8208b7508d9e668653f5aa,.jpg
-Seed Data/ISIC_0025954.jpg,Seed Data,git,the fixed 490-image starting labelled set,232635,26268cd1eb4ce0a9226ccb57cdefa9a9f0dd062cb3010e72c04f22677d6ffa87,.jpg
-Seed Data/ISIC_0025959.jpg,Seed Data,git,the fixed 490-image starting labelled set,241782,1d0891ccaae7203f067fad933a3c425446b644d0a73ef85fe59d58a05d33ce38,.jpg
-Seed Data/ISIC_0025975.jpg,Seed Data,git,the fixed 490-image starting labelled set,265697,d935c78054841f64160a85299211c5498815f6cc97becabc2997056b259b6ff1,.jpg
-Seed Data/ISIC_0025980.jpg,Seed Data,git,the fixed 490-image starting labelled set,354722,9d3bc521e1763f92178bc2594e6b31b4e6b404c74ad8b20b6185578bf043a54e,.jpg
-Seed Data/ISIC_0026044.jpg,Seed Data,git,the fixed 490-image starting labelled set,180308,27cf44bc5af082fb88b940c0aba0302c306c1ea1f30c9258e0aa8683b38575ef,.jpg
-Seed Data/ISIC_0026060.jpg,Seed Data,git,the fixed 490-image starting labelled set,304325,a0b1a1b5862fc849ada19c78e6d48b1b97fc8a41ec05727136323c716a7a4244,.jpg
-Seed Data/ISIC_0026068.jpg,Seed Data,git,the fixed 490-image starting labelled set,264565,b5d7c9322197d7068d8d05f92709d47480f73a0aaf6bea9fc1b4868923fe4f87,.jpg
-Seed Data/ISIC_0026100.jpg,Seed Data,git,the fixed 490-image starting labelled set,236718,463089ba2a584067c7f9409a9058f60aee96f23aed9ab1555c7853f9295b78fe,.jpg
-Seed Data/ISIC_0026115.jpg,Seed Data,git,the fixed 490-image starting labelled set,298951,567f142ebe2b312317ef0d63ecb4213c1533add0d700006426c2f5534f98884d,.jpg
-Seed Data/ISIC_0026116.jpg,Seed Data,git,the fixed 490-image starting labelled set,265034,9edce15f3cd5f6c4c8e827c4e62902dbec59c256c20bb0fbac7febbe9036dfe6,.jpg
-Seed Data/ISIC_0026138.jpg,Seed Data,git,the fixed 490-image starting labelled set,282677,d4cb281c25dd2fc78e977b6a75fd52c70ff794c33b775258b31ea14398e76f5e,.jpg
-Seed Data/ISIC_0026152.jpg,Seed Data,git,the fixed 490-image starting labelled set,300394,ef0b0cb8584b54191a860da4df118d8846493db274ef79f234d8bf874259507b,.jpg
-Seed Data/ISIC_0026156.jpg,Seed Data,git,the fixed 490-image starting labelled set,182661,c8d2049f4b3e690239b107c17375d0830ad16a30a56c8083ea332f23b643887c,.jpg
-Seed Data/ISIC_0026163.jpg,Seed Data,git,the fixed 490-image starting labelled set,207757,d6d5b36ef6f8d315b529ce952006e9b2aebecd1a558e9762bf7e59f24403c3f8,.jpg
-Seed Data/ISIC_0026214.jpg,Seed Data,git,the fixed 490-image starting labelled set,352055,18f08a07b679c26a5b28cb44bb1197471144c337ec7e0156922851cddc2a186b,.jpg
-Seed Data/ISIC_0026254.jpg,Seed Data,git,the fixed 490-image starting labelled set,357094,ba75c90ab4b34f620aef7ae563b92838d523649ff7bbfb595bc6568efec52dd1,.jpg
-Seed Data/ISIC_0026262.jpg,Seed Data,git,the fixed 490-image starting labelled set,313421,e3ed01dbffe9cb3bf8024e54f553d864782c49afdf09180ca12ecb5ab214f507,.jpg
-Seed Data/ISIC_0026343.jpg,Seed Data,git,the fixed 490-image starting labelled set,459172,1cdc1afd414b82fafb2771632d0aa5d60c97f92e9a2a10a29b44e202f188b0d1,.jpg
-Seed Data/ISIC_0026349.jpg,Seed Data,git,the fixed 490-image starting labelled set,258369,576b9b485b50de748c4ca493e5a0268e495d81821ea6acb6d301771c4c48b02d,.jpg
-Seed Data/ISIC_0026350.jpg,Seed Data,git,the fixed 490-image starting labelled set,267860,a318fd86c69112d3e355c37969bff3d8a93a58b0869270259e2d786450c785a2,.jpg
-Seed Data/ISIC_0026362.jpg,Seed Data,git,the fixed 490-image starting labelled set,263990,b4a29d6df5799c46cb7dc16fd0fd1dcce98e79f1a420de02ebf6e09da2ff96bb,.jpg
-Seed Data/ISIC_0026393.jpg,Seed Data,git,the fixed 490-image starting labelled set,305385,9e64699b593543b60f0b753f413faf411ff928a67395ef5f678cd5767eb353b7,.jpg
-Seed Data/ISIC_0026399.jpg,Seed Data,git,the fixed 490-image starting labelled set,294004,090c85f9cd72005ec68556441035269408c421d4c964458caa6a1b67b9c67c1e,.jpg
-Seed Data/ISIC_0026416.jpg,Seed Data,git,the fixed 490-image starting labelled set,314158,ca6c0010f9272bb0f92b856ed987373456f463ec9c00aa7689bb46b4d28e7625,.jpg
-Seed Data/ISIC_0026444.jpg,Seed Data,git,the fixed 490-image starting labelled set,248942,b2ed50850d4d5ea5b5e2b83d315a32e58866e4dc017909b213bbe289559c3abc,.jpg
-Seed Data/ISIC_0026453.jpg,Seed Data,git,the fixed 490-image starting labelled set,233586,0178df6de69a04c087674fc1f0a2b46865171678d53eff5dc78ee1c958d2b94d,.jpg
-Seed Data/ISIC_0026473.jpg,Seed Data,git,the fixed 490-image starting labelled set,282778,e7a2930f083a5ee460907ddfbe95dfcf2bd5bd23b3eaf634714feadb6cf89505,.jpg
-Seed Data/ISIC_0026490.jpg,Seed Data,git,the fixed 490-image starting labelled set,316905,1f9391f8cd49e1518e48e493a00169df2721b2d0dd2090db58f33842d71a08c3,.jpg
-Seed Data/ISIC_0026503.jpg,Seed Data,git,the fixed 490-image starting labelled set,272021,0936d5182e5163eff2daf582449256b59f1c87988a6908843f9f7b175c6f01a6,.jpg
-Seed Data/ISIC_0026526.jpg,Seed Data,git,the fixed 490-image starting labelled set,198802,d6f3dd6aa119e351ef4192628aec24a7575f67952c2a77ce5bd7a2da01e06294,.jpg
-Seed Data/ISIC_0026545.jpg,Seed Data,git,the fixed 490-image starting labelled set,315202,753bc1b644a47ba7b1b2ece1c5d75ffe23102badaf0ba267a965fdb0255ce115,.jpg
-Seed Data/ISIC_0026562.jpg,Seed Data,git,the fixed 490-image starting labelled set,343492,92324b633ba9741e192aa3686df5b3b5c865a3608449c5ed7a716313510557fa,.jpg
-Seed Data/ISIC_0026575.jpg,Seed Data,git,the fixed 490-image starting labelled set,274721,9bec563fc8d9dcdf3dd780dce8c3e046b9529eacee276708dcfc3744b3502c2e,.jpg
-Seed Data/ISIC_0026593.jpg,Seed Data,git,the fixed 490-image starting labelled set,289237,535f2efc0d86cb72e2b7128fd0b7f80c63da471533af61909ab2ed70528b260c,.jpg
-Seed Data/ISIC_0026596.jpg,Seed Data,git,the fixed 490-image starting labelled set,258175,8d17b4b4ef62a90720b11ce732414713e7595af3d2d8d4c3b18c4197656988c1,.jpg
-Seed Data/ISIC_0026609.jpg,Seed Data,git,the fixed 490-image starting labelled set,276663,607b1f3ee8799981b00b984f7ec9f3696884bb9e61f32e13178b150ed8da28e5,.jpg
-Seed Data/ISIC_0026625.jpg,Seed Data,git,the fixed 490-image starting labelled set,301266,925f8c81ceb5fc5ca23c82435f4c0bfb3ac50e3c40caa3e4fe78c388ddbeebe3,.jpg
-Seed Data/ISIC_0026626.jpg,Seed Data,git,the fixed 490-image starting labelled set,290933,d326b5ae70ef649680c7160a775589afe0b59018a7a40abf5a8cd8ccde5b077e,.jpg
-Seed Data/ISIC_0026650.jpg,Seed Data,git,the fixed 490-image starting labelled set,252505,02444192dd87df253b96711a027f8a7c1e9db82249ccdbdbac2c9d2789093241,.jpg
-Seed Data/ISIC_0026656.jpg,Seed Data,git,the fixed 490-image starting labelled set,293508,9dac4022d4f71f765ebebd330312a6b87e598072b6aea80ccf9d86ffc2f073ec,.jpg
-Seed Data/ISIC_0026693.jpg,Seed Data,git,the fixed 490-image starting labelled set,280652,c9eb9eae9f81621bc34b8e7f403316be2e83faefc8512f5974b714a5c6741d42,.jpg
-Seed Data/ISIC_0026702.jpg,Seed Data,git,the fixed 490-image starting labelled set,279781,9ef32279285ee53718f98a2eb1d7e488459e7ac6245a1ddd9b3c167715b483e2,.jpg
-Seed Data/ISIC_0026766.jpg,Seed Data,git,the fixed 490-image starting labelled set,249370,f5ae9743980079cd7ae380d24694856a64cde5e5247fd9903ed98619a17a41ae,.jpg
-Seed Data/ISIC_0026789.jpg,Seed Data,git,the fixed 490-image starting labelled set,259949,7383a9ec8729c9423870d350b6e8e5465c3c4023f2916a496811a7ae5a63297c,.jpg
-Seed Data/ISIC_0026853.jpg,Seed Data,git,the fixed 490-image starting labelled set,304858,30481e663f69e32c5aa5fcd8a159799c0e94d1c5c432c99f55de0006f1257327,.jpg
-Seed Data/ISIC_0026870.jpg,Seed Data,git,the fixed 490-image starting labelled set,316269,b32224a7b2acaf4867353daed338b079d6f216bc3ca4e58f860a0888e67d3bed,.jpg
-Seed Data/ISIC_0026876.jpg,Seed Data,git,the fixed 490-image starting labelled set,211004,776b28c8bfd231125ec169f924cbe2912633497a9f2566d7b6ad3abba2d734bb,.jpg
-Seed Data/ISIC_0026883.jpg,Seed Data,git,the fixed 490-image starting labelled set,210947,185447713eb77cab86f3aa4b8d26dc95ed1411bd4fe7980f03beb5a4d83afee7,.jpg
-Seed Data/ISIC_0026912.jpg,Seed Data,git,the fixed 490-image starting labelled set,331522,3bf89c7fcd2855f22448c18f4216fa4c89adfb0c3ea1915cbbc4eec0f224beca,.jpg
-Seed Data/ISIC_0026968.jpg,Seed Data,git,the fixed 490-image starting labelled set,208125,8e460f0963cf4f1e16150f74af7072cd47c5df2c88e3588fc5818bcf91231780,.jpg
-Seed Data/ISIC_0027008.jpg,Seed Data,git,the fixed 490-image starting labelled set,312017,9c1d65a55536d129a84219bd7f1bf46049008928e8eb0ede73d96c8f7fc8356c,.jpg
-Seed Data/ISIC_0027043.jpg,Seed Data,git,the fixed 490-image starting labelled set,302901,36f51481fbf8c94ccf15c95fbfdf4f8ec54f7522dda0bc523e81e5ec46a0c065,.jpg
-Seed Data/ISIC_0027058.jpg,Seed Data,git,the fixed 490-image starting labelled set,183451,a7a65d154cdce72f097a329f5688cdfc98e897f7c5eab462b13770a50fb212c2,.jpg
-Seed Data/ISIC_0027068.jpg,Seed Data,git,the fixed 490-image starting labelled set,249717,4938578e5d15909358b5d542d01e325dc30c2192b2197b71f21c0419e1f887d9,.jpg
-Seed Data/ISIC_0027090.jpg,Seed Data,git,the fixed 490-image starting labelled set,306309,265e3847719daa52f365c2bc9c377a77b89354ca92e1681e3385b02c1d8a2166,.jpg
-Seed Data/ISIC_0027102.jpg,Seed Data,git,the fixed 490-image starting labelled set,305535,f4a9d00419830c14d4977ca45ac9f515567a5d5f66b8c40fea79e8495e6763dc,.jpg
-Seed Data/ISIC_0027107.jpg,Seed Data,git,the fixed 490-image starting labelled set,294338,2756b6ded5e75b3f61f343a3c5c2dbc61d1dfe657e2b3f8ddd5ab8b27343c456,.jpg
-Seed Data/ISIC_0027118.jpg,Seed Data,git,the fixed 490-image starting labelled set,285547,24c212e8b25988eb4e6c8b28f04dea4d6e89069eda9597bd9abf17ccb0f1f0ad,.jpg
-Seed Data/ISIC_0027120.jpg,Seed Data,git,the fixed 490-image starting labelled set,232122,497364fe550f4e838a7689f1feb4ddf96f4b8d974b292c083dd39be6bf3b0915,.jpg
-Seed Data/ISIC_0027159.jpg,Seed Data,git,the fixed 490-image starting labelled set,235040,7a9e6329ebd5b07545dd2194d830cb04b89e6d2a2a871ab075079ec2173205a0,.jpg
-Seed Data/ISIC_0027188.jpg,Seed Data,git,the fixed 490-image starting labelled set,247989,84fc3538487b0b9e212a81d0a4be9aafeac85c63934caf212b375f42b97413b0,.jpg
-Seed Data/ISIC_0027254.jpg,Seed Data,git,the fixed 490-image starting labelled set,313789,178b879a5b98977635f80c14d3acd2db1cdc795b9270a52381a2ec42140c7269,.jpg
-Seed Data/ISIC_0027275.jpg,Seed Data,git,the fixed 490-image starting labelled set,339408,3ef779a291edfd983855bcb4b9486d6ca64d873169897c249c0aa5371a7c571c,.jpg
-Seed Data/ISIC_0027282.jpg,Seed Data,git,the fixed 490-image starting labelled set,259528,7f4353bfe4be286b46b3082b234d2dedb51f841da1af0263e1d53bd20d6b5679,.jpg
-Seed Data/ISIC_0027294.jpg,Seed Data,git,the fixed 490-image starting labelled set,219811,5bf34bab38604ee1c48a3c10e119ed990dbf01757ed644286f1ef6812ba50d6b,.jpg
-Seed Data/ISIC_0027303.jpg,Seed Data,git,the fixed 490-image starting labelled set,260254,098bb58b982c7fa63dfcb46d5e591d47091ad857c6f607802d5b246b79049bd8,.jpg
-Seed Data/ISIC_0027326.jpg,Seed Data,git,the fixed 490-image starting labelled set,340544,208ebc4e376b03f35cc98e3384b18187571dab6869aeed5c05fa2587cd299bce,.jpg
-Seed Data/ISIC_0027334.jpg,Seed Data,git,the fixed 490-image starting labelled set,204813,5ae080e51253c63a209965122d18d85cdc88ae78f813153983581e6fd4cddabb,.jpg
-Seed Data/ISIC_0027365.jpg,Seed Data,git,the fixed 490-image starting labelled set,268761,6f527a24ab01531992b6b589ce51a5018b1f15a41e04fcc091503603c001b8df,.jpg
-Seed Data/ISIC_0027385.jpg,Seed Data,git,the fixed 490-image starting labelled set,261004,7c064472988dd42f27ff7c287d53a122e21cffb068186588e291e2774b27a191,.jpg
-Seed Data/ISIC_0027447.jpg,Seed Data,git,the fixed 490-image starting labelled set,282588,67de56c63fc1613b4af59ffb39b24f57c961fc763c392d64fabef2df8b2a9628,.jpg
-Seed Data/ISIC_0027470.jpg,Seed Data,git,the fixed 490-image starting labelled set,189399,503a35ea4d671f6177db84d5d5a09cb614477642d792a0cfe6cceaefc82f81be,.jpg
-Seed Data/ISIC_0027473.jpg,Seed Data,git,the fixed 490-image starting labelled set,127898,5ba194e64f708ce7290571ce2b3755eb8beb92201cc5d3ca0d0dac4104e66826,.jpg
-Seed Data/ISIC_0027480.jpg,Seed Data,git,the fixed 490-image starting labelled set,229488,289dd179ab2bc66c203b573a800d8666effca2fd3003c20371618f35c4ef621e,.jpg
-Seed Data/ISIC_0027488.jpg,Seed Data,git,the fixed 490-image starting labelled set,319243,ce00e27988d449cb5a692ab51d7bcb1f3699b5f9420b944b109b43fb5541b827,.jpg
-Seed Data/ISIC_0027506.jpg,Seed Data,git,the fixed 490-image starting labelled set,276582,6a68ebcd6278b81e95d02e335b1bf8f02c4e42b8cb571659045c5cf779f2e295,.jpg
-Seed Data/ISIC_0027517.jpg,Seed Data,git,the fixed 490-image starting labelled set,249190,b730991612a65d159f98f8607de42cbf961dd06dda1a7d447c68beff260ba438,.jpg
-Seed Data/ISIC_0027522.jpg,Seed Data,git,the fixed 490-image starting labelled set,323704,8cef093b50271903449044434ccab382892528b2452748130997bd543e2fc4e4,.jpg
-Seed Data/ISIC_0027533.jpg,Seed Data,git,the fixed 490-image starting labelled set,268172,7692bc822b2dad2312d1a9f3875179115ee977a42e8a3b1a6ecb804b0ddd5d58,.jpg
-Seed Data/ISIC_0027562.jpg,Seed Data,git,the fixed 490-image starting labelled set,248023,c89d858bac39589b2ec2fffd8c377d8e7ae9d1d52977f78a7852391dbbd41193,.jpg
-Seed Data/ISIC_0027563.jpg,Seed Data,git,the fixed 490-image starting labelled set,331792,a3d8748d5daae974120d7801ea2e30b1b58593f7cc6a101bf04fc431331cb26b,.jpg
-Seed Data/ISIC_0027598.jpg,Seed Data,git,the fixed 490-image starting labelled set,318792,51f36c99d51a12d17a5068f1365a73563d546d045c2360bfea5836626dd5cf0c,.jpg
-Seed Data/ISIC_0027613.jpg,Seed Data,git,the fixed 490-image starting labelled set,294546,5edbaeec2dd1aa75980817b30e521d46e2fdd6ada98fe3e6ca45d0ae238f20c5,.jpg
-Seed Data/ISIC_0027615.jpg,Seed Data,git,the fixed 490-image starting labelled set,263188,fae100401f6a9a6bdf4b5651a51b970ac13464b86ba5070dd7a38612ff93af0b,.jpg
-Seed Data/ISIC_0027622.jpg,Seed Data,git,the fixed 490-image starting labelled set,243965,2547d4c43df87bb249f76200205022ea4e57e0dd65d1b8a29cde2d2c7aa7ffc2,.jpg
-Seed Data/ISIC_0027648.jpg,Seed Data,git,the fixed 490-image starting labelled set,162888,c45aa8ac9b254cda64da3fbfd68cc36fce6441664091729f5eb0c0db99e298c1,.jpg
-Seed Data/ISIC_0027666.jpg,Seed Data,git,the fixed 490-image starting labelled set,271627,fd4b383750fecfba601174f10cdd7169970e9a272b5c44717928a382b1d71a63,.jpg
-Seed Data/ISIC_0027670.jpg,Seed Data,git,the fixed 490-image starting labelled set,258856,f9c9829142bda1959eb061074568b37371b96523122e900430cf60bbed9a37a2,.jpg
-Seed Data/ISIC_0027672.jpg,Seed Data,git,the fixed 490-image starting labelled set,229869,2aaecc9e78e41cbf5cccbfe9099fcfaad4ee3d993bbcef6d05c9c881f8228b0f,.jpg
-Seed Data/ISIC_0027675.jpg,Seed Data,git,the fixed 490-image starting labelled set,207828,4560dc41c6c177bac40928bd95efc10305e96ee07f89b55e76b63374d9255b60,.jpg
-Seed Data/ISIC_0027678.jpg,Seed Data,git,the fixed 490-image starting labelled set,273341,0798cfc7f259809a1a7afd38b30f3f6030a2b5d11a9d3f55eb79804f0662a300,.jpg
-Seed Data/ISIC_0027753.jpg,Seed Data,git,the fixed 490-image starting labelled set,271090,591108b6a492dccdb87650c23d4b53c3974bd89372187eebfb33588698e3daa8,.jpg
-Seed Data/ISIC_0027766.jpg,Seed Data,git,the fixed 490-image starting labelled set,250614,7de47a833fd1c69dd199de4a1d830806657980fd4423922198185883bebbdcec,.jpg
-Seed Data/ISIC_0027774.jpg,Seed Data,git,the fixed 490-image starting labelled set,311392,b1bb9c142ca4c9b858c607d5139b05b3ad72ae443f771e0202951769412f0e51,.jpg
-Seed Data/ISIC_0027856.jpg,Seed Data,git,the fixed 490-image starting labelled set,304560,4898406f1bbf66276d56124e6dfc43cd05f9cf463f7433a592065a7d5c327c94,.jpg
-Seed Data/ISIC_0027876.jpg,Seed Data,git,the fixed 490-image starting labelled set,207286,26e3d67a257bc9431c4edaf93f60d8ce73ff269621e47369ee1ee60b4a62eb85,.jpg
-Seed Data/ISIC_0027888.jpg,Seed Data,git,the fixed 490-image starting labelled set,311560,637d336f1a2003175d6e835f7c9ebe89d20ec5a57ca3315358b36f8fddeb9418,.jpg
-Seed Data/ISIC_0027903.jpg,Seed Data,git,the fixed 490-image starting labelled set,210713,476c8d5e8bf60a0b40452d8dd51dc0d981c0948710fe57987014ab6608a285c0,.jpg
-Seed Data/ISIC_0027921.jpg,Seed Data,git,the fixed 490-image starting labelled set,264065,bfe906c8ea97080d132b1d8c7cb00fae75c585984b67e2cb8a62e780a867aebb,.jpg
-Seed Data/ISIC_0027937.jpg,Seed Data,git,the fixed 490-image starting labelled set,277952,ba5762f606a972c3290f3cb28b5bc1f20ea4882748e0e194f84a2cfd7d998aac,.jpg
-Seed Data/ISIC_0027954.jpg,Seed Data,git,the fixed 490-image starting labelled set,335946,d74318af9c3d1054ba019823c40ae6b5c1262c89aeb42c0dcbf122f14d4088b7,.jpg
-Seed Data/ISIC_0027960.jpg,Seed Data,git,the fixed 490-image starting labelled set,281816,152aa9a4661f1b9be912da7d5ebde8365357b25ce75f055b9e900ff825dd997b,.jpg
-Seed Data/ISIC_0027969.jpg,Seed Data,git,the fixed 490-image starting labelled set,157262,af39734af7b19d668839e065ece83a30b2fa8f453b5c86204c8c86ac4dbb4508,.jpg
-Seed Data/ISIC_0027978.jpg,Seed Data,git,the fixed 490-image starting labelled set,231679,80184311294d59278500970b3ff80c2b1619fbd110a35460af81fe8402667bb7,.jpg
-Seed Data/ISIC_0027983.jpg,Seed Data,git,the fixed 490-image starting labelled set,251887,1964003c29aa073b8efdfbe5a1a263e2022c61fc68b8f238f93b8047e8daa9a7,.jpg
-Seed Data/ISIC_0027987.jpg,Seed Data,git,the fixed 490-image starting labelled set,359501,5217bceffec2d7dbf7a9f7d92c848d5ce4f0dcbda93710af740206cf9b8f0589,.jpg
-Seed Data/ISIC_0027989.jpg,Seed Data,git,the fixed 490-image starting labelled set,254557,22109027c503e9a74f430b066a6730ec6ad2d61cc1c1d435732c136c97af1f37,.jpg
-Seed Data/ISIC_0028035.jpg,Seed Data,git,the fixed 490-image starting labelled set,282036,bc53da168624cfd60b4ec29c5d9ee5e48e2bb6b6cc866350dae4abecc666e708,.jpg
-Seed Data/ISIC_0028059.jpg,Seed Data,git,the fixed 490-image starting labelled set,193879,2302dfa7899d421886a026fcf100d4ff3e6b139ab70a0dc65ee9a84f790024f3,.jpg
-Seed Data/ISIC_0028106.jpg,Seed Data,git,the fixed 490-image starting labelled set,237520,379bcd4c57b2eaaf5fc9dd0148427aeba1939a8d7492e947c250c4ca298d77d5,.jpg
-Seed Data/ISIC_0028146.jpg,Seed Data,git,the fixed 490-image starting labelled set,161114,9ad7323672c1a455f91dc52ef99bbb3362ea98e8ff33d974483a8310cca61fc2,.jpg
-Seed Data/ISIC_0028155.jpg,Seed Data,git,the fixed 490-image starting labelled set,307993,3e645c4f5f258e102e9f7202476881de5b6a3aae99a7caae405df24f44e167f2,.jpg
-Seed Data/ISIC_0028160.jpg,Seed Data,git,the fixed 490-image starting labelled set,337744,17bdfd370aebad6689cab448ed68308c317601bc53bf7010fbeae4f0be697caf,.jpg
-Seed Data/ISIC_0028163.jpg,Seed Data,git,the fixed 490-image starting labelled set,269530,692c640bca08d9f892ecaed5c51264e9d8509f9641fa9c0c7337f92d168d6e20,.jpg
-Seed Data/ISIC_0028188.jpg,Seed Data,git,the fixed 490-image starting labelled set,207254,f2dbe6b49b15233e2caee549c25b9dfd21e8469f25af4e3f919697effd1ad0a7,.jpg
-Seed Data/ISIC_0028197.jpg,Seed Data,git,the fixed 490-image starting labelled set,133255,c3b99739daa8d54a76a16320bfa328600a63d28137e64423c412ba0e3c1297b1,.jpg
-Seed Data/ISIC_0028198.jpg,Seed Data,git,the fixed 490-image starting labelled set,273080,6f293e4339414bcbe7d49b5866fd820eb48ec34257aa9b2558f13cf885ac4396,.jpg
-Seed Data/ISIC_0028289.jpg,Seed Data,git,the fixed 490-image starting labelled set,346610,0e4f55568bfd87bcdf375051d909e888d35da2b05cf821c82db337001507f678,.jpg
-Seed Data/ISIC_0028326.jpg,Seed Data,git,the fixed 490-image starting labelled set,279682,371f8ef861129b593794316a4657fd50d8c68c05779a8d55a68646d2db15dc4e,.jpg
-Seed Data/ISIC_0028332.jpg,Seed Data,git,the fixed 490-image starting labelled set,143718,a5778ed49ac8eaeda8cb7bcb9d324b48eee8531d025f9867863c3a6d44a06ab6,.jpg
-Seed Data/ISIC_0028336.jpg,Seed Data,git,the fixed 490-image starting labelled set,244361,5587b3e5f4ff6149f843a4bb34a7d0d98f863adc2945626c8606bf152c9db4c2,.jpg
-Seed Data/ISIC_0028350.jpg,Seed Data,git,the fixed 490-image starting labelled set,255362,f727440498c750f4222779dacbb19ff4438d794203ad4c9c83744c578de0cb6d,.jpg
-Seed Data/ISIC_0028372.jpg,Seed Data,git,the fixed 490-image starting labelled set,265648,4c1a86ab9faa108242333fe18c7edbd85d3c4f5f5386399c6eb174d8bfd88224,.jpg
-Seed Data/ISIC_0028451.jpg,Seed Data,git,the fixed 490-image starting labelled set,274184,d4906a38a8373b8682e27e49f3d68d5f3e66e9d377604c70de26a5dc91549122,.jpg
-Seed Data/ISIC_0028457.jpg,Seed Data,git,the fixed 490-image starting labelled set,278699,0c698dbe30d9be93fe2756115699c93d0e13e3f41533fb2e12ea4a9ca3e80e4c,.jpg
-Seed Data/ISIC_0028473.jpg,Seed Data,git,the fixed 490-image starting labelled set,228265,13c44f6de4665960da22185a7d718a1c4e0b5050e11b5beb687e4b84eec97c15,.jpg
-Seed Data/ISIC_0028486.jpg,Seed Data,git,the fixed 490-image starting labelled set,182937,5bf25b9ca52104ab3b05f560bcc88cc985d530847bda24ae51cfa7b250a3f2f0,.jpg
-Seed Data/ISIC_0028508.jpg,Seed Data,git,the fixed 490-image starting labelled set,274491,f0b6ec891e9b53b48e55217d962529cd9d7f060b89dae879ccf3c2d83e267a86,.jpg
-Seed Data/ISIC_0028583.jpg,Seed Data,git,the fixed 490-image starting labelled set,314773,11efc5ca5a07f69baf53128c6d7d4c46a544d2f3608cba1a3ff64885a3355462,.jpg
-Seed Data/ISIC_0028680.jpg,Seed Data,git,the fixed 490-image starting labelled set,316416,c7e2fb77a944637418901061d7a784dad2a835587e0a5cba2a3d0aa02939fcf2,.jpg
-Seed Data/ISIC_0028688.jpg,Seed Data,git,the fixed 490-image starting labelled set,161329,ac9ee8d4679bd60fc1990f4ffc7d3fa380dbc11c921affc11b249df3c9b8d098,.jpg
-Seed Data/ISIC_0028704.jpg,Seed Data,git,the fixed 490-image starting labelled set,301065,c510c283a3c84d205208f5fa6ff859c9ddb44de4e4a3bd6bcff3193aef6f1573,.jpg
-Seed Data/ISIC_0028714.jpg,Seed Data,git,the fixed 490-image starting labelled set,263165,19b5b3ddfcc12dc3b8d907ad2aefebe8e0b6e17572e0944bed927b4f5bf2e530,.jpg
-Seed Data/ISIC_0028718.jpg,Seed Data,git,the fixed 490-image starting labelled set,255442,610df4000373213fc1e4a725af882c448a157d014bcc6fcd35d5d64e8427aefc,.jpg
-Seed Data/ISIC_0028750.jpg,Seed Data,git,the fixed 490-image starting labelled set,301695,e1eb94c7f2021ec83b482aeaff5d374f4419d4940fc6d76614e65ac37e6f9a8c,.jpg
-Seed Data/ISIC_0028771.jpg,Seed Data,git,the fixed 490-image starting labelled set,275426,7bfcd7e22f890a7293e0b6cf6424e078de48539e69704930f235af4dc597601a,.jpg
-Seed Data/ISIC_0028795.jpg,Seed Data,git,the fixed 490-image starting labelled set,228723,468fd3b70ce222c7e7d0048bb952f75fa5560f518f53c52ec55b6c5283621b9f,.jpg
-Seed Data/ISIC_0028847.jpg,Seed Data,git,the fixed 490-image starting labelled set,286768,63d112013fd9756ed1a46fd48c69520b7833149909f7eb363315c2d9ff747846,.jpg
-Seed Data/ISIC_0028899.jpg,Seed Data,git,the fixed 490-image starting labelled set,270195,7fa7368a8a9c4ad3254e2adb2c4bc6f72598d88bc1b3a25c64ba7660288f186e,.jpg
-Seed Data/ISIC_0028920.jpg,Seed Data,git,the fixed 490-image starting labelled set,240231,b61958f25fe423be8a45c4c3b6af4b995c51b73eb3b2f3b71bd392cda351f208,.jpg
-Seed Data/ISIC_0028926.jpg,Seed Data,git,the fixed 490-image starting labelled set,237585,4077552f9df27c1a8cc500cb113a6ccf52fca48ba44cc59e8e794d992adc4f53,.jpg
-Seed Data/ISIC_0028989.jpg,Seed Data,git,the fixed 490-image starting labelled set,157871,09eda660462d3ec90f2255e45b0de26a3a2d22f413bee51361f207a27dc67110,.jpg
-Seed Data/ISIC_0028992.jpg,Seed Data,git,the fixed 490-image starting labelled set,191205,a1580f70b0434c23bb15ef80435ea5be0ab63eb640fb223cc81c80342158af59,.jpg
-Seed Data/ISIC_0029014.jpg,Seed Data,git,the fixed 490-image starting labelled set,276964,86b4d85ef5087b38da72003c9bd296a1ceaac2cb00c44f49935fdeef85b422ed,.jpg
-Seed Data/ISIC_0029029.jpg,Seed Data,git,the fixed 490-image starting labelled set,208986,1c1222329984d0c0703d6fb6583f237dad02f931323663671e60863960fef177,.jpg
-Seed Data/ISIC_0029031.jpg,Seed Data,git,the fixed 490-image starting labelled set,299331,b044d38eb776a88410aef037be1a00c52821a771d5170a4024540301d8e331a1,.jpg
-Seed Data/ISIC_0029034.jpg,Seed Data,git,the fixed 490-image starting labelled set,312005,6e732a770610f507c1a70c56ba099f031d8e2fb45e4a57a449704312114edfa7,.jpg
-Seed Data/ISIC_0029039.jpg,Seed Data,git,the fixed 490-image starting labelled set,157002,956ed30d44ec5121562d9da7e6974e1025d96ac4ec2101bdd35204d684f790cf,.jpg
-Seed Data/ISIC_0029041.jpg,Seed Data,git,the fixed 490-image starting labelled set,284743,cdfbbc880215d924a23dec7a238b8070fefdb8f76922b40bca97ebef99f0f12c,.jpg
-Seed Data/ISIC_0029050.jpg,Seed Data,git,the fixed 490-image starting labelled set,282250,0eed7076e2956de8ff7a96b8dd40a2632a06035eda0e62f97ca12332b61a1a02,.jpg
-Seed Data/ISIC_0029052.jpg,Seed Data,git,the fixed 490-image starting labelled set,321451,35c5a88cea2937d1510f9a340dc5caa570ffc2139923c055cf1b0a4976231d0b,.jpg
-Seed Data/ISIC_0029087.jpg,Seed Data,git,the fixed 490-image starting labelled set,261561,f5214676b080828ec07762cc0719ecaf16c7dd3b34973b3ba09335df15dd47a5,.jpg
-Seed Data/ISIC_0029099.jpg,Seed Data,git,the fixed 490-image starting labelled set,220504,799e607815adfe74ce5d7a9f8cc8b2eafcc940dc345a6a4027df9b098237e115,.jpg
-Seed Data/ISIC_0029172.jpg,Seed Data,git,the fixed 490-image starting labelled set,271529,1c315072366838c1cffbbefefa5ff646de57d1455311681ec6f813d7f6744c9b,.jpg
-Seed Data/ISIC_0029177.jpg,Seed Data,git,the fixed 490-image starting labelled set,332012,d40e71556a434b0219182aa79dcc5d7f4dead88820a0f2a33e2aa01110cc7035,.jpg
-Seed Data/ISIC_0029195.jpg,Seed Data,git,the fixed 490-image starting labelled set,323318,030761e57127bbc3f35b5c3e89c9c746cb1a933ddfc8cc2891aa6d01a6749384,.jpg
-Seed Data/ISIC_0029206.jpg,Seed Data,git,the fixed 490-image starting labelled set,270484,a2d43c2f931bbd5143df8c06f708485182df24fb28034f50d9d3bfdf8df9cf3c,.jpg
-Seed Data/ISIC_0029215.jpg,Seed Data,git,the fixed 490-image starting labelled set,278158,09320af2bfec6249954c4a6b86767340fa4b2cd8101980c74cf48bc96688991c,.jpg
-Seed Data/ISIC_0029230.jpg,Seed Data,git,the fixed 490-image starting labelled set,195680,93e22c68930f99aefa642d5a84d7e4d188631a8fd08afb77fdb5b3fef1f2c6b1,.jpg
-Seed Data/ISIC_0029297.jpg,Seed Data,git,the fixed 490-image starting labelled set,335796,7df75f6e634fe4a3384618f1302992bef940bd47fe4bf4514a957865ff49640d,.jpg
-Seed Data/ISIC_0029302.jpg,Seed Data,git,the fixed 490-image starting labelled set,229780,f13e08feca5635f42bab47dae31691f1e09c143de3ea5828c68cb5aa8c5c56df,.jpg
-Seed Data/ISIC_0029331.jpg,Seed Data,git,the fixed 490-image starting labelled set,225809,5cb0f96db0d0a4971f37c7673c08dde79948796ffe3aeb4e6cdb09c740481304,.jpg
-Seed Data/ISIC_0029337.jpg,Seed Data,git,the fixed 490-image starting labelled set,236365,60df2b15b9e9e45560d138dd3de6e1a0beb08470a7b63a2bd4da68854cc1e5a2,.jpg
-Seed Data/ISIC_0029342.jpg,Seed Data,git,the fixed 490-image starting labelled set,116624,577b36361aa6e94d27452439090d16f375bbcc58f9801babd7a7c9455b56c833,.jpg
-Seed Data/ISIC_0029448.jpg,Seed Data,git,the fixed 490-image starting labelled set,270106,b4b3eabb02b42bd36c39855fb9c511e060277e9052c93340e3b3569702df455f,.jpg
-Seed Data/ISIC_0029514.jpg,Seed Data,git,the fixed 490-image starting labelled set,264322,b0c8a6129a418fa88355ddc82feb4e1f998056f34ccff02cd414c06a32ab133d,.jpg
-Seed Data/ISIC_0029515.jpg,Seed Data,git,the fixed 490-image starting labelled set,322972,818685f1cc4b6bad0ca55ba93fa6427ffe8d24687b987b6d65ca5cff8c6220b1,.jpg
-Seed Data/ISIC_0029552.jpg,Seed Data,git,the fixed 490-image starting labelled set,284277,997c7d8eae27aa506c86750d1aef0496906342e2df3c0444fd311e0e814a1b89,.jpg
-Seed Data/ISIC_0029557.jpg,Seed Data,git,the fixed 490-image starting labelled set,189528,c9617c108fa225c1321aaaff18b4364204aabf45232bdd7ff391dbf9e21444d6,.jpg
-Seed Data/ISIC_0029578.jpg,Seed Data,git,the fixed 490-image starting labelled set,279848,2e2b4d3374e27b36b0401a5141317263996ee39759a719ab4d96f471f802391e,.jpg
-Seed Data/ISIC_0029608.jpg,Seed Data,git,the fixed 490-image starting labelled set,219557,19f0854ff129173f113d143a388f2603664e36d8f3e91af03a49741d11fe0ff6,.jpg
-Seed Data/ISIC_0029610.jpg,Seed Data,git,the fixed 490-image starting labelled set,256951,4cf69078c44cba3515b836644a6a678368608576d4db2768b2b4511d515524f6,.jpg
-Seed Data/ISIC_0029613.jpg,Seed Data,git,the fixed 490-image starting labelled set,355243,793fad021a8a406934a89f4e425e03c38b55dc4f3123c2e6aea53d3be954365e,.jpg
-Seed Data/ISIC_0029655.jpg,Seed Data,git,the fixed 490-image starting labelled set,233224,ec275801b9ac5590ef3d30d69fa0f9ed43dbdf31e87673b4aa64df7bd120b745,.jpg
-Seed Data/ISIC_0029683.jpg,Seed Data,git,the fixed 490-image starting labelled set,291576,10e939f787741a39b05950dbdb2879f5bd41d35397dc2a6f35cb7ff31cf5a77e,.jpg
-Seed Data/ISIC_0029687.jpg,Seed Data,git,the fixed 490-image starting labelled set,271640,4eb6a6a666345c8faf04ea859aa5408f8815afb7f524ab1af6bc69108982b504,.jpg
-Seed Data/ISIC_0029697.jpg,Seed Data,git,the fixed 490-image starting labelled set,334609,de8a8f698c7a4e3eaf1cfabbfb16f21bf0fce39c4715cd143be80c98fb34f43d,.jpg
-Seed Data/ISIC_0029715.jpg,Seed Data,git,the fixed 490-image starting labelled set,263673,106a3a84a7013659685f90a803cb4e87461436e7c0b771baa83d7d5d3ce07b30,.jpg
-Seed Data/ISIC_0029752.jpg,Seed Data,git,the fixed 490-image starting labelled set,293020,244796304947727897daa115bf7fc7433d5dd8eba4dd10def3969e10d87ea769,.jpg
-Seed Data/ISIC_0029760.jpg,Seed Data,git,the fixed 490-image starting labelled set,245912,4d077f2bd59a1d73f6586a888cae481775b926f79649c9b579aa1b1f2c910d09,.jpg
-Seed Data/ISIC_0029768.jpg,Seed Data,git,the fixed 490-image starting labelled set,284929,4992cbe02dd156ccd797dae5b554ef0bba788f852a8fac2d425f5c22a4415790,.jpg
-Seed Data/ISIC_0029824.jpg,Seed Data,git,the fixed 490-image starting labelled set,310568,57db6bced463c423eaed9900f3c356db1d0e4d5a9b5df3d0111c34071546e4c2,.jpg
-Seed Data/ISIC_0029877.jpg,Seed Data,git,the fixed 490-image starting labelled set,344794,8a52ca080a4cdefbdd1274296e63f9b5f781f5d7713437221c2c1c978bee8901,.jpg
-Seed Data/ISIC_0029881.jpg,Seed Data,git,the fixed 490-image starting labelled set,257293,5320c28b571202ee58a2829bba55f1ecc4e912cd81ac425bde80b404c6118ad3,.jpg
-Seed Data/ISIC_0029889.jpg,Seed Data,git,the fixed 490-image starting labelled set,224214,16ec7e11daf61484904baffecd718be2fb5de1b5f56d2484677d590b5869dbb4,.jpg
-Seed Data/ISIC_0029891.jpg,Seed Data,git,the fixed 490-image starting labelled set,245903,3bee381fe572ba2f0c2c3c6e350df0f9efa19d0df789851c0ecba14751fbc17b,.jpg
-Seed Data/ISIC_0029962.jpg,Seed Data,git,the fixed 490-image starting labelled set,230221,32d7902c3c2c52ff9fd660da19e08ea6a7d57cdbfbb33512db6d93fbbcb22b1f,.jpg
-Seed Data/ISIC_0030011.jpg,Seed Data,git,the fixed 490-image starting labelled set,325484,dfd99585186cd821679b9b39de5bd44788e225249b279ffdcb2db6fbae7693fe,.jpg
-Seed Data/ISIC_0030021.jpg,Seed Data,git,the fixed 490-image starting labelled set,263083,da6713ac09a168b58f1879ba780629868fa14b1476dee63d2ee2aa908aceffc6,.jpg
-Seed Data/ISIC_0030026.jpg,Seed Data,git,the fixed 490-image starting labelled set,296684,f0f4901bce59ccd1646db8b6c45b430d215cb9a0298f5f64ffc43cc8f11f929a,.jpg
-Seed Data/ISIC_0030036.jpg,Seed Data,git,the fixed 490-image starting labelled set,232825,3bb5f397e9b79b6be2521eb20dec9414b47b5f05fb213fc5a5ff11c97ce54dc0,.jpg
-Seed Data/ISIC_0030088.jpg,Seed Data,git,the fixed 490-image starting labelled set,339500,638d67d583deedc4ab6d6137716e1e2dac38b0e714fc7a797fc49b457f8190c2,.jpg
-Seed Data/ISIC_0030107.jpg,Seed Data,git,the fixed 490-image starting labelled set,200804,923ce79c2b24d6af4f1b533baba253f1157c1a2e626f77d3befac30c907d23a9,.jpg
-Seed Data/ISIC_0030122.jpg,Seed Data,git,the fixed 490-image starting labelled set,212515,5f54b0dbb2fcdd1af274e1803b8a5f0533bd58c078e25f1fd8771f8a47596bba,.jpg
-Seed Data/ISIC_0030145.jpg,Seed Data,git,the fixed 490-image starting labelled set,312459,784ebcddfa36c9d25be5909c095a98915284e695d7976807313dcb95ad1ca82c,.jpg
-Seed Data/ISIC_0030177.jpg,Seed Data,git,the fixed 490-image starting labelled set,233652,440f814009ccf348d3d691736e0c0a164d5adfbcd27cb23ebc6865cb1b887e7a,.jpg
-Seed Data/ISIC_0030244.jpg,Seed Data,git,the fixed 490-image starting labelled set,255812,be717e903896c7728b1636a6a7dbd8a0711de3a8ca7d347afcfcc11d7d7ef19d,.jpg
-Seed Data/ISIC_0030245.jpg,Seed Data,git,the fixed 490-image starting labelled set,204694,05be1faa4a2e0addbd313d1cfead6d62860db9c14862de9ece115893fde8e0f0,.jpg
-Seed Data/ISIC_0030261.jpg,Seed Data,git,the fixed 490-image starting labelled set,244020,565a72d52128559b952f447e5467e22bb30480e4caae5fe6a3cdfc92b247aa5f,.jpg
-Seed Data/ISIC_0030269.jpg,Seed Data,git,the fixed 490-image starting labelled set,293862,6b1cd722f841d51de6393f6340ca16316a9c16a20de43da855f04d5cc79f8572,.jpg
-Seed Data/ISIC_0030280.jpg,Seed Data,git,the fixed 490-image starting labelled set,265640,f04b25eb287e018257c7a5ee1c9b57a65cb363f7df6b88379a69707e7e1d58a2,.jpg
-Seed Data/ISIC_0030321.jpg,Seed Data,git,the fixed 490-image starting labelled set,137491,0abc879322e6c33b39a116df5352790b59921e3f24893dd38bd69d028b4bd553,.jpg
-Seed Data/ISIC_0030324.jpg,Seed Data,git,the fixed 490-image starting labelled set,326779,73af98ae380c3afe69b10adfb6f4673872c0b8dfab5439317c7351da013bdac5,.jpg
-Seed Data/ISIC_0030375.jpg,Seed Data,git,the fixed 490-image starting labelled set,266811,2b11c10095bb5ba4cf75ba3a835d2816a8cce3d61bf0be80788b1726c04e9a37,.jpg
-Seed Data/ISIC_0030400.jpg,Seed Data,git,the fixed 490-image starting labelled set,354516,b3c496dc68d0b8bc68bad6fc526abb2faeedf01cfde5e3861b9a5eeee0b460c3,.jpg
-Seed Data/ISIC_0030427.jpg,Seed Data,git,the fixed 490-image starting labelled set,314301,7818e6820336e5734cea7ed6279157c2b181cef8d41bd918846704f4a6e0a804,.jpg
-Seed Data/ISIC_0030442.jpg,Seed Data,git,the fixed 490-image starting labelled set,296612,451434b3080817d56ca048cf05696dc29c58c7045f369c75a5a6c4003fde8a32,.jpg
-Seed Data/ISIC_0030463.jpg,Seed Data,git,the fixed 490-image starting labelled set,273201,8ca3331208ab0b3848ca1b53e8c3ae0a3fce6cd5564b0277876fa8530fc265f1,.jpg
-Seed Data/ISIC_0030483.jpg,Seed Data,git,the fixed 490-image starting labelled set,355952,f25c4528b15ff07f4b92aa4f07520f9042a324fec8bad8dcb8fc866f26bf972e,.jpg
-Seed Data/ISIC_0030487.jpg,Seed Data,git,the fixed 490-image starting labelled set,275869,844424dc9678d002f2336cba265542470a99a5dbf5668483a2d6b568acd4291d,.jpg
-Seed Data/ISIC_0030491.jpg,Seed Data,git,the fixed 490-image starting labelled set,275021,b0bf206363b1fc78a66bd5bb6d64436378fd2d4b811a272583b1e5b10ff7a90a,.jpg
-Seed Data/ISIC_0030516.jpg,Seed Data,git,the fixed 490-image starting labelled set,277423,88c2aaa38b2f09ebda8371b03cc341d2485dbbd356eae59cd8a2bc2d0152d178,.jpg
-Seed Data/ISIC_0030552.jpg,Seed Data,git,the fixed 490-image starting labelled set,255461,7022798401516918e835e1b38a7dfcf244d3eb86296a923ce889e84b7cd18291,.jpg
-Seed Data/ISIC_0030555.jpg,Seed Data,git,the fixed 490-image starting labelled set,257732,b43da822d3d9e815f5289e8b1ab5e82ac3bcc076765d4cd5d1dda7d4c0ad47fa,.jpg
-Seed Data/ISIC_0030579.jpg,Seed Data,git,the fixed 490-image starting labelled set,254921,9380bfb62f0c40b45afb0847c709eb6b7c4cc9a84842c3ef36557b27f3566ace,.jpg
-Seed Data/ISIC_0030605.jpg,Seed Data,git,the fixed 490-image starting labelled set,258907,c5e722f95a03c513b30d1d44de6f872fc4ccdd96c93e004d179657493e90c816,.jpg
-Seed Data/ISIC_0030606.jpg,Seed Data,git,the fixed 490-image starting labelled set,206798,ca77efb090d71074b7bdb797c1224b7432d0d601e7f94241591a1e691207be39,.jpg
-Seed Data/ISIC_0030618.jpg,Seed Data,git,the fixed 490-image starting labelled set,293299,4445294fe2d53c83f6cc87d6b55ba94053cd802dac84d1b5976ab05731e00666,.jpg
-Seed Data/ISIC_0030644.jpg,Seed Data,git,the fixed 490-image starting labelled set,138527,62d65ae5b46b81bf3b5571f93e945609e184e7b99d9e42c968b5901277eb966b,.jpg
-Seed Data/ISIC_0030653.jpg,Seed Data,git,the fixed 490-image starting labelled set,241272,032d6396ef987f9a04bb919ba5b55b9eff17ea9a978c201eac8459558c8a6a77,.jpg
-Seed Data/ISIC_0030694.jpg,Seed Data,git,the fixed 490-image starting labelled set,184395,bd2eae5d78a9f484ffe28454cb60b9c2887b033158a2ea2621cf463569c9c164,.jpg
-Seed Data/ISIC_0030722.jpg,Seed Data,git,the fixed 490-image starting labelled set,237156,09bed78931614ec1ae30d83721aeb515f97b54c97d2d97df862199dbb388b971,.jpg
-Seed Data/ISIC_0030730.jpg,Seed Data,git,the fixed 490-image starting labelled set,221154,ca5a5b67c32ee5213121696ef7e4c622232e8e176db07ce8ec26b91fd12245b7,.jpg
-Seed Data/ISIC_0030757.jpg,Seed Data,git,the fixed 490-image starting labelled set,256573,4a6351f52527f57e591c963cb49d79b28df6d5d2473b3d8678942532f9c30acb,.jpg
-Seed Data/ISIC_0030766.jpg,Seed Data,git,the fixed 490-image starting labelled set,323121,dc7f71c530ecb9291021e06dd592e5004021cc4ac6143979fbc17c3c35874dfa,.jpg
-Seed Data/ISIC_0030855.jpg,Seed Data,git,the fixed 490-image starting labelled set,274021,af641d0536b9a2bc4c01b953cdd72205bf4f4e8f15e791b8dbe881f56c9909cd,.jpg
-Seed Data/ISIC_0030868.jpg,Seed Data,git,the fixed 490-image starting labelled set,280943,bde5ace1cad101651732e5156b94b62c7353ab0ca5a1c11522684548c825a257,.jpg
-Seed Data/ISIC_0030870.jpg,Seed Data,git,the fixed 490-image starting labelled set,348993,f02926583c9c42e441bddbcc3a7b4ea893924a48e9804ccddb6f6be1a3f6a116,.jpg
-Seed Data/ISIC_0030882.jpg,Seed Data,git,the fixed 490-image starting labelled set,267312,2efe2dfbeb7fa471768c66893628c1512319e3d5d0da52a313633ffdd7cc56e0,.jpg
-Seed Data/ISIC_0030901.jpg,Seed Data,git,the fixed 490-image starting labelled set,307398,2ae8e7c3c3b91afc1656e92ed2a0ac23ce9313031ca6ed14652e8670e276c0cc,.jpg
-Seed Data/ISIC_0030910.jpg,Seed Data,git,the fixed 490-image starting labelled set,315826,356d48e7452e0ec34b0aede7f7c0b52683876692c5d86b3d45f3ca292da4a190,.jpg
-Seed Data/ISIC_0030937.jpg,Seed Data,git,the fixed 490-image starting labelled set,224414,a23eed783bacdd1512e0882ca1d03ca55ee2d757023c0296640d50be90fa151c,.jpg
-Seed Data/ISIC_0030951.jpg,Seed Data,git,the fixed 490-image starting labelled set,243845,e814c55fd4e26dfb05ec7cc3c07361049f6190398e01d3678742ab0b9e806d5d,.jpg
-Seed Data/ISIC_0031002.jpg,Seed Data,git,the fixed 490-image starting labelled set,316355,fcb7ed08569dc2eafb53ff72cfaf6280d24cc8f96dbe87d736ef7c6116b1f79b,.jpg
-Seed Data/ISIC_0031005.jpg,Seed Data,git,the fixed 490-image starting labelled set,285354,d4269b7530066778688c851d50d0d6d4a5c72bea709adf451649303bb4b9fdbd,.jpg
-Seed Data/ISIC_0031056.jpg,Seed Data,git,the fixed 490-image starting labelled set,212566,c3a1b8324707980119b531333c53e43a18fea60bf216721c53e30a919c85ec40,.jpg
-Seed Data/ISIC_0031062.jpg,Seed Data,git,the fixed 490-image starting labelled set,214883,28b464f236432423edc64b3cc3c95715dc15192790a59a17830ab076d9e1e473,.jpg
-Seed Data/ISIC_0031093.jpg,Seed Data,git,the fixed 490-image starting labelled set,252090,c826f50d35224f3173165d7834e35b7d85607bbac8a10eba47c399414b72e2c3,.jpg
-Seed Data/ISIC_0031095.jpg,Seed Data,git,the fixed 490-image starting labelled set,272527,e59199d8c458fde69a57bbf76d1a07f040ea61874848fefa60de0e52109f6f29,.jpg
-Seed Data/ISIC_0031123.jpg,Seed Data,git,the fixed 490-image starting labelled set,308001,31f076bab72436d633cf41ee159d9a57c1a1664684bd6612e06ea1e2bedd6688,.jpg
-Seed Data/ISIC_0031132.jpg,Seed Data,git,the fixed 490-image starting labelled set,341555,69d390c2a533cdeb062ae5f4f826814659663664224f0c2ca4c4e3ce6ebc3929,.jpg
-Seed Data/ISIC_0031138.jpg,Seed Data,git,the fixed 490-image starting labelled set,217860,c7d1f9cdcf1bea4b6945ed082754b7ae31276d80185213f9ef47bbdf192f984f,.jpg
-Seed Data/ISIC_0031159.jpg,Seed Data,git,the fixed 490-image starting labelled set,306420,83a914c3b0e792d717c3e009693e99cc80fd2c5237eb548f765ef2581fb85bfa,.jpg
-Seed Data/ISIC_0031166.jpg,Seed Data,git,the fixed 490-image starting labelled set,263135,5b908e00762b2f96e51f4a59cd9590b76b3099dd9a09b3a4642d988d82a2d2a1,.jpg
-Seed Data/ISIC_0031197.jpg,Seed Data,git,the fixed 490-image starting labelled set,215539,2b094d9aa76ec8bad50ce86a6783f6c3dfd306a85311f89440f9718afc9f2b05,.jpg
-Seed Data/ISIC_0031212.jpg,Seed Data,git,the fixed 490-image starting labelled set,292602,653cb2ff0c00afd73b5212cb9e5e2c16c5e8572cef7d6dc5492f54f8edcd376e,.jpg
-Seed Data/ISIC_0031217.jpg,Seed Data,git,the fixed 490-image starting labelled set,209711,c1a9aca29de1778af0460baddfd3ad424135b6655de9b549e9fa9ade7203ce57,.jpg
-Seed Data/ISIC_0031223.jpg,Seed Data,git,the fixed 490-image starting labelled set,339868,862986b7ec00592c73e9321d71ee14ae939fabf1196cfc1c55cacfe59214f5fa,.jpg
-Seed Data/ISIC_0031257.jpg,Seed Data,git,the fixed 490-image starting labelled set,367181,a9a5a429aaf14a9344b0de8a6bc2ec6d16810708415f537b97a6aa2ff6ecf932,.jpg
-Seed Data/ISIC_0031259.jpg,Seed Data,git,the fixed 490-image starting labelled set,298674,5a11f2eb5ccd1db4d69da39c7018f44a140967bd55a66d620c03e0d0b2210499,.jpg
-Seed Data/ISIC_0031281.jpg,Seed Data,git,the fixed 490-image starting labelled set,167900,df4e9f6728bf8b7d5e9aa7e3b7ce280b3529538bc99282d232c712f189a08ebd,.jpg
-Seed Data/ISIC_0031309.jpg,Seed Data,git,the fixed 490-image starting labelled set,302220,d6f12ecc9fd4ba7a291c334b7b1ada05774dce2196e1cea4d52e15409fd71982,.jpg
-Seed Data/ISIC_0031358.jpg,Seed Data,git,the fixed 490-image starting labelled set,262444,36dea32a1a05b25e426bc148bbcd21c94cbc4680149601098719485f3485e09a,.jpg
-Seed Data/ISIC_0031359.jpg,Seed Data,git,the fixed 490-image starting labelled set,334148,9c87b578e5fa4b273893e57284eff91099d1ea8cad6c04ca8c86263e85ff22d0,.jpg
-Seed Data/ISIC_0031381.jpg,Seed Data,git,the fixed 490-image starting labelled set,246695,b1e5edfc6f6785b06e197df42317593a8ec3e9cd9f073079e193608b86175dae,.jpg
-Seed Data/ISIC_0031413.jpg,Seed Data,git,the fixed 490-image starting labelled set,217847,97e820577413ccfb6b29207b27b49469034ece909a147c44e1174b63987d8215,.jpg
-Seed Data/ISIC_0031429.jpg,Seed Data,git,the fixed 490-image starting labelled set,253302,5c81e68ca06f3c32ed04887b4b398ae251f639172e4f57aba4a7834ea43cf6ef,.jpg
-Seed Data/ISIC_0031430.jpg,Seed Data,git,the fixed 490-image starting labelled set,198802,e748ddac86a8d18fd9ee96ad4a1321871113dc9fa92c4ec319f3a86a2da3df1f,.jpg
-Seed Data/ISIC_0031441.jpg,Seed Data,git,the fixed 490-image starting labelled set,282766,4452dec8f869c53263042cc66bc79e90d7bb68dd106ce5b40db8814b7868497d,.jpg
-Seed Data/ISIC_0031516.jpg,Seed Data,git,the fixed 490-image starting labelled set,263519,aed42664e3f71bdd947d9cdcf29252f4be99501bc701ff936178605a9c9b9076,.jpg
-Seed Data/ISIC_0031526.jpg,Seed Data,git,the fixed 490-image starting labelled set,229999,53e2a3d4fec238f1bbda410516362215fbc6bdfc3bc9d15bc61c17061082d98d,.jpg
-Seed Data/ISIC_0031570.jpg,Seed Data,git,the fixed 490-image starting labelled set,285479,e8cf86ac970be3c711d43da4795dc8704bd2c0f7c941e8228a7cab4e1a503c18,.jpg
-Seed Data/ISIC_0031572.jpg,Seed Data,git,the fixed 490-image starting labelled set,360550,b9bca9aec53658cb2c8cced211b44c5f0d0ff8e2f411d483f5900c9796535454,.jpg
-Seed Data/ISIC_0031578.jpg,Seed Data,git,the fixed 490-image starting labelled set,268918,912575993f17a226b15f5fe95825108c0311258caf36725a873b44439fb7e45f,.jpg
-Seed Data/ISIC_0031597.jpg,Seed Data,git,the fixed 490-image starting labelled set,240221,7dfd58b6c37fa292dc94d2b3dac66dc07574459dad8c746fc890414c95233cca,.jpg
-Seed Data/ISIC_0031605.jpg,Seed Data,git,the fixed 490-image starting labelled set,264309,8ea103967dd1c351ffb74ccfb595d4f25e4dc60a4e37b0266917779f5ad2e1af,.jpg
-Seed Data/ISIC_0031609.jpg,Seed Data,git,the fixed 490-image starting labelled set,236959,0ac4659afb9e500982068d8402dc46eb6e16322c51316e0f20b7979f60b2f7d7,.jpg
-Seed Data/ISIC_0031672.jpg,Seed Data,git,the fixed 490-image starting labelled set,140449,b2733fd33319f981c158131868ad27df951628785f7dd1d10b1fe8c9ba4f1002,.jpg
-Seed Data/ISIC_0031679.jpg,Seed Data,git,the fixed 490-image starting labelled set,271062,34bf2f94c90caee1233f73085da9db65c80d50d1b8e152ca1f57c0303680d4f5,.jpg
-Seed Data/ISIC_0031692.jpg,Seed Data,git,the fixed 490-image starting labelled set,259642,5e148e22b635f7041333eb3c8e60909e0e8e7834ebbe6c08dbf64eb5e1c7a945,.jpg
-Seed Data/ISIC_0031721.jpg,Seed Data,git,the fixed 490-image starting labelled set,277497,325cba1dae176ff46517a4451966045d97d73f6dc0966bf2854ab4022457d49f,.jpg
-Seed Data/ISIC_0031728.jpg,Seed Data,git,the fixed 490-image starting labelled set,234162,b8e01105d1095f16d42ab2c0699b2a500834c879c20eaaf1b979909bed874336,.jpg
-Seed Data/ISIC_0031738.jpg,Seed Data,git,the fixed 490-image starting labelled set,341095,aeb66f26b2e929cf65ae716a10fe88f52794e493c115706c5784866af6dde126,.jpg
-Seed Data/ISIC_0031745.jpg,Seed Data,git,the fixed 490-image starting labelled set,277157,27f47f74273cfcb2d94c1d9cbc66e8c2a6b3d809a96aa3d6919e98ede8eadfc8,.jpg
-Seed Data/ISIC_0031747.jpg,Seed Data,git,the fixed 490-image starting labelled set,279929,d68e58926d3fe64495a8821ba5d2278ad558197e19b4e17fbce8909ca8e7ebe5,.jpg
-Seed Data/ISIC_0031759.jpg,Seed Data,git,the fixed 490-image starting labelled set,214921,01fb717c93d6e1947f3fb50f824d56b062fa1f062c97e358a72f7396a618eab4,.jpg
-Seed Data/ISIC_0031761.jpg,Seed Data,git,the fixed 490-image starting labelled set,384520,0a4dabf43a8d07474b27624e2edbdf91659c0f8af1dc9b43a8fc89b0637d64fc,.jpg
-Seed Data/ISIC_0031786.jpg,Seed Data,git,the fixed 490-image starting labelled set,274908,f669ad44340f7187a6c7e4c8ed3a9a7100b94a9426ac153337d4a16e686ce836,.jpg
-Seed Data/ISIC_0031799.jpg,Seed Data,git,the fixed 490-image starting labelled set,334809,b3943dae0c371010c27ae943e7a39e36abd0d32f41bea9c74ba31e50b1183cc6,.jpg
-Seed Data/ISIC_0031810.jpg,Seed Data,git,the fixed 490-image starting labelled set,271212,68faa3185c55b32725e7979f236274a5382683ff73351b030885cead08997f81,.jpg
-Seed Data/ISIC_0031827.jpg,Seed Data,git,the fixed 490-image starting labelled set,244637,96cb7277b1c0bb8f6096a9ed6f90908dd223ddefe255b4ce9fd6714ca0d66c04,.jpg
-Seed Data/ISIC_0031844.jpg,Seed Data,git,the fixed 490-image starting labelled set,163615,117359c57053aa55d3fa465968bf752a3fe609131e848e4e158186b15a187cd9,.jpg
-Seed Data/ISIC_0031868.jpg,Seed Data,git,the fixed 490-image starting labelled set,296073,a284d1fe215e2c740c941aabb0259fff7c0ea31b9e0e82e19e84e690a5126116,.jpg
-Seed Data/ISIC_0031876.jpg,Seed Data,git,the fixed 490-image starting labelled set,239775,ff1569f06d935bbcef99a2fc1840bd59ab578ca3c097c5c7e942a5a404a7bee8,.jpg
-Seed Data/ISIC_0031918.jpg,Seed Data,git,the fixed 490-image starting labelled set,276548,49eaa690d6ed46da75f18805f23e9e2b4bdccb69cd63c33a0ebdc8bdcdb0af6d,.jpg
-Seed Data/ISIC_0031940.jpg,Seed Data,git,the fixed 490-image starting labelled set,243527,0707767fa4c91cd581d251a5ff3615bfabb52c981335d092b061558e91d3826e,.jpg
-Seed Data/ISIC_0031961.jpg,Seed Data,git,the fixed 490-image starting labelled set,300672,2d34e96489052e1fae3b557e41ce35057b0f65d44a19cd7ce7336ebd5c5d3ef9,.jpg
-Seed Data/ISIC_0031967.jpg,Seed Data,git,the fixed 490-image starting labelled set,344183,f112b69d4b2e99fb77d9cd19247c6073f98359df5aed86acc0896efe172f1a8e,.jpg
-Seed Data/ISIC_0031976.jpg,Seed Data,git,the fixed 490-image starting labelled set,173824,5c06476563ded4a7f517ef961e68d74fa3b0dd3ac0f430765e5ebcba1760c951,.jpg
-Seed Data/ISIC_0031989.jpg,Seed Data,git,the fixed 490-image starting labelled set,219444,d43edc1a296b70abd3a087222c4fe55523f4f15797a9c2665a22272148fe9f6f,.jpg
-Seed Data/ISIC_0031993.jpg,Seed Data,git,the fixed 490-image starting labelled set,271797,b91cc25c35cbc1910c06c89336b8d3d5374d72f07b859d9344ef97b603acbf75,.jpg
-Seed Data/ISIC_0031996.jpg,Seed Data,git,the fixed 490-image starting labelled set,274897,6d33cf3acc273826dc791b4572bdd274319ac7cea8e123b8ce9ee326e48b6b17,.jpg
-Seed Data/ISIC_0032014.jpg,Seed Data,git,the fixed 490-image starting labelled set,258544,7c13bc065857b71117b4bcd93964b732c0bb32084624274023f2c1cddc9ee794,.jpg
-Seed Data/ISIC_0032019.jpg,Seed Data,git,the fixed 490-image starting labelled set,257065,5ceb6c37e226577715bd40e826c4e17952f5935d55b6798da26f41e443041407,.jpg
-Seed Data/ISIC_0032022.jpg,Seed Data,git,the fixed 490-image starting labelled set,236289,4dfc811e41101508eff59bb9381cb7ca0d5002b928d46715f18ac0aa8a4b5cf7,.jpg
-Seed Data/ISIC_0032076.jpg,Seed Data,git,the fixed 490-image starting labelled set,263042,29af05b54e0a4d8b8ffb0355f7f92b04e9d57e2e22ba64e6376a0837a0bb9206,.jpg
-Seed Data/ISIC_0032138.jpg,Seed Data,git,the fixed 490-image starting labelled set,237457,c5b793ef2dab221183c3aa4382d68067c8755d52069f9547758bddb7c7b98141,.jpg
-Seed Data/ISIC_0032189.jpg,Seed Data,git,the fixed 490-image starting labelled set,299102,eb851007c16fddfcbd63a4d79d87dc336281438b81cd81190de116fcc0e2d653,.jpg
-Seed Data/ISIC_0032203.jpg,Seed Data,git,the fixed 490-image starting labelled set,190028,f09e29c1374fade7d03f5d0e0b24fbd2910c0fea67aa01708605cd436bec96db,.jpg
-Seed Data/ISIC_0032270.jpg,Seed Data,git,the fixed 490-image starting labelled set,305492,96a81e48d7209be165780c01a87bb945e3b503e1f51138f9afa483367cd31529,.jpg
-Seed Data/ISIC_0032302.jpg,Seed Data,git,the fixed 490-image starting labelled set,205610,886542ced364c0a61fad4f634c87a05f88380224cd6005c9fa519b2e8f781882,.jpg
-Seed Data/ISIC_0032311.jpg,Seed Data,git,the fixed 490-image starting labelled set,174685,9ae7df0b9e94504db00c43cd0d2326b289a3f58fa897943bdbc47c51e3bb52ac,.jpg
-Seed Data/ISIC_0032329.jpg,Seed Data,git,the fixed 490-image starting labelled set,298953,0ed6a56c2be92f69b6a3edaef914315022a710c3e49288ab62bc0b3eb6bf4b48,.jpg
-Seed Data/ISIC_0032404.jpg,Seed Data,git,the fixed 490-image starting labelled set,265153,1edb1b6c0363a690c2421bc23aa9e9928949c1f7fb5612f5140172f724c2bc27,.jpg
-Seed Data/ISIC_0032408.jpg,Seed Data,git,the fixed 490-image starting labelled set,280407,c1fdf29d25346efb67806b9cbd7cf21bd7420225d34ca4a1defe5ad08a909e54,.jpg
-Seed Data/ISIC_0032409.jpg,Seed Data,git,the fixed 490-image starting labelled set,319255,ac57a48ccf2b513076b8aa3de9be51164ea378eaa14479ec9dc9839da3c3bd04,.jpg
-Seed Data/ISIC_0032425.jpg,Seed Data,git,the fixed 490-image starting labelled set,253834,8ab4dc2714ea0bb8f47879859e6266e6aa738d07b93d8f607b632d758397ee26,.jpg
-Seed Data/ISIC_0032437.jpg,Seed Data,git,the fixed 490-image starting labelled set,285433,afd60c4bb2c36903e4198bea7c1cdf32312373d302ade7fd8ffceef6690fc07e,.jpg
-Seed Data/ISIC_0032468.jpg,Seed Data,git,the fixed 490-image starting labelled set,293261,9fca2d5036ce83ba06b88be551f716f4857d846a82800d821c4fbab0d956004b,.jpg
-Seed Data/ISIC_0032511.jpg,Seed Data,git,the fixed 490-image starting labelled set,348637,3e95d8f6a4c5abe4e9d1389d76b98cd687937457400f63315fb2f4772b9a73d0,.jpg
-Seed Data/ISIC_0032538.jpg,Seed Data,git,the fixed 490-image starting labelled set,285912,e47f3abc775b7c2024590aba1992f51dda67e37ed73bc3deae47cc3da7677ae7,.jpg
-Seed Data/ISIC_0032545.jpg,Seed Data,git,the fixed 490-image starting labelled set,334925,92bf4b0e9e85017ed5860e3687ae4a43d4ea01dae08c5b230f8b0664dc3c194d,.jpg
-Seed Data/ISIC_0032555.jpg,Seed Data,git,the fixed 490-image starting labelled set,339697,3867f3e77aff596a5a4c24a929a2ce9838652b93688845c67e57bd231a5609dc,.jpg
-Seed Data/ISIC_0032557.jpg,Seed Data,git,the fixed 490-image starting labelled set,319275,9d129fe9b328138f113b33a60872dd1fcb9e3df0dfb90ce1ce516d995c67e1b8,.jpg
-Seed Data/ISIC_0032570.jpg,Seed Data,git,the fixed 490-image starting labelled set,353836,2fe0602bf4174864d0cb25117cdea23bc73d0ca16305dbc45f02510f6c1b7622,.jpg
-Seed Data/ISIC_0032596.jpg,Seed Data,git,the fixed 490-image starting labelled set,332356,e72aad9b01aa274ed39f59cab1ef3cf920316963d0b36ca10f80ab8127ab041c,.jpg
-Seed Data/ISIC_0032613.jpg,Seed Data,git,the fixed 490-image starting labelled set,331985,21a29771e49336915dad215d672d6999225f491fa0838db36d95f517e3d3a1c1,.jpg
-Seed Data/ISIC_0032629.jpg,Seed Data,git,the fixed 490-image starting labelled set,342306,0d9bb9eb57cebf32ca5cae1405cd82a4b1ebdb23860b725f610d6703e0c327fb,.jpg
-Seed Data/ISIC_0032642.jpg,Seed Data,git,the fixed 490-image starting labelled set,286276,1aff8442f78772b3574c641865dd5b9f6823c058ec0aae7fb8b6eb9c9d9557de,.jpg
-Seed Data/ISIC_0032653.jpg,Seed Data,git,the fixed 490-image starting labelled set,256428,cd552a8f255afc2ebfd5f8e9342d646fc5b489a8675a0deb338529ba2bf55d5a,.jpg
-Seed Data/ISIC_0032688.jpg,Seed Data,git,the fixed 490-image starting labelled set,336838,be44429d5606ee63f3f433bbaa5bc693df8b97d31818b7159ae6b2fc59bc64f1,.jpg
-Seed Data/ISIC_0032692.jpg,Seed Data,git,the fixed 490-image starting labelled set,285047,06f7ca7ebe5ef17e316893a37f710a0d50465810ce423b99f7279cc9fd5094bf,.jpg
-Seed Data/ISIC_0032715.jpg,Seed Data,git,the fixed 490-image starting labelled set,238630,5eb2fca047fefed4f2b33a2ffecaad9caf20fbffdeb823789da27ff79dc90f66,.jpg
-Seed Data/ISIC_0032722.jpg,Seed Data,git,the fixed 490-image starting labelled set,338442,f2076f6231a85537dc7f7b7e7e21a82f84f306924a3a1e63e4b459c5db5b047c,.jpg
-Seed Data/ISIC_0032726.jpg,Seed Data,git,the fixed 490-image starting labelled set,345336,f08c711ee32c24e6078b713284fedbc5406f256156b89e4c027572a83507a269,.jpg
-Seed Data/ISIC_0032745.jpg,Seed Data,git,the fixed 490-image starting labelled set,321381,a7e0133ad9080872486730ad1d030e9bba28fbcf0d6a4de8f58121877c2e8134,.jpg
-Seed Data/ISIC_0032773.jpg,Seed Data,git,the fixed 490-image starting labelled set,357956,5f49506b550a5c28aaeffd79e2c95a1fe1deda9a9a490f92bba8889b9944cd1d,.jpg
-Seed Data/ISIC_0032775.jpg,Seed Data,git,the fixed 490-image starting labelled set,311444,3d0bc0bec892ef5e905255a425fc884a856094ddb925684017521f2644f1279a,.jpg
-Seed Data/ISIC_0032777.jpg,Seed Data,git,the fixed 490-image starting labelled set,263144,66e631c295be69a122a0058d8466dbc72f3153db6be7ba8f26f4bf0a2da9e3e0,.jpg
-Seed Data/ISIC_0032804.jpg,Seed Data,git,the fixed 490-image starting labelled set,308451,bb059ac2fbd3e0426be1b8cd7170efd381f233d770c2028228150639a71aef20,.jpg
-Seed Data/ISIC_0032832.jpg,Seed Data,git,the fixed 490-image starting labelled set,203853,2c332d78c6056d15e4f839e04705272020ea7ab5b93e8b07ce2ef2041154b3b8,.jpg
-Seed Data/ISIC_0032833.jpg,Seed Data,git,the fixed 490-image starting labelled set,295006,77e0f70f17434fe15f78dd96d8760de0269a110883b187c853ec5ea70615d402,.jpg
-Seed Data/ISIC_0032860.jpg,Seed Data,git,the fixed 490-image starting labelled set,326879,e21179116f6799731e6e8780295b5c1659c9e0f7c46bf1733c47fce9e12b3da7,.jpg
-Seed Data/ISIC_0032890.jpg,Seed Data,git,the fixed 490-image starting labelled set,263755,f2e9b7218629401c7db5fa2311134cfc48153ed784ddadfafb71759cfe641904,.jpg
-Seed Data/ISIC_0032941.jpg,Seed Data,git,the fixed 490-image starting labelled set,281947,7dcd5e38eb81dcb0d5e5a192c39968a89f33ff969d7d5e6534f5eff7694b6a74,.jpg
-Seed Data/ISIC_0032988.jpg,Seed Data,git,the fixed 490-image starting labelled set,389100,95faed684144f5fda89e981d36c3bfe39509c97c4397962ef4cf60e174735a45,.jpg
-Seed Data/ISIC_0033020.jpg,Seed Data,git,the fixed 490-image starting labelled set,286931,d718d930ee83616027aaa32914788189828163cf79f86d53bf2cbb5865199b5b,.jpg
-Seed Data/ISIC_0033075.jpg,Seed Data,git,the fixed 490-image starting labelled set,250744,39b62afaa5568e8924e37710fdafbd2bd87a1677b4676c7c72cb9f7190905267,.jpg
-Seed Data/ISIC_0033099.jpg,Seed Data,git,the fixed 490-image starting labelled set,299485,20ecdf9a36e5449d0d117b225f97837d1f254c0281d64cee8f91cccbe356957a,.jpg
-Seed Data/ISIC_0033122.jpg,Seed Data,git,the fixed 490-image starting labelled set,283055,387f211c8a09b3d44447c82b1a4ee38783ac1bdabe3281f1ec2e3da10ccb94bb,.jpg
-Seed Data/ISIC_0033123.jpg,Seed Data,git,the fixed 490-image starting labelled set,234639,8d044dc880e93fdb8e1297136d70cd71c603c7b8aa1eb144fb106a3b331c2eab,.jpg
-Seed Data/ISIC_0033169.jpg,Seed Data,git,the fixed 490-image starting labelled set,282127,4d28a84b1880fcb9cfc0524e99dce1c7c7be6064937cd35056e68abe3352ecc9,.jpg
-Seed Data/ISIC_0033183.jpg,Seed Data,git,the fixed 490-image starting labelled set,349452,503795423646f4d26dc8145bee807a383862747e717f3ab751798be1c03269ff,.jpg
-Seed Data/ISIC_0033193.jpg,Seed Data,git,the fixed 490-image starting labelled set,324840,653230cfdb638739e505b86e4bc36e22e22749840821b932ce18f7d0f4dc9058,.jpg
-Seed Data/ISIC_0033201.jpg,Seed Data,git,the fixed 490-image starting labelled set,311703,6b95f83839123db6e5ae31b1f9fd958bbd528384fc0911dbe12b15266f27f298,.jpg
-Seed Data/ISIC_0033230.jpg,Seed Data,git,the fixed 490-image starting labelled set,336397,d9ff41ada3e62e919ce418e3360ebb9c43c135145dca6848ab8485f818de7cee,.jpg
-Seed Data/ISIC_0033254.jpg,Seed Data,git,the fixed 490-image starting labelled set,299794,bb44073b48c2f371f0deda244b12a67430882bf936dae5aa0f4c7581ffee103c,.jpg
-Seed Data/ISIC_0033271.jpg,Seed Data,git,the fixed 490-image starting labelled set,352295,6d43af2b9eabb8291c21e8294233633f2c01ef1a8c6f1a7daab6cac3c0fe11c1,.jpg
-Seed Data/ISIC_0033301.jpg,Seed Data,git,the fixed 490-image starting labelled set,220212,d6d3789138cfa1b9106ad24fd7beba093db2c663995b29025d2d1c531f582911,.jpg
-Seed Data/ISIC_0033302.jpg,Seed Data,git,the fixed 490-image starting labelled set,323519,edffb12229b5d77e8cd5a6abf26b73818d3d366075f70f36f0a49feae0a7e900,.jpg
-Seed Data/ISIC_0033314.jpg,Seed Data,git,the fixed 490-image starting labelled set,182967,9f9dc1d5464c8753051e5182ccdd53451dca1abe9fa9c36ff02b8d4ca4d706fa,.jpg
-Seed Data/ISIC_0033322.jpg,Seed Data,git,the fixed 490-image starting labelled set,330672,4c31f2d6aa74e7ba8435852f2fe960c99e22b5af9c95329f81492b036d78a9f3,.jpg
-Seed Data/ISIC_0033349.jpg,Seed Data,git,the fixed 490-image starting labelled set,273418,b7cc7be79605c0fb567b14d994bc8a1e0f59767686810da08f0a8a315cf57d61,.jpg
-Seed Data/ISIC_0033358.jpg,Seed Data,git,the fixed 490-image starting labelled set,305619,eeb15909d72fb692d4dd87d798b7e0984a29f0045241500b845bd7e96ac63bf7,.jpg
-Seed Data/ISIC_0033392.jpg,Seed Data,git,the fixed 490-image starting labelled set,325931,4bd9249e8b79d530b40ecf93ca2837c02eaf701816aa4b7bd43764ff3c790643,.jpg
-Seed Data/ISIC_0033422.jpg,Seed Data,git,the fixed 490-image starting labelled set,335884,1c8837d1d60b738dc86e45cd641d41988eeb61cb738ef127c790afbba243132b,.jpg
-Seed Data/ISIC_0033458.jpg,Seed Data,git,the fixed 490-image starting labelled set,306403,a32f3806c6857a5d9516e561055c0c35d398571c2550ac0964b0e65fe66b4b6e,.jpg
-Seed Data/ISIC_0033479.jpg,Seed Data,git,the fixed 490-image starting labelled set,352819,f23829822fe088b0eeed4a2f464825492b2992051d952a9fbc31d86edc005c20,.jpg
-Seed Data/ISIC_0033524.jpg,Seed Data,git,the fixed 490-image starting labelled set,329605,2868b3e9fe90e946e2aa5c0ebf8561ab03ce419847cb2a72354d43864e913c1e,.jpg
-Seed Data/ISIC_0033538.jpg,Seed Data,git,the fixed 490-image starting labelled set,363203,d7db9b0bf6238c84ced895bfaedc0daeefa65ba4e1fac87c7d021acaccb75a84,.jpg
-Seed Data/ISIC_0033550.jpg,Seed Data,git,the fixed 490-image starting labelled set,357170,86a2d45ae8db144bc753b1cfdbe6214f087dd29bc77a2f0b363008466a771035,.jpg
-Seed Data/ISIC_0033579.jpg,Seed Data,git,the fixed 490-image starting labelled set,323680,fe69b0fca4e29a6757b58a0aa6897aeb69fcd0c93e42f61f413f0e44db242fb6,.jpg
-Seed Data/ISIC_0033593.jpg,Seed Data,git,the fixed 490-image starting labelled set,357485,f42e2e4695f1c97172d0e1bd6914fd63ac635a5a79455e7641e69fa2f34ae382,.jpg
-Seed Data/ISIC_0033626.jpg,Seed Data,git,the fixed 490-image starting labelled set,271827,8bdd0a183bd6f95776175ca7f6e8a0acf6c3e972ff349b58fb2ef5b971e483ee,.jpg
-Seed Data/ISIC_0033654.jpg,Seed Data,git,the fixed 490-image starting labelled set,320829,dd2ec9d7e4c31b5f785647cef8d76d8b9d6d784eab690ab934017800bbe58a47,.jpg
-Seed Data/ISIC_0033678.jpg,Seed Data,git,the fixed 490-image starting labelled set,271591,cff1f63f3a1fd9e5c7bb5676cb1e2b9bb26de7b94d8e8f83c8c6c565bef0fbd0,.jpg
-Seed Data/ISIC_0033687.jpg,Seed Data,git,the fixed 490-image starting labelled set,291276,27fc9233e71ba9b362abdda84bde6a13c648ee95b24252921ba798a5f2ad3b1f,.jpg
-Seed Data/ISIC_0033695.jpg,Seed Data,git,the fixed 490-image starting labelled set,339875,698a6f3b1633e69606768ecbd7d0fb52ffeb232de3b1070fb827ccc5a11598af,.jpg
-Seed Data/ISIC_0033735.jpg,Seed Data,git,the fixed 490-image starting labelled set,194861,9894160fd39dac3abf2237d116dfcf7d04126641d5088a1eb6b19c2b526a0458,.jpg
-Seed Data/ISIC_0033790.jpg,Seed Data,git,the fixed 490-image starting labelled set,287093,b6b10cb54ab18b4d221dbe4a51ab6dc29b2469c8f4795355445a99541675613e,.jpg
-Seed Data/ISIC_0033817.jpg,Seed Data,git,the fixed 490-image starting labelled set,272225,30aff6e9fd33293a2d8ba5e38a839680e3f093e9a46394526deb4afafa093b7f,.jpg
-Seed Data/ISIC_0033847.jpg,Seed Data,git,the fixed 490-image starting labelled set,288032,803c2a7dbd3f70e4368278612812144fdcc817cfa8127991f2e74b991a46ad5f,.jpg
-Seed Data/ISIC_0033848.jpg,Seed Data,git,the fixed 490-image starting labelled set,307262,cf60ca3365e8e64a96ab15ea342341b22d42b63bebc575452886928e7ac1da80,.jpg
-Seed Data/ISIC_0033860.jpg,Seed Data,git,the fixed 490-image starting labelled set,308841,229ec75bda3585498fccae3a479343335505006d93bc823de0fca09fd213620d,.jpg
-Seed Data/ISIC_0033874.jpg,Seed Data,git,the fixed 490-image starting labelled set,230994,0e7be531a7acef97ae9914090e05220dcc3250bed1326c7a5b6362403dc694ae,.jpg
-Seed Data/ISIC_0033928.jpg,Seed Data,git,the fixed 490-image starting labelled set,257126,589375be02e053c8db3668de77d0ea5ac6294f8173930e39f467f9220ad9e9da,.jpg
-Seed Data/ISIC_0033938.jpg,Seed Data,git,the fixed 490-image starting labelled set,199053,04d68c920b559612baea8a693ea40e2798e1d92b273f60191ad1d43dcf50acd3,.jpg
-Seed Data/ISIC_0033969.jpg,Seed Data,git,the fixed 490-image starting labelled set,265568,05f1c1dae4d4edb7e14370aacc02d8b385d46721f8c8dd1545b9eba85354725e,.jpg
-Seed Data/ISIC_0033979.jpg,Seed Data,git,the fixed 490-image starting labelled set,273577,32b0b6e49fbffb4101cfd4d1529800060f62ce61e0282c2038c0d872b31892a2,.jpg
-Seed Data/ISIC_0033991.jpg,Seed Data,git,the fixed 490-image starting labelled set,241649,f5dbcadf6f7f4f6bea4a577c9c33a964dcf2ce53d2a85ad338cfd3645f026f33,.jpg
-Seed Data/ISIC_0034036.jpg,Seed Data,git,the fixed 490-image starting labelled set,298865,f44d8e91cd11b9f771c6221dafceee36f7ce28bdf99daf1a532bf48819723009,.jpg
-Seed Data/ISIC_0034070.jpg,Seed Data,git,the fixed 490-image starting labelled set,203234,0dca9d6e86a76e950852dfe71d6fb3358a936c69e1495bd25925e21abf7f1c86,.jpg
-Seed Data/ISIC_0034074.jpg,Seed Data,git,the fixed 490-image starting labelled set,309818,38bb2c9c55855db7a2021ff15416d27523f8ae22fbf7b0af14a5ee08e0e068ec,.jpg
-Seed Data/ISIC_0034080.jpg,Seed Data,git,the fixed 490-image starting labelled set,291163,091ace7b7c0319f4e8440c74effc73e3f1c535856d2db301da11c15a622944a8,.jpg
-Seed Data/ISIC_0034101.jpg,Seed Data,git,the fixed 490-image starting labelled set,351759,530a0884e586ee9fd1802fc4cc2342124d63185c60130b1d2597dae8fac30cf2,.jpg
-Seed Data/ISIC_0034124.jpg,Seed Data,git,the fixed 490-image starting labelled set,308527,501c7e0e91931f16792d0e14dfc000a39e2ae506496ce0a5796c4d8e5d6540a8,.jpg
-Seed Data/ISIC_0034135.jpg,Seed Data,git,the fixed 490-image starting labelled set,279322,94b59801036f04feb50446704af77d30a8048c03ee03db257814f2b8a78ef1d4,.jpg
-Seed Data/ISIC_0034143.jpg,Seed Data,git,the fixed 490-image starting labelled set,313101,f920ffb6bb3a4816f1739378adefb55bab698d3a47760e0f87cf13ee067b4df5,.jpg
-Seed Data/ISIC_0034155.jpg,Seed Data,git,the fixed 490-image starting labelled set,363044,99d53cc9a29fc469147a1839bf5c85227813d4e0fc0640ffa0198b41680b09f9,.jpg
-Seed Data/ISIC_0034169.jpg,Seed Data,git,the fixed 490-image starting labelled set,289881,396118cf00884821673ea22cd411c33c6a8ebd4780e5c98e4dd3cc302477603a,.jpg
-Seed Data/ISIC_0034175.jpg,Seed Data,git,the fixed 490-image starting labelled set,352522,a37bb62c440d683af39214ca988912fe698527a633761d6d5a27933cc2bb534d,.jpg
-Seed Data/ISIC_0034196.jpg,Seed Data,git,the fixed 490-image starting labelled set,271367,19d7ba1501f0e849192effb0b25289f8b7938797e6d76da2213bca77f49d04c9,.jpg
-Seed Data/ISIC_0034284.jpg,Seed Data,git,the fixed 490-image starting labelled set,327933,3ce8a293e34817dd1d75bcce5d18ede6dc4b8f1d31e6a2e095abc6aa344e2189,.jpg
-Seed Data/ISIC_0034302.jpg,Seed Data,git,the fixed 490-image starting labelled set,335273,f86d6b844c989d4b32021cc698258f6a344eec45a4a31a772fce978b04117f07,.jpg
-Seed Data/ISIC_0034315.jpg,Seed Data,git,the fixed 490-image starting labelled set,344506,e25e8ee4c0537a27490dc42a57e298bdcc74199d3d48d6774b0243bb563ff343,.jpg
-Seed Data/seed_metadata.csv,Seed Data,git,the fixed 490-image starting labelled set,28330,9d919addbfda6e559093494eda9496291abfdf7f4d8fc5893d2eb597a7776114,.csv
+README.md,(root),git,"top-level entry point, configuration or document",14613,d9766303ef41c6b1fa22ff2dfb50b87511a48af2f6b6313c2092abbc127802d2,.md
+RESULTS.txt,(root),git,"top-level entry point, configuration or document",7339,581b98d5367bf2b21e3d226e6a98a205809e70eb08145a7991c840580e5172e4,.txt
+Seed Data/ISIC_0024318.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",298082,5385558c6c44a27dca3f12f33a7d982d577b07631ab0dfbe642f6f829cdfdf3b,.jpg
+Seed Data/ISIC_0024329.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",204724,343e4bc5295611175b7131ea5b52037cd5b50376fe08d7210c898ce3444a2cf8,.jpg
+Seed Data/ISIC_0024330.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",237578,4f48c96f912e0675d00f57e107489e555a90bb04aef13e34fb8f0f6f620b4dc5,.jpg
+Seed Data/ISIC_0024333.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",175192,a18f607831feb6cddb3d4d07f9c77d1d3b29e93bfff7362c0be7037483902152,.jpg
+Seed Data/ISIC_0024370.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",312761,6f450c8a117c4d9db7d9a12b3ccdd688795d944fb159df9b40f9574feb874801,.jpg
+Seed Data/ISIC_0024375.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",308846,866ca0e99e09aebae95ff31091b8f48fd6427aa69ab706487002c4d33d902a50,.jpg
+Seed Data/ISIC_0024396.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",301151,09bebae9065e9481cd72baa1bd1c0a8b77e86805ceffded6169255c4c1428c91,.jpg
+Seed Data/ISIC_0024402.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",237853,69858b574c3cdc4c8f2b317ceb90ebe228be61802de6a906099c718ad4a1a6c9,.jpg
+Seed Data/ISIC_0024419.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",269281,018f39beb1d8b2b61556ce73d55a11e26aa97fc302ecd231fe9a06749e04b57b,.jpg
+Seed Data/ISIC_0024431.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",303170,7e30576b0ee4f0c5e8bfba0f5cce8fd604af5ef1440a8f40d9bf8d30db1b7896,.jpg
+Seed Data/ISIC_0024435.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",301751,2e47547133b85dcd110faee239ff305ece2a149cf044a908f5f61a10348649da,.jpg
+Seed Data/ISIC_0024448.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",220223,1cfddc53b2f47ee79e2c0671731dc4c85760b87b03390b9f4a2f39e7b2a7c20b,.jpg
+Seed Data/ISIC_0024463.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",232323,3e1bed546edf0fb34cd4e2c1622045baf5f1a2ca7cae211af969914c1bb4c2ee,.jpg
+Seed Data/ISIC_0024475.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",345760,39a267090bad11de8cbac846909cc6110688f9b3c20ed1fb3894bed91dd441a4,.jpg
+Seed Data/ISIC_0024511.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",221238,bccaeda2e9867da64516a58e8307b6854bd9122b4eb5a6cffd0cc272b45ae309,.jpg
+Seed Data/ISIC_0024537.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",282589,391da830f2e3c230750d5d1b69e50e17ba50e8491fa3adec5671fea2ee1dc05a,.jpg
+Seed Data/ISIC_0024553.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",372165,5966d3a6021d8022e157a251c2782d0400a3d8d8c19e46bdf9b0e3bbdde41571,.jpg
+Seed Data/ISIC_0024562.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",298921,05fed58372fc98dc71655d7d4afe65e1ac5e6a5b829fe94de69418048f19c40b,.jpg
+Seed Data/ISIC_0024582.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",261771,23aeef50c7b2e24e0672909cbaf9dc237f75c5f7ab98a749112840629a3abc27,.jpg
+Seed Data/ISIC_0024626.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",313609,c5da5f34bb4f1dbd28b12eae76a934aa472e1f9563a004685c3cc00c27038422,.jpg
+Seed Data/ISIC_0024646.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",232163,5772a1b511bd7f5d103b2b96dab77f8cf6f58844d1be4e03ead2a5c4f13ae7a3,.jpg
+Seed Data/ISIC_0024654.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",279923,a32dda90d4b4430882dc55500683bea42a39eb5245e68d1f97b8883b40a0f725,.jpg
+Seed Data/ISIC_0024662.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",340069,f7db784ccaec84a4b552e43fef1785f09a7ce84da9af0062a5ca25d74286fbc3,.jpg
+Seed Data/ISIC_0024669.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",278501,93020b603d353689c2287f8b7659cd1b10b748ccc0a03efb38d433399e1362a5,.jpg
+Seed Data/ISIC_0024707.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",284791,0e1486f87445a6cdcaa621ff296ef61239dc56d35db70fb8d184969b2d7e2315,.jpg
+Seed Data/ISIC_0024717.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",267097,2ef7e7a8874870e87c2aa3e31a5b633377c206d000df450a8ebcff39bce3eaa7,.jpg
+Seed Data/ISIC_0024725.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",298175,6035a5dab8fea0556c0845f80e44c22fbcbe735a09a263d1190e95a3d1a6acb4,.jpg
+Seed Data/ISIC_0024825.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",323404,b38d7e63238e5c695bd1709a69f63650f9abb8a618e9e7df1a04a766c935a8a2,.jpg
+Seed Data/ISIC_0024845.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",247053,9fea7c101eae9dd87a65c84bc98ef3731e46852c97e9a6690cdcd4d2bbe802f6,.jpg
+Seed Data/ISIC_0024867.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",310683,cb39176bdcb0855e7a636770c3222bac0ef6db1650c20e0ad26d082d4ac2f6e0,.jpg
+Seed Data/ISIC_0024871.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",248905,a7e549ba16b6249e2fc02f71c87aa5d0364bfdab250a9dff7c72ea79114011f8,.jpg
+Seed Data/ISIC_0024893.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",261850,69e5158f37a59704664898dcc365c26ea2be24745657b4989138d72ebb73ad12,.jpg
+Seed Data/ISIC_0024904.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",223385,af436c8552bd3c2fe003e90956412cb13089f641bf678e75990ad8d754703ca3,.jpg
+Seed Data/ISIC_0024913.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",324826,2206d9c465c042c5889b7f23961a91840629a9bdd4901a246c536602b939014f,.jpg
+Seed Data/ISIC_0024915.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",242891,c0fbb6fecfde11098c137cbd36a96a62a6106c76e60d5f81fa0a2ad74a9fec54,.jpg
+Seed Data/ISIC_0024931.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",108669,2e3c0463bda3600a12004028e229a927141c5a4ab70a8c325910a3d0cd6701aa,.jpg
+Seed Data/ISIC_0024935.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",284688,c852b0825f39c8d1bc5f48a63725dfdb584633da736852dca295bec64ff915df,.jpg
+Seed Data/ISIC_0024936.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",266074,8d8c5483e2598ec8298d4b3a25231b61cd772c6a60ac933f06e01a8973e0d63c,.jpg
+Seed Data/ISIC_0024948.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",274115,769d0f6a355dda072c4ccefae2f2ef72d86280ed26837789f8aaf6c02a976428,.jpg
+Seed Data/ISIC_0024973.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",261066,c4c6d97a71d2137b896e2184626504d86e8d3c5d25e1433b1877680ef587fddb,.jpg
+Seed Data/ISIC_0024984.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",259571,762e1f4904087bbffb4e16c199a03f33e9006985369c79be096e0913138fa881,.jpg
+Seed Data/ISIC_0024987.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",325147,2aa16732370a15383994f9d607a86863fdcddf1805b6dbe9ac9797e80c849e5d,.jpg
+Seed Data/ISIC_0024994.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",329394,086d98bbad60a8f2762ca5dd84bf74d31836775b4735c0b6fc5e884df895a6f9,.jpg
+Seed Data/ISIC_0025016.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",233828,48c2ef2cdef3b8f66bd60a1734dd4739625ad7787d461717818708d77a42fb86,.jpg
+Seed Data/ISIC_0025031.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",249209,b5f373f725def8f3df13c8446ce5cc3dc5681ff4febb86af6a96a57f36e5456e,.jpg
+Seed Data/ISIC_0025057.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",346183,c4b95ab2a62e8dd79269ee1d4f4cf28e1a71810c5046f2ed51a1fefc2ea21680,.jpg
+Seed Data/ISIC_0025103.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",324522,d58b198fb936b707ba7bf84be4add2c7b03f94ccb6e47dedb153f7ff1ecd5ffa,.jpg
+Seed Data/ISIC_0025130.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",278034,89a5c9e39d9bd83b8e390d04a2c79236617b40d6e237bec989beacb4488ef647,.jpg
+Seed Data/ISIC_0025178.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",260398,5540f05b960f7e3a8c0754728bfae34835c0222348c08fe29c23abdb4105a045,.jpg
+Seed Data/ISIC_0025196.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",247815,2b9d3038e18a6097990a77104c723485746933fd7b1f7cd1dc413f1805d9d4a8,.jpg
+Seed Data/ISIC_0025197.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",218497,c10b7b06c8fd634a781dfe79d0a867962cb8ca9194faf41c3e3d6f8d1e6dfa3d,.jpg
+Seed Data/ISIC_0025206.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",341960,c7825d6ebda076a5406a69e06f59c2761277eae2248b2463dcddc550cdb1c033,.jpg
+Seed Data/ISIC_0025223.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",330771,b47774d0c69ea0f0375619e26b0526295a82ed4298b9cc2cdf82d99c19e2f8f0,.jpg
+Seed Data/ISIC_0025234.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",383335,3c85ef798b94963064be9066a2f83c1f2282fc2bc27cf0b48c9f107dfc700a25,.jpg
+Seed Data/ISIC_0025249.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",317246,86b8f9c1bfe308d95577932c51826278230049bd84ef5f37b8df541f27de751d,.jpg
+Seed Data/ISIC_0025268.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",310352,84f1f2e46d038f51c475a6846dcdcbbca7420be3e1f5cbe4141e2617f73b67e6,.jpg
+Seed Data/ISIC_0025281.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",265612,6d5252fae004ceafc5f0507083959acc63176b008b3cb00689e5df09fc53dbc0,.jpg
+Seed Data/ISIC_0025301.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",254075,2914951e73ff8be91d79fb6ae95280d4bc98726941b953537611c1d2369e378d,.jpg
+Seed Data/ISIC_0025302.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",217026,acc762a909affb5dd26f1eedcc6f673fdfd8ac58b2a98f1e5c3722a76bf661cd,.jpg
+Seed Data/ISIC_0025314.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",343274,538e9122277c6691e5b50c1713642cdfc49a2ae75007fa3d6747fb25169a3b46,.jpg
+Seed Data/ISIC_0025331.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",242344,46995f1ceb65d6c940c28f15f0b42ee24bc150c3f5edeac0d1c448f9645841f1,.jpg
+Seed Data/ISIC_0025345.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",307120,756370562c10318fa56b93fefcca59f27d8debd0c9f7dfe8c51674860d18cea4,.jpg
+Seed Data/ISIC_0025350.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",261865,b2aaf7fc51aaa7c9c8f9876ed52b9db14ca5a7f5882743acbfcaa01f82f5ff75,.jpg
+Seed Data/ISIC_0025351.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",320325,bdf852c1869cfe87c85369553c0cb5e3573ebe9f340287cfa601e25e89e90ddf,.jpg
+Seed Data/ISIC_0025358.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",228554,863308be95b090f48bad882e8f2c8b430c3007c7424510f44253e6f42e52f92c,.jpg
+Seed Data/ISIC_0025373.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",244582,9402eb50af66b0a0debe2944e82057faf535505ded0784ec1899995643256332,.jpg
+Seed Data/ISIC_0025411.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",277020,64fa49b2e429004e016b69f218ecf66181a30f310c5a4b511277c3860c0a17f1,.jpg
+Seed Data/ISIC_0025438.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",260564,7e7c3c209c4f48479fe9de3e47d4c4727ed0512818d6dc1a1320987469807b2b,.jpg
+Seed Data/ISIC_0025454.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",362073,ca2c23e02ad0e4e2ef5820c88142a0de75fcf05e52ce1042b02b295eb72949a8,.jpg
+Seed Data/ISIC_0025504.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",179461,bfdeb618193f7be27d78ec060bb807dd0ab61555ce8e1a123f8743f8ac53b2e0,.jpg
+Seed Data/ISIC_0025510.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",283438,10f450f8c393dac3926de7f35efcd13193fa82da4096abfdd178afd40d279956,.jpg
+Seed Data/ISIC_0025530.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",260183,247c4f7028a063d9565451adf0590bd543b07f97628e10059ad5034c19afe3c5,.jpg
+Seed Data/ISIC_0025531.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",245276,2379438174cfe5a2c56414c3de6ed11dfa93a740e85c443a03677d2ebffa290c,.jpg
+Seed Data/ISIC_0025603.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",306031,1da22c3ba355955ab3307bf82a53139ab3dc78740526c63a68186efdf3d962e3,.jpg
+Seed Data/ISIC_0025605.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",249240,3477450e04a2854f1b5e7fe89f53b0e6e49993872f06a2e5510507a1db69e812,.jpg
+Seed Data/ISIC_0025622.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",332983,b08a87f0f99dbca28568b4db108427575d5b1f5d413b07df5c45f36d6a9a6e00,.jpg
+Seed Data/ISIC_0025637.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",254261,4f581cd6e50f28bfc0c740217188ad4dc72a9fe5dd39edc14a3d1bfd8c6c0818,.jpg
+Seed Data/ISIC_0025644.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",279042,7f6d94e67535a4636dd6cb83bcd6971bfcd74caf190e039a4d48805578bda2a9,.jpg
+Seed Data/ISIC_0025659.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",286227,14bb47a82acf867555e9a45c86315777e4be996d7a01874b63dd77b5ab4918bc,.jpg
+Seed Data/ISIC_0025668.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",300479,dcd9927ef8949a96a4967ff5d16f5afc23097533087a250ad35ad6bccdcfd775,.jpg
+Seed Data/ISIC_0025674.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",283696,d52ea4c3d771e02a0fbf2c7012bb732230470fc7cc1b2a43356dbc70daa738cd,.jpg
+Seed Data/ISIC_0025677.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",310217,50b053a5c09b7f261059c7acc8c423a4cb9d80263cc6057d5893dd1d6fa366bf,.jpg
+Seed Data/ISIC_0025679.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",284865,24ab047769b9cc681cab705723c85d5eb6045fe6f51d4c26a7b8b5517f1e934b,.jpg
+Seed Data/ISIC_0025680.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",264574,52ec2ddd076a69098db4b2692a9420a1a71acab4e7ffe1df8cc072c7d9548cce,.jpg
+Seed Data/ISIC_0025696.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",273833,c8f40c12b8c92fd69dbb188af761da588d24b5bb2a0c9d916084defb9eb8337a,.jpg
+Seed Data/ISIC_0025719.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",290115,01d76233182ab00f7ba58cbafff98a798002c5c55cc4937e90f2bcdfc36bfae8,.jpg
+Seed Data/ISIC_0025724.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",161805,4d1ff778f09bc0c1d6d5c94d46d925c893a9417a865819e29a73c341a20ef815,.jpg
+Seed Data/ISIC_0025726.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",318910,8756f587996434240e57c6750f10c813179c0087ca376f5e48e2b0532b236ef9,.jpg
+Seed Data/ISIC_0025746.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",217102,28a613287b4ffa7c29fdf0f8ae5cf9a5cbba812ab4cfe5f989cfe0c6cbc11f69,.jpg
+Seed Data/ISIC_0025752.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",305662,7e5097acd22646c4efac6c03c03276600f67bd54e8ff92494e9aa16c0d494dd2,.jpg
+Seed Data/ISIC_0025832.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",245984,5e39f67c4173f56db08476082eec2e675ddedd977ed2190070540bcdececc852,.jpg
+Seed Data/ISIC_0025873.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",198067,83c809829eb1dbeaa9e136ebf1517dd8059c1e55196e6789a55db6466dd3d68d,.jpg
+Seed Data/ISIC_0025903.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",348962,976e8defe4159ecf636570342b4a5ec680b5afbc5ac4ecde1e4e6f8804fd454d,.jpg
+Seed Data/ISIC_0025924.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",219844,40f6a3e41059b665245711aba96ed05c26c8757c46f0ebc0c9b03c6df002da6f,.jpg
+Seed Data/ISIC_0025953.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",273022,5c988e95d4109bfe1559c9885ba6eed71a580963cb8208b7508d9e668653f5aa,.jpg
+Seed Data/ISIC_0025954.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",232635,26268cd1eb4ce0a9226ccb57cdefa9a9f0dd062cb3010e72c04f22677d6ffa87,.jpg
+Seed Data/ISIC_0025959.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",241782,1d0891ccaae7203f067fad933a3c425446b644d0a73ef85fe59d58a05d33ce38,.jpg
+Seed Data/ISIC_0025975.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",265697,d935c78054841f64160a85299211c5498815f6cc97becabc2997056b259b6ff1,.jpg
+Seed Data/ISIC_0025980.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",354722,9d3bc521e1763f92178bc2594e6b31b4e6b404c74ad8b20b6185578bf043a54e,.jpg
+Seed Data/ISIC_0026044.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",180308,27cf44bc5af082fb88b940c0aba0302c306c1ea1f30c9258e0aa8683b38575ef,.jpg
+Seed Data/ISIC_0026060.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",304325,a0b1a1b5862fc849ada19c78e6d48b1b97fc8a41ec05727136323c716a7a4244,.jpg
+Seed Data/ISIC_0026068.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",264565,b5d7c9322197d7068d8d05f92709d47480f73a0aaf6bea9fc1b4868923fe4f87,.jpg
+Seed Data/ISIC_0026100.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",236718,463089ba2a584067c7f9409a9058f60aee96f23aed9ab1555c7853f9295b78fe,.jpg
+Seed Data/ISIC_0026115.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",298951,567f142ebe2b312317ef0d63ecb4213c1533add0d700006426c2f5534f98884d,.jpg
+Seed Data/ISIC_0026116.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",265034,9edce15f3cd5f6c4c8e827c4e62902dbec59c256c20bb0fbac7febbe9036dfe6,.jpg
+Seed Data/ISIC_0026138.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",282677,d4cb281c25dd2fc78e977b6a75fd52c70ff794c33b775258b31ea14398e76f5e,.jpg
+Seed Data/ISIC_0026152.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",300394,ef0b0cb8584b54191a860da4df118d8846493db274ef79f234d8bf874259507b,.jpg
+Seed Data/ISIC_0026156.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",182661,c8d2049f4b3e690239b107c17375d0830ad16a30a56c8083ea332f23b643887c,.jpg
+Seed Data/ISIC_0026163.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",207757,d6d5b36ef6f8d315b529ce952006e9b2aebecd1a558e9762bf7e59f24403c3f8,.jpg
+Seed Data/ISIC_0026214.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",352055,18f08a07b679c26a5b28cb44bb1197471144c337ec7e0156922851cddc2a186b,.jpg
+Seed Data/ISIC_0026254.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",357094,ba75c90ab4b34f620aef7ae563b92838d523649ff7bbfb595bc6568efec52dd1,.jpg
+Seed Data/ISIC_0026262.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",313421,e3ed01dbffe9cb3bf8024e54f553d864782c49afdf09180ca12ecb5ab214f507,.jpg
+Seed Data/ISIC_0026343.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",459172,1cdc1afd414b82fafb2771632d0aa5d60c97f92e9a2a10a29b44e202f188b0d1,.jpg
+Seed Data/ISIC_0026349.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",258369,576b9b485b50de748c4ca493e5a0268e495d81821ea6acb6d301771c4c48b02d,.jpg
+Seed Data/ISIC_0026350.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",267860,a318fd86c69112d3e355c37969bff3d8a93a58b0869270259e2d786450c785a2,.jpg
+Seed Data/ISIC_0026362.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",263990,b4a29d6df5799c46cb7dc16fd0fd1dcce98e79f1a420de02ebf6e09da2ff96bb,.jpg
+Seed Data/ISIC_0026393.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",305385,9e64699b593543b60f0b753f413faf411ff928a67395ef5f678cd5767eb353b7,.jpg
+Seed Data/ISIC_0026399.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",294004,090c85f9cd72005ec68556441035269408c421d4c964458caa6a1b67b9c67c1e,.jpg
+Seed Data/ISIC_0026416.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",314158,ca6c0010f9272bb0f92b856ed987373456f463ec9c00aa7689bb46b4d28e7625,.jpg
+Seed Data/ISIC_0026444.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",248942,b2ed50850d4d5ea5b5e2b83d315a32e58866e4dc017909b213bbe289559c3abc,.jpg
+Seed Data/ISIC_0026453.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",233586,0178df6de69a04c087674fc1f0a2b46865171678d53eff5dc78ee1c958d2b94d,.jpg
+Seed Data/ISIC_0026473.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",282778,e7a2930f083a5ee460907ddfbe95dfcf2bd5bd23b3eaf634714feadb6cf89505,.jpg
+Seed Data/ISIC_0026490.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",316905,1f9391f8cd49e1518e48e493a00169df2721b2d0dd2090db58f33842d71a08c3,.jpg
+Seed Data/ISIC_0026503.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",272021,0936d5182e5163eff2daf582449256b59f1c87988a6908843f9f7b175c6f01a6,.jpg
+Seed Data/ISIC_0026526.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",198802,d6f3dd6aa119e351ef4192628aec24a7575f67952c2a77ce5bd7a2da01e06294,.jpg
+Seed Data/ISIC_0026545.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",315202,753bc1b644a47ba7b1b2ece1c5d75ffe23102badaf0ba267a965fdb0255ce115,.jpg
+Seed Data/ISIC_0026562.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",343492,92324b633ba9741e192aa3686df5b3b5c865a3608449c5ed7a716313510557fa,.jpg
+Seed Data/ISIC_0026575.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",274721,9bec563fc8d9dcdf3dd780dce8c3e046b9529eacee276708dcfc3744b3502c2e,.jpg
+Seed Data/ISIC_0026593.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",289237,535f2efc0d86cb72e2b7128fd0b7f80c63da471533af61909ab2ed70528b260c,.jpg
+Seed Data/ISIC_0026596.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",258175,8d17b4b4ef62a90720b11ce732414713e7595af3d2d8d4c3b18c4197656988c1,.jpg
+Seed Data/ISIC_0026609.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",276663,607b1f3ee8799981b00b984f7ec9f3696884bb9e61f32e13178b150ed8da28e5,.jpg
+Seed Data/ISIC_0026625.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",301266,925f8c81ceb5fc5ca23c82435f4c0bfb3ac50e3c40caa3e4fe78c388ddbeebe3,.jpg
+Seed Data/ISIC_0026626.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",290933,d326b5ae70ef649680c7160a775589afe0b59018a7a40abf5a8cd8ccde5b077e,.jpg
+Seed Data/ISIC_0026650.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",252505,02444192dd87df253b96711a027f8a7c1e9db82249ccdbdbac2c9d2789093241,.jpg
+Seed Data/ISIC_0026656.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",293508,9dac4022d4f71f765ebebd330312a6b87e598072b6aea80ccf9d86ffc2f073ec,.jpg
+Seed Data/ISIC_0026693.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",280652,c9eb9eae9f81621bc34b8e7f403316be2e83faefc8512f5974b714a5c6741d42,.jpg
+Seed Data/ISIC_0026702.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",279781,9ef32279285ee53718f98a2eb1d7e488459e7ac6245a1ddd9b3c167715b483e2,.jpg
+Seed Data/ISIC_0026766.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",249370,f5ae9743980079cd7ae380d24694856a64cde5e5247fd9903ed98619a17a41ae,.jpg
+Seed Data/ISIC_0026789.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",259949,7383a9ec8729c9423870d350b6e8e5465c3c4023f2916a496811a7ae5a63297c,.jpg
+Seed Data/ISIC_0026853.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",304858,30481e663f69e32c5aa5fcd8a159799c0e94d1c5c432c99f55de0006f1257327,.jpg
+Seed Data/ISIC_0026870.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",316269,b32224a7b2acaf4867353daed338b079d6f216bc3ca4e58f860a0888e67d3bed,.jpg
+Seed Data/ISIC_0026876.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",211004,776b28c8bfd231125ec169f924cbe2912633497a9f2566d7b6ad3abba2d734bb,.jpg
+Seed Data/ISIC_0026883.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",210947,185447713eb77cab86f3aa4b8d26dc95ed1411bd4fe7980f03beb5a4d83afee7,.jpg
+Seed Data/ISIC_0026912.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",331522,3bf89c7fcd2855f22448c18f4216fa4c89adfb0c3ea1915cbbc4eec0f224beca,.jpg
+Seed Data/ISIC_0026968.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",208125,8e460f0963cf4f1e16150f74af7072cd47c5df2c88e3588fc5818bcf91231780,.jpg
+Seed Data/ISIC_0027008.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",312017,9c1d65a55536d129a84219bd7f1bf46049008928e8eb0ede73d96c8f7fc8356c,.jpg
+Seed Data/ISIC_0027043.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",302901,36f51481fbf8c94ccf15c95fbfdf4f8ec54f7522dda0bc523e81e5ec46a0c065,.jpg
+Seed Data/ISIC_0027058.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",183451,a7a65d154cdce72f097a329f5688cdfc98e897f7c5eab462b13770a50fb212c2,.jpg
+Seed Data/ISIC_0027068.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",249717,4938578e5d15909358b5d542d01e325dc30c2192b2197b71f21c0419e1f887d9,.jpg
+Seed Data/ISIC_0027090.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",306309,265e3847719daa52f365c2bc9c377a77b89354ca92e1681e3385b02c1d8a2166,.jpg
+Seed Data/ISIC_0027102.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",305535,f4a9d00419830c14d4977ca45ac9f515567a5d5f66b8c40fea79e8495e6763dc,.jpg
+Seed Data/ISIC_0027107.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",294338,2756b6ded5e75b3f61f343a3c5c2dbc61d1dfe657e2b3f8ddd5ab8b27343c456,.jpg
+Seed Data/ISIC_0027118.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",285547,24c212e8b25988eb4e6c8b28f04dea4d6e89069eda9597bd9abf17ccb0f1f0ad,.jpg
+Seed Data/ISIC_0027120.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",232122,497364fe550f4e838a7689f1feb4ddf96f4b8d974b292c083dd39be6bf3b0915,.jpg
+Seed Data/ISIC_0027159.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",235040,7a9e6329ebd5b07545dd2194d830cb04b89e6d2a2a871ab075079ec2173205a0,.jpg
+Seed Data/ISIC_0027188.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",247989,84fc3538487b0b9e212a81d0a4be9aafeac85c63934caf212b375f42b97413b0,.jpg
+Seed Data/ISIC_0027254.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",313789,178b879a5b98977635f80c14d3acd2db1cdc795b9270a52381a2ec42140c7269,.jpg
+Seed Data/ISIC_0027275.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",339408,3ef779a291edfd983855bcb4b9486d6ca64d873169897c249c0aa5371a7c571c,.jpg
+Seed Data/ISIC_0027282.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",259528,7f4353bfe4be286b46b3082b234d2dedb51f841da1af0263e1d53bd20d6b5679,.jpg
+Seed Data/ISIC_0027294.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",219811,5bf34bab38604ee1c48a3c10e119ed990dbf01757ed644286f1ef6812ba50d6b,.jpg
+Seed Data/ISIC_0027303.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",260254,098bb58b982c7fa63dfcb46d5e591d47091ad857c6f607802d5b246b79049bd8,.jpg
+Seed Data/ISIC_0027326.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",340544,208ebc4e376b03f35cc98e3384b18187571dab6869aeed5c05fa2587cd299bce,.jpg
+Seed Data/ISIC_0027334.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",204813,5ae080e51253c63a209965122d18d85cdc88ae78f813153983581e6fd4cddabb,.jpg
+Seed Data/ISIC_0027365.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",268761,6f527a24ab01531992b6b589ce51a5018b1f15a41e04fcc091503603c001b8df,.jpg
+Seed Data/ISIC_0027385.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",261004,7c064472988dd42f27ff7c287d53a122e21cffb068186588e291e2774b27a191,.jpg
+Seed Data/ISIC_0027447.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",282588,67de56c63fc1613b4af59ffb39b24f57c961fc763c392d64fabef2df8b2a9628,.jpg
+Seed Data/ISIC_0027470.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",189399,503a35ea4d671f6177db84d5d5a09cb614477642d792a0cfe6cceaefc82f81be,.jpg
+Seed Data/ISIC_0027473.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",127898,5ba194e64f708ce7290571ce2b3755eb8beb92201cc5d3ca0d0dac4104e66826,.jpg
+Seed Data/ISIC_0027480.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",229488,289dd179ab2bc66c203b573a800d8666effca2fd3003c20371618f35c4ef621e,.jpg
+Seed Data/ISIC_0027488.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",319243,ce00e27988d449cb5a692ab51d7bcb1f3699b5f9420b944b109b43fb5541b827,.jpg
+Seed Data/ISIC_0027506.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",276582,6a68ebcd6278b81e95d02e335b1bf8f02c4e42b8cb571659045c5cf779f2e295,.jpg
+Seed Data/ISIC_0027517.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",249190,b730991612a65d159f98f8607de42cbf961dd06dda1a7d447c68beff260ba438,.jpg
+Seed Data/ISIC_0027522.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",323704,8cef093b50271903449044434ccab382892528b2452748130997bd543e2fc4e4,.jpg
+Seed Data/ISIC_0027533.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",268172,7692bc822b2dad2312d1a9f3875179115ee977a42e8a3b1a6ecb804b0ddd5d58,.jpg
+Seed Data/ISIC_0027562.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",248023,c89d858bac39589b2ec2fffd8c377d8e7ae9d1d52977f78a7852391dbbd41193,.jpg
+Seed Data/ISIC_0027563.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",331792,a3d8748d5daae974120d7801ea2e30b1b58593f7cc6a101bf04fc431331cb26b,.jpg
+Seed Data/ISIC_0027598.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",318792,51f36c99d51a12d17a5068f1365a73563d546d045c2360bfea5836626dd5cf0c,.jpg
+Seed Data/ISIC_0027613.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",294546,5edbaeec2dd1aa75980817b30e521d46e2fdd6ada98fe3e6ca45d0ae238f20c5,.jpg
+Seed Data/ISIC_0027615.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",263188,fae100401f6a9a6bdf4b5651a51b970ac13464b86ba5070dd7a38612ff93af0b,.jpg
+Seed Data/ISIC_0027622.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",243965,2547d4c43df87bb249f76200205022ea4e57e0dd65d1b8a29cde2d2c7aa7ffc2,.jpg
+Seed Data/ISIC_0027648.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",162888,c45aa8ac9b254cda64da3fbfd68cc36fce6441664091729f5eb0c0db99e298c1,.jpg
+Seed Data/ISIC_0027666.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",271627,fd4b383750fecfba601174f10cdd7169970e9a272b5c44717928a382b1d71a63,.jpg
+Seed Data/ISIC_0027670.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",258856,f9c9829142bda1959eb061074568b37371b96523122e900430cf60bbed9a37a2,.jpg
+Seed Data/ISIC_0027672.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",229869,2aaecc9e78e41cbf5cccbfe9099fcfaad4ee3d993bbcef6d05c9c881f8228b0f,.jpg
+Seed Data/ISIC_0027675.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",207828,4560dc41c6c177bac40928bd95efc10305e96ee07f89b55e76b63374d9255b60,.jpg
+Seed Data/ISIC_0027678.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",273341,0798cfc7f259809a1a7afd38b30f3f6030a2b5d11a9d3f55eb79804f0662a300,.jpg
+Seed Data/ISIC_0027753.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",271090,591108b6a492dccdb87650c23d4b53c3974bd89372187eebfb33588698e3daa8,.jpg
+Seed Data/ISIC_0027766.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",250614,7de47a833fd1c69dd199de4a1d830806657980fd4423922198185883bebbdcec,.jpg
+Seed Data/ISIC_0027774.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",311392,b1bb9c142ca4c9b858c607d5139b05b3ad72ae443f771e0202951769412f0e51,.jpg
+Seed Data/ISIC_0027856.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",304560,4898406f1bbf66276d56124e6dfc43cd05f9cf463f7433a592065a7d5c327c94,.jpg
+Seed Data/ISIC_0027876.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",207286,26e3d67a257bc9431c4edaf93f60d8ce73ff269621e47369ee1ee60b4a62eb85,.jpg
+Seed Data/ISIC_0027888.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",311560,637d336f1a2003175d6e835f7c9ebe89d20ec5a57ca3315358b36f8fddeb9418,.jpg
+Seed Data/ISIC_0027903.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",210713,476c8d5e8bf60a0b40452d8dd51dc0d981c0948710fe57987014ab6608a285c0,.jpg
+Seed Data/ISIC_0027921.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",264065,bfe906c8ea97080d132b1d8c7cb00fae75c585984b67e2cb8a62e780a867aebb,.jpg
+Seed Data/ISIC_0027937.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",277952,ba5762f606a972c3290f3cb28b5bc1f20ea4882748e0e194f84a2cfd7d998aac,.jpg
+Seed Data/ISIC_0027954.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",335946,d74318af9c3d1054ba019823c40ae6b5c1262c89aeb42c0dcbf122f14d4088b7,.jpg
+Seed Data/ISIC_0027960.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",281816,152aa9a4661f1b9be912da7d5ebde8365357b25ce75f055b9e900ff825dd997b,.jpg
+Seed Data/ISIC_0027969.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",157262,af39734af7b19d668839e065ece83a30b2fa8f453b5c86204c8c86ac4dbb4508,.jpg
+Seed Data/ISIC_0027978.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",231679,80184311294d59278500970b3ff80c2b1619fbd110a35460af81fe8402667bb7,.jpg
+Seed Data/ISIC_0027983.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",251887,1964003c29aa073b8efdfbe5a1a263e2022c61fc68b8f238f93b8047e8daa9a7,.jpg
+Seed Data/ISIC_0027987.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",359501,5217bceffec2d7dbf7a9f7d92c848d5ce4f0dcbda93710af740206cf9b8f0589,.jpg
+Seed Data/ISIC_0027989.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",254557,22109027c503e9a74f430b066a6730ec6ad2d61cc1c1d435732c136c97af1f37,.jpg
+Seed Data/ISIC_0028035.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",282036,bc53da168624cfd60b4ec29c5d9ee5e48e2bb6b6cc866350dae4abecc666e708,.jpg
+Seed Data/ISIC_0028059.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",193879,2302dfa7899d421886a026fcf100d4ff3e6b139ab70a0dc65ee9a84f790024f3,.jpg
+Seed Data/ISIC_0028106.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",237520,379bcd4c57b2eaaf5fc9dd0148427aeba1939a8d7492e947c250c4ca298d77d5,.jpg
+Seed Data/ISIC_0028146.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",161114,9ad7323672c1a455f91dc52ef99bbb3362ea98e8ff33d974483a8310cca61fc2,.jpg
+Seed Data/ISIC_0028155.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",307993,3e645c4f5f258e102e9f7202476881de5b6a3aae99a7caae405df24f44e167f2,.jpg
+Seed Data/ISIC_0028160.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",337744,17bdfd370aebad6689cab448ed68308c317601bc53bf7010fbeae4f0be697caf,.jpg
+Seed Data/ISIC_0028163.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",269530,692c640bca08d9f892ecaed5c51264e9d8509f9641fa9c0c7337f92d168d6e20,.jpg
+Seed Data/ISIC_0028188.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",207254,f2dbe6b49b15233e2caee549c25b9dfd21e8469f25af4e3f919697effd1ad0a7,.jpg
+Seed Data/ISIC_0028197.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",133255,c3b99739daa8d54a76a16320bfa328600a63d28137e64423c412ba0e3c1297b1,.jpg
+Seed Data/ISIC_0028198.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",273080,6f293e4339414bcbe7d49b5866fd820eb48ec34257aa9b2558f13cf885ac4396,.jpg
+Seed Data/ISIC_0028289.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",346610,0e4f55568bfd87bcdf375051d909e888d35da2b05cf821c82db337001507f678,.jpg
+Seed Data/ISIC_0028326.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",279682,371f8ef861129b593794316a4657fd50d8c68c05779a8d55a68646d2db15dc4e,.jpg
+Seed Data/ISIC_0028332.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",143718,a5778ed49ac8eaeda8cb7bcb9d324b48eee8531d025f9867863c3a6d44a06ab6,.jpg
+Seed Data/ISIC_0028336.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",244361,5587b3e5f4ff6149f843a4bb34a7d0d98f863adc2945626c8606bf152c9db4c2,.jpg
+Seed Data/ISIC_0028350.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",255362,f727440498c750f4222779dacbb19ff4438d794203ad4c9c83744c578de0cb6d,.jpg
+Seed Data/ISIC_0028372.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",265648,4c1a86ab9faa108242333fe18c7edbd85d3c4f5f5386399c6eb174d8bfd88224,.jpg
+Seed Data/ISIC_0028451.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",274184,d4906a38a8373b8682e27e49f3d68d5f3e66e9d377604c70de26a5dc91549122,.jpg
+Seed Data/ISIC_0028457.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",278699,0c698dbe30d9be93fe2756115699c93d0e13e3f41533fb2e12ea4a9ca3e80e4c,.jpg
+Seed Data/ISIC_0028473.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",228265,13c44f6de4665960da22185a7d718a1c4e0b5050e11b5beb687e4b84eec97c15,.jpg
+Seed Data/ISIC_0028486.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",182937,5bf25b9ca52104ab3b05f560bcc88cc985d530847bda24ae51cfa7b250a3f2f0,.jpg
+Seed Data/ISIC_0028508.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",274491,f0b6ec891e9b53b48e55217d962529cd9d7f060b89dae879ccf3c2d83e267a86,.jpg
+Seed Data/ISIC_0028583.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",314773,11efc5ca5a07f69baf53128c6d7d4c46a544d2f3608cba1a3ff64885a3355462,.jpg
+Seed Data/ISIC_0028680.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",316416,c7e2fb77a944637418901061d7a784dad2a835587e0a5cba2a3d0aa02939fcf2,.jpg
+Seed Data/ISIC_0028688.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",161329,ac9ee8d4679bd60fc1990f4ffc7d3fa380dbc11c921affc11b249df3c9b8d098,.jpg
+Seed Data/ISIC_0028704.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",301065,c510c283a3c84d205208f5fa6ff859c9ddb44de4e4a3bd6bcff3193aef6f1573,.jpg
+Seed Data/ISIC_0028714.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",263165,19b5b3ddfcc12dc3b8d907ad2aefebe8e0b6e17572e0944bed927b4f5bf2e530,.jpg
+Seed Data/ISIC_0028718.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",255442,610df4000373213fc1e4a725af882c448a157d014bcc6fcd35d5d64e8427aefc,.jpg
+Seed Data/ISIC_0028750.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",301695,e1eb94c7f2021ec83b482aeaff5d374f4419d4940fc6d76614e65ac37e6f9a8c,.jpg
+Seed Data/ISIC_0028771.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",275426,7bfcd7e22f890a7293e0b6cf6424e078de48539e69704930f235af4dc597601a,.jpg
+Seed Data/ISIC_0028795.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",228723,468fd3b70ce222c7e7d0048bb952f75fa5560f518f53c52ec55b6c5283621b9f,.jpg
+Seed Data/ISIC_0028847.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",286768,63d112013fd9756ed1a46fd48c69520b7833149909f7eb363315c2d9ff747846,.jpg
+Seed Data/ISIC_0028899.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",270195,7fa7368a8a9c4ad3254e2adb2c4bc6f72598d88bc1b3a25c64ba7660288f186e,.jpg
+Seed Data/ISIC_0028920.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",240231,b61958f25fe423be8a45c4c3b6af4b995c51b73eb3b2f3b71bd392cda351f208,.jpg
+Seed Data/ISIC_0028926.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",237585,4077552f9df27c1a8cc500cb113a6ccf52fca48ba44cc59e8e794d992adc4f53,.jpg
+Seed Data/ISIC_0028989.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",157871,09eda660462d3ec90f2255e45b0de26a3a2d22f413bee51361f207a27dc67110,.jpg
+Seed Data/ISIC_0028992.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",191205,a1580f70b0434c23bb15ef80435ea5be0ab63eb640fb223cc81c80342158af59,.jpg
+Seed Data/ISIC_0029014.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",276964,86b4d85ef5087b38da72003c9bd296a1ceaac2cb00c44f49935fdeef85b422ed,.jpg
+Seed Data/ISIC_0029029.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",208986,1c1222329984d0c0703d6fb6583f237dad02f931323663671e60863960fef177,.jpg
+Seed Data/ISIC_0029031.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",299331,b044d38eb776a88410aef037be1a00c52821a771d5170a4024540301d8e331a1,.jpg
+Seed Data/ISIC_0029034.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",312005,6e732a770610f507c1a70c56ba099f031d8e2fb45e4a57a449704312114edfa7,.jpg
+Seed Data/ISIC_0029039.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",157002,956ed30d44ec5121562d9da7e6974e1025d96ac4ec2101bdd35204d684f790cf,.jpg
+Seed Data/ISIC_0029041.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",284743,cdfbbc880215d924a23dec7a238b8070fefdb8f76922b40bca97ebef99f0f12c,.jpg
+Seed Data/ISIC_0029050.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",282250,0eed7076e2956de8ff7a96b8dd40a2632a06035eda0e62f97ca12332b61a1a02,.jpg
+Seed Data/ISIC_0029052.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",321451,35c5a88cea2937d1510f9a340dc5caa570ffc2139923c055cf1b0a4976231d0b,.jpg
+Seed Data/ISIC_0029087.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",261561,f5214676b080828ec07762cc0719ecaf16c7dd3b34973b3ba09335df15dd47a5,.jpg
+Seed Data/ISIC_0029099.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",220504,799e607815adfe74ce5d7a9f8cc8b2eafcc940dc345a6a4027df9b098237e115,.jpg
+Seed Data/ISIC_0029172.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",271529,1c315072366838c1cffbbefefa5ff646de57d1455311681ec6f813d7f6744c9b,.jpg
+Seed Data/ISIC_0029177.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",332012,d40e71556a434b0219182aa79dcc5d7f4dead88820a0f2a33e2aa01110cc7035,.jpg
+Seed Data/ISIC_0029195.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",323318,030761e57127bbc3f35b5c3e89c9c746cb1a933ddfc8cc2891aa6d01a6749384,.jpg
+Seed Data/ISIC_0029206.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",270484,a2d43c2f931bbd5143df8c06f708485182df24fb28034f50d9d3bfdf8df9cf3c,.jpg
+Seed Data/ISIC_0029215.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",278158,09320af2bfec6249954c4a6b86767340fa4b2cd8101980c74cf48bc96688991c,.jpg
+Seed Data/ISIC_0029230.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",195680,93e22c68930f99aefa642d5a84d7e4d188631a8fd08afb77fdb5b3fef1f2c6b1,.jpg
+Seed Data/ISIC_0029297.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",335796,7df75f6e634fe4a3384618f1302992bef940bd47fe4bf4514a957865ff49640d,.jpg
+Seed Data/ISIC_0029302.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",229780,f13e08feca5635f42bab47dae31691f1e09c143de3ea5828c68cb5aa8c5c56df,.jpg
+Seed Data/ISIC_0029331.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",225809,5cb0f96db0d0a4971f37c7673c08dde79948796ffe3aeb4e6cdb09c740481304,.jpg
+Seed Data/ISIC_0029337.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",236365,60df2b15b9e9e45560d138dd3de6e1a0beb08470a7b63a2bd4da68854cc1e5a2,.jpg
+Seed Data/ISIC_0029342.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",116624,577b36361aa6e94d27452439090d16f375bbcc58f9801babd7a7c9455b56c833,.jpg
+Seed Data/ISIC_0029448.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",270106,b4b3eabb02b42bd36c39855fb9c511e060277e9052c93340e3b3569702df455f,.jpg
+Seed Data/ISIC_0029514.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",264322,b0c8a6129a418fa88355ddc82feb4e1f998056f34ccff02cd414c06a32ab133d,.jpg
+Seed Data/ISIC_0029515.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",322972,818685f1cc4b6bad0ca55ba93fa6427ffe8d24687b987b6d65ca5cff8c6220b1,.jpg
+Seed Data/ISIC_0029552.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",284277,997c7d8eae27aa506c86750d1aef0496906342e2df3c0444fd311e0e814a1b89,.jpg
+Seed Data/ISIC_0029557.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",189528,c9617c108fa225c1321aaaff18b4364204aabf45232bdd7ff391dbf9e21444d6,.jpg
+Seed Data/ISIC_0029578.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",279848,2e2b4d3374e27b36b0401a5141317263996ee39759a719ab4d96f471f802391e,.jpg
+Seed Data/ISIC_0029608.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",219557,19f0854ff129173f113d143a388f2603664e36d8f3e91af03a49741d11fe0ff6,.jpg
+Seed Data/ISIC_0029610.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",256951,4cf69078c44cba3515b836644a6a678368608576d4db2768b2b4511d515524f6,.jpg
+Seed Data/ISIC_0029613.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",355243,793fad021a8a406934a89f4e425e03c38b55dc4f3123c2e6aea53d3be954365e,.jpg
+Seed Data/ISIC_0029655.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",233224,ec275801b9ac5590ef3d30d69fa0f9ed43dbdf31e87673b4aa64df7bd120b745,.jpg
+Seed Data/ISIC_0029683.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",291576,10e939f787741a39b05950dbdb2879f5bd41d35397dc2a6f35cb7ff31cf5a77e,.jpg
+Seed Data/ISIC_0029687.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",271640,4eb6a6a666345c8faf04ea859aa5408f8815afb7f524ab1af6bc69108982b504,.jpg
+Seed Data/ISIC_0029697.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",334609,de8a8f698c7a4e3eaf1cfabbfb16f21bf0fce39c4715cd143be80c98fb34f43d,.jpg
+Seed Data/ISIC_0029715.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",263673,106a3a84a7013659685f90a803cb4e87461436e7c0b771baa83d7d5d3ce07b30,.jpg
+Seed Data/ISIC_0029752.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",293020,244796304947727897daa115bf7fc7433d5dd8eba4dd10def3969e10d87ea769,.jpg
+Seed Data/ISIC_0029760.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",245912,4d077f2bd59a1d73f6586a888cae481775b926f79649c9b579aa1b1f2c910d09,.jpg
+Seed Data/ISIC_0029768.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",284929,4992cbe02dd156ccd797dae5b554ef0bba788f852a8fac2d425f5c22a4415790,.jpg
+Seed Data/ISIC_0029824.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",310568,57db6bced463c423eaed9900f3c356db1d0e4d5a9b5df3d0111c34071546e4c2,.jpg
+Seed Data/ISIC_0029877.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",344794,8a52ca080a4cdefbdd1274296e63f9b5f781f5d7713437221c2c1c978bee8901,.jpg
+Seed Data/ISIC_0029881.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",257293,5320c28b571202ee58a2829bba55f1ecc4e912cd81ac425bde80b404c6118ad3,.jpg
+Seed Data/ISIC_0029889.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",224214,16ec7e11daf61484904baffecd718be2fb5de1b5f56d2484677d590b5869dbb4,.jpg
+Seed Data/ISIC_0029891.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",245903,3bee381fe572ba2f0c2c3c6e350df0f9efa19d0df789851c0ecba14751fbc17b,.jpg
+Seed Data/ISIC_0029962.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",230221,32d7902c3c2c52ff9fd660da19e08ea6a7d57cdbfbb33512db6d93fbbcb22b1f,.jpg
+Seed Data/ISIC_0030011.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",325484,dfd99585186cd821679b9b39de5bd44788e225249b279ffdcb2db6fbae7693fe,.jpg
+Seed Data/ISIC_0030021.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",263083,da6713ac09a168b58f1879ba780629868fa14b1476dee63d2ee2aa908aceffc6,.jpg
+Seed Data/ISIC_0030026.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",296684,f0f4901bce59ccd1646db8b6c45b430d215cb9a0298f5f64ffc43cc8f11f929a,.jpg
+Seed Data/ISIC_0030036.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",232825,3bb5f397e9b79b6be2521eb20dec9414b47b5f05fb213fc5a5ff11c97ce54dc0,.jpg
+Seed Data/ISIC_0030088.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",339500,638d67d583deedc4ab6d6137716e1e2dac38b0e714fc7a797fc49b457f8190c2,.jpg
+Seed Data/ISIC_0030107.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",200804,923ce79c2b24d6af4f1b533baba253f1157c1a2e626f77d3befac30c907d23a9,.jpg
+Seed Data/ISIC_0030122.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",212515,5f54b0dbb2fcdd1af274e1803b8a5f0533bd58c078e25f1fd8771f8a47596bba,.jpg
+Seed Data/ISIC_0030145.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",312459,784ebcddfa36c9d25be5909c095a98915284e695d7976807313dcb95ad1ca82c,.jpg
+Seed Data/ISIC_0030177.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",233652,440f814009ccf348d3d691736e0c0a164d5adfbcd27cb23ebc6865cb1b887e7a,.jpg
+Seed Data/ISIC_0030244.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",255812,be717e903896c7728b1636a6a7dbd8a0711de3a8ca7d347afcfcc11d7d7ef19d,.jpg
+Seed Data/ISIC_0030245.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",204694,05be1faa4a2e0addbd313d1cfead6d62860db9c14862de9ece115893fde8e0f0,.jpg
+Seed Data/ISIC_0030261.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",244020,565a72d52128559b952f447e5467e22bb30480e4caae5fe6a3cdfc92b247aa5f,.jpg
+Seed Data/ISIC_0030269.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",293862,6b1cd722f841d51de6393f6340ca16316a9c16a20de43da855f04d5cc79f8572,.jpg
+Seed Data/ISIC_0030280.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",265640,f04b25eb287e018257c7a5ee1c9b57a65cb363f7df6b88379a69707e7e1d58a2,.jpg
+Seed Data/ISIC_0030321.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",137491,0abc879322e6c33b39a116df5352790b59921e3f24893dd38bd69d028b4bd553,.jpg
+Seed Data/ISIC_0030324.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",326779,73af98ae380c3afe69b10adfb6f4673872c0b8dfab5439317c7351da013bdac5,.jpg
+Seed Data/ISIC_0030375.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",266811,2b11c10095bb5ba4cf75ba3a835d2816a8cce3d61bf0be80788b1726c04e9a37,.jpg
+Seed Data/ISIC_0030400.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",354516,b3c496dc68d0b8bc68bad6fc526abb2faeedf01cfde5e3861b9a5eeee0b460c3,.jpg
+Seed Data/ISIC_0030427.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",314301,7818e6820336e5734cea7ed6279157c2b181cef8d41bd918846704f4a6e0a804,.jpg
+Seed Data/ISIC_0030442.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",296612,451434b3080817d56ca048cf05696dc29c58c7045f369c75a5a6c4003fde8a32,.jpg
+Seed Data/ISIC_0030463.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",273201,8ca3331208ab0b3848ca1b53e8c3ae0a3fce6cd5564b0277876fa8530fc265f1,.jpg
+Seed Data/ISIC_0030483.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",355952,f25c4528b15ff07f4b92aa4f07520f9042a324fec8bad8dcb8fc866f26bf972e,.jpg
+Seed Data/ISIC_0030487.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",275869,844424dc9678d002f2336cba265542470a99a5dbf5668483a2d6b568acd4291d,.jpg
+Seed Data/ISIC_0030491.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",275021,b0bf206363b1fc78a66bd5bb6d64436378fd2d4b811a272583b1e5b10ff7a90a,.jpg
+Seed Data/ISIC_0030516.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",277423,88c2aaa38b2f09ebda8371b03cc341d2485dbbd356eae59cd8a2bc2d0152d178,.jpg
+Seed Data/ISIC_0030552.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",255461,7022798401516918e835e1b38a7dfcf244d3eb86296a923ce889e84b7cd18291,.jpg
+Seed Data/ISIC_0030555.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",257732,b43da822d3d9e815f5289e8b1ab5e82ac3bcc076765d4cd5d1dda7d4c0ad47fa,.jpg
+Seed Data/ISIC_0030579.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",254921,9380bfb62f0c40b45afb0847c709eb6b7c4cc9a84842c3ef36557b27f3566ace,.jpg
+Seed Data/ISIC_0030605.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",258907,c5e722f95a03c513b30d1d44de6f872fc4ccdd96c93e004d179657493e90c816,.jpg
+Seed Data/ISIC_0030606.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",206798,ca77efb090d71074b7bdb797c1224b7432d0d601e7f94241591a1e691207be39,.jpg
+Seed Data/ISIC_0030618.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",293299,4445294fe2d53c83f6cc87d6b55ba94053cd802dac84d1b5976ab05731e00666,.jpg
+Seed Data/ISIC_0030644.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",138527,62d65ae5b46b81bf3b5571f93e945609e184e7b99d9e42c968b5901277eb966b,.jpg
+Seed Data/ISIC_0030653.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",241272,032d6396ef987f9a04bb919ba5b55b9eff17ea9a978c201eac8459558c8a6a77,.jpg
+Seed Data/ISIC_0030694.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",184395,bd2eae5d78a9f484ffe28454cb60b9c2887b033158a2ea2621cf463569c9c164,.jpg
+Seed Data/ISIC_0030722.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",237156,09bed78931614ec1ae30d83721aeb515f97b54c97d2d97df862199dbb388b971,.jpg
+Seed Data/ISIC_0030730.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",221154,ca5a5b67c32ee5213121696ef7e4c622232e8e176db07ce8ec26b91fd12245b7,.jpg
+Seed Data/ISIC_0030757.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",256573,4a6351f52527f57e591c963cb49d79b28df6d5d2473b3d8678942532f9c30acb,.jpg
+Seed Data/ISIC_0030766.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",323121,dc7f71c530ecb9291021e06dd592e5004021cc4ac6143979fbc17c3c35874dfa,.jpg
+Seed Data/ISIC_0030855.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",274021,af641d0536b9a2bc4c01b953cdd72205bf4f4e8f15e791b8dbe881f56c9909cd,.jpg
+Seed Data/ISIC_0030868.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",280943,bde5ace1cad101651732e5156b94b62c7353ab0ca5a1c11522684548c825a257,.jpg
+Seed Data/ISIC_0030870.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",348993,f02926583c9c42e441bddbcc3a7b4ea893924a48e9804ccddb6f6be1a3f6a116,.jpg
+Seed Data/ISIC_0030882.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",267312,2efe2dfbeb7fa471768c66893628c1512319e3d5d0da52a313633ffdd7cc56e0,.jpg
+Seed Data/ISIC_0030901.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",307398,2ae8e7c3c3b91afc1656e92ed2a0ac23ce9313031ca6ed14652e8670e276c0cc,.jpg
+Seed Data/ISIC_0030910.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",315826,356d48e7452e0ec34b0aede7f7c0b52683876692c5d86b3d45f3ca292da4a190,.jpg
+Seed Data/ISIC_0030937.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",224414,a23eed783bacdd1512e0882ca1d03ca55ee2d757023c0296640d50be90fa151c,.jpg
+Seed Data/ISIC_0030951.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",243845,e814c55fd4e26dfb05ec7cc3c07361049f6190398e01d3678742ab0b9e806d5d,.jpg
+Seed Data/ISIC_0031002.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",316355,fcb7ed08569dc2eafb53ff72cfaf6280d24cc8f96dbe87d736ef7c6116b1f79b,.jpg
+Seed Data/ISIC_0031005.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",285354,d4269b7530066778688c851d50d0d6d4a5c72bea709adf451649303bb4b9fdbd,.jpg
+Seed Data/ISIC_0031056.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",212566,c3a1b8324707980119b531333c53e43a18fea60bf216721c53e30a919c85ec40,.jpg
+Seed Data/ISIC_0031062.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",214883,28b464f236432423edc64b3cc3c95715dc15192790a59a17830ab076d9e1e473,.jpg
+Seed Data/ISIC_0031093.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",252090,c826f50d35224f3173165d7834e35b7d85607bbac8a10eba47c399414b72e2c3,.jpg
+Seed Data/ISIC_0031095.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",272527,e59199d8c458fde69a57bbf76d1a07f040ea61874848fefa60de0e52109f6f29,.jpg
+Seed Data/ISIC_0031123.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",308001,31f076bab72436d633cf41ee159d9a57c1a1664684bd6612e06ea1e2bedd6688,.jpg
+Seed Data/ISIC_0031132.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",341555,69d390c2a533cdeb062ae5f4f826814659663664224f0c2ca4c4e3ce6ebc3929,.jpg
+Seed Data/ISIC_0031138.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",217860,c7d1f9cdcf1bea4b6945ed082754b7ae31276d80185213f9ef47bbdf192f984f,.jpg
+Seed Data/ISIC_0031159.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",306420,83a914c3b0e792d717c3e009693e99cc80fd2c5237eb548f765ef2581fb85bfa,.jpg
+Seed Data/ISIC_0031166.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",263135,5b908e00762b2f96e51f4a59cd9590b76b3099dd9a09b3a4642d988d82a2d2a1,.jpg
+Seed Data/ISIC_0031197.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",215539,2b094d9aa76ec8bad50ce86a6783f6c3dfd306a85311f89440f9718afc9f2b05,.jpg
+Seed Data/ISIC_0031212.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",292602,653cb2ff0c00afd73b5212cb9e5e2c16c5e8572cef7d6dc5492f54f8edcd376e,.jpg
+Seed Data/ISIC_0031217.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",209711,c1a9aca29de1778af0460baddfd3ad424135b6655de9b549e9fa9ade7203ce57,.jpg
+Seed Data/ISIC_0031223.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",339868,862986b7ec00592c73e9321d71ee14ae939fabf1196cfc1c55cacfe59214f5fa,.jpg
+Seed Data/ISIC_0031257.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",367181,a9a5a429aaf14a9344b0de8a6bc2ec6d16810708415f537b97a6aa2ff6ecf932,.jpg
+Seed Data/ISIC_0031259.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",298674,5a11f2eb5ccd1db4d69da39c7018f44a140967bd55a66d620c03e0d0b2210499,.jpg
+Seed Data/ISIC_0031281.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",167900,df4e9f6728bf8b7d5e9aa7e3b7ce280b3529538bc99282d232c712f189a08ebd,.jpg
+Seed Data/ISIC_0031309.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",302220,d6f12ecc9fd4ba7a291c334b7b1ada05774dce2196e1cea4d52e15409fd71982,.jpg
+Seed Data/ISIC_0031358.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",262444,36dea32a1a05b25e426bc148bbcd21c94cbc4680149601098719485f3485e09a,.jpg
+Seed Data/ISIC_0031359.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",334148,9c87b578e5fa4b273893e57284eff91099d1ea8cad6c04ca8c86263e85ff22d0,.jpg
+Seed Data/ISIC_0031381.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",246695,b1e5edfc6f6785b06e197df42317593a8ec3e9cd9f073079e193608b86175dae,.jpg
+Seed Data/ISIC_0031413.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",217847,97e820577413ccfb6b29207b27b49469034ece909a147c44e1174b63987d8215,.jpg
+Seed Data/ISIC_0031429.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",253302,5c81e68ca06f3c32ed04887b4b398ae251f639172e4f57aba4a7834ea43cf6ef,.jpg
+Seed Data/ISIC_0031430.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",198802,e748ddac86a8d18fd9ee96ad4a1321871113dc9fa92c4ec319f3a86a2da3df1f,.jpg
+Seed Data/ISIC_0031441.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",282766,4452dec8f869c53263042cc66bc79e90d7bb68dd106ce5b40db8814b7868497d,.jpg
+Seed Data/ISIC_0031516.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",263519,aed42664e3f71bdd947d9cdcf29252f4be99501bc701ff936178605a9c9b9076,.jpg
+Seed Data/ISIC_0031526.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",229999,53e2a3d4fec238f1bbda410516362215fbc6bdfc3bc9d15bc61c17061082d98d,.jpg
+Seed Data/ISIC_0031570.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",285479,e8cf86ac970be3c711d43da4795dc8704bd2c0f7c941e8228a7cab4e1a503c18,.jpg
+Seed Data/ISIC_0031572.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",360550,b9bca9aec53658cb2c8cced211b44c5f0d0ff8e2f411d483f5900c9796535454,.jpg
+Seed Data/ISIC_0031578.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",268918,912575993f17a226b15f5fe95825108c0311258caf36725a873b44439fb7e45f,.jpg
+Seed Data/ISIC_0031597.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",240221,7dfd58b6c37fa292dc94d2b3dac66dc07574459dad8c746fc890414c95233cca,.jpg
+Seed Data/ISIC_0031605.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",264309,8ea103967dd1c351ffb74ccfb595d4f25e4dc60a4e37b0266917779f5ad2e1af,.jpg
+Seed Data/ISIC_0031609.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",236959,0ac4659afb9e500982068d8402dc46eb6e16322c51316e0f20b7979f60b2f7d7,.jpg
+Seed Data/ISIC_0031672.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",140449,b2733fd33319f981c158131868ad27df951628785f7dd1d10b1fe8c9ba4f1002,.jpg
+Seed Data/ISIC_0031679.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",271062,34bf2f94c90caee1233f73085da9db65c80d50d1b8e152ca1f57c0303680d4f5,.jpg
+Seed Data/ISIC_0031692.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",259642,5e148e22b635f7041333eb3c8e60909e0e8e7834ebbe6c08dbf64eb5e1c7a945,.jpg
+Seed Data/ISIC_0031721.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",277497,325cba1dae176ff46517a4451966045d97d73f6dc0966bf2854ab4022457d49f,.jpg
+Seed Data/ISIC_0031728.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",234162,b8e01105d1095f16d42ab2c0699b2a500834c879c20eaaf1b979909bed874336,.jpg
+Seed Data/ISIC_0031738.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",341095,aeb66f26b2e929cf65ae716a10fe88f52794e493c115706c5784866af6dde126,.jpg
+Seed Data/ISIC_0031745.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",277157,27f47f74273cfcb2d94c1d9cbc66e8c2a6b3d809a96aa3d6919e98ede8eadfc8,.jpg
+Seed Data/ISIC_0031747.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",279929,d68e58926d3fe64495a8821ba5d2278ad558197e19b4e17fbce8909ca8e7ebe5,.jpg
+Seed Data/ISIC_0031759.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",214921,01fb717c93d6e1947f3fb50f824d56b062fa1f062c97e358a72f7396a618eab4,.jpg
+Seed Data/ISIC_0031761.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",384520,0a4dabf43a8d07474b27624e2edbdf91659c0f8af1dc9b43a8fc89b0637d64fc,.jpg
+Seed Data/ISIC_0031786.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",274908,f669ad44340f7187a6c7e4c8ed3a9a7100b94a9426ac153337d4a16e686ce836,.jpg
+Seed Data/ISIC_0031799.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",334809,b3943dae0c371010c27ae943e7a39e36abd0d32f41bea9c74ba31e50b1183cc6,.jpg
+Seed Data/ISIC_0031810.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",271212,68faa3185c55b32725e7979f236274a5382683ff73351b030885cead08997f81,.jpg
+Seed Data/ISIC_0031827.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",244637,96cb7277b1c0bb8f6096a9ed6f90908dd223ddefe255b4ce9fd6714ca0d66c04,.jpg
+Seed Data/ISIC_0031844.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",163615,117359c57053aa55d3fa465968bf752a3fe609131e848e4e158186b15a187cd9,.jpg
+Seed Data/ISIC_0031868.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",296073,a284d1fe215e2c740c941aabb0259fff7c0ea31b9e0e82e19e84e690a5126116,.jpg
+Seed Data/ISIC_0031876.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",239775,ff1569f06d935bbcef99a2fc1840bd59ab578ca3c097c5c7e942a5a404a7bee8,.jpg
+Seed Data/ISIC_0031918.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",276548,49eaa690d6ed46da75f18805f23e9e2b4bdccb69cd63c33a0ebdc8bdcdb0af6d,.jpg
+Seed Data/ISIC_0031940.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",243527,0707767fa4c91cd581d251a5ff3615bfabb52c981335d092b061558e91d3826e,.jpg
+Seed Data/ISIC_0031961.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",300672,2d34e96489052e1fae3b557e41ce35057b0f65d44a19cd7ce7336ebd5c5d3ef9,.jpg
+Seed Data/ISIC_0031967.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",344183,f112b69d4b2e99fb77d9cd19247c6073f98359df5aed86acc0896efe172f1a8e,.jpg
+Seed Data/ISIC_0031976.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",173824,5c06476563ded4a7f517ef961e68d74fa3b0dd3ac0f430765e5ebcba1760c951,.jpg
+Seed Data/ISIC_0031989.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",219444,d43edc1a296b70abd3a087222c4fe55523f4f15797a9c2665a22272148fe9f6f,.jpg
+Seed Data/ISIC_0031993.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",271797,b91cc25c35cbc1910c06c89336b8d3d5374d72f07b859d9344ef97b603acbf75,.jpg
+Seed Data/ISIC_0031996.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",274897,6d33cf3acc273826dc791b4572bdd274319ac7cea8e123b8ce9ee326e48b6b17,.jpg
+Seed Data/ISIC_0032014.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",258544,7c13bc065857b71117b4bcd93964b732c0bb32084624274023f2c1cddc9ee794,.jpg
+Seed Data/ISIC_0032019.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",257065,5ceb6c37e226577715bd40e826c4e17952f5935d55b6798da26f41e443041407,.jpg
+Seed Data/ISIC_0032022.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",236289,4dfc811e41101508eff59bb9381cb7ca0d5002b928d46715f18ac0aa8a4b5cf7,.jpg
+Seed Data/ISIC_0032076.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",263042,29af05b54e0a4d8b8ffb0355f7f92b04e9d57e2e22ba64e6376a0837a0bb9206,.jpg
+Seed Data/ISIC_0032138.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",237457,c5b793ef2dab221183c3aa4382d68067c8755d52069f9547758bddb7c7b98141,.jpg
+Seed Data/ISIC_0032189.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",299102,eb851007c16fddfcbd63a4d79d87dc336281438b81cd81190de116fcc0e2d653,.jpg
+Seed Data/ISIC_0032203.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",190028,f09e29c1374fade7d03f5d0e0b24fbd2910c0fea67aa01708605cd436bec96db,.jpg
+Seed Data/ISIC_0032270.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",305492,96a81e48d7209be165780c01a87bb945e3b503e1f51138f9afa483367cd31529,.jpg
+Seed Data/ISIC_0032302.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",205610,886542ced364c0a61fad4f634c87a05f88380224cd6005c9fa519b2e8f781882,.jpg
+Seed Data/ISIC_0032311.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",174685,9ae7df0b9e94504db00c43cd0d2326b289a3f58fa897943bdbc47c51e3bb52ac,.jpg
+Seed Data/ISIC_0032329.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",298953,0ed6a56c2be92f69b6a3edaef914315022a710c3e49288ab62bc0b3eb6bf4b48,.jpg
+Seed Data/ISIC_0032404.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",265153,1edb1b6c0363a690c2421bc23aa9e9928949c1f7fb5612f5140172f724c2bc27,.jpg
+Seed Data/ISIC_0032408.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",280407,c1fdf29d25346efb67806b9cbd7cf21bd7420225d34ca4a1defe5ad08a909e54,.jpg
+Seed Data/ISIC_0032409.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",319255,ac57a48ccf2b513076b8aa3de9be51164ea378eaa14479ec9dc9839da3c3bd04,.jpg
+Seed Data/ISIC_0032425.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",253834,8ab4dc2714ea0bb8f47879859e6266e6aa738d07b93d8f607b632d758397ee26,.jpg
+Seed Data/ISIC_0032437.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",285433,afd60c4bb2c36903e4198bea7c1cdf32312373d302ade7fd8ffceef6690fc07e,.jpg
+Seed Data/ISIC_0032468.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",293261,9fca2d5036ce83ba06b88be551f716f4857d846a82800d821c4fbab0d956004b,.jpg
+Seed Data/ISIC_0032511.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",348637,3e95d8f6a4c5abe4e9d1389d76b98cd687937457400f63315fb2f4772b9a73d0,.jpg
+Seed Data/ISIC_0032538.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",285912,e47f3abc775b7c2024590aba1992f51dda67e37ed73bc3deae47cc3da7677ae7,.jpg
+Seed Data/ISIC_0032545.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",334925,92bf4b0e9e85017ed5860e3687ae4a43d4ea01dae08c5b230f8b0664dc3c194d,.jpg
+Seed Data/ISIC_0032555.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",339697,3867f3e77aff596a5a4c24a929a2ce9838652b93688845c67e57bd231a5609dc,.jpg
+Seed Data/ISIC_0032557.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",319275,9d129fe9b328138f113b33a60872dd1fcb9e3df0dfb90ce1ce516d995c67e1b8,.jpg
+Seed Data/ISIC_0032570.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",353836,2fe0602bf4174864d0cb25117cdea23bc73d0ca16305dbc45f02510f6c1b7622,.jpg
+Seed Data/ISIC_0032596.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",332356,e72aad9b01aa274ed39f59cab1ef3cf920316963d0b36ca10f80ab8127ab041c,.jpg
+Seed Data/ISIC_0032613.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",331985,21a29771e49336915dad215d672d6999225f491fa0838db36d95f517e3d3a1c1,.jpg
+Seed Data/ISIC_0032629.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",342306,0d9bb9eb57cebf32ca5cae1405cd82a4b1ebdb23860b725f610d6703e0c327fb,.jpg
+Seed Data/ISIC_0032642.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",286276,1aff8442f78772b3574c641865dd5b9f6823c058ec0aae7fb8b6eb9c9d9557de,.jpg
+Seed Data/ISIC_0032653.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",256428,cd552a8f255afc2ebfd5f8e9342d646fc5b489a8675a0deb338529ba2bf55d5a,.jpg
+Seed Data/ISIC_0032688.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",336838,be44429d5606ee63f3f433bbaa5bc693df8b97d31818b7159ae6b2fc59bc64f1,.jpg
+Seed Data/ISIC_0032692.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",285047,06f7ca7ebe5ef17e316893a37f710a0d50465810ce423b99f7279cc9fd5094bf,.jpg
+Seed Data/ISIC_0032715.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",238630,5eb2fca047fefed4f2b33a2ffecaad9caf20fbffdeb823789da27ff79dc90f66,.jpg
+Seed Data/ISIC_0032722.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",338442,f2076f6231a85537dc7f7b7e7e21a82f84f306924a3a1e63e4b459c5db5b047c,.jpg
+Seed Data/ISIC_0032726.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",345336,f08c711ee32c24e6078b713284fedbc5406f256156b89e4c027572a83507a269,.jpg
+Seed Data/ISIC_0032745.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",321381,a7e0133ad9080872486730ad1d030e9bba28fbcf0d6a4de8f58121877c2e8134,.jpg
+Seed Data/ISIC_0032773.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",357956,5f49506b550a5c28aaeffd79e2c95a1fe1deda9a9a490f92bba8889b9944cd1d,.jpg
+Seed Data/ISIC_0032775.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",311444,3d0bc0bec892ef5e905255a425fc884a856094ddb925684017521f2644f1279a,.jpg
+Seed Data/ISIC_0032777.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",263144,66e631c295be69a122a0058d8466dbc72f3153db6be7ba8f26f4bf0a2da9e3e0,.jpg
+Seed Data/ISIC_0032804.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",308451,bb059ac2fbd3e0426be1b8cd7170efd381f233d770c2028228150639a71aef20,.jpg
+Seed Data/ISIC_0032832.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",203853,2c332d78c6056d15e4f839e04705272020ea7ab5b93e8b07ce2ef2041154b3b8,.jpg
+Seed Data/ISIC_0032833.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",295006,77e0f70f17434fe15f78dd96d8760de0269a110883b187c853ec5ea70615d402,.jpg
+Seed Data/ISIC_0032860.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",326879,e21179116f6799731e6e8780295b5c1659c9e0f7c46bf1733c47fce9e12b3da7,.jpg
+Seed Data/ISIC_0032890.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",263755,f2e9b7218629401c7db5fa2311134cfc48153ed784ddadfafb71759cfe641904,.jpg
+Seed Data/ISIC_0032941.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",281947,7dcd5e38eb81dcb0d5e5a192c39968a89f33ff969d7d5e6534f5eff7694b6a74,.jpg
+Seed Data/ISIC_0032988.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",389100,95faed684144f5fda89e981d36c3bfe39509c97c4397962ef4cf60e174735a45,.jpg
+Seed Data/ISIC_0033020.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",286931,d718d930ee83616027aaa32914788189828163cf79f86d53bf2cbb5865199b5b,.jpg
+Seed Data/ISIC_0033075.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",250744,39b62afaa5568e8924e37710fdafbd2bd87a1677b4676c7c72cb9f7190905267,.jpg
+Seed Data/ISIC_0033099.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",299485,20ecdf9a36e5449d0d117b225f97837d1f254c0281d64cee8f91cccbe356957a,.jpg
+Seed Data/ISIC_0033122.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",283055,387f211c8a09b3d44447c82b1a4ee38783ac1bdabe3281f1ec2e3da10ccb94bb,.jpg
+Seed Data/ISIC_0033123.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",234639,8d044dc880e93fdb8e1297136d70cd71c603c7b8aa1eb144fb106a3b331c2eab,.jpg
+Seed Data/ISIC_0033169.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",282127,4d28a84b1880fcb9cfc0524e99dce1c7c7be6064937cd35056e68abe3352ecc9,.jpg
+Seed Data/ISIC_0033183.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",349452,503795423646f4d26dc8145bee807a383862747e717f3ab751798be1c03269ff,.jpg
+Seed Data/ISIC_0033193.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",324840,653230cfdb638739e505b86e4bc36e22e22749840821b932ce18f7d0f4dc9058,.jpg
+Seed Data/ISIC_0033201.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",311703,6b95f83839123db6e5ae31b1f9fd958bbd528384fc0911dbe12b15266f27f298,.jpg
+Seed Data/ISIC_0033230.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",336397,d9ff41ada3e62e919ce418e3360ebb9c43c135145dca6848ab8485f818de7cee,.jpg
+Seed Data/ISIC_0033254.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",299794,bb44073b48c2f371f0deda244b12a67430882bf936dae5aa0f4c7581ffee103c,.jpg
+Seed Data/ISIC_0033271.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",352295,6d43af2b9eabb8291c21e8294233633f2c01ef1a8c6f1a7daab6cac3c0fe11c1,.jpg
+Seed Data/ISIC_0033301.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",220212,d6d3789138cfa1b9106ad24fd7beba093db2c663995b29025d2d1c531f582911,.jpg
+Seed Data/ISIC_0033302.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",323519,edffb12229b5d77e8cd5a6abf26b73818d3d366075f70f36f0a49feae0a7e900,.jpg
+Seed Data/ISIC_0033314.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",182967,9f9dc1d5464c8753051e5182ccdd53451dca1abe9fa9c36ff02b8d4ca4d706fa,.jpg
+Seed Data/ISIC_0033322.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",330672,4c31f2d6aa74e7ba8435852f2fe960c99e22b5af9c95329f81492b036d78a9f3,.jpg
+Seed Data/ISIC_0033349.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",273418,b7cc7be79605c0fb567b14d994bc8a1e0f59767686810da08f0a8a315cf57d61,.jpg
+Seed Data/ISIC_0033358.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",305619,eeb15909d72fb692d4dd87d798b7e0984a29f0045241500b845bd7e96ac63bf7,.jpg
+Seed Data/ISIC_0033392.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",325931,4bd9249e8b79d530b40ecf93ca2837c02eaf701816aa4b7bd43764ff3c790643,.jpg
+Seed Data/ISIC_0033422.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",335884,1c8837d1d60b738dc86e45cd641d41988eeb61cb738ef127c790afbba243132b,.jpg
+Seed Data/ISIC_0033458.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",306403,a32f3806c6857a5d9516e561055c0c35d398571c2550ac0964b0e65fe66b4b6e,.jpg
+Seed Data/ISIC_0033479.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",352819,f23829822fe088b0eeed4a2f464825492b2992051d952a9fbc31d86edc005c20,.jpg
+Seed Data/ISIC_0033524.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",329605,2868b3e9fe90e946e2aa5c0ebf8561ab03ce419847cb2a72354d43864e913c1e,.jpg
+Seed Data/ISIC_0033538.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",363203,d7db9b0bf6238c84ced895bfaedc0daeefa65ba4e1fac87c7d021acaccb75a84,.jpg
+Seed Data/ISIC_0033550.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",357170,86a2d45ae8db144bc753b1cfdbe6214f087dd29bc77a2f0b363008466a771035,.jpg
+Seed Data/ISIC_0033579.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",323680,fe69b0fca4e29a6757b58a0aa6897aeb69fcd0c93e42f61f413f0e44db242fb6,.jpg
+Seed Data/ISIC_0033593.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",357485,f42e2e4695f1c97172d0e1bd6914fd63ac635a5a79455e7641e69fa2f34ae382,.jpg
+Seed Data/ISIC_0033626.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",271827,8bdd0a183bd6f95776175ca7f6e8a0acf6c3e972ff349b58fb2ef5b971e483ee,.jpg
+Seed Data/ISIC_0033654.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",320829,dd2ec9d7e4c31b5f785647cef8d76d8b9d6d784eab690ab934017800bbe58a47,.jpg
+Seed Data/ISIC_0033678.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",271591,cff1f63f3a1fd9e5c7bb5676cb1e2b9bb26de7b94d8e8f83c8c6c565bef0fbd0,.jpg
+Seed Data/ISIC_0033687.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",291276,27fc9233e71ba9b362abdda84bde6a13c648ee95b24252921ba798a5f2ad3b1f,.jpg
+Seed Data/ISIC_0033695.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",339875,698a6f3b1633e69606768ecbd7d0fb52ffeb232de3b1070fb827ccc5a11598af,.jpg
+Seed Data/ISIC_0033735.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",194861,9894160fd39dac3abf2237d116dfcf7d04126641d5088a1eb6b19c2b526a0458,.jpg
+Seed Data/ISIC_0033790.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",287093,b6b10cb54ab18b4d221dbe4a51ab6dc29b2469c8f4795355445a99541675613e,.jpg
+Seed Data/ISIC_0033817.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",272225,30aff6e9fd33293a2d8ba5e38a839680e3f093e9a46394526deb4afafa093b7f,.jpg
+Seed Data/ISIC_0033847.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",288032,803c2a7dbd3f70e4368278612812144fdcc817cfa8127991f2e74b991a46ad5f,.jpg
+Seed Data/ISIC_0033848.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",307262,cf60ca3365e8e64a96ab15ea342341b22d42b63bebc575452886928e7ac1da80,.jpg
+Seed Data/ISIC_0033860.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",308841,229ec75bda3585498fccae3a479343335505006d93bc823de0fca09fd213620d,.jpg
+Seed Data/ISIC_0033874.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",230994,0e7be531a7acef97ae9914090e05220dcc3250bed1326c7a5b6362403dc694ae,.jpg
+Seed Data/ISIC_0033928.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",257126,589375be02e053c8db3668de77d0ea5ac6294f8173930e39f467f9220ad9e9da,.jpg
+Seed Data/ISIC_0033938.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",199053,04d68c920b559612baea8a693ea40e2798e1d92b273f60191ad1d43dcf50acd3,.jpg
+Seed Data/ISIC_0033969.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",265568,05f1c1dae4d4edb7e14370aacc02d8b385d46721f8c8dd1545b9eba85354725e,.jpg
+Seed Data/ISIC_0033979.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",273577,32b0b6e49fbffb4101cfd4d1529800060f62ce61e0282c2038c0d872b31892a2,.jpg
+Seed Data/ISIC_0033991.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",241649,f5dbcadf6f7f4f6bea4a577c9c33a964dcf2ce53d2a85ad338cfd3645f026f33,.jpg
+Seed Data/ISIC_0034036.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",298865,f44d8e91cd11b9f771c6221dafceee36f7ce28bdf99daf1a532bf48819723009,.jpg
+Seed Data/ISIC_0034070.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",203234,0dca9d6e86a76e950852dfe71d6fb3358a936c69e1495bd25925e21abf7f1c86,.jpg
+Seed Data/ISIC_0034074.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",309818,38bb2c9c55855db7a2021ff15416d27523f8ae22fbf7b0af14a5ee08e0e068ec,.jpg
+Seed Data/ISIC_0034080.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",291163,091ace7b7c0319f4e8440c74effc73e3f1c535856d2db301da11c15a622944a8,.jpg
+Seed Data/ISIC_0034101.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",351759,530a0884e586ee9fd1802fc4cc2342124d63185c60130b1d2597dae8fac30cf2,.jpg
+Seed Data/ISIC_0034124.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",308527,501c7e0e91931f16792d0e14dfc000a39e2ae506496ce0a5796c4d8e5d6540a8,.jpg
+Seed Data/ISIC_0034135.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",279322,94b59801036f04feb50446704af77d30a8048c03ee03db257814f2b8a78ef1d4,.jpg
+Seed Data/ISIC_0034143.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",313101,f920ffb6bb3a4816f1739378adefb55bab698d3a47760e0f87cf13ee067b4df5,.jpg
+Seed Data/ISIC_0034155.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",363044,99d53cc9a29fc469147a1839bf5c85227813d4e0fc0640ffa0198b41680b09f9,.jpg
+Seed Data/ISIC_0034169.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",289881,396118cf00884821673ea22cd411c33c6a8ebd4780e5c98e4dd3cc302477603a,.jpg
+Seed Data/ISIC_0034175.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",352522,a37bb62c440d683af39214ca988912fe698527a633761d6d5a27933cc2bb534d,.jpg
+Seed Data/ISIC_0034196.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",271367,19d7ba1501f0e849192effb0b25289f8b7938797e6d76da2213bca77f49d04c9,.jpg
+Seed Data/ISIC_0034284.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",327933,3ce8a293e34817dd1d75bcce5d18ede6dc4b8f1d31e6a2e095abc6aa344e2189,.jpg
+Seed Data/ISIC_0034302.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",335273,f86d6b844c989d4b32021cc698258f6a344eec45a4a31a772fce978b04117f07,.jpg
+Seed Data/ISIC_0034315.jpg,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",344506,e25e8ee4c0537a27490dc42a57e298bdcc74199d3d48d6774b0243bb563ff343,.jpg
+Seed Data/README.txt,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",2261,234263fb354d8ce3f0297cbed9ff86e9267eddb95fde282a1a2aa7e1e6004afd,.txt
+Seed Data/seed_metadata.csv,Seed Data,git,"fixed 490-image starting set: ID list committed, images not redistributed",28330,9d919addbfda6e559093494eda9496291abfdf7f4d8fc5893d2eb597a7776114,.csv
 active_learning/__init__.py,active_learning,git,"AL loop, escalation policies, baseline strategies",59,077cb71f411616491c203d2345a68ba1999e0e4f8b9d06b4873735259a92deff,.py
 active_learning/al_loop.py,active_learning,git,"AL loop, escalation policies, baseline strategies",35605,e0635d22507ea5278e763cc03adcb6827f9a3dbf06f89b91bf128d10d168fec1,.py
 active_learning/baselines/__init__.py,active_learning,git,"AL loop, escalation policies, baseline strategies",5081,0def17d094465e22331c81dca189c36238982b6033478f5cd9c45e90d7c749b2,.py
@@ -505,9 +507,7 @@ active_learning/baselines/clue.py,active_learning,git,"AL loop, escalation polic
 active_learning/baselines/coreset.py,active_learning,git,"AL loop, escalation policies, baseline strategies",5354,e4743ed9685ebeb2d9f400cedae65743da93b1e663a9eab54c7335c59f5de02a,.py
 active_learning/baselines/features.py,active_learning,git,"AL loop, escalation policies, baseline strategies",4514,2aa3bc70e073f059eddbe73e98be6b089350e189b5afbcc58053fcf82da069b9,.py
 active_learning/baselines/vaal.py,active_learning,git,"AL loop, escalation policies, baseline strategies",12797,63a7e054bed2f24c6801ca8a8153307000de3a51b5de01ffb5d95f00d862862c,.py
-analysis/FINDINGS.md,analysis,git,"rigor-layer figures, tables and findings",8033,b6080a8b0f7d45b198d181bd6d9a2363c200de35d0add35c3e51befc71345d0b,.md
-analysis/PLAIN_ENGLISH_GUIDE.md,analysis,git,"rigor-layer figures, tables and findings",35655,2b8f18d42d6b6dbb4b86fd09d4f798b15372868b9bf82b555e9d53e3f98c83c2,.md
-analysis/SUPERVISOR_RESPONSE.md,analysis,git,"rigor-layer figures, tables and findings",29159,a089726ab0b0082cae2b2d6a07237b6f6fa162a9f5094ae5cac4daba0729e236,.md
+analysis/README.txt,analysis,git,"rigor-layer figures, tables and findings",4097,fd6526acc6e6dbd3a5c03943667d21d2c29455d537d586a109674be07abeadc4,.txt
 analysis/build_analysis.py,analysis,git,"rigor-layer figures, tables and findings",18705,411f9ac168eba5fdf24bf515c1ec8d6a18090d2b6e677f6ced86d3d56dd4504f,.py
 analysis/figures/01_unsafe_auto_accepts_total.png,analysis,git,"rigor-layer figures, tables and findings",238162,0661aaa4820498f6c220c773b0a93b12886826fcd048070e83b164602bac8fae,.png
 analysis/figures/02_fn_rate_malignant_final.png,analysis,git,"rigor-layer figures, tables and findings",216334,af8bb2ff95b6e40e5972ff6a3eadae9524ea8f725b19b46c2bfaa13d067acf50,.png
@@ -518,13 +518,6 @@ analysis/figures/06_fn_rate_trajectory_by_model.png,analysis,git,"rigor-layer fi
 analysis/figures/07_accuracy_trajectory_by_model.png,analysis,git,"rigor-layer figures, tables and findings",299106,32a03113ce43d25d40e6f4e8074e91fb686ccfa05cefcfc120ab6c8e0923fb9f,.png
 analysis/figures/08_risk_score_auroc_trend.png,analysis,git,"rigor-layer figures, tables and findings",153442,0ab8df0d11340d6058051fc7e3ab96fe77337066aa5b353e313dbbb3bd66cf5a,.png
 analysis/figures/09_headline_summary.png,analysis,git,"rigor-layer figures, tables and findings",146988,d17223dc7cfa9404eea6c31838ecb2805e14a8ea03ff7ec19f889cf71ec66fa0,.png
-analysis/learn/00_START_HERE.md,analysis,git,"rigor-layer figures, tables and findings",2988,4808b31a2b1dddb4a93bf7d9f26dcbf03aabadfaabce7ce4d912992c1942bf0b,.md
-analysis/learn/01_THE_BASICS.md,analysis,git,"rigor-layer figures, tables and findings",8028,0cb1b8646f595feaee9b098113be4288e348358c13ad62230959557308be0a7c,.md
-analysis/learn/02_YOUR_PROJECT.md,analysis,git,"rigor-layer figures, tables and findings",10259,07bcee535d0a97079fd3830093c10cd81d8b0f4eaa7f40566f9cd86fad9a6ee3,.md
-analysis/learn/03_HOW_WE_MEASURE.md,analysis,git,"rigor-layer figures, tables and findings",11338,3bee11e8915c3360fe9342ac003ff46496e556b9a9b0136ad37b8705da01485b,.md
-analysis/learn/04_STATISTICS.md,analysis,git,"rigor-layer figures, tables and findings",9834,2fa3b0f57f4018ffb30a4d8f135ce1224252ae53573946b685875b3982fda7d9,.md
-analysis/learn/05_WHAT_WE_FOUND.md,analysis,git,"rigor-layer figures, tables and findings",10258,04cccc4369d4dbdac4e616015fd8dbf77b5c356c0bc78b704736a6f0923d7194,.md
-analysis/learn/06_SUPERVISOR_REQUESTS.md,analysis,git,"rigor-layer figures, tables and findings",9623,8b867bf71d38a83092c8790419ab5fed62c219195c6ef4e02da5faab9a8f9f67,.md
 analysis/rigor/figures/10_al_efficiency_accuracy_vs_labels.png,analysis,git,"rigor-layer figures, tables and findings",551035,119d5f2980ae4c74a033e476018bc1e94420c11000a97ede9dfbb56771468b48,.png
 analysis/rigor/figures/11_al_efficiency_by_method.png,analysis,git,"rigor-layer figures, tables and findings",735901,63d855e5b91b1d7a07ba50abb9042a6a456641cb4319ecbcf93fdf5b7ad4a264,.png
 analysis/rigor/figures/12_melanoma_recall_vs_labels.png,analysis,git,"rigor-layer figures, tables and findings",686461,b95780516bfd19edc4de5e7d90e52a5df142edff77ef4e7165c926305cc4ad34,.png
@@ -10707,20 +10700,15 @@ archive/hmnist_28_28_L.csv,(external) archive,external,"HAM10000 dataset (CC BY-
 archive/hmnist_28_28_RGB.csv,(external) archive,external,"HAM10000 dataset (CC BY-NC-SA 4.0, not redistributed)",91820383,,.csv
 archive/hmnist_8_8_L.csv,(external) archive,external,"HAM10000 dataset (CC BY-NC-SA 4.0, not redistributed)",2537778,,.csv
 archive/hmnist_8_8_RGB.csv,(external) archive,external,"HAM10000 dataset (CC BY-NC-SA 4.0, not redistributed)",7524968,,.csv
-colab/COMMANDS.md,colab,git,Colab setup cell and runbooks,11291,3c16de69d43c893fe9234f87ef73a0f025d6768e5c5ce4cd2625224cc8fdee05,.md
-colab/HOW_TO_RUN.md,colab,git,Colab setup cell and runbooks,20476,2ad62d78ba764bd87371181cba3cdf1092455106d1249c4a0166a9824a64ef5c,.md
-colab/RUNBOOK_BASELINES_AND_SEEDS.md,colab,git,Colab setup cell and runbooks,16618,08d3058e7c4edcb2320c6dd406c1003045ec70839ef38bd82e01e699e1b9402d,.md
-colab/RUNBOOK_ORIGINAL_MATRIX.md,colab,git,Colab setup cell and runbooks,19841,2d2dbb7bd212f1168bf91b16a6f1a435dfb62219ba730283a996046237a8d1de,.md
-colab/setup_cell.py,colab,git,Colab setup cell and runbooks,6064,1ec2ccfcc8f9faf850d7c0ef33a1a6ba27f5f69b181e227359db0c0703ba2fce,.py
-config.py,(root),git,"top-level entry point, configuration or document",7396,746a875ebf7a7bec4f4ebd8a8fe22917c349940d8f15a4713efc637986c26ae6,.py
+colab/README.txt,colab,git,Colab setup cell and guide,1922,351861b6d4110e236cae699613ba5fdc1491af55a0c3e4a2bfaf405c3a9eb042,.txt
+colab/setup_cell.py,colab,git,Colab setup cell and guide,6064,1ec2ccfcc8f9faf850d7c0ef33a1a6ba27f5f69b181e227359db0c0703ba2fce,.py
+config.py,(root),git,"top-level entry point, configuration or document",7259,ddc5fae0a3c16f41cdb2b842055e2bc6561e79832b79eb5e0b25817b2a93a2ef,.py
 constants.py,(root),git,"top-level entry point, configuration or document",1368,7a6dd6316492d7fb3c78a570fe8ae48a0b3ceb97c8d0d33548ffea6693a6f863,.py
 create_seed_data.py,(root),git,"top-level entry point, configuration or document",2525,c59500e51c0a75ec98acd01a480c4307a937b01625307fd5f4e0f5f493b15741,.py
 data/__init__.py,data,git,"dataset, transforms, pool manager",64,07583654983eedd8c6e599d46807551fa4d2bba2abe43d73a0545f17da3a3c0e,.py
 data/dataset.py,data,git,"dataset, transforms, pool manager",2716,256f74841174939a5da80efd17abf284b35b9596e1aaa1c5cb2788d52450b9fe,.py
 data/pool_manager.py,data,git,"dataset, transforms, pool manager",6690,38f10cb699cee27f1780aceaf19df55cd60625fa75a3bcbfaf65b9c1cfe5cd48,.py
 data/transforms.py,data,git,"dataset, transforms, pool manager",1605,1392eff5f1cdb15fb7e448789c1adbb5d5bac563d727ceddb5fc6050e1140aea,.py
-docs/DATA_AND_ARTIFACTS.md,docs,git,"data, artefacts and limitations",7515,c81ee1003a7ee0f81dbf72ac54dbfe0f0bf8a2e7069cb385dc2afaf4c1c77a5a,.md
-docs/HOW_WE_COMPARE.md,docs,git,"data, artefacts and limitations",12714,b8c8a5b99a8919a92cd119c29250a67efb0fcb36c3026e9813f9b7d52c982019,.md
 escalation/__init__.py,escalation,git,uncertainty-only and dual-metric policies,66,c141fb752167465f0b05dccf4bd600434c46a27f675375a4152f5833a26251f6,.py
 escalation/dual_metric.py,escalation,git,uncertainty-only and dual-metric policies,4682,33b3b07cb273a744e0626f8d151f316d20c71961d78b208cf058500cadb864e8,.py
 escalation/uncertainty_only.py,escalation,git,uncertainty-only and dual-metric policies,2293,805e9d24e773f3e6890351174fff6221a08155c83af4df9df2c2f067e52f0828,.py
@@ -10750,18 +10738,6 @@ models/densenet.py,models,git,"ResNet-50, DenseNet-169, EfficientNet-B4",1464,1a
 models/efficientnet.py,models,git,"ResNet-50, DenseNet-169, EfficientNet-B4",1358,c67fa85accf8d50d7908f04ede1b7f8ba4d55894a63b415d45ddf2efda847f40,.py
 models/model_factory.py,models,git,"ResNet-50, DenseNet-169, EfficientNet-B4",1361,80be51aac0a8c6a62f088fac7fdce62f683593d1474ade63b3f3f3f000708afb,.py
 models/resnet.py,models,git,"ResNet-50, DenseNet-169, EfficientNet-B4",1389,b9bb24ebd3f73eb9c3d766209401c0b92171f19df92882a54d18e090e0eb5bc9,.py
-paper/00_README.md,paper,git,"paper writing kit: methods, maths, figures, results",9541,7abea426e18eed9151c8e57602e2637480ac56dad8471819f013bc134c784a1c,.md
-paper/01_PAPER_WRITING_KIT/ABSTRACT_AND_CONTRIBUTIONS.md,paper,git,"paper writing kit: methods, maths, figures, results",9008,11f285deabb1a051a7c811a0ac4481cbdbd401454e05d2c5cfee3b07b272babd,.md
-paper/01_PAPER_WRITING_KIT/CLAIMS_AND_EVIDENCE_MAP.md,paper,git,"paper writing kit: methods, maths, figures, results",7267,7a8daff3f9807e37284c09593646adb735f02de6fb0a35e5a658aff2b5853891,.md
-paper/01_PAPER_WRITING_KIT/HOW_TO_READ.md,paper,git,"paper writing kit: methods, maths, figures, results",4383,eb070cb088111c09ed1d7b93b14e7779e93cd7eccd01f4fcc7ef1ac8e8a1bb3e,.md
-paper/01_PAPER_WRITING_KIT/KEY_NUMBERS.md,paper,git,"paper writing kit: methods, maths, figures, results",11945,c0c50e6838f71d9d58ad624eff921b86bdfb194702bc6529d2856a1e29d5119b,.md
-paper/01_PAPER_WRITING_KIT/LIMITATIONS_AND_FUTURE_WORK.md,paper,git,"paper writing kit: methods, maths, figures, results",10410,2c701ef347246230cb778cc008a7254b257ef1caddfec35015a1bf02212a8ab2,.md
-paper/01_PAPER_WRITING_KIT/PAPER_OUTLINE.md,paper,git,"paper writing kit: methods, maths, figures, results",14376,60372dfc97012e905e517ae23c9d68a4215203ba41181948dd1ddcbc1a0aa6db,.md
-paper/02_METHODS_AND_MATH/EXPERIMENTAL_SETUP.md,paper,git,"paper writing kit: methods, maths, figures, results",8495,2a9217a1ddfe0f14a3b76ad5bcb8affdeabf47ac329d058a437dbdad484e762a,.md
-paper/02_METHODS_AND_MATH/HOW_TO_READ.md,paper,git,"paper writing kit: methods, maths, figures, results",4537,7c6bf34819f0ec6501142461fca6b03df0aca443cd4b174befbb120dce051e0f,.md
-paper/02_METHODS_AND_MATH/METHODS.md,paper,git,"paper writing kit: methods, maths, figures, results",17293,2561a3eea5cd8a67d9cfdeb9132990422dab90acf49ee259e1eaf9838eeaacf4,.md
-paper/02_METHODS_AND_MATH/NOTATION_AND_ABBREVIATIONS.md,paper,git,"paper writing kit: methods, maths, figures, results",10000,d4584c113652c72092c02907d324e732cb5162b6c6a606af8a1206403e4fb12c,.md
-paper/03_FIGURES/HOW_TO_READ.md,paper,git,"paper writing kit: methods, maths, figures, results",13647,c9b567f95e069d8fec08fae19d225627d2faa6142741d337ccc204b6e902446f,.md
 paper/03_FIGURES/main_paper/01_unsafe_auto_accepts_total.png,paper,git,"paper writing kit: methods, maths, figures, results",238162,0661aaa4820498f6c220c773b0a93b12886826fcd048070e83b164602bac8fae,.png
 paper/03_FIGURES/main_paper/09_headline_summary.png,paper,git,"paper writing kit: methods, maths, figures, results",146988,d17223dc7cfa9404eea6c31838ecb2805e14a8ea03ff7ec19f889cf71ec66fa0,.png
 paper/03_FIGURES/main_paper/10_al_efficiency_accuracy_vs_labels.png,paper,git,"paper writing kit: methods, maths, figures, results",551035,119d5f2980ae4c74a033e476018bc1e94420c11000a97ede9dfbb56771468b48,.png
@@ -10796,7 +10772,6 @@ paper/03_FIGURES/supplementary/28_gradcam_panel_efficientnet_b4_entropy_dual_met
 paper/03_FIGURES/supplementary/29_robustness_degradation.png,paper,git,"paper writing kit: methods, maths, figures, results",425474,14b6c99f9c59b5325645e9cded466a353f4949517e3670cab16038deb4e7c80f,.png
 paper/03_FIGURES/supplementary/30_robustness_heads_compared.png,paper,git,"paper writing kit: methods, maths, figures, results",170450,ea240fb21e6f502c51b2b404eaa7df1b506bfb56672343e55f5db838e69a0c11,.png
 paper/03_FIGURES/supplementary/32_risk_head_decoupling.png,paper,git,"paper writing kit: methods, maths, figures, results",234133,3823f7a583a350492dc67edee1bc4d6f77dff78f7e786c02e00345cb7dbf1f94,.png
-paper/04_TABLES/HOW_TO_READ.md,paper,git,"paper writing kit: methods, maths, figures, results",13915,a1b338e89a1aa3272b29491635ded64b9b32f41047c357275c5a90e59952837f,.md
 paper/04_TABLES/ablation_decision_level.csv,paper,git,"paper writing kit: methods, maths, figures, results",8892,e80be9c636056bcd1ec94c3cee9664712c7320ff1a5672af475413f40d3fb59b,.csv
 paper/04_TABLES/al_efficiency_budget_matched.csv,paper,git,"paper writing kit: methods, maths, figures, results",3208,a0fb81743ac5bf0bcbdf995b531f0bc9adce8ea1a9e18eeca25a3defffb17cc6,.csv
 paper/04_TABLES/auc_summary_by_policy.csv,paper,git,"paper writing kit: methods, maths, figures, results",2429,f119d3d8fecd77ee9c28592ae925da7ce4a22e1b6dd579257fd1853385589562,.csv
@@ -10818,15 +10793,7 @@ paper/04_TABLES/runtime_round_composition.csv,paper,git,"paper writing kit: meth
 paper/04_TABLES/significance_ablation_level.csv,paper,git,"paper writing kit: methods, maths, figures, results",1666,83156f1c822ae8545edef1dcea33ac3e8fe31c67a1c0d248488485f845c5d216,.csv
 paper/04_TABLES/significance_configuration_level.csv,paper,git,"paper writing kit: methods, maths, figures, results",1543,1926deaeb434f01c611882b2b448dd934149241f9ee4cceda90be9df372475a0,.csv
 paper/04_TABLES/significance_image_level.csv,paper,git,"paper writing kit: methods, maths, figures, results",7127,a802727a150136564b367688490777eef70ef1aeabcc019a36e971940476e684,.csv
-paper/05_RESULTS/FINDINGS.md,paper,git,"paper writing kit: methods, maths, figures, results",8028,98577fdda7e18a5e8ef52fa39057daf3964583c4604bcbb9c856172dca4dda1c,.md
-paper/05_RESULTS/HOW_TO_READ.md,paper,git,"paper writing kit: methods, maths, figures, results",2757,36dadf8b88eeef0a04ad5fd5c13e49e488e1e15356799d6608cb6dfdfee7fd98,.md
-paper/05_RESULTS/RESPONSE_TO_REQUESTED_CHANGES.md,paper,git,"paper writing kit: methods, maths, figures, results",29681,e9024355b4575ad9a2825e05ea86111ddc1a074a285e9f3a6925c2ee82153501,.md
-paper/06_STATUS_AND_OPEN_ITEMS/HOW_TO_READ.md,paper,git,"paper writing kit: methods, maths, figures, results",3221,86842a25fd1210f354e9cbd04d86536822f61fb51de8936af4498a66739df26b,.md
-paper/06_STATUS_AND_OPEN_ITEMS/HOW_TO_REGENERATE.md,paper,git,"paper writing kit: methods, maths, figures, results",6020,9c9dd0255884718afb5384a2f44b16982ce6a481b69141f1e4d5e38b4886e419,.md
-paper/06_STATUS_AND_OPEN_ITEMS/OPEN_ITEMS.md,paper,git,"paper writing kit: methods, maths, figures, results",6328,0c10c1f07824435f10abdbac58725d1e64bc6e6d11a6b48578e0bbfca4d6fdb9,.md
-paper/06_STATUS_AND_OPEN_ITEMS/POOL_VS_TEST_FRAMING.md,paper,git,"paper writing kit: methods, maths, figures, results",9230,429a374cf7e1d8e69f8f33d96af975879b9cb38b5db4f185f263ba38e0e96d41,.md
-paper/06_STATUS_AND_OPEN_ITEMS/STATUS_CHECKLIST.md,paper,git,"paper writing kit: methods, maths, figures, results",4771,0e28943e72a1e34892bfdc47fd4cee3bc9489e839d7ae282c23a7d370e9a340f,.md
-paper/COMPARISON/README.md,paper,git,"paper writing kit: methods, maths, figures, results",17503,cc9badded108020d0dbae2e0da8cfd1e7b04c166fac6bfda1f502581ba6511da,.md
+paper/COMPARISON/README.txt,paper,git,"paper writing kit: methods, maths, figures, results",8288,9125939b5349681e376fc8dbcde7d2ace4d317442a72e06c3c74eed30b2d1d8e,.txt
 paper/COMPARISON/figures/fig1_safety_headline.png,paper,git,"paper writing kit: methods, maths, figures, results",164228,cb40eda2da3a195a9b2be42a36b8cd697b9919957e5d0318c535ead63b6b70d5,.png
 paper/COMPARISON/figures/fig2_safety_accuracy_tradeoff.png,paper,git,"paper writing kit: methods, maths, figures, results",248175,8b1ccb7ca280316a2cc2ddd7f2e5b654589780e416b3cd2b5e2579b647fd83d7,.png
 paper/COMPARISON/figures/fig3_learning_curves.png,paper,git,"paper writing kit: methods, maths, figures, results",380070,be7d0728547970a09a5db13d940152efee1c60f83e860df2b0251603e7af4680,.png
@@ -10839,7 +10806,7 @@ paper/COMPARISON/tables/05_learning_curves_per_round.csv,paper,git,"paper writin
 paper/COMPARISON/tables/06_run_provenance.csv,paper,git,"paper writing kit: methods, maths, figures, results",3558,8b158206bbbddbebfbb43dfbea24a176bfc958cf313a5de980a17baf77408706,.csv
 paper/COMPARISON/tables/main_comparison.tex,paper,git,"paper writing kit: methods, maths, figures, results",2064,c491a1d7412676345dc2f9e3f026119d8d7cda28c92966662ce9e3bcc4898668,.tex
 paper/COMPARISON/tables/safety_reduction.tex,paper,git,"paper writing kit: methods, maths, figures, results",1076,3f1c682ab7cfca1fde7e0aac9210cc3a5aee9a6eaa8dab1ed8576d63e8a750bc,.tex
-proposed_changes.md,(root),git,"top-level entry point, configuration or document",2646,7bd37e14fbe12cba221144ef452f994138e86e602c463f656d0fa18da91a039b,.md
+paper/README.txt,paper,git,"paper writing kit: methods, maths, figures, results",4070,3162b5bace71e2f806594d6de6722cd9ec3dbc04bf727d10afe6fd20e202d835,.txt
 requirements.txt,(root),git,"top-level entry point, configuration or document",1049,05ba4e7bcce4867ae9c687e6be21b284bc6646487fd1066e60a3af6d7bff78c2,.txt
 results/checkpoints/densenet169_baseline_badge/round_15/meta.json,results/checkpoints,release,trained model weights (GitHub Release / Zenodo),23962,5b8224d70fa1cab7bd03c116c09f6aeb635bd6587c3a82375c00436e467e96d6,.json
 results/checkpoints/densenet169_baseline_badge/round_15/model.pt,results/checkpoints,release,trained model weights (GitHub Release / Zenodo),56549646,fe65ea5d96075c654453f9ffb4943a620cc72445011e4601530f22be575fb74a,.pt
@@ -12283,10 +12250,9 @@ results/experiments/resnet50_mc_dropout_uncertainty_only/pool_predictions/round_
 results/experiments/resnet50_mc_dropout_uncertainty_only/results.csv,results/experiments,git,"per-round metrics, pool predictions, per-experiment plots",9037,ac33ec696f9620b451d4aca300295be147dd3a6c9b796c9df48f4b29b1efcac9,.csv
 risk_score/__init__.py,risk_score,git,clinical risk score,60,5b9d1fd1bb44120d2e58c0280adc6355daa6d782a6e3e480033cd4774037a3c9,.py
 risk_score/clinical_risk.py,risk_score,git,clinical risk score,1585,3c371c27e3d4d64057cfde666c1e351ae80148c4d1b228ff5fc12b9bd5a6c94f,.py
-runOnCollab.md,(root),git,"top-level entry point, configuration or document",8763,337b4ef60e13486d9a98131fb800897dd3968dda931efabc1e7be6a2ce290b1b,.md
 tools/__init__.py,tools,git,provenance capture and this manifest,363,c8337cef63b6b14936d2f6ddb8bc3556ef3438d1023c8c28516ba52ed0e93c86,.py
 tools/build_comparison_package.py,tools,git,provenance capture and this manifest,10124,e0e622c60ff233ebf7e2c59a75de93dc68c78c3b4a185649ee02767963804e83,.py
-tools/build_manifest.py,tools,git,provenance capture and this manifest,13619,bee8ca7d9be65b9b7ae277c24b840445a120aa5a38d9646874d8a006ce5bc360,.py
+tools/build_manifest.py,tools,git,provenance capture and this manifest,13563,0bd2b5abcf30997ae8f73b45e9ddd1717f26d6ca58208345bdf9bf4fd66fc5d7,.py
 tools/provenance.py,tools,git,provenance capture and this manifest,6509,1626d9acfe90bc0f5292677951982665ec72e2e9e80cefce1def1431f252a654,.py
 uncertainty/__init__.py,uncertainty,git,"entropy, margin, least-confidence, MC-dropout",59,10d3bfdecb2eb925245e9bc6bf8d2c9636042b9fe8f161f14bc8cee891ecf28e,.py
 uncertainty/entropy.py,uncertainty,git,"entropy, margin, least-confidence, MC-dropout",1370,edcc89847abdc42564bb34c447c4527991645e6705b797e8e0629202ff9a2a55,.py

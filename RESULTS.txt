@@ -1,0 +1,165 @@
+===============================================================================
+WHAT WE FOUND
+===============================================================================
+
+Short version, in plain language. The numbers below all come from files in
+this repository -- every one is checkable.
+
+
+-------------------------------------------------------------------------------
+THE QUESTION
+-------------------------------------------------------------------------------
+
+An AI that reads skin lesion photos will sometimes be confidently wrong. When
+it is confidently wrong about a melanoma, a normal system waves that case
+through without a second look, because "confident" is the only thing it checks.
+
+We added a second check: how dangerous is this case if the AI is wrong? A case
+gets sent to a human doctor if EITHER check fires -- if the AI is unsure, OR if
+the case looks dangerous.
+
+The question is whether that second check earns its keep.
+
+
+-------------------------------------------------------------------------------
+WHAT WE RAN
+-------------------------------------------------------------------------------
+
+36 experiments in total, 15 rounds each, all on the same 1,905 held-out test
+images:
+
+   24  the original study: 3 network types x 4 ways of measuring the AI's
+       uncertainty x 2 decision rules (ours and the standard one)
+   12  four published methods from the literature, on all 3 network types:
+       CoreSet, BADGE, CLUE and VAAL
+
+Networks: ResNet-50, DenseNet-169, EfficientNet-B4.
+Dataset: HAM10000, 10,015 dermoscopy images, 7 diagnosis types.
+
+
+-------------------------------------------------------------------------------
+FINDING 1 -- FEWER DANGEROUS CASES WAVED THROUGH  (the main result)
+-------------------------------------------------------------------------------
+
+Counting high-risk cases that were auto-accepted with no human review, added
+up over all 15 rounds. Lower is better.
+
+    Network            Ours    CoreSet   BADGE    CLUE     VAAL   Standard
+    ---------------- -------  --------  ------  ------  -------  ---------
+    ResNet-50          4,945     9,575   8,194   8,481   12,628      9,327
+    DenseNet-169       4,495     8,543   6,947   7,397   11,308      8,275
+    EfficientNet-B4    7,362     9,893  10,963  11,873   12,745     12,346
+
+Our method wins all 15 comparisons, by between 26% and 61%. There is no
+network and no competing method where it loses.
+
+Against the standard uncertainty-only rule specifically, the reduction is
+about 43% on average, and it holds in 12 out of 12 pairings.
+
+File: paper/COMPARISON/tables/02_safety_scoreboard.csv
+Figure: paper/COMPARISON/figures/fig1_safety_headline.png
+
+
+-------------------------------------------------------------------------------
+FINDING 2 -- ACCURACY DOES NOT SUFFER
+-------------------------------------------------------------------------------
+
+Compared image by image on the 1,905 test images, and corrected for the fact
+that we made 15 comparisons at once:
+
+    versus VAAL                     better by 2.6 to 5.4 points   (real)
+    versus uncertainty-only, B4     better by 2.4 points          (real)
+    versus CoreSet, BADGE, CLUE     between -0.7 and +1.5 points  (no difference)
+
+"No difference" is the intended outcome here, not a disappointment. CoreSet,
+BADGE and CLUE are built specifically to squeeze the most learning out of each
+label. Matching them on accuracy while cutting dangerous auto-accepts roughly
+in half is the point.
+
+File: paper/COMPARISON/tables/03_significance_image_level.csv
+
+
+-------------------------------------------------------------------------------
+FINDING 3 -- THE DANGER SCORE ITSELF IS GOOD
+-------------------------------------------------------------------------------
+
+Before it is used to make any decision, the danger score is asked one question:
+can it separate cancerous lesions from harmless ones? It scores 0.962 on a
+scale where 0.5 is a coin flip and 1.0 is perfect.
+
+So the signal is real. It is not an artefact of the decision rule.
+
+File: paper/04_TABLES/risk_auroc_by_experiment.csv
+
+
+-------------------------------------------------------------------------------
+FINDING 4 -- BOTH SIGNALS ARE NEEDED
+-------------------------------------------------------------------------------
+
+Of the high-risk images in the pool:
+
+    escalating at random catches       10.2%
+    uncertainty alone catches          12.6%    (barely better than random,
+                                                 and it spent 4,339 labels)
+    both signals together catch        29.3%
+
+The two signals pick out largely different images. That contrast is the single
+strongest argument for the design.
+
+File: paper/04_TABLES/ablation_decision_level.csv
+
+
+-------------------------------------------------------------------------------
+WHAT IT COSTS
+-------------------------------------------------------------------------------
+
+About 9% more cases sent to the human doctor (roughly 382 extra out of 4,678).
+
+Being straight about this: at an equal number of labels, our method is about
+0.35 points BEHIND on accuracy. So this is a safety improvement with a known
+price, not a way of learning faster from fewer labels. Anyone claiming the
+latter would be caught immediately.
+
+File: paper/04_TABLES/al_efficiency_budget_matched.csv
+
+
+-------------------------------------------------------------------------------
+THE LIMITATION THAT MATTERS MOST
+-------------------------------------------------------------------------------
+
+Finding 1 is measured on the pool of unlabelled images -- the cases the
+decision rule actually decides about. That is the right place to measure a
+decision rule, and we stand behind it.
+
+But it is NOT the same claim as "the finished model misdiagnoses fewer new
+patients". We measured that too, on the held-out test set, and while it moved
+in our favour it did not reach statistical significance. Of 349 cancerous test
+images our method catches 264 to 280 depending on the network, and against most
+competitors that difference is one or two cases -- indistinguishable from luck.
+
+We report this as a limitation rather than burying it. The likely reason is
+identified: the two checks share the same underlying network, so they tend to
+fail on the same hard images. Separating them is the obvious next step.
+
+Two other honest limits:
+
+  * Single seed. Every configuration was run once, not averaged over repeats,
+    on the supervisor's instruction. The main safety result is consistent
+    enough across 15 independent comparisons to be trusted; the weaker results
+    would benefit from repeats.
+
+  * Two of the seven diagnosis classes have very few test images (9 and 14).
+    Confidence intervals for those classes are not trustworthy and are marked
+    as such rather than quoted.
+
+
+-------------------------------------------------------------------------------
+IN ONE SENTENCE
+-------------------------------------------------------------------------------
+
+Adding a "how dangerous is this?" check alongside the usual "how sure is the
+AI?" check cuts the number of dangerous cases waved through without review by
+roughly a quarter to a half, costs about 9% more expert time, and does not hurt
+accuracy -- across every network and every competing method we tested.
+
+===============================================================================

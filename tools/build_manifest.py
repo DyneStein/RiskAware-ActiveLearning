@@ -44,7 +44,7 @@ import sys
 from datetime import datetime, timezone
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# The dataset sits outside the repository — see docs/DATA_AND_ARTIFACTS.md.
+# The dataset sits outside the repository — see HOW_TO_RUN.txt.
 DATA_ROOT = os.environ.get("DATA_ROOT",
                            os.path.join(os.path.dirname(REPO_ROOT), "archive"))
 
@@ -61,10 +61,9 @@ TRACKED_TREES = [
     ("evaluation",            "git", "metrics, visualisation, and the rigor layer"),
     ("tools",                 "git", "provenance capture and this manifest"),
     ("Oracle_Simulated_Doctor", "git", "simulated annotator and pool metadata"),
-    ("Seed Data",             "git", "the fixed 490-image starting labelled set"),
+    ("Seed Data",             "git", "fixed 490-image starting set: ID list committed, images not redistributed"),
     # --- documentation ---
-    ("docs",                  "git", "data, artefacts and limitations"),
-    ("colab",                 "git", "Colab setup cell and runbooks"),
+    ("colab",                 "git", "Colab setup cell and guide"),
     # --- results ---
     ("results/experiments",   "git", "per-round metrics, pool predictions, per-experiment plots"),
     ("results/logs",          "git", "cross-experiment combined results"),

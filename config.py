@@ -104,7 +104,7 @@ USE_DYNAMIC_CLASS_WEIGHTS = True
 #
 # RISK_THRESHOLD is still used as the "no override supplied" default for the
 # --risk-threshold CLI flag, which stays available for the threshold-
-# sensitivity ablation sweep documented in RESEARCHER.md.
+# sensitivity ablation sweep documented in HOW_TO_RUN.txt.
 UNCERTAINTY_THRESHOLD = 0.5  # Fallback only — normally overridden by calibration
 RISK_THRESHOLD = 0.3         # Fallback only — normally overridden by calibration
 
