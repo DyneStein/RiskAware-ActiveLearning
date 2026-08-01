@@ -186,25 +186,18 @@ def resolve_target_layer(model, arch_name):
             return last_conv
     raise RuntimeError(f"Could not resolve target layer for architecture: {arch_name}")
 
-class FeatureExtractor:
+class ActivationExtractor:
     def __init__(self, model, target_layer):
         self.model = model
         self.target_layer = target_layer
         self.activations = None
-        self.gradients = None
-        self.fwd_hook = self.target_layer.register_forward_hook(self.save_activation)
-        self.bwd_hook = self.target_layer.register_full_backward_hook(self.save_gradient)
+        self.hook = self.target_layer.register_forward_hook(self.save_activation)
 
     def save_activation(self, module, input, output):
         self.activations = output.clone() if isinstance(output, torch.Tensor) else output
 
-    def save_gradient(self, module, grad_input, grad_output):
-        if grad_output is not None and len(grad_output) > 0 and grad_output[0] is not None:
-            self.gradients = grad_output[0].clone()
-
-    def remove_hooks(self):
-        self.fwd_hook.remove()
-        self.bwd_hook.remove()
+    def remove_hook(self):
+        self.hook.remove()
 
 def apply_colormap_on_image(org_im, activation_map, colormap_name=cv2.COLORMAP_JET):
     heatmap = cv2.applyColorMap(np.uint8(255 * activation_map), colormap_name)
@@ -219,109 +212,112 @@ def get_class_logits(out):
         return out[0]
     return out
 
-def compute_gradcam_plus_plus(model, extractor, input_tensor, target_class):
-    model.zero_grad()
-    raw_out = model(input_tensor)
-    logits = get_class_logits(raw_out)
-    if target_class is None:
-        target_class = logits.argmax(dim=1).item()
+def compute_eigencam(acts_tensor):
+    """Computes EigenCAM using unsupervised dominant structural eigenvector (1st principal component)"""
+    acts = acts_tensor[0].cpu().data.numpy() # shape: [C, H, W]
+    C, H, W = acts.shape
+    reshaped = acts.reshape(C, -1)
+    
+    # Zero-center for PCA/SVD
+    mean_val = np.mean(reshaped, axis=1, keepdims=True)
+    centered = reshaped - mean_val
+    
+    # Compute SVD / Eigenvector
+    U, S, Vt = np.linalg.svd(centered, full_matrices=False)
+    
+    # First right singular vector represents dominant spatial component
+    first_pc = Vt[0, :].reshape(H, W)
+    
+    # Ensure correct polarity (lesion should be active, not background)
+    if np.sum(first_pc) < 0:
+        first_pc = -first_pc
         
-    score = logits[0, target_class]
-    score.backward(retain_graph=True)
-    
-    acts = extractor.activations[0].cpu().data.numpy()
-    grads = extractor.gradients[0].cpu().data.numpy()
-    
-    grads_power_2 = grads ** 2
-    grads_power_3 = grads ** 3
-    sum_activations = np.sum(acts, axis=(1, 2), keepdims=True)
-    
-    eps = 1e-7
-    aij = grads_power_2 / (2 * grads_power_2 + sum_activations * grads_power_3 + eps)
-    aij = np.where(grads != 0, aij, 0)
-    
-    weights = np.maximum(grads, 0) * aij
-    weights = np.sum(weights, axis=(1, 2))
-    
-    cam = np.sum(weights[:, None, None] * acts, axis=0)
-    cam = np.maximum(cam, 0)
-    cam = cv2.resize(cam, (224, 224))
-    if np.max(cam) > 0:
-        cam = cam / np.max(cam)
-    return cam, target_class, F.softmax(logits, dim=1)[0].detach().cpu().numpy()
+    first_pc = np.maximum(first_pc, 0)
+    first_pc = cv2.resize(first_pc, (224, 224))
+    if np.max(first_pc) > 0:
+        first_pc = first_pc / np.max(first_pc)
+    return first_pc
 
 total_start_t = time.time()
 
-for model_idx, model_path in enumerate(model_files):
-    model_name = os.path.splitext(os.path.basename(model_path))[0]
-    
-    print(f"=====================================================================")
-    print(f"[{model_idx+1}/{len(model_files)}] Running Grad-CAM++ for Model: {model_name}")
-    print(f"=====================================================================")
-    
-    model_out_dir = os.path.join(RESULTS_DIR, model_name)
-    os.makedirs(model_out_dir, exist_ok=True)
-    
-    # Load state dict first to infer architecture
-    state_dict_raw = torch.load(model_path, map_location=device)
-    if isinstance(state_dict_raw, dict) and 'model_state_dict' in state_dict_raw:
-        state_dict = state_dict_raw['model_state_dict']
-    elif isinstance(state_dict_raw, dict) and 'state_dict' in state_dict_raw:
-        state_dict = state_dict_raw['state_dict']
-    else:
-        state_dict = state_dict_raw
+with torch.no_grad():
+    for model_idx, model_path in enumerate(model_files):
+        model_name = os.path.splitext(os.path.basename(model_path))[0]
         
-    arch = infer_arch(state_dict)
-    
-    model = get_model(arch, num_classes=7, pretrained=False)
-    model.load_state_dict(state_dict, strict=False)
-    model.to(device)
-    model.eval()
-    
-    target_layer = resolve_target_layer(model, arch)
-    extractor = FeatureExtractor(model, target_layer)
-    
-    print(f"Architecture detected: {arch} | Layer attached: {target_layer.__class__.__name__}")
-    
-    start_t = time.time()
-    for i, img_path in enumerate(image_files):
-        img_filename = os.path.basename(img_path)
-        img_id = os.path.splitext(img_filename)[0]
+        print(f"=====================================================================")
+        print(f"[{model_idx+1}/{len(model_files)}] Running EigenCAM for Model: {model_name}")
+        print(f"=====================================================================")
         
-        orig_pil = Image.open(img_path).convert('RGB')
-        orig_img_np = np.array(orig_pil)
-        orig_img_cv = cv2.resize(cv2.cvtColor(orig_img_np, cv2.COLOR_RGB2BGR), (224, 224))
+        model_out_dir = os.path.join(RESULTS_DIR, model_name)
+        os.makedirs(model_out_dir, exist_ok=True)
         
-        input_tensor = preprocess(orig_pil).unsqueeze(0).to(device)
+        # Load state dict first to infer architecture
+        state_dict_raw = torch.load(model_path, map_location=device)
+        if isinstance(state_dict_raw, dict) and 'model_state_dict' in state_dict_raw:
+            state_dict = state_dict_raw['model_state_dict']
+        elif isinstance(state_dict_raw, dict) and 'state_dict' in state_dict_raw:
+            state_dict = state_dict_raw['state_dict']
+        else:
+            state_dict = state_dict_raw
+            
+        arch = infer_arch(state_dict)
         
-        cam, pred_idx, probs = compute_gradcam_plus_plus(model, extractor, input_tensor, target_class=None)
-        pred_code = CLASS_NAMES[pred_idx]
-        conf = probs[pred_idx] * 100
+        model = get_model(arch, num_classes=7, pretrained=False)
+        model.load_state_dict(state_dict, strict=False)
+        model.to(device)
+        model.eval()
         
-        print(f"  [{i+1}/{len(image_files)}] {img_id} -> Pred: {pred_code.upper()} ({conf:.1f}%)")
+        target_layer = resolve_target_layer(model, arch)
+        extractor = ActivationExtractor(model, target_layer)
         
-        overlay, _ = apply_colormap_on_image(orig_img_cv, cam)
-        overlay_rgb = cv2.cvtColor(overlay, cv2.COLOR_BGR2RGB)
+        print(f"Architecture detected: {arch} | Layer attached: {target_layer.__class__.__name__}")
         
-        fig, axes = plt.subplots(1, 2, figsize=(10, 5))
-        axes[0].imshow(orig_img_np)
-        axes[0].set_title("Original Image")
-        axes[0].axis('off')
-        
-        axes[1].imshow(overlay_rgb)
-        axes[1].set_title(f"Grad-CAM++\nPred: {pred_code.upper()} ({conf:.1f}%)")
-        axes[1].axis('off')
-        
-        plt.tight_layout()
-        out_path = os.path.join(model_out_dir, f"{img_id}_pred_{pred_code}_GradCAM++.png")
-        plt.savefig(out_path, dpi=150, bbox_inches='tight')
-        plt.close(fig)
-        
-        raw_npy_path = os.path.join(model_out_dir, f"{img_id}_pred_{pred_code}_GradCAM++_raw.npy")
-        np.save(raw_npy_path, cam)
+        start_t = time.time()
+        for i, img_path in enumerate(image_files):
+            img_filename = os.path.basename(img_path)
+            img_id = os.path.splitext(img_filename)[0]
+            
+            orig_pil = Image.open(img_path).convert('RGB')
+            orig_img_np = np.array(orig_pil)
+            orig_img_cv = cv2.resize(cv2.cvtColor(orig_img_np, cv2.COLOR_RGB2BGR), (224, 224))
+            
+            input_tensor = preprocess(orig_pil).unsqueeze(0).to(device)
+            
+            # Forward pass
+            raw_out = model(input_tensor)
+            logits = get_class_logits(raw_out)
+            pred_idx = logits.argmax(dim=1).item()
+            pred_code = CLASS_NAMES[pred_idx]
+            probs = F.softmax(logits, dim=1)[0].cpu().numpy()
+            conf = probs[pred_idx] * 100
+            
+            # Compute EigenCAM
+            cam = compute_eigencam(extractor.activations)
+            
+            print(f"  [{i+1}/{len(image_files)}] {img_id} -> Pred: {pred_code.upper()} ({conf:.1f}%)")
+            
+            overlay, _ = apply_colormap_on_image(orig_img_cv, cam)
+            overlay_rgb = cv2.cvtColor(overlay, cv2.COLOR_BGR2RGB)
+            
+            fig, axes = plt.subplots(1, 2, figsize=(10, 5))
+            axes[0].imshow(orig_img_np)
+            axes[0].set_title("Original Image")
+            axes[0].axis('off')
+            
+            axes[1].imshow(overlay_rgb)
+            axes[1].set_title(f"EigenCAM\nPred: {pred_code.upper()} ({conf:.1f}%)")
+            axes[1].axis('off')
+            
+            plt.tight_layout()
+            out_path = os.path.join(model_out_dir, f"{img_id}_EigenCAM.png")
+            plt.savefig(out_path, dpi=150, bbox_inches='tight')
+            plt.close(fig)
+            
+            raw_npy_path = os.path.join(model_out_dir, f"{img_id}_EigenCAM_raw.npy")
+            np.save(raw_npy_path, cam)
 
-    extractor.remove_hooks()
-    print(f"--> Finished {model_name} in {time.time() - start_t:.1f}s!\n")
+        extractor.remove_hook()
+        print(f"--> Finished {model_name} in {time.time() - start_t:.1f}s!\n")
 
-print(f"All {len(model_files)} models evaluated with Grad-CAM++ in {time.time() - total_start_t:.1f}s!")
+print(f"All {len(model_files)} models evaluated with EigenCAM in {time.time() - total_start_t:.1f}s!")
 print(f"Results saved across {len(model_files)} subfolders in: {RESULTS_DIR}")
