@@ -1,4 +1,4 @@
-# XAI — Explainability Pipeline
+# XAI_evaluation — Explainability Pipeline
 
 This folder contains the Explainable AI (XAI) analysis pipeline for the **RiskAware-ActiveLearning** research project. It generates and evaluates visual heatmap explanations for trained skin lesion classification models using three distinct methods.
 
@@ -7,7 +7,7 @@ This folder contains the Explainable AI (XAI) analysis pipeline for the **RiskAw
 ## Folder Structure
 
 ```
-XAI/
+XAI_evaluation/
 │
 ├── Data/               ← Place your input images here (.jpg / .png)
 ├── Model/              ← Place your trained model checkpoints here (.pt)
@@ -66,15 +66,15 @@ Then, from inside any of the method folders, run:
 
 ```bash
 # Grad-CAM++ (class-discriminative, gradient-based)
-cd XAI/gradCam++
+cd XAI_evaluation/gradCam++
 python generate_gradcam_heatmaps.py
 
 # EigenCAM (gradient-free, PCA-based)
-cd XAI/eigenCAM
+cd XAI_evaluation/eigenCAM
 python generate_eigencam_heatmaps.py
 
 # Score-CAM (gradient-free, perturbation-based)
-cd XAI/scoreCam
+cd XAI_evaluation/scoreCam
 python generate_scorecam_heatmaps.py
 ```
 
