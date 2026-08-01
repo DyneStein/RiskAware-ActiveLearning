@@ -1,0 +1,30 @@
+\begin{tabular}{lllllll}
+\toprule
+Model & Uncertainty & Training Policy & Accuracy & F1 Macro & FN Rate (Malignant) ↓ & FN Rate (Melanoma) ↓ \\
+\midrule
+densenet169 & entropy & Dual Metric (Ours) & 55.63\% & 38.87\% & 45.64\% & 62.01\% \\
+densenet169 & entropy & Baseline & 53.48\% & 37.59\% & 54.62\% & 69.32\% \\
+densenet169 & least\_confidence & Dual Metric (Ours) & 57.18\% & 38.37\% & 50.73\% & 63.27\% \\
+densenet169 & least\_confidence & Baseline & 52.31\% & 33.99\% & 57.84\% & 70.75\% \\
+densenet169 & margin & Dual Metric (Ours) & 56.69\% & 40.91\% & 50.65\% & 60.90\% \\
+densenet169 & margin & Baseline & 53.79\% & 37.43\% & 50.68\% & 62.78\% \\
+densenet169 & mc\_dropout & Dual Metric (Ours) & 54.61\% & 36.19\% & 51.53\% & 65.97\% \\
+densenet169 & mc\_dropout & Baseline & 55.12\% & 38.25\% & 50.94\% & 66.71\% \\
+efficientnet\_b4 & entropy & Dual Metric (Ours) & 54.93\% & 37.46\% & 51.20\% & 60.02\% \\
+efficientnet\_b4 & entropy & Baseline & 52.78\% & 34.40\% & 54.21\% & 63.80\% \\
+efficientnet\_b4 & least\_confidence & Dual Metric (Ours) & 55.67\% & 36.64\% & 54.32\% & 65.12\% \\
+efficientnet\_b4 & least\_confidence & Baseline & 54.33\% & 35.49\% & 54.42\% & 64.95\% \\
+efficientnet\_b4 & margin & Dual Metric (Ours) & 54.65\% & 35.54\% & 54.51\% & 60.08\% \\
+efficientnet\_b4 & margin & Baseline & 54.83\% & 36.78\% & 47.74\% & 54.97\% \\
+efficientnet\_b4 & mc\_dropout & Dual Metric (Ours) & 55.34\% & 37.32\% & 47.95\% & 57.99\% \\
+efficientnet\_b4 & mc\_dropout & Baseline & 53.40\% & 34.97\% & 57.53\% & 66.15\% \\
+resnet50 & entropy & Dual Metric (Ours) & 55.82\% & 39.05\% & 55.47\% & 63.19\% \\
+resnet50 & entropy & Baseline & 53.97\% & 36.43\% & 56.97\% & 68.50\% \\
+resnet50 & least\_confidence & Dual Metric (Ours) & 55.31\% & 36.51\% & 55.13\% & 66.79\% \\
+resnet50 & least\_confidence & Baseline & 54.34\% & 37.43\% & 56.66\% & 68.70\% \\
+resnet50 & margin & Dual Metric (Ours) & 55.34\% & 37.80\% & 56.51\% & 68.26\% \\
+resnet50 & margin & Baseline & 55.23\% & 39.26\% & 55.30\% & 67.59\% \\
+resnet50 & mc\_dropout & Dual Metric (Ours) & 55.92\% & 38.47\% & 50.15\% & 64.77\% \\
+resnet50 & mc\_dropout & Baseline & 54.21\% & 37.44\% & 61.28\% & 74.89\% \\
+\bottomrule
+\end{tabular}

@@ -83,6 +83,25 @@ Example:
 
 
 -------------------------------------------------------------------------------
+ISIC2019_OOD_evaluation/   Out-of-Distribution evaluation against ISIC 2019
+-------------------------------------------------------------------------------
+
+Contains the complete evaluation of the 24 models on the external ISIC 2019
+test set. 
+
+Fairness Preprocessing applied to ensure strict OOD generalisation:
+1. HAM10000 has 7 classes, but ISIC2019 introduces an 8th. The 8th class
+   was completely removed to fairly test the models' learned representations.
+2. ISIC2019 is a superset containing all HAM10000 images. Every overlapping
+   HAM10000 image was removed, guaranteeing evaluation solely on unseen patients.
+
+Subdirectories:
+  results/              Raw JSON metrics and predictions per model.
+  Compared_Results/     Side-by-side plots of Dual-Metric vs Baseline models.
+  All_Compared_Results/ Aggregate CSV/LaTeX tables and charts of all 24 models.
+
+
+-------------------------------------------------------------------------------
 A NOTE ON WORDING, IF YOU QUOTE THESE
 -------------------------------------------------------------------------------
 

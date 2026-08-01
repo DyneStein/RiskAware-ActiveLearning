@@ -177,13 +177,30 @@ confirming that the Dual-Metric models attend more tightly to the lesion region
 compared to Uncertainty-Only models on the same image.
 
 24 representative heatmaps (one per model, prioritising malignant-class and
-failure cases) are included in paper/XAI_results/. The full set of heatmaps
-for all 10 test images x 24 models can be reproduced by running:
+failure cases) are included in paper/XAI_results/. The full set of heatmaps:
 
     cd XAI_evaluation/gradCam++
     python generate_gradcam_heatmaps.py
 
 with any images placed in XAI_evaluation/Data/ and model checkpoints in
 XAI_evaluation/Model/.
+
+-------------------------------------------------------------------------------
+RESULT 5 -- OUT-OF-DISTRIBUTION (OOD) GENERALIZATION
+-------------------------------------------------------------------------------
+
+We evaluated all 24 models against the external ISIC 2019 test set to measure
+generalisation and safety on Out-of-Distribution (OOD) clinical data.
+
+Fairness Preprocessing:
+The original HAM10000 training dataset contains 7 diagnostic classes. 
+ISIC 2019 introduces an 8th class. To maintain a fair evaluation of the models'
+learned representations, all images belonging to the novel 8th class were removed.
+Furthermore, because ISIC 2019 includes all HAM10000 pictures, we completely 
+scrubbed and removed those overlapping images from the test set. This guarantees 
+a correct, purely Out-of-Distribution evaluation on strictly unseen patients.
+
+The full results (predictions, confusion matrices, and comparison tables) 
+are stored in `paper/ISIC2019_OOD_evaluation/`.
 
 ===============================================================================
