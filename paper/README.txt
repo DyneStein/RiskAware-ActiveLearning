@@ -24,7 +24,7 @@ here.
   22_auc_per_class_with_ci.png         per-disease performance, with the
                                        unreliable classes marked as unreliable
   25_significance_heatmap.png          which differences are real
-  28_gradcam_panel_*.png               where the model was actually looking
+  (Grad-CAM panel removed -- see XAI_results/ for the updated visual analysis)
   33_robustness_by_model.png           what happens as image quality drops
 
 03_FIGURES/supplementary/  23 more figures -- everything above broken down
@@ -48,8 +48,7 @@ The ones most likely to be wanted:
   risk_threshold_sweep.csv          what changes if the threshold moves
   runtime_per_experiment.csv        how long everything took
 
-Others cover Grad-CAM case selection, the risk-head design comparison, and
-significance tested at other levels.
+Others cover the risk-head design comparison and significance tested at other levels.
 
 
 -------------------------------------------------------------------------------
@@ -58,6 +57,29 @@ COMPARISON/    the comparison against published methods
 
 Its own self-contained folder, with its own README.txt. This is the part to
 show someone who asks "but how does it compare to what already exists?"
+
+
+-------------------------------------------------------------------------------
+XAI_results/   Sample Grad-CAM++ / EigenCAM / Score-CAM heatmap visualisations
+-------------------------------------------------------------------------------
+
+These are some of the results from the XAI analysis. 40 representative heatmap
+images are included, spread across all three XAI methods and all three
+architectures (ResNet-50, DenseNet-169, EfficientNet-B4).
+
+Images are organised into subfolders by method:
+
+  XAI_results/gradcam++/   14 images -- Grad-CAM++ (gradient-based, class-discriminative)
+  XAI_results/eigenCAM/    13 images -- EigenCAM   (gradient-free, PCA-based)
+  XAI_results/scoreCam/    13 images -- Score-CAM  (gradient-free, perturbation-based)
+
+The majority of images show correct predictions.
+
+Filename convention:
+  <architecture>__<strategy>__<variant>__<image_id>__<CORRECT|FAILURE>__<Method>.png
+
+Example:
+  efficientnet_b4__entropy__dual_metric__ISIC_0068778__CORRECT__GradCAM++.png
 
 
 -------------------------------------------------------------------------------

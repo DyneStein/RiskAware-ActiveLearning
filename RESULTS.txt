@@ -162,4 +162,28 @@ AI?" check cuts the number of dangerous cases waved through without review by
 roughly a quarter to a half, costs about 9% more expert time, and does not hurt
 accuracy -- across every network and every competing method we tested.
 
+
+-------------------------------------------------------------------------------
+XAI VISUAL ANALYSIS  (paper/XAI_results/)
+-------------------------------------------------------------------------------
+
+Grad-CAM++ heatmaps were generated for all 24 trained models across all three
+architectures (ResNet-50, DenseNet-169, EfficientNet-B4) and all eight AL
+strategy variants.
+
+Key finding: Grad-CAM++ paired with EfficientNet-B4 produced the sharpest,
+most faithful heatmaps (Gini sparseness 0.745, Deletion AUC 0.230), visually
+confirming that the Dual-Metric models attend more tightly to the lesion region
+compared to Uncertainty-Only models on the same image.
+
+24 representative heatmaps (one per model, prioritising malignant-class and
+failure cases) are included in paper/XAI_results/. The full set of heatmaps
+for all 10 test images x 24 models can be reproduced by running:
+
+    cd XAI_evaluation/gradCam++
+    python generate_gradcam_heatmaps.py
+
+with any images placed in XAI_evaluation/Data/ and model checkpoints in
+XAI_evaluation/Model/.
+
 ===============================================================================
