@@ -41,8 +41,8 @@ it chooses.
 
 WHY THIS IS THE BASELINE THAT MATTERS MOST
 ------------------------------------------
-BADGE is the reference point reviewers in active learning expect. It is
-strong, it needs no hyperparameter tuning, and it has held up across
+BADGE is a standard reference point in the active learning literature. It is
+an excellent, parameter-free baseline that combines uncertainty and diversity. It has held up across
 years of follow-up work. Beating it on accuracy is not the goal here and
 may well not happen — our claim is about clinical safety, an axis BADGE
 has no representation of at all. It optimises expected information gain;

@@ -240,13 +240,15 @@ flowchart LR
 ├── escalation/                uncertainty-only and dual-metric policies
 ├── active_learning/           the AL loop; baselines/ holds the four published methods
 ├── Oracle_Simulated_Doctor/   the simulated expert
-├── evaluation/                metrics, plots, and rigor/ — the reviewer checks
+├── evaluation/                metrics, plots, and rigor/ — rigorous statistical checks
 ├── tools/                     manifest and package builders
 ├── colab/                     setup for running on a free cloud GPU
 ├── Seed Data/                 the 490 starting images and their ID list
 │
 ├── results/                   raw per-round output of all 36 experiments
 ├── analysis/                  figures, tables and statistics computed from them
+├── XAI_evaluation/            explainability pipeline (Grad-CAM++, EigenCAM, Score-CAM)
+├── OOD_evaluation/            out-of-distribution evaluation framework
 └── paper/                     publication-quality figures, tables, and COMPARISON/
 ```
 

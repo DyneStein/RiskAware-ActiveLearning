@@ -91,9 +91,9 @@ def provenance_table():
     One row per run: the hardware, library versions, seeds and git commit it
     actually executed under, read from each run's own environment.json.
 
-    This is what turns "we used seed 42" into a checkable claim. Reviewers
-    asking "what did this run on?" get an answer per run, not a general
-    statement in a methods section.
+    This is what turns "we used seed 42" into a checkable claim. It provides
+    a detailed, per-run record of the exact execution environment, ensuring
+    robust reproducibility.
     """
     from evaluation.rigor.paths import EXPERIMENTS_DIR
     import json

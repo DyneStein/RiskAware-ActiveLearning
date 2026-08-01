@@ -46,7 +46,7 @@ tables/   the three summary spreadsheets
 
 
 -------------------------------------------------------------------------------
-rigor/   the checks a reviewer will ask for
+  rigor/   rigorous statistical and robustness checks
 -------------------------------------------------------------------------------
 
 This is the part that turns a working prototype into a defensible study.

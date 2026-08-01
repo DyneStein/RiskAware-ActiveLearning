@@ -33,7 +33,7 @@ A VAE and a discriminator, trained from scratch, every round, on top of
 the classifier. This is the most expensive baseline by a wide margin
 (~4.5 GPU-hours per run against ~2.9 for the others). If compute has to be
 cut, cut this one first — CoreSet, BADGE and CLUE together already cover
-the reviewer expectation.
+the standard methodological expectation.
 
 IMPLEMENTATION NOTES — read before comparing against the paper
 --------------------------------------------------------------

@@ -10,7 +10,7 @@ more of the oracle's time. Judged per round it would look "better" partly
 just for having asked more questions.
 
 Plotting against *labels consumed* removes that advantage entirely and asks
-the question a reviewer actually cares about: for the same annotation
+the primary research question: for the same annotation
 budget, which policy gives the better model? Any gap left on this plot is a
 real efficiency difference, not a spending difference.
 

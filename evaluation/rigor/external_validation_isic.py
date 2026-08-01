@@ -39,8 +39,7 @@ Label mapping (ISIC 2019 -> HAM10000):
 EXPECTED OUTCOME, STATED IN ADVANCE
 -----------------------------------
 Performance will drop. Different scanners, sites and populations always
-cost something, and a drop is the normal, reportable result — the question
-a reviewer asks is how much, and whether the SAFETY signal degrades faster
+cost something, and a drop is the normal, reportable result — the critical question is how much, and whether the SAFETY signal degrades faster
 than the diagnosis. Writing that expectation down before running is the
 point: it stops a mediocre transfer number from being quietly reframed
 afterwards.

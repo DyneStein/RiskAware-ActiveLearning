@@ -4,9 +4,9 @@ acquisition baselines (CoreSet, BADGE, CLUE, VAAL).
 
 WHAT THIS ANSWERS
 -----------------
-Reviewers do not ask "is your method good?" -- they ask "is it better than
-what already exists, measured fairly?". This script produces that answer,
-and it separates two questions that are easy to conflate:
+Research validation requires demonstrating not just that a method works, but
+that it outperforms existing baselines, measured fairly. This script produces
+that answer, and it separates two questions that are easy to conflate:
 
     LEARNING    given the same number of labels, which method produces the
                 more accurate classifier?
@@ -373,8 +373,8 @@ def runlevel_table(main):
     Does ours beat each baseline on all three backbones?
 
     A sign test / Wilcoxon here has n=3 and a floor of p=0.250, so no
-    p-value is emitted at all -- reporting one would invite a reader to
-    misread 0.250 as "tested and failed" when it is "cannot be tested".
+    p-value is emitted at all -- reporting one would incorrectly imply
+    a failure of significance when the test simply lacks statistical power.
     Only the win count and mean gap are given.
     """
     rows = []

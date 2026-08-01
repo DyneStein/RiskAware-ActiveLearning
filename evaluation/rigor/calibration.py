@@ -1,7 +1,7 @@
 """
 Calibration analysis: ECE, Brier score, reliability diagrams.
 
-WHY A REVIEWER ASKS FOR THIS
+METHODOLOGICAL JUSTIFICATION
 ----------------------------
 The whole safety argument rests on the model's scores meaning something.
 If the risk head says 0.8, roughly 80% of those cases had better actually

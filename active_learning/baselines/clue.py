@@ -26,9 +26,7 @@ HOW IT DIFFERS FROM THE OTHER TWO
                diversity comes from the clustering, and the two are
                separate, legible steps.
 
-Having all three makes the comparison hard to dismiss: whatever a reviewer
-believes the "right" way to trade off uncertainty against diversity is,
-one of these three does it that way.
+Having all three ensures a comprehensive baseline comparison across fundamentally different mechanisms.
 
 IMPLEMENTATION NOTE
 -------------------
