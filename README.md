@@ -13,8 +13,10 @@
 </p>
 
 <p align="center">
-  <strong>Muhammad Dyen Asif</strong><sup>†</sup> · <strong>Haider Ramzan</strong><sup>†</sup><br>
-  <sub><sup>†</sup> These authors contributed equally and are joint first authors.</sub>
+  Laiba Noor · <strong>Muhammad Dyen Asif</strong> · Haider Ramzan · Azka Atiq<br>
+  Muhammad Atif Saeed · Akhtar Jamil · Ahmad Din<br>
+  <sub>National University of Computer &amp; Emerging Sciences (FAST-NUCES), Islamabad</sub><br>
+  <sub>Manuscript under peer review, 2026</sub>
 </p>
 
 ---
@@ -306,9 +308,11 @@ would mean testing on training images. ISIC 2020 is the correct external set and
 
 ## Authors
 
-**Muhammad Dyen Asif**<sup>†</sup> and **Haider Ramzan**<sup>†</sup>
+Laiba Noor, **Muhammad Dyen Asif**, Haider Ramzan, Azka Atiq, Muhammad Atif Saeed,
+Akhtar Jamil, Ahmad Din.
 
-<sup>†</sup> Joint first authors — these authors contributed equally to this work.
+National University of Computer & Emerging Sciences (FAST-NUCES), Islamabad.
+Author order follows the submitted manuscript, which is currently under peer review.
 
 ## Citation
 
