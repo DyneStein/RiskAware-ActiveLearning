@@ -103,7 +103,7 @@ single threshold meaningful across scores living on very different scales. See
 
 ## Results
 
-**24 experiments**, 15 rounds each, all scored on one frozen 1,905-image test set.
+**24 experiments** (ResNet-50, DenseNet-169, EfficientNet-B4 x entropy, margin, least-confidence, MC dropout x two policies), 15 rounds each, all scored on one frozen 1,905-image test set.
 
 ### Safety — 15 of 15 comparisons won
 
@@ -313,7 +313,11 @@ Laiba Noor, **Muhammad Dyen Asif**, Haider Ramzan, Azka Atiq, Muhammad Atif Saee
 Akhtar Jamil, Ahmad Din.
 
 National University of Computer & Emerging Sciences (FAST-NUCES), Islamabad.
-Author order follows the submitted manuscript, which is currently under peer review.
+Author order follows the byline of the submitted manuscript, which is currently under peer review.
+
+The manuscript's author contribution statement records that authors 2 and 3 — Muhammad Dyen Asif
+and Haider Ramzan — implemented the proposed methodology, conducted the experiments, and performed
+the results analysis and interpretation.
 
 ## Citation
 
