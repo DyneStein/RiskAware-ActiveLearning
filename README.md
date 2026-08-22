@@ -1,4 +1,4 @@
-<h1 align="center">Risk-Aware Active Learning for Skin Lesion Diagnosis</h1>
+<h1 align="center">Risk-Aware Active Learning for Skin Lesion Classification<br>Using Dual-Metric Human-in-the-Loop Escalation</h1>
 
 <p align="center">
   <em>A human-in-the-loop framework that catches the cancers a confident model waves through</em>
