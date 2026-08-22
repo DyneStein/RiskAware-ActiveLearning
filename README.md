@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python 3.8+">
   <img src="https://img.shields.io/badge/framework-PyTorch-red.svg" alt="PyTorch">
   <img src="https://img.shields.io/badge/dataset-HAM10000-green.svg" alt="HAM10000">
-  <img src="https://img.shields.io/badge/experiments-36-orange.svg" alt="36 experiments">
+  <img src="https://img.shields.io/badge/experiments-24-orange.svg" alt="24 experiments">
   <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="MIT">
 </p>
 
@@ -103,7 +103,7 @@ single threshold meaningful across scores living on very different scales. See
 
 ## Results
 
-**36 experiments**, 15 rounds each, all scored on one frozen 1,905-image test set.
+**24 experiments**, 15 rounds each, all scored on one frozen 1,905-image test set.
 
 ### Safety — 15 of 15 comparisons won
 
@@ -247,7 +247,7 @@ flowchart LR
 ├── colab/                     setup for running on a free cloud GPU
 ├── Seed Data/                 the 490 starting images and their ID list
 │
-├── results/                   raw per-round output of all 36 experiments
+├── results/                   raw per-round output of all 24 experiments
 ├── analysis/                  figures, tables and statistics computed from them
 ├── XAI_evaluation/            explainability pipeline (Grad-CAM++, EigenCAM, Score-CAM)
 ├── OOD_evaluation/            out-of-distribution evaluation framework
@@ -300,9 +300,10 @@ can be verified: `python -m tools.build_manifest --verify`.
 the training seed controls initialisation, batch order and augmentation. Freezing the first is what
 makes all 36 runs paired on identical test images.
 
-**Note on external validation.** ISIC 2019 *contains* HAM10000 with identifiers preserved — using it
-would mean testing on training images. ISIC 2020 is the correct external set and is what
-`evaluation/rigor/external_validation_isic.py` targets.
+**Note on external validation.** ISIC 2019 *contains* HAM10000 with identifiers preserved, so it
+cannot be used as-is — that would mean testing on training images. The submitted paper therefore
+reports external validation on **14,885 ISIC 2019 images after removing the HAM10000 duplicates**,
+giving an 83.3% accuracy win rate and a 75.0% melanoma-safety win rate across the 12 matched pairs.
 
 ---
 
